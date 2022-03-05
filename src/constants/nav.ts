@@ -16,8 +16,8 @@ export const CATALOG = [
         icon: EyeOutlined,
     },
     {
-        name: "chart",
-        link: "/chart",
+        name: "database",
+        link: "/database",
         text: "Khai báo dữ liệu",
         icon: LineChartOutlined,
     },
