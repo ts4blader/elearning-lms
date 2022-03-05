@@ -5,6 +5,7 @@ import DropdownMenu from "components/DropdownMenu";
 import Card from "components/Card";
 import { Progress, DatePicker } from "antd";
 import StatisticalEntry from "components/StatisticalEntry";
+import VisitChart from "components/VisitChart";
 import ColumnGroupChart from "components/ColumnGroupChart";
 import {
   SEMESTER,
@@ -100,7 +101,9 @@ const Overview = () => {
               locale={locale}
             />
           </StatisticalEntry.Header>
-          <StatisticalEntry.Content>Hi</StatisticalEntry.Content>
+          <StatisticalEntry.Content>
+            <VisitChart />
+          </StatisticalEntry.Content>
         </StatisticalEntry>
       </div>
     </Section>

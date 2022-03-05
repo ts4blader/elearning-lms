@@ -12,6 +12,7 @@ const DashBoard = () => {
       <div className="page-sider">
         <Nav rootPath={path} />
       </div>
+      <div className="sider-placeholder"></div>
       <div className="page-content">
         <Switch>
           <Route path={path} exact>
