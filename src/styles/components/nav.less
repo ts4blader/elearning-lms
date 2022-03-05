@@ -25,12 +25,17 @@
   /* ------------ ant menu ------------ */
   /* wrapper */
   .ant-menu-wrapper {
-    display: none;
+    z-index: -1;
     position: absolute;
     inset: 0 auto 0 100%;
+    display: block;
+    transform: translateX(-100%);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.2s linear;
   }
   &:hover .ant-menu-wrapper {
-    display: block;
+    transform: translateX(0);
+    opacity: 1;
   }
   /* Menu */
   .nav-sub {
