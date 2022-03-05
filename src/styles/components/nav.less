@@ -4,7 +4,9 @@
   font-size: 3.2rem;
   padding: 0.5em;
   height: 100%;
-  position: relative;
+  position: fixed;
+  inset: 0 auto auto 0;
+  z-index: @layer-modal;
   .logo {
     margin: 2em 0;
   }
@@ -39,7 +41,6 @@
     justify-content: center;
     font-size: 1.8rem;
     background: white;
-    z-index: @layer-modal;
     & > .ant-menu-item,
     .ant-menu-submenu-title {
       font-weight: bold;
