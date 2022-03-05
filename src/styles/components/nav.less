@@ -1,0 +1,82 @@
+.nav {
+  background: @color-primary;
+  color: white;
+  font-size: 3.2rem;
+  padding: 0.5em;
+  height: 100%;
+  position: relative;
+  .logo {
+    margin: 2em 0;
+  }
+  .nav-main-item {
+    width: 8rem;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 1rem;
+    &[data-selected="true"] {
+      background: rgba(255, 255, 255, 0.3);
+    }
+  }
+  /* ------------ ant menu ------------ */
+  /* wrapper */
+  .ant-menu-wrapper {
+    display: none;
+    position: absolute;
+    inset: 0 auto 0 100%;
+  }
+  &:hover .ant-menu-wrapper {
+    display: block;
+  }
+  /* Menu */
+  .nav-sub {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    font-size: 1.8rem;
+    background: white;
+    z-index: @layer-modal;
+    & > .ant-menu-item,
+    .ant-menu-submenu-title {
+      font-weight: bold;
+      padding: 1.5em !important;
+    }
+    /* menu item */
+    & > .ant-menu-item .anticon {
+      font-size: inherit;
+    }
+    /* sub menu */
+    .ant-menu-sub {
+      background: inherit;
+    }
+    /* menu item active */
+    & > .ant-menu-item::after,
+    .ant-menu-submenu-title::after {
+      content: "";
+      position: absolute;
+      inset: 0 0 0 auto;
+      width: 0.7rem;
+      border-radius: 0.5rem;
+      background: @color-primary;
+      border-right: 0 !important;
+      transform: scale(0);
+      opacity: 0;
+    }
+    & > .ant-menu-item[data-selected="true"] {
+      background: transparent;
+      color: @color-primary;
+    }
+    & > .ant-menu-item[data-selected="true"]::after,
+    .ant-menu-submenu[data-selected="true"] .ant-menu-submenu-title::after {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+}
+.ant-menu-item.ant-menu-item-active {
+  color: @color-primary !important;
+}

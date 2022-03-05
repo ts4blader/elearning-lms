@@ -1,0 +1,44 @@
+.login-page {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 0 10%;
+  .placeholder {
+    flex-grow: 1;
+  }
+  /* -------------- logo -------------- */
+  .logo {
+    position: absolute;
+    inset: 5% 5% auto auto;
+  }
+  /* ---------- form wrapper ---------- */
+  .form-wrapper {
+    width: 30%;
+    .form-title {
+      text-align: center;
+      font-size: 4.8rem;
+    }
+    .bottom-field {
+      width: fit-content;
+      margin-left: auto;
+      color: @color-primary;
+      cursor: pointer;
+      font-size: 1.6rem;
+      font-weight: 400;
+    }
+    label::before {
+      content: "" !important;
+    }
+    label,
+    input {
+      font-size: 1.8rem;
+    }
+  }
+}
+/* ---------------------------------- */
+/*        FORGOT PASSWORD FORM        */
+/* ---------------------------------- */
+.forgot-password-form .confirm-code-field[data-length="true"] .ant-input {
+  border-color: @color-gray-dark;
+}

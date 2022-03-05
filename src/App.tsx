@@ -1,12 +1,24 @@
 import React from "react";
-import "./main.css";
-import { Button } from "antd";
+import "./styles/main.less";
+import Login from "pages/Login";
+import DashBoard from "pages/DashBoard";
+import { Switch, Route } from "react-router-dom";
+import { ConfigProvider } from "antd";
 
 function App() {
   return (
-    <div className="App">
-      <Button type="primary">Something</Button>
-    </div>
+    <ConfigProvider>
+      <div className="app">
+        <Switch>
+          <Route path="/" exact>
+            <Login />
+          </Route>
+          <Route path="/dashboard" exact>
+            <DashBoard />
+          </Route>
+        </Switch>
+      </div>
+    </ConfigProvider>
   );
 }
 

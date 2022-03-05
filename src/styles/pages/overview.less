@@ -1,0 +1,59 @@
+.overview-section {
+  /* ---------- overview row ---------- */
+  .overview-row {
+    display: flex;
+    gap: 5rem;
+    align-items: center;
+    /* -------- semester dropdown ------- */
+    .semester-dropdown-wrapper {
+      display: flex;
+      gap: 1rem;
+      margin-right: 1rem;
+    }
+    /* --------- overview cards --------- */
+    .overview-cards {
+      display: flex;
+      gap: 5rem;
+      align-items: center;
+      flex-grow: 1;
+      .overview-card-item {
+        flex-grow: 1;
+      }
+    }
+  }
+  /* --------- statistical row -------- */
+  .statistical-row {
+    display: flex;
+    gap: 3rem;
+    padding: 3rem 0;
+    flex-wrap: wrap;
+    /* ---------- study result ---------- */
+    .study-result {
+      padding-inline: 4em;
+      width: 70%;
+    }
+    /* --------- student amount --------- */
+    .students-amount {
+      flex-grow: 1;
+      .students-amount-list {
+        .students-amount-item {
+          margin-top: 1.5em;
+          font-size: 1.6rem;
+          .info-row {
+            display: flex;
+            justify-content: space-between;
+          }
+          .ant-progress-bg {
+            background: @color-primary;
+            height: 1.2rem !important;
+          }
+        }
+      }
+    }
+    /* ----------- visit ratio ---------- */
+    .visit-ratio {
+      flex-grow: 1;
+      padding-inline: 4em;
+    }
+  }
+}

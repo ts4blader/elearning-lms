@@ -1,0 +1,42 @@
+.card {
+  color: white;
+  font-weight: 600;
+  background: @gradient-primary;
+  border-radius: 1rem;
+  padding: 1em 1.5em;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  &[data-variant="secondary"] {
+    background: @gradient-secondary;
+  }
+  .card-title {
+    font-size: 4.8rem;
+    font-weight: 800;
+    line-height: 1;
+  }
+  .card-decor {
+    .circle {
+      position: absolute;
+      aspect-ratio: 1/1;
+      background: white;
+      border-radius: 50%;
+      &:nth-child(1) {
+        inset: 0 auto auto 0;
+        width: 10rem;
+        opacity: 0.1;
+        transform: translate(-50%, -50%);
+      }
+      &:nth-child(2) {
+        inset: auto -10% -70% auto;
+        width: 15rem;
+        opacity: 0.2;
+      }
+      &:nth-child(3) {
+        inset: auto 5% -70% auto;
+        width: 12rem;
+        opacity: 0.1;
+      }
+    }
+  }
+}
