@@ -18,6 +18,9 @@ const DashBoard = () => {
           <Route path={path} exact>
             <Overview />
           </Route>
+          <Route path={`${path}/chart`} exact>
+            <Overview />
+          </Route>
         </Switch>
       </div>
     </main>
