@@ -27,10 +27,10 @@ export const SEMESTER_COLUMNS = [
     key: "action",
     render: (text: string, record: any) => (
       <>
-        <span className="edit-btn">
+        <span className="edit-btn btn">
           <EditOutlined />
         </span>
-        <span className="edit-btn">
+        <span className="delete-btn btn">
           <DeleteOutlined />
         </span>
       </>

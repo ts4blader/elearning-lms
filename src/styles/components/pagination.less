@@ -1,0 +1,25 @@
+/* ----------- pagination ----------- */
+.ant-pagination {
+  li {
+    order: 2;
+    color: @color-dark;
+    border-radius: 50%;
+    border: 0;
+    .ant-pagination-item-link {
+      border: 0;
+      color: inherit;
+    }
+    &.ant-pagination-item-active {
+      background: @color-primary;
+      a {
+        font-weight: bold;
+        color: white;
+      }
+    }
+  }
+  &-options {
+    order: 1 !important;
+    margin-right: auto;
+    margin-left: 0;
+  }
+}

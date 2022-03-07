@@ -1,0 +1,30 @@
+.ant-table {
+  border-radius: 1rem 1rem 0 0;
+  border: 1px solid @color-gray-light;
+  overflow: hidden;
+  margin-top: 1em;
+  /* ------------- buttons ------------ */
+  .btn {
+    font-size: 2rem;
+    color: @color-primary;
+    margin-right: 0.5em;
+  }
+  thead.ant-table-thead {
+    background: @gradient-primary;
+    th {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: white;
+      background: transparent;
+      padding-block: 0.5em;
+      &:before {
+        display: none;
+      }
+    }
+  }
+  tbody {
+    tr:nth-child(even) {
+      background: @color-gray-light;
+    }
+  }
+}
