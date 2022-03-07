@@ -3,6 +3,7 @@ import { Switch, Route } from "react-router-dom";
 import Nav from "../components/Nav";
 import { useRouteMatch } from "react-router-dom";
 import Overview from "./Overview";
+import Database from "./Database";
 
 const DashBoard = () => {
   const { path } = useRouteMatch();
@@ -19,7 +20,7 @@ const DashBoard = () => {
             <Overview />
           </Route>
           <Route path={`${path}/database`} exact>
-            <Overview />
+            <Database />
           </Route>
         </Switch>
       </div>

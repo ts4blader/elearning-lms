@@ -1,0 +1,77 @@
+.database-page {
+  @padding: 1em;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 2em;
+  .section-content {
+    display: flex;
+    gap: 3rem;
+    flex-grow: 1;
+  }
+  /* ----------- side panel ----------- */
+  .side-panel {
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: @box-shadow-dimblue;
+    .view-panel {
+      font-size: 1.6rem;
+      color: white;
+      padding: @padding;
+      background: @color-dark;
+      &-field {
+        margin-top: 0.5em;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        .label {
+          font-weight: 800;
+        }
+      }
+    }
+    .entry-list {
+      padding: @padding;
+      .entry-item {
+        padding: 0.5em 1em;
+        border: 2px solid @color-primary-light-1;
+        background: @color-primary-light-3;
+        margin-top: 1em;
+        border-radius: 1rem;
+        cursor: pointer;
+        &[data-selected="true"] {
+          font-weight: bold;
+          color: white;
+          background: @color-primary-dark-2;
+          border-color: @color-primary-dark-2;
+        }
+      }
+    }
+  }
+  /* ----------- table-panel ---------- */
+  .table-panel {
+    flex-grow: 1;
+    &-header {
+      margin-bottom: 3rem;
+    }
+    &-body {
+      .ant-table {
+        border-radius: 1rem;
+        overflow: hidden;
+        box-shadow: @box-shadow-dimblue;
+        thead.ant-table-thead {
+          background: @gradient-primary;
+          th {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: white;
+            background: transparent;
+            padding-block: 0.5em;
+            &:before {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -21,7 +21,7 @@ const Section = ({ title, children, className, ...rest }: Props) => {
         </div>
         <h2 className="header-title">{title}</h2>
       </header>
-      {children}
+      <div className="section-content">{children}</div>
     </section>
   );
 };
