@@ -14,8 +14,6 @@ import {
   LEVELS,
   STUDENTS_AMOUNT,
 } from "constants/overview";
-import "moment/locale/vi";
-import locale from "antd/es/date-picker/locale/vi_VN";
 
 const MAX_STUDENT = 500;
 
@@ -98,7 +96,6 @@ const Overview = () => {
               defaultValue={moment()}
               format={weekFormat}
               picker="week"
-              locale={locale}
             />
           </StatisticalEntry.Header>
           <StatisticalEntry.Content>
