@@ -1,6 +1,6 @@
 import React from "react";
 import { Column } from "@ant-design/plots";
-import grade7 from "../seeds/classes/grade-7.json";
+import grade7 from "@seeds/classes/grade-7.json";
 
 type Legend = {
   position: any;

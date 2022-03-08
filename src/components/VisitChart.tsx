@@ -1,6 +1,6 @@
 import React from "react";
 import { Area } from "@ant-design/plots";
-import visitRatio from "../seeds/rate/visit.json";
+import visitRatio from "@seeds/rate/visit.json";
 
 const VisitChart = () => {
   const config = {

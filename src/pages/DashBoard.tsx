@@ -1,9 +1,9 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
-import Nav from "../components/Nav";
+import Nav from "@components/Nav";
 import { useRouteMatch } from "react-router-dom";
-import Overview from "./Overview";
-import Database from "./Database";
+import Overview from "@pages/Overview";
+import Database from "@pages/Database";
 
 const DashBoard = () => {
   const { path } = useRouteMatch();

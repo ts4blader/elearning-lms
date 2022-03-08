@@ -1,19 +1,19 @@
 import React from "react";
-import Section from "components/Section";
+import Section from "@components/Section";
 import moment from "moment";
-import DropdownMenu from "components/DropdownMenu";
-import Card from "components/Card";
+import DropdownMenu from "@components/DropdownMenu";
+import Card from "@components/Card";
 import { Progress, DatePicker } from "antd";
-import StatisticalEntry from "components/StatisticalEntry";
-import VisitChart from "components/VisitChart";
-import ColumnGroupChart from "components/ColumnGroupChart";
+import StatisticalEntry from "@components/StatisticalEntry";
+import VisitChart from "@components/VisitChart";
+import ColumnGroupChart from "@components/ColumnGroupChart";
 import {
   SEMESTER,
   CARDS,
   CLASSES,
   LEVELS,
   STUDENTS_AMOUNT,
-} from "constants/overview";
+} from "@constants/overview";
 
 const MAX_STUDENT = 500;
 

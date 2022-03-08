@@ -1,19 +1,15 @@
 import React, { useState } from "react";
-import Section from "../components/Section";
-import TableFrame from "../components/TableFrame";
-import { Button, Input } from "antd";
-import SEMESTER from "../seeds/thcs/semesters.json";
-import { SEMESTER_COLUMNS } from "../constants/semester-table";
-import { PlusOutlined, SearchOutlined } from "@ant-design/icons";
+import Section from "@components/Section";
+import TableFrame from "@components/TableFrame";
 import {
-  CONTROL_PANEL,
+  TABLES,
   SCHOOL_DROPDOWN,
   SEMESTERS_DROPDOWN,
-} from "../constants/database";
-import DropdownMenu from "../components/DropdownMenu";
+} from "@constants/database";
+import DropdownMenu from "@components/DropdownMenu";
 
 const Database = () => {
-  const [selected, setSelected] = useState(CONTROL_PANEL[0].name);
+  const [selected, setSelected] = useState(TABLES[0]);
 
   return (
     <Section className="database-page" title="Khai báo dữ liệu">
@@ -30,12 +26,12 @@ const Database = () => {
           </div>
         </div>
         <ul className="entry-list">
-          {CONTROL_PANEL.map((item) => (
+          {TABLES.map((item) => (
             <li
-              onClick={() => setSelected(item.name)}
+              onClick={() => setSelected(item)}
               className="entry-item"
               key={item.name}
-              data-selected={selected === item.name}
+              data-selected={selected.name === item.name}
             >
               {item.text}
             </li>
@@ -43,18 +39,11 @@ const Database = () => {
         </ul>
       </div>
       <TableFrame
-        title="Niên khóa"
-        className="semester-table"
-        tableConfig={{
-          dataSource: SEMESTER,
-          columns: SEMESTER_COLUMNS,
-        }}
+        title={selected.text}
+        className={`${selected.name}-table`}
+        tableConfig={selected.tableConfig}
       >
-        <div className="add-btn-wrapper">
-          <Button type="primary" size="large" icon={<PlusOutlined />}>
-            Thêm mới
-          </Button>
-        </div>
+        <selected.panel />
       </TableFrame>
     </Section>
   );

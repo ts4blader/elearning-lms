@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Menu } from "antd";
-import { CATALOG, OPEN_KEYS } from "constants/nav";
+import { CATALOG, OPEN_KEYS } from "@constants/nav";
 import { useHistory } from "react-router-dom";
 
 //* Init select
