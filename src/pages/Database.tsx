@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Section from "../components/Section";
-import { Button, Table, Input } from "antd";
+import TableFrame from "../components/TableFrame";
+import { Button, Input } from "antd";
 import SEMESTER from "../seeds/thcs/semesters.json";
 import { SEMESTER_COLUMNS } from "../constants/semester-table";
 import { PlusOutlined, SearchOutlined } from "@ant-design/icons";
@@ -41,31 +42,20 @@ const Database = () => {
           ))}
         </ul>
       </div>
-      <div className="table-panel">
-        <div className="table-panel-header">
-          <div className="add-btn-wrapper">
-            <Button type="primary" size="large" icon={<PlusOutlined />}>
-              Thêm mới
-            </Button>
-          </div>
+      <TableFrame
+        title="Niên khóa"
+        className="semester-table"
+        tableConfig={{
+          dataSource: SEMESTER,
+          columns: SEMESTER_COLUMNS,
+        }}
+      >
+        <div className="add-btn-wrapper">
+          <Button type="primary" size="large" icon={<PlusOutlined />}>
+            Thêm mới
+          </Button>
         </div>
-        <div className="table-panel-body">
-          <div className="row">
-            <h3 className="title">Niên khóa</h3>
-            <Input prefix={<SearchOutlined />} placeholder="Tìm kiếm" />
-          </div>
-          <Table
-            rowKey={(record) => record.id}
-            dataSource={SEMESTER}
-            pagination={{
-              showSizeChanger: true,
-              pageSizeOptions: [8, 10, 15],
-              defaultPageSize: 8,
-            }}
-            columns={SEMESTER_COLUMNS}
-          />
-        </div>
-      </div>
+      </TableFrame>
     </Section>
   );
 };

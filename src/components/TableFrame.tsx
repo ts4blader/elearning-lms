@@ -6,11 +6,18 @@ type Props = {
   children: React.ReactNode;
   title: string;
   tableConfig: any;
+  className?: string;
 } & React.ComponentProps<"div">;
 
-const TableFrame = ({ children, title, tableConfig, ...rest }: Props) => {
+const TableFrame = ({
+  children,
+  title,
+  tableConfig,
+  className,
+  ...rest
+}: Props) => {
   return (
-    <div className="table-frame" {...rest}>
+    <div className={`table-frame ${className}`} {...rest}>
       <div className="table-frame-header">{children}</div>
       <div className="table-frame-body">
         <div className="row">

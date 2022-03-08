@@ -50,35 +50,11 @@
       }
     }
   }
-  /* ----------- table-panel ---------- */
-  .table-panel {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
+  /* ----------- table-frame-custom ---------- */
+  .table-frame.semester-table {
     .add-btn-wrapper {
       width: fit-content;
       margin-left: auto;
-    }
-    &-header {
-      margin-bottom: 2rem;
-    }
-    &-body {
-      flex-grow: 1;
-      padding: 1em 4em;
-      box-shadow: @box-shadow-dimblue;
-      border-radius: 1rem;
-      .row {
-        justify-content: space-between;
-        .title {
-          font-size: 2.2rem;
-          font-weight: bold;
-          margin-bottom: 0;
-        }
-        .ant-input-affix-wrapper {
-          border-radius: 999px;
-          width: 30rem;
-        }
-      }
     }
   }
 }
