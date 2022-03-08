@@ -1,10 +1,31 @@
-import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
+import { EditOutlined, DeleteOutlined, PlusOutlined } from "@ant-design/icons";
+import semesterData from "@seeds/thcs/semesters.json";
+import { Button } from "antd";
 
-export const SEMESTER_COLUMNS = [
+export const PANEL = () => {
+  return (
+    <div className="table-panel">
+      <div className="btn-grp">
+        <Button
+          className="add-btn"
+          type="primary"
+          size="large"
+          icon={<PlusOutlined />}
+        >
+          Thêm mới
+        </Button>
+      </div>
+    </div>
+  );
+};
+
+export const DATA = semesterData;
+export const COLUMNS = [
   {
     title: "ID",
     dataIndex: "id",
     key: "id",
+    sorter: true,
   },
   {
     title: "Name",

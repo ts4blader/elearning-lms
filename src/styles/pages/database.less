@@ -51,10 +51,47 @@
     }
   }
   /* ----------- table-frame-custom ---------- */
-  .table-frame.semester-table {
-    .add-btn-wrapper {
-      width: fit-content;
-      margin-left: auto;
+  .table-frame {
+    .table-panel {
+      @gap: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      & :is(.selections-grp, .field, .btn-grp) {
+        gap: @gap;
+        display: flex;
+        align-items: center;
+      }
+      .selections-grp {
+        gap: @gap * 2;
+      }
+      .btn-grp {
+        width: fit-content;
+        margin-left: auto;
+        .ant-divider {
+          background: @color-gray-dark;
+        }
+        .delete-btn .anticon {
+          font-size: 2rem;
+        }
+      }
+    }
+    /* ----------- class table ---------- */
+    &.class-table {
+      .export-btn {
+        border: 1px solid currentColor;
+      }
+    }
+    /* ----------- score table ---------- */
+    &.score-table {
+      .ant-table-cell[colspan] {
+        border: 1px solid currentColor;
+        border-top: 0;
+      }
+      th:not(.ant-table-cell[colspan]):not(.ant-table-cell[rowspan]) {
+        border-left: 1px solid currentColor;
+        border-right: 1px solid currentColor;
+      }
     }
   }
 }
