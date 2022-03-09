@@ -6,11 +6,12 @@ import {
 } from "@ant-design/icons";
 import gradesData from "@seeds/thcs/grades.json";
 import { Button } from "antd";
+import TablePanel from "@components/TablePanel";
 
 export const PANEL = () => {
   return (
-    <div className="table-panel">
-      <div className="btn-grp">
+    <TablePanel>
+      <TablePanel.ButtonGrp>
         <Button
           className="add-btn"
           type="primary"
@@ -19,8 +20,8 @@ export const PANEL = () => {
         >
           Thêm mới
         </Button>
-      </div>
-    </div>
+      </TablePanel.ButtonGrp>
+    </TablePanel>
   );
 };
 

@@ -1,0 +1,24 @@
+.table-panel {
+  @gap: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  & :is(.selection-grp, .field, .btn-grp) {
+    gap: @gap;
+    display: flex;
+    align-items: center;
+  }
+  .selection-grp {
+    gap: @gap * 2;
+  }
+  .btn-grp {
+    width: fit-content;
+    margin-left: auto;
+    .ant-divider {
+      background: @color-gray-dark;
+    }
+    .delete-btn .anticon {
+      font-size: 2rem;
+    }
+  }
+}

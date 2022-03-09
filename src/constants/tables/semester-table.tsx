@@ -1,21 +1,43 @@
 import { EditOutlined, DeleteOutlined, PlusOutlined } from "@ant-design/icons";
 import semesterData from "@seeds/thcs/semesters.json";
-import { Button } from "antd";
+import { Button, Modal } from "antd";
+import TablePanel from "@components/TablePanel";
+
+const AddModalFooter = () => {
+  return (
+    <div className="modal-footer add-modal">
+      <Button>Hủy</Button>
+      <Button type="primary" size="large">
+        Lưu
+      </Button>
+    </div>
+  );
+};
 
 export const PANEL = () => {
   return (
-    <div className="table-panel">
-      <div className="btn-grp">
-        <Button
-          className="add-btn"
-          type="primary"
-          size="large"
-          icon={<PlusOutlined />}
-        >
-          Thêm mới
-        </Button>
-      </div>
-    </div>
+    <>
+      {/* <Modal
+        title="Thêm niên khóa"
+        visible={true}
+        footer={<AddModalFooter />}
+        centered={true}
+      >
+        something
+      </Modal> */}
+      <TablePanel>
+        <TablePanel.ButtonGrp>
+          <Button
+            className="add-btn"
+            type="primary"
+            size="large"
+            icon={<PlusOutlined />}
+          >
+            Thêm mới
+          </Button>
+        </TablePanel.ButtonGrp>
+      </TablePanel>
+    </>
   );
 };
 

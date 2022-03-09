@@ -7,16 +7,17 @@ import {
 import classData from "@seeds/thcs/classes.json";
 import { Button, Divider } from "antd";
 import DropdownMenu from "@components/DropdownMenu";
+import TablePanel from "@components/TablePanel";
 
 export const PANEL = () => {
   return (
-    <div className="table-panel">
-      <div className="selections-grp">
-        <div className="field">
+    <TablePanel>
+      <TablePanel.SelectionGrp>
+        <TablePanel.Field>
           <DropdownMenu data={["Khối 6", "Khối 7", "Khối 8"]} />
-        </div>
-      </div>
-      <div className="btn-grp">
+        </TablePanel.Field>
+      </TablePanel.SelectionGrp>
+      <TablePanel.ButtonGrp>
         <Button className="delete-btn" icon={<DeleteOutlined />}></Button>
         <Divider type="vertical" />
         <Button className="export-btn" type="primary" size="large" ghost>
@@ -30,8 +31,8 @@ export const PANEL = () => {
         >
           Thêm mới
         </Button>
-      </div>
-    </div>
+      </TablePanel.ButtonGrp>
+    </TablePanel>
   );
 };
 

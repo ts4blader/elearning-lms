@@ -2,21 +2,22 @@ import { EditOutlined, DeleteOutlined, PlusOutlined } from "@ant-design/icons";
 import subjectData from "@seeds/thcs/subjects.json";
 import { Button, Divider } from "antd";
 import DropdownMenu from "@components/DropdownMenu";
+import TablePanel from "@components/TablePanel";
 
 export const PANEL = () => {
   return (
-    <div className="table-panel">
-      <div className="selections-grp">
-        <div className="field">
+    <TablePanel>
+      <TablePanel.SelectionGrp>
+        <TablePanel.Field>
           <div className="label">Khối</div>
           <DropdownMenu data={["6", "7", "8"]} />
-        </div>
-        <div className="field">
+        </TablePanel.Field>
+        <TablePanel.Field>
           <div className="label">Lớp</div>
           <DropdownMenu data={["6A", "6B", "6C", "6D"]} />
-        </div>
-      </div>
-      <div className="btn-grp">
+        </TablePanel.Field>
+      </TablePanel.SelectionGrp>
+      <TablePanel.ButtonGrp>
         <Button className="delete-btn" icon={<DeleteOutlined />}></Button>
         <Divider type="vertical" />
         <Button
@@ -27,8 +28,8 @@ export const PANEL = () => {
         >
           Thêm mới
         </Button>
-      </div>
-    </div>
+      </TablePanel.ButtonGrp>
+    </TablePanel>
   );
 };
 
