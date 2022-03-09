@@ -7,7 +7,7 @@ type Props = {
   className?: string;
 } & React.ComponentProps<"section">;
 
-const Section = ({ title, children, className, ...rest }: Props) => {
+const Section = ({ title, children, className = "", ...rest }: Props) => {
   return (
     <section className={`section ${className}`} {...rest}>
       <header className="header">

@@ -13,7 +13,7 @@ const TableFrame = ({
   children,
   title,
   tableConfig,
-  className,
+  className = "",
   ...rest
 }: Props) => {
   return (

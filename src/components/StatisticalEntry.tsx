@@ -5,7 +5,7 @@ type MainProps = {
   className?: string;
 } & React.ComponentProps<"div">;
 
-const StatisticalEntry = ({ children, className, ...rest }: MainProps) => {
+const StatisticalEntry = ({ children, className = "", ...rest }: MainProps) => {
   return (
     <div className={`statistical-entry ${className}`} {...rest}>
       {children}
@@ -13,14 +13,22 @@ const StatisticalEntry = ({ children, className, ...rest }: MainProps) => {
   );
 };
 
-StatisticalEntry.Header = ({ children, className, ...rest }: MainProps) => {
+StatisticalEntry.Header = ({
+  children,
+  className = "",
+  ...rest
+}: MainProps) => {
   return (
     <div className={`statistical-header ${className}`} {...rest}>
       {children}
     </div>
   );
 };
-StatisticalEntry.Content = ({ children, className, ...rest }: MainProps) => {
+StatisticalEntry.Content = ({
+  children,
+  className = "",
+  ...rest
+}: MainProps) => {
   return (
     <div className={`statistical-content ${className}`} {...rest}>
       {children}
