@@ -6,7 +6,7 @@ import {
   SCHOOL_DROPDOWN,
   SEMESTERS_DROPDOWN,
 } from "@constants/database";
-import DropdownMenu from "@components/DropdownMenu";
+import Selection from "@components/Selection";
 
 const Database = () => {
   const [selected, setSelected] = useState(TABLES[0]);
@@ -18,11 +18,11 @@ const Database = () => {
           <div className="view-panel-title">Đang chọn xem:</div>
           <div className="view-panel-field">
             <div className="label">Trường:</div>
-            <DropdownMenu data={SCHOOL_DROPDOWN} />
+            <Selection data={SCHOOL_DROPDOWN} />
           </div>
           <div className="view-panel-field">
             <div className="label">Niên khóa:</div>
-            <DropdownMenu data={SEMESTERS_DROPDOWN} />
+            <Selection data={SEMESTERS_DROPDOWN} />
           </div>
         </div>
         <ul className="entry-list">

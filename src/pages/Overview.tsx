@@ -1,7 +1,7 @@
 import React from "react";
 import Section from "@components/Section";
 import moment from "moment";
-import DropdownMenu from "@components/DropdownMenu";
+import Selection from "@components/Selection";
 import Card from "@components/Card";
 import { Progress, DatePicker } from "antd";
 import StatisticalEntry from "@components/StatisticalEntry";
@@ -32,7 +32,7 @@ const Overview = () => {
       <div className="overview-row row">
         <div className="semester-dropdown-wrapper">
           <div className="row-label">Niên khóa</div>
-          <DropdownMenu data={SEMESTER} />
+          <Selection data={SEMESTER} />
         </div>
         <ul className="overview-cards">
           {CARDS.map((item) => (
@@ -55,7 +55,7 @@ const Overview = () => {
         <StatisticalEntry className="study-result">
           <StatisticalEntry.Header>
             <h3 className="title">Thống kê kết quả học tập</h3>
-            <DropdownMenu data={CLASSES} initialSelect="Chọn khối" />
+            <Selection data={CLASSES} />
           </StatisticalEntry.Header>
           <StatisticalEntry.Content>
             <ColumnGroupChart />
@@ -65,7 +65,7 @@ const Overview = () => {
         <StatisticalEntry className="students-amount">
           <StatisticalEntry.Header>
             <h3 className="title">Số lượng học viên</h3>
-            <DropdownMenu data={LEVELS} />
+            <Selection data={LEVELS} />
           </StatisticalEntry.Header>
           <StatisticalEntry.Content>
             <ul className="students-amount-list">
