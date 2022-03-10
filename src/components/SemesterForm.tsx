@@ -14,6 +14,7 @@ import {
   PlusCircleFilled,
   InfoCircleOutlined,
 } from "@ant-design/icons";
+import moment from "moment";
 
 type Props = {
   onCancel: () => void;
@@ -116,16 +117,18 @@ const SemesterForm = ({ onCancel }: Props) => {
                     {...restField}
                     label="từ"
                     name={[name, "begin"]}
+                    initialValue={moment()}
                   >
-                    <DatePicker format={"DD/MM/YYYY"} />
+                    <DatePicker format={"DD/MM/YYYY"} allowClear={false} />
                   </Form.Item>
                   <Form.Item
                     className="semester-end"
                     label="đến"
                     {...restField}
                     name={[name, "end"]}
+                    initialValue={moment()}
                   >
-                    <DatePicker format={"DD/MM/YYYY"} />
+                    <DatePicker format={"DD/MM/YYYY"} allowClear={false} />
                   </Form.Item>
                 </Space>
               ))}
