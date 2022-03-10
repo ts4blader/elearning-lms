@@ -30,6 +30,7 @@ const LoginForm = ({ switchLayout }: Props) => {
         onFinish={onLogin}
         layout={formLayout.current}
         form={form}
+        requiredMark={false}
       >
         {/* Username */}
         <Form.Item
