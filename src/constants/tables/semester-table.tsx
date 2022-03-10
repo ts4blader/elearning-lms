@@ -1,30 +1,27 @@
+import { useState } from "react";
 import { EditOutlined, DeleteOutlined, PlusOutlined } from "@ant-design/icons";
 import semesterData from "@seeds/thcs/semesters.json";
 import { Button, Modal } from "antd";
 import TablePanel from "@components/TablePanel";
-
-const AddModalFooter = () => {
-  return (
-    <div className="modal-footer add-modal">
-      <Button>Hủy</Button>
-      <Button type="primary" size="large">
-        Lưu
-      </Button>
-    </div>
-  );
-};
+import SemesterForm from "@components/SemesterForm";
 
 export const PANEL = () => {
+  const [show, setShow] = useState(false);
+
+  const showModal = () => setShow(true);
+  const hideModal = () => setShow(false);
+
   return (
     <>
-      {/* <Modal
+      <Modal
         title="Thêm niên khóa"
-        visible={true}
-        footer={<AddModalFooter />}
+        visible={show}
+        onCancel={hideModal}
+        footer={<></>}
         centered={true}
       >
-        something
-      </Modal> */}
+        <SemesterForm onCancel={hideModal} />
+      </Modal>
       <TablePanel>
         <TablePanel.ButtonGrp>
           <Button
@@ -32,6 +29,7 @@ export const PANEL = () => {
             type="primary"
             size="large"
             icon={<PlusOutlined />}
+            onClick={showModal}
           >
             Thêm mới
           </Button>
