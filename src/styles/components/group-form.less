@@ -1,0 +1,23 @@
+.group-form {
+  min-width: 80rem;
+  label {
+    font-size: 1.6rem;
+    font-weight: 600;
+  }
+  .ant-form-item-control {
+    max-width: 50rem;
+  }
+  & > .ant-form-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  /* ------------ form list ----------- */
+  .form-list {
+    .list {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+    }
+  }
+}

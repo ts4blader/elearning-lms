@@ -19,4 +19,48 @@
     font-weight: bold;
     text-align: center;
   }
+  /* ---------- button group ---------- */
+  .btn-grp {
+    display: flex;
+    justify-content: center;
+    margin-top: 1em;
+    .ant-form-item {
+      margin-bottom: 0;
+    }
+    .ant-btn {
+      min-width: 15rem;
+      height: auto;
+      font-size: 1.8rem;
+      font-weight: bold;
+      padding: 0.5em 1em;
+      &.cancel-btn {
+        background: @color-gray-light;
+      }
+    }
+  }
+  /* ------------ form list ----------- */
+  .form-list {
+    .ant-form-item {
+      margin-bottom: 0;
+    }
+    .title {
+      font-size: 2rem;
+      font-weight: bold;
+      color: @color-primary;
+    }
+    .add-btn,
+    .remove-btn {
+      margin-top: 0;
+      font-size: 1.8rem;
+      color: @color-secondary;
+    }
+    .add-btn {
+      width: fit-content;
+      padding: 0;
+      margin-top: 1em;
+    }
+    .list {
+      margin-top: 1em;
+    }
+  }
 }

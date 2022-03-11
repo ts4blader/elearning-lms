@@ -93,45 +93,47 @@ const SemesterForm = ({ onCancel }: Props) => {
 
       <Divider />
       {/* Time config */}
-      <div className="time-config">
+      <div className="time-config form-list">
         <div className="title">Cài đặt thời gian</div>
         <Form.List name="semester">
           {(fields, { add, remove }) => (
-            <div className="time-list">
-              {fields.map(({ key, name, ...restField }) => (
-                <Space key={key} align="center" className="time-config-item">
-                  <div className="remove-btn" onClick={() => remove(name)}>
-                    <MinusCircleFilled />
-                  </div>
-                  <Form.Item
-                    {...restField}
-                    name={[name, "name"]}
-                    label="Tên học kỳ"
-                    initialValue="Học kỳ 2"
-                    className="semester-name"
-                  >
-                    <Input />
-                  </Form.Item>
-                  <Form.Item
-                    className="semester-begin"
-                    {...restField}
-                    label="từ"
-                    name={[name, "begin"]}
-                    initialValue={moment()}
-                  >
-                    <DatePicker format={"DD/MM/YYYY"} allowClear={false} />
-                  </Form.Item>
-                  <Form.Item
-                    className="semester-end"
-                    label="đến"
-                    {...restField}
-                    name={[name, "end"]}
-                    initialValue={moment()}
-                  >
-                    <DatePicker format={"DD/MM/YYYY"} allowClear={false} />
-                  </Form.Item>
-                </Space>
-              ))}
+            <>
+              <div className="list">
+                {fields.map(({ key, name, ...restField }) => (
+                  <Space key={key} align="center" className="time-config-item">
+                    <div className="remove-btn" onClick={() => remove(name)}>
+                      <MinusCircleFilled />
+                    </div>
+                    <Form.Item
+                      {...restField}
+                      name={[name, "name"]}
+                      label="Tên học kỳ"
+                      initialValue="Học kỳ 2"
+                      className="semester-name"
+                    >
+                      <Input />
+                    </Form.Item>
+                    <Form.Item
+                      className="semester-begin"
+                      {...restField}
+                      label="từ"
+                      name={[name, "begin"]}
+                      initialValue={moment()}
+                    >
+                      <DatePicker format={"DD/MM/YYYY"} allowClear={false} />
+                    </Form.Item>
+                    <Form.Item
+                      className="semester-end"
+                      label="đến"
+                      {...restField}
+                      name={[name, "end"]}
+                      initialValue={moment()}
+                    >
+                      <DatePicker format={"DD/MM/YYYY"} allowClear={false} />
+                    </Form.Item>
+                  </Space>
+                ))}
+              </div>
               <Form.Item>
                 <Button
                   type="link"
@@ -143,7 +145,7 @@ const SemesterForm = ({ onCancel }: Props) => {
                   Thêm học kỳ
                 </Button>
               </Form.Item>
-            </div>
+            </>
           )}
         </Form.List>
       </div>
