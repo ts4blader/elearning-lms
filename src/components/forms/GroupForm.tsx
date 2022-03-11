@@ -13,29 +13,31 @@ const GroupForm = ({ onCancel }: Props) => {
 
   return (
     <Form name="add-group" onFinish={handleSubmit} className="group-form">
-      <Form.Item
-        label="Tên tổ - bộ môn"
-        name="name"
-        rules={[{ required: true, message: "Xin hãy nhập tên tổ" }]}
-      >
-        <Input />
-      </Form.Item>
-      <Form.Item
-        label="Tên trưởng tổ - bộ môn"
-        name="leader"
-        rules={[{ required: true, message: "Xin hãy chọn tên trưởng tổ" }]}
-        initialValue="thu"
-      >
-        <Select>
-          <Select.Option>Thu</Select.Option>
-          <Select.Option>Ha</Select.Option>
-          <Select.Option>An</Select.Option>
-        </Select>
-      </Form.Item>
+      <div className="form-top">
+        <Form.Item
+          label="Tên tổ - bộ môn"
+          name="name"
+          rules={[{ required: true, message: "Xin hãy nhập tên tổ" }]}
+        >
+          <Input />
+        </Form.Item>
+        <Form.Item
+          label="Tên trưởng tổ - bộ môn"
+          name="leader"
+          rules={[{ required: true, message: "Xin hãy chọn tên trưởng tổ" }]}
+          initialValue="thu"
+        >
+          <Select>
+            <Select.Option>Thu</Select.Option>
+            <Select.Option>Ha</Select.Option>
+            <Select.Option>An</Select.Option>
+          </Select>
+        </Form.Item>
+      </div>
 
       <Divider />
       {/* Subject list */}
-      <div className="subject-list-wrapper form-list">
+      <div className="subject-list-wrapper form-bottom">
         <div className="title">Danh sách môn học</div>
         <Form.List name="subjects">
           {(fields, { add, remove }) => (

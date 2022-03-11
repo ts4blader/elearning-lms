@@ -30,7 +30,7 @@ const SemesterForm = ({ onCancel }: Props) => {
   return (
     <Form name="add-semester" onFinish={handleSubmit} className="semester-form">
       {/* semester config */}
-      <Space size={20} className="semester-config-wrapper" align="start">
+      <Space size={20} className="form-top" align="start">
         <div className="semester-wrapper">
           <div className="label">Niên khóa:</div>
           <Space size={10} align="center" className="semester-selects">
@@ -45,7 +45,9 @@ const SemesterForm = ({ onCancel }: Props) => {
                 <Select.Option value="2023">2023</Select.Option>
               </Select>
             </Form.Item>
+
             <span>đến</span>
+
             <Form.Item name="endYear" className="end-year" initialValue="2022">
               <Select>
                 <Select.Option value="2021">2021</Select.Option>
@@ -64,6 +66,7 @@ const SemesterForm = ({ onCancel }: Props) => {
                 Kế thừa dữ liệu:
               </Checkbox>
             </Form.Item>
+
             <Form.Item
               name="extendedSemester"
               initialValue="2021-2022"
@@ -93,7 +96,7 @@ const SemesterForm = ({ onCancel }: Props) => {
 
       <Divider />
       {/* Time config */}
-      <div className="time-config form-list">
+      <div className="time-config form-bottom">
         <div className="title">Cài đặt thời gian</div>
         <Form.List name="semester">
           {(fields, { add, remove }) => (
@@ -104,6 +107,7 @@ const SemesterForm = ({ onCancel }: Props) => {
                     <div className="remove-btn" onClick={() => remove(name)}>
                       <MinusCircleFilled />
                     </div>
+
                     <Form.Item
                       {...restField}
                       name={[name, "name"]}
@@ -113,6 +117,7 @@ const SemesterForm = ({ onCancel }: Props) => {
                     >
                       <Input />
                     </Form.Item>
+
                     <Form.Item
                       className="semester-begin"
                       {...restField}

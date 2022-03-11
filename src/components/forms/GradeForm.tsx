@@ -12,33 +12,35 @@ const GradeForm = ({ onCancel }: Props) => {
 
   return (
     <Form name="add-grade" onFinish={handleSubmit} className="grade-form">
-      <Form.Item
-        label="Mã khoa khối"
-        name="id"
-        className="id-item"
-        rules={[{ required: true, message: "Xin hãy nhập mã khoa khối" }]}
-      >
-        <Input />
-      </Form.Item>
-      <Form.Item
-        label="Tên khoa khối"
-        name="name"
-        rules={[{ required: true, message: "Xin hãy nhập tên khoa khối" }]}
-      >
-        <Input />
-      </Form.Item>
-      <Form.Item
-        label="Trưởng khoa khối"
-        name="leader"
-        rules={[{ required: true, message: "Xin hãy chọn tên trưởng khoa" }]}
-        initialValue="thu"
-      >
-        <Select>
-          <Select.Option>Thu</Select.Option>
-          <Select.Option>Ha</Select.Option>
-          <Select.Option>An</Select.Option>
-        </Select>
-      </Form.Item>
+      <div className="form-top">
+        <Form.Item
+          label="Mã khoa khối"
+          name="id"
+          className="id-item"
+          rules={[{ required: true, message: "Xin hãy nhập mã khoa khối" }]}
+        >
+          <Input />
+        </Form.Item>
+        <Form.Item
+          label="Tên khoa khối"
+          name="name"
+          rules={[{ required: true, message: "Xin hãy nhập tên khoa khối" }]}
+        >
+          <Input />
+        </Form.Item>
+        <Form.Item
+          label="Trưởng khoa khối"
+          name="leader"
+          rules={[{ required: true, message: "Xin hãy chọn tên trưởng khoa" }]}
+          initialValue="thu"
+        >
+          <Select>
+            <Select.Option>Thu</Select.Option>
+            <Select.Option>Ha</Select.Option>
+            <Select.Option>An</Select.Option>
+          </Select>
+        </Form.Item>
+      </div>
 
       {/* Modal buttons */}
       <Space className="btn-grp" size={40}>
