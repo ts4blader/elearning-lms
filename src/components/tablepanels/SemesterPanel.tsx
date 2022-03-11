@@ -11,7 +11,12 @@ const SemesterPanel = () => {
   const hideModal = () => setShow(false);
 
   return (
-    <TablePanel innerForm={SemesterForm} show={show} onCancel={hideModal}>
+    <TablePanel
+      popUpTitle="Thêm niên khóa"
+      innerForm={SemesterForm}
+      show={show}
+      onCancel={hideModal}
+    >
       <TablePanel.ButtonGrp>
         <Button
           className="add-btn"

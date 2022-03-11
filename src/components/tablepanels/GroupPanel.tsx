@@ -11,7 +11,12 @@ const GroupPanel = () => {
   const hide = () => setShowModal(false);
 
   return (
-    <TablePanel innerForm={GroupForm} show={showModal} onCancel={hide}>
+    <TablePanel
+      popUpTitle="Thêm tổ - bộ môn"
+      innerForm={GroupForm}
+      show={showModal}
+      onCancel={hide}
+    >
       <TablePanel.ButtonGrp>
         <Button
           className="add-btn"

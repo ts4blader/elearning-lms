@@ -9,6 +9,7 @@ type Additional = {
   innerForm: React.ComponentType<any>;
   show: boolean;
   onCancel: () => void;
+  popUpTitle: string;
 };
 
 const TablePanel = ({
@@ -17,6 +18,7 @@ const TablePanel = ({
   innerForm,
   show,
   onCancel,
+  popUpTitle,
   ...rest
 }: Props & Additional) => {
   const Form = innerForm;
@@ -24,7 +26,7 @@ const TablePanel = ({
   return (
     <>
       <Modal
-        title="Thêm tổ - bộ môn"
+        title={popUpTitle}
         visible={show}
         onCancel={onCancel}
         footer={<></>}
