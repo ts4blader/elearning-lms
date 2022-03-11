@@ -1,14 +1,41 @@
 import React from "react";
+import { Modal } from "antd";
 
 type Props = {
   className?: string;
 } & React.ComponentProps<"div">;
 
-const TablePanel = ({ children, className, ...rest }: Props) => {
+type Additional = {
+  innerForm: React.ComponentType<any>;
+  show: boolean;
+  onCancel: () => void;
+};
+
+const TablePanel = ({
+  children,
+  className,
+  innerForm,
+  show,
+  onCancel,
+  ...rest
+}: Props & Additional) => {
+  const Form = innerForm;
+
   return (
-    <div className={`table-panel ${className}`} {...rest}>
-      {children}
-    </div>
+    <>
+      <Modal
+        title="Thêm tổ - bộ môn"
+        visible={show}
+        onCancel={onCancel}
+        footer={<></>}
+        centered={true}
+      >
+        <Form onCancel={onCancel} />
+      </Modal>
+      <div className={`table-panel ${className}`} {...rest}>
+        {children}
+      </div>
+    </>
   );
 };
 

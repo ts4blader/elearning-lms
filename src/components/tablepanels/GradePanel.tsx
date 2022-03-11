@@ -1,24 +1,24 @@
 import React, { useState } from "react";
-import { Button } from "antd";
 import TablePanel from "@components/TablePanel";
-import SemesterForm from "@components/forms/SemesterForm";
+import { Button } from "antd";
 import { PlusOutlined } from "@ant-design/icons";
+import GradeForm from "@components/forms/GradeForm";
 
-const SemesterPanel = () => {
-  const [show, setShow] = useState(false);
+const GradePanel = () => {
+  const [showModal, setShowModal] = useState(false);
 
-  const showModal = () => setShow(true);
-  const hideModal = () => setShow(false);
+  const show = () => setShowModal(true);
+  const hide = () => setShowModal(false);
 
   return (
-    <TablePanel innerForm={SemesterForm} show={show} onCancel={hideModal}>
+    <TablePanel innerForm={GradeForm} show={showModal} onCancel={hide}>
       <TablePanel.ButtonGrp>
         <Button
           className="add-btn"
           type="primary"
           size="large"
           icon={<PlusOutlined />}
-          onClick={showModal}
+          onClick={show}
         >
           Thêm mới
         </Button>
@@ -26,4 +26,5 @@ const SemesterPanel = () => {
     </TablePanel>
   );
 };
-export default SemesterPanel;
+
+export default GradePanel;

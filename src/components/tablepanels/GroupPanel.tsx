@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import TablePanel from "@components/TablePanel";
-import { Button, Modal } from "antd";
+import { Button } from "antd";
 import { PlusOutlined } from "@ant-design/icons";
 import GroupForm from "@components/forms/GroupForm";
 
@@ -11,30 +11,19 @@ const GroupPanel = () => {
   const hide = () => setShowModal(false);
 
   return (
-    <>
-      <Modal
-        title="Thêm tổ - bộ môn"
-        visible={showModal}
-        onCancel={hide}
-        footer={<></>}
-        centered={true}
-      >
-        <GroupForm onCancel={hide} />
-      </Modal>
-      <TablePanel>
-        <TablePanel.ButtonGrp>
-          <Button
-            className="add-btn"
-            type="primary"
-            size="large"
-            icon={<PlusOutlined />}
-            onClick={show}
-          >
-            Thêm mới
-          </Button>
-        </TablePanel.ButtonGrp>
-      </TablePanel>
-    </>
+    <TablePanel innerForm={GroupForm} show={showModal} onCancel={hide}>
+      <TablePanel.ButtonGrp>
+        <Button
+          className="add-btn"
+          type="primary"
+          size="large"
+          icon={<PlusOutlined />}
+          onClick={show}
+        >
+          Thêm mới
+        </Button>
+      </TablePanel.ButtonGrp>
+    </TablePanel>
   );
 };
 
