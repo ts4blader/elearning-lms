@@ -3,7 +3,7 @@ import { EditOutlined, DeleteOutlined, PlusOutlined } from "@ant-design/icons";
 import semesterData from "@seeds/thcs/semesters.json";
 import { Button, Modal } from "antd";
 import TablePanel from "@components/TablePanel";
-import SemesterForm from "@components/SemesterForm";
+import SemesterForm from "@components/forms/SemesterForm";
 
 export const PANEL = () => {
   const [show, setShow] = useState(false);
