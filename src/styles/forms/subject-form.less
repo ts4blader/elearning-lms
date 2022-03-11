@@ -1,0 +1,39 @@
+.subject-form {
+  width: 50rem;
+  label {
+    font-size: 1.6rem;
+    font-weight: 600;
+  }
+  .form-top {
+    & > .ant-form-item {
+      display: flex;
+      align-items: center;
+      &.id-item .ant-form-item-control input {
+        max-width: 20rem;
+      }
+      .ant-form-item-label {
+        flex: 4;
+        text-align: left;
+      }
+      .ant-form-item-control {
+        flex: 7;
+      }
+    }
+  }
+  .form-bottom {
+    .semester-list {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 1em;
+      .ant-form-item {
+        .ant-form-item-control {
+          max-width: 10rem;
+          margin-left: 3rem;
+        }
+      }
+    }
+  }
+  .btn-grp {
+    margin-top: 2em;
+  }
+}

@@ -1,43 +1,11 @@
-import { EditOutlined, DeleteOutlined, PlusOutlined } from "@ant-design/icons";
+import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
 import subjectData from "@seeds/thcs/subjects.json";
-import { Button, Divider } from "antd";
-import DropdownMenu from "@components/DropdownMenu";
-import TablePanel from "@components/TablePanel";
+import SubjectPanel from "@components/tablepanels/SubjectPanel";
 
-// export const PANEL = () => {
-//   return (
-//     <TablePanel>
-//       <TablePanel.SelectionGrp>
-//         <TablePanel.Field>
-//           <div className="label">Khối</div>
-//           <DropdownMenu data={["6", "7", "8"]} />
-//         </TablePanel.Field>
-//         <TablePanel.Field>
-//           <div className="label">Lớp</div>
-//           <DropdownMenu data={["6A", "6B", "6C", "6D"]} />
-//         </TablePanel.Field>
-//       </TablePanel.SelectionGrp>
-//       <TablePanel.ButtonGrp>
-//         <Button className="delete-btn" icon={<DeleteOutlined />}></Button>
-//         <Divider type="vertical" />
-//         <Button
-//           className="add-btn"
-//           type="primary"
-//           size="large"
-//           icon={<PlusOutlined />}
-//         >
-//           Thêm mới
-//         </Button>
-//       </TablePanel.ButtonGrp>
-//     </TablePanel>
-//   );
-// };
-
-export const PANEL = () => {
-  return <div></div>;
-};
+export const PANEL = SubjectPanel;
 
 export const DATA = subjectData;
+
 export const COLUMNS = [
   {
     title: "ID",
