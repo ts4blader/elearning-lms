@@ -15,6 +15,7 @@ const GradeForm = ({ onCancel }: Props) => {
       <Form.Item
         label="Mã khoa khối"
         name="id"
+        className="id-item"
         rules={[{ required: true, message: "Xin hãy nhập mã khoa khối" }]}
       >
         <Input />
