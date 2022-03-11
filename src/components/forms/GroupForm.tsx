@@ -23,7 +23,7 @@ const GroupForm = ({ onCancel }: Props) => {
       <Form.Item
         label="Tên trưởng tổ - bộ môn"
         name="leader"
-        rules={[{ required: true, message: "Xin hãy nhập tên trưởng tổ" }]}
+        rules={[{ required: true, message: "Xin hãy chọn tên trưởng tổ" }]}
         initialValue="thu"
       >
         <Select>
