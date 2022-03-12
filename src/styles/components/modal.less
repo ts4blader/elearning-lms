@@ -12,7 +12,7 @@
     border-bottom: 0;
   }
   &-body {
-    .ant-form-item.id-item .ant-form-item-control input {
+    .ant-form-item.short-item .ant-form-item-control input {
       max-width: 15rem;
     }
   }
@@ -43,15 +43,19 @@
       }
     }
   }
-  /* ------------ form bottom ----------- */
+  /* ------------ form top ----------- */
+  .form-top,
   .form-bottom {
-    .ant-form-item {
-      margin-bottom: 0;
-    }
     .title {
       font-size: 2rem;
       font-weight: bold;
       color: @color-primary;
+    }
+  }
+  /* ------------ form bottom ----------- */
+  .form-bottom {
+    .ant-form-item {
+      margin-bottom: 0;
     }
     .add-btn,
     .remove-btn {

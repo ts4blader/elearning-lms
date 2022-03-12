@@ -1,0 +1,38 @@
+.class-form {
+  min-width: 70rem;
+  label {
+    font-size: 1.6rem;
+    font-weight: 600;
+  }
+  .semester-group-selection {
+    margin-top: 1em;
+    display: flex;
+    justify-content: space-between;
+    .group-select {
+      min-width: 30rem;
+    }
+  }
+  .form-top {
+    & > .ant-form-item {
+      display: flex;
+      .ant-form-item-label {
+        text-align: left;
+        flex: 3;
+      }
+      .ant-form-item-control {
+        flex: 6;
+      }
+    }
+  }
+  .form-bottom {
+    .extend-data {
+      margin-top: 1em;
+    }
+    .list {
+      margin-top: 1em;
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+    }
+  }
+}

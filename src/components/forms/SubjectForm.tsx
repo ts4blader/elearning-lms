@@ -37,7 +37,7 @@ const SubjectForm = ({ onCancel }: Props) => {
         <Form.Item
           label="Mã môn học"
           name="id"
-          className="id-item"
+          className="short-item"
           rules={[{ required: true, message: "Xin hãy nhập mã môn học" }]}
         >
           <Input />
