@@ -62,11 +62,19 @@ const SubjectForm = ({ onCancel }: Props) => {
         <div className="title">Số tiết/học kỳ</div>
         <Space className="semester-list">
           {/* first semester  */}
-          <Form.Item name="first" label="Học kỳ 1">
+          <Form.Item
+            name="first"
+            label="Học kỳ 1"
+            rules={[{ pattern: /[1-9][\d]*/g, message: "Nhập một số" }]}
+          >
             <Input />
           </Form.Item>
           {/* secondary semester  */}
-          <Form.Item name="secondary" label="Học kỳ 2">
+          <Form.Item
+            name="secondary"
+            rules={[{ pattern: /[1-9][\d]*/g, message: "Nhập một số" }]}
+            label="Học kỳ 2"
+          >
             <Input />
           </Form.Item>
         </Space>
