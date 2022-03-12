@@ -1,30 +1,11 @@
-import { EditOutlined, DeleteOutlined, PlusOutlined } from "@ant-design/icons";
+import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
 import scoreData from "@seeds/thcs/scores.json";
-import { Button } from "antd";
-import TablePanel from "@components/TablePanel";
+import ScorePanel from "@components/tablepanels/ScorePanel";
 
-// export const PANEL = () => {
-//   return (
-//     <TablePanel>
-//       <TablePanel.ButtonGrp>
-//         <Button
-//           className="add-btn"
-//           type="primary"
-//           size="large"
-//           icon={<PlusOutlined />}
-//         >
-//           Thêm mới
-//         </Button>
-//       </TablePanel.ButtonGrp>
-//     </TablePanel>
-//   );
-// };
-
-export const PANEL = () => {
-  return <div></div>;
-};
+export const PANEL = ScorePanel;
 
 export const DATA = scoreData;
+
 export const COLUMNS = [
   {
     title: "Name",
