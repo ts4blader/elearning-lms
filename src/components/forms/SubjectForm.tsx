@@ -1,5 +1,6 @@
 import React from "react";
-import { Form, Input, Select, Space, Button, Divider } from "antd";
+import { Form, Select, Space, Button, Divider } from "antd";
+import TextInput from "@components/TextInput";
 
 type Props = {
   onCancel: () => void;
@@ -31,7 +32,7 @@ const SubjectForm = ({ onCancel }: Props) => {
           name="name"
           rules={[{ required: true, message: "Xin hãy nhập tên môn học" }]}
         >
-          <Input />
+          <TextInput />
         </Form.Item>
         {/* id input */}
         <Form.Item
@@ -40,7 +41,7 @@ const SubjectForm = ({ onCancel }: Props) => {
           className="short-item"
           rules={[{ required: true, message: "Xin hãy nhập mã môn học" }]}
         >
-          <Input />
+          <TextInput />
         </Form.Item>
         {/* choose type */}
         <Form.Item
@@ -67,7 +68,7 @@ const SubjectForm = ({ onCancel }: Props) => {
             label="Học kỳ 1"
             rules={[{ pattern: /[1-9][\d]*/g, message: "Nhập một số" }]}
           >
-            <Input />
+            <TextInput />
           </Form.Item>
           {/* secondary semester  */}
           <Form.Item
@@ -75,7 +76,7 @@ const SubjectForm = ({ onCancel }: Props) => {
             rules={[{ pattern: /[1-9][\d]*/g, message: "Nhập một số" }]}
             label="Học kỳ 2"
           >
-            <Input />
+            <TextInput />
           </Form.Item>
         </Space>
       </div>

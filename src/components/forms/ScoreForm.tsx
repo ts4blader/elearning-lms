@@ -1,5 +1,6 @@
 import React from "react";
-import { Form, Input, Select, Space, Button, Divider } from "antd";
+import { Form, Select, Space, Button, Divider } from "antd";
+import TextInput from "@components/TextInput";
 
 type Props = {
   onCancel: () => void;
@@ -19,7 +20,7 @@ const ScoreForm = ({ onCancel }: Props) => {
             name="name"
             rules={[{ required: true, message: "Xin hãy nhập tên loại điểm" }]}
           >
-            <Input />
+            <TextInput />
           </Form.Item>
           <Form.Item
             label="Hệ số"
@@ -39,7 +40,7 @@ const ScoreForm = ({ onCancel }: Props) => {
 
       <div className="form-bottom">
         <div className="title">Số cột điểm tối thiểu</div>
-        <Space size={100} className="semester-score">
+        <Space size={100} className="semester-score" align="start">
           <Form.Item
             name="first"
             label="Học kỳ 1"
@@ -48,7 +49,7 @@ const ScoreForm = ({ onCancel }: Props) => {
               { pattern: /[1-9][0-9]*/g, message: "Nhập vào một sô" },
             ]}
           >
-            <Input />
+            <TextInput />
           </Form.Item>
           <Form.Item
             name="secondary"
@@ -58,7 +59,7 @@ const ScoreForm = ({ onCancel }: Props) => {
               { pattern: /[1-9][0-9]*/g, message: "Nhập vào một sô" },
             ]}
           >
-            <Input />
+            <TextInput />
           </Form.Item>
         </Space>
       </div>

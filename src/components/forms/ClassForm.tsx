@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { Form, Input, Select, Space, Button, Divider, Checkbox } from "antd";
+import { Form, Select, Space, Button, Divider, Checkbox } from "antd";
 import { MinusCircleFilled, PlusCircleFilled } from "@ant-design/icons";
+import TextInput from "@components/TextInput";
 
 type Props = {
   onCancel: () => void;
@@ -44,7 +45,7 @@ const ClassForm = ({ onCancel }: Props) => {
           name="name"
           rules={[{ required: true, message: "Xin hãy nhập tên lớp" }]}
         >
-          <Input />
+          <TextInput />
         </Form.Item>
         {/* amount input */}
         <Form.Item
@@ -56,7 +57,7 @@ const ClassForm = ({ onCancel }: Props) => {
             { pattern: /[1-9][\d]*/g, message: "Xin hãy nhập số" },
           ]}
         >
-          <Input />
+          <TextInput />
         </Form.Item>
         {/* choose type */}
         <Form.Item
@@ -85,7 +86,7 @@ const ClassForm = ({ onCancel }: Props) => {
         </Form.Item>
         {/* description text area */}
         <Form.Item label="Mô tả" name="description" initialValue="">
-          <Input.TextArea />
+          <TextInput.TextArea />
         </Form.Item>
       </div>
 

@@ -1,5 +1,6 @@
 import React from "react";
-import { Form, Input, Select, Space, Button } from "antd";
+import { Form, Select, Space, Button } from "antd";
+import TextInput from "@components/TextInput";
 
 type Props = {
   onCancel: () => void;
@@ -19,14 +20,14 @@ const GradeForm = ({ onCancel }: Props) => {
           className="short-item"
           rules={[{ required: true, message: "Xin hãy nhập mã khoa khối" }]}
         >
-          <Input />
+          <TextInput />
         </Form.Item>
         <Form.Item
           label="Tên khoa khối"
           name="name"
           rules={[{ required: true, message: "Xin hãy nhập tên khoa khối" }]}
         >
-          <Input />
+          <TextInput />
         </Form.Item>
         <Form.Item
           label="Trưởng khoa khối"

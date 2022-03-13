@@ -19,8 +19,13 @@
 }
 /* --------- without prefix --------- */
 .ant-input {
+  font-size: 1.6rem;
   background: @color-gray-light;
-  border: 2px solid transparent;
+  border: 1px solid transparent;
   border-radius: 0.5rem;
   padding: 0.5em 1em;
+  &.not-empty {
+    background: white;
+    border-color: @color-gray-dark;
+  }
 }

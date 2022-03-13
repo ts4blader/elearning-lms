@@ -1,6 +1,7 @@
 import React from "react";
-import { Form, Input, Select, Divider, Space, Button } from "antd";
+import { Form, Select, Divider, Space, Button } from "antd";
 import { MinusCircleFilled, PlusCircleFilled } from "@ant-design/icons";
+import TextInput from "@components/TextInput";
 
 type Props = {
   onCancel: () => void;
@@ -19,7 +20,7 @@ const GroupForm = ({ onCancel }: Props) => {
           name="name"
           rules={[{ required: true, message: "Xin hãy nhập tên tổ" }]}
         >
-          <Input />
+          <TextInput />
         </Form.Item>
         <Form.Item
           label="Tên trưởng tổ - bộ môn"

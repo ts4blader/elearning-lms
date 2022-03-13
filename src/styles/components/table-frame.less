@@ -19,7 +19,15 @@
       }
       .ant-input-affix-wrapper {
         border-radius: 999px;
+        border: 2px solid transparent;
         width: 30rem;
+      }
+      &[data-length="true"] .ant-input-affix-wrapper {
+        border-color: @color-gray-dark;
+        background: white;
+        .ant-input {
+          background: white;
+        }
       }
     }
   }
