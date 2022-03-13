@@ -3,7 +3,7 @@ import { Select } from "antd";
 
 type Props = {
   data: string[];
-  keyAffix?: string;
+  keyAffix: string;
   defaultValue?: string;
   selectConfig?: any;
   className?: string;

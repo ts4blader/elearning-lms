@@ -17,7 +17,10 @@ const ClassPanel = () => {
     >
       <TablePanel.SelectionGrp>
         <TablePanel.Field>
-          <Selection data={["Tất cả các khối", "Khối 6", "Khối 7", "Khối 8"]} />
+          <Selection
+            keyAffix="grade"
+            data={["Tất cả các khối", "Khối 6", "Khối 7", "Khối 8"]}
+          />
         </TablePanel.Field>
       </TablePanel.SelectionGrp>
       <TablePanel.ButtonGrp>
