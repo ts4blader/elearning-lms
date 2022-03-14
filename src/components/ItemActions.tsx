@@ -25,8 +25,11 @@ const ItemActions = ({ name, onDelete, onEdit, buttons }: Props) => {
           <item.icon />
         </span>
       ))}
+      <span className="edit-btn">
+        <EditOutlined />
+      </span>
       <span
-        className="edit-btn"
+        className="delete-btn"
         onClick={() =>
           dispatch(
             showDeleteModal({
@@ -36,9 +39,6 @@ const ItemActions = ({ name, onDelete, onEdit, buttons }: Props) => {
           )
         }
       >
-        <EditOutlined />
-      </span>
-      <span className="delete-btn">
         <DeleteOutlined />
       </span>
     </div>
