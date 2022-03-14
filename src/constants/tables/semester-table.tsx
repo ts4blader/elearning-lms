@@ -1,4 +1,3 @@
-import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
 import semesterData from "@seeds/thcs/semesters.json";
 import SemesterPanel from "@components/tablepanels/SemesterPanel";
 
@@ -28,19 +27,5 @@ export const COLUMNS = [
     title: "End",
     dataIndex: "end",
     key: "end",
-  },
-  {
-    title: "",
-    key: "action",
-    render: (text: string, record: any) => (
-      <>
-        <span className="edit-btn btn">
-          <EditOutlined />
-        </span>
-        <span className="delete-btn btn">
-          <DeleteOutlined />
-        </span>
-      </>
-    ),
   },
 ];

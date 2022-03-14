@@ -11,8 +11,8 @@
           "@pages/*":[
              "./pages/*"
           ],
-          "@store/*":[
-             "./store/*"
+          "@stores/*":[
+             "./stores/*"
           ],
           "@styles/*":[
              "./styles/*"
@@ -21,7 +21,7 @@
              "./seeds/*"
           ],
           "@slices/*":[
-             "./store/slices/*"
+             "./stores/slices/*"
           ]
        }
     }

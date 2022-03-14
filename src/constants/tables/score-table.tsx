@@ -1,4 +1,3 @@
-import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
 import scoreData from "@seeds/thcs/scores.json";
 import ScorePanel from "@components/tablepanels/ScorePanel";
 
@@ -38,19 +37,5 @@ export const COLUMNS = [
         align: "center",
       },
     ],
-  },
-  {
-    title: "",
-    key: "action",
-    render: (text: string, record: any) => (
-      <>
-        <span className="edit-btn btn">
-          <EditOutlined />
-        </span>
-        <span className="delete-btn btn">
-          <DeleteOutlined />
-        </span>
-      </>
-    ),
   },
 ];

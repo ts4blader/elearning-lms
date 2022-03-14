@@ -42,6 +42,7 @@ const Database = () => {
         title={selected.text}
         className={`${selected.name}-table`}
         tableConfig={selected.tableConfig}
+        columns={selected.columns}
       >
         <selected.panel />
       </TableFrame>

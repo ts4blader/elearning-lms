@@ -11,8 +11,8 @@ export const TABLES = [
     text: "Niên khóa",
     tableConfig: {
       dataSource: SEMESTER.DATA,
-      columns: SEMESTER.COLUMNS,
     },
+    columns: SEMESTER.COLUMNS,
     panel: SEMESTER.PANEL,
   },
   {
@@ -20,8 +20,8 @@ export const TABLES = [
     text: "Tổ - Bộ môn",
     tableConfig: {
       dataSource: GROUP.DATA,
-      columns: GROUP.COLUMNS,
     },
+    columns: GROUP.COLUMNS,
     panel: GROUP.PANEL,
   },
   {
@@ -29,16 +29,16 @@ export const TABLES = [
     text: "Khoa khối",
     tableConfig: {
       dataSource: GRADE.DATA,
-      columns: GRADE.COLUMNS,
     },
+    columns: GRADE.COLUMNS,
     panel: GRADE.PANEL,
   },
   {
     name: "subject",
     text: "Môn học",
+    columns: SUBJECT.COLUMNS,
     tableConfig: {
       dataSource: SUBJECT.DATA,
-      columns: SUBJECT.COLUMNS,
       rowSelection: {
         type: "checkbox",
         onChange: (selectedRowKeys: React.Key[], selectedRows: any[]) => {
@@ -55,9 +55,9 @@ export const TABLES = [
   {
     name: "class",
     text: "Lớp học",
+    columns: CLASS.COLUMNS,
     tableConfig: {
       dataSource: CLASS.DATA,
-      columns: CLASS.COLUMNS,
       rowSelection: {
         type: "checkbox",
         onChange: (selectedRowKeys: React.Key[], selectedRows: any[]) => {
@@ -74,9 +74,9 @@ export const TABLES = [
   {
     name: "score",
     text: "Loại điểm",
+    columns: SCORE.COLUMNS,
     tableConfig: {
       dataSource: SCORE.DATA,
-      columns: SCORE.COLUMNS,
     },
     panel: SCORE.PANEL,
   },

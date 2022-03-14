@@ -1,18 +1,21 @@
 import React, { useState } from "react";
 import { Table, Input } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
+import ItemActions from "@components/ItemActions";
 
 type Props = {
   children: React.ReactNode;
   title: string;
   tableConfig: any;
   className?: string;
+  columns: any[];
 } & React.ComponentProps<"div">;
 
 const TableFrame = ({
   children,
   title,
   tableConfig,
+  columns,
   className = "",
   ...rest
 }: Props) => {
@@ -39,7 +42,29 @@ const TableFrame = ({
           }}
           rowKey={(record) => record.id}
           {...tableConfig}
-        />
+        >
+          {columns.map((item: any) =>
+            item.children ? (
+              <Table.ColumnGroup title={item.title} align={item.align}>
+                {item.children.map((el: any) => (
+                  <Table.Column {...el} />
+                ))}
+              </Table.ColumnGroup>
+            ) : (
+              <Table.Column {...item} />
+            )
+          )}
+          <Table.Column
+            key="action"
+            render={(text, record) => (
+              <ItemActions
+                name={title}
+                onDelete={() => null}
+                onEdit={() => null}
+              />
+            )}
+          />
+        </Table>
       </div>
     </div>
   );
