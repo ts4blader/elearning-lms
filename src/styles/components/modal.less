@@ -1,5 +1,12 @@
 .ant-modal {
   width: auto !important;
+  //* Delete modal
+  &.delete-modal {
+    max-width: 50rem;
+    .ant-modal-body {
+      text-align: center;
+    }
+  }
   button.ant-modal-close {
     display: none;
   }
@@ -12,12 +19,25 @@
     border-bottom: 0;
   }
   &-body {
+    font-size: 1.6rem;
     .ant-form-item.short-item .ant-form-item-control input {
       max-width: 15rem;
     }
   }
   &-footer {
     border-top: 0;
+    text-align: center;
+    .ant-btn {
+      width: 15rem;
+      height: auto;
+      font-size: 1.8rem;
+      font-weight: bold;
+      padding: 0.5em 1em;
+      &-default {
+        margin-right: 1em;
+        background: @color-gray-light;
+      }
+    }
   }
   &-title {
     font-size: 2.8rem;
