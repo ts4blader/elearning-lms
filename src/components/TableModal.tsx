@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Button, Modal, Table } from "antd";
 import { DeleteOutlined } from "@ant-design/icons";
+import { useAppDispatch } from "@stores/hooks";
+import { showDeleteModal } from "@slices/deleteModalSlice";
 
 type Props = {
   name: string;
@@ -12,6 +14,7 @@ type Props = {
 
 const TableModal = ({ name, onDelete, tableConfig, show, onCancel }: Props) => {
   const [disabled, setDisabled] = useState(true);
+  const dispatch = useAppDispatch();
 
   return (
     <Modal
@@ -28,7 +31,14 @@ const TableModal = ({ name, onDelete, tableConfig, show, onCancel }: Props) => {
           <Button
             disabled={disabled}
             className="delete-btn"
-            onClick={() => onDelete()}
+            onClick={() =>
+              dispatch(
+                showDeleteModal({
+                  name: "",
+                  onAction: onDelete,
+                })
+              )
+            }
             icon={<DeleteOutlined />}
           />
         </div>
