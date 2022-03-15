@@ -9,75 +9,37 @@ export const TABLES = [
   {
     name: "semester",
     text: "Niên khóa",
-    tableConfig: {
-      dataSource: SEMESTER.DATA,
-    },
-    columns: SEMESTER.COLUMNS,
+    table: SEMESTER.TABLE,
     panel: SEMESTER.PANEL,
   },
   {
     name: "group",
     text: "Tổ - Bộ môn",
-    tableConfig: {
-      dataSource: GROUP.DATA,
-    },
-    columns: GROUP.COLUMNS,
+    table: GROUP.TABLE,
     panel: GROUP.PANEL,
   },
   {
     name: "grade",
     text: "Khoa khối",
-    tableConfig: {
-      dataSource: GRADE.DATA,
-    },
-    columns: GRADE.COLUMNS,
+    table: GRADE.TABLE,
     panel: GRADE.PANEL,
   },
   {
     name: "subject",
     text: "Môn học",
-    columns: SUBJECT.COLUMNS,
-    tableConfig: {
-      dataSource: SUBJECT.DATA,
-      rowSelection: {
-        type: "checkbox",
-        onChange: (selectedRowKeys: React.Key[], selectedRows: any[]) => {
-          console.log(`selectedRowKeys: ${selectedRowKeys}`, 'selectedRows: ', selectedRows);
-        },
-        getCheckboxProps: (record: any) => ({
-          disabled: record.name === 'Disabled User', // Column configuration not to be checked
-          name: record.name,
-        }),
-      }
-    },
+    table: SUBJECT.TABLE,
     panel: SUBJECT.PANEL,
   },
   {
     name: "class",
     text: "Lớp học",
-    columns: CLASS.COLUMNS,
-    tableConfig: {
-      dataSource: CLASS.DATA,
-      rowSelection: {
-        type: "checkbox",
-        onChange: (selectedRowKeys: React.Key[], selectedRows: any[]) => {
-          console.log(`selectedRowKeys: ${selectedRowKeys}`, 'selectedRows: ', selectedRows);
-        },
-        getCheckboxProps: (record: any) => ({
-          disabled: record.name === 'Disabled User', // Column configuration not to be checked
-          name: record.name,
-        }),
-      }
-    },
+    table: CLASS.TABLE,
     panel: CLASS.PANEL,
   },
   {
     name: "score",
     text: "Loại điểm",
-    columns: SCORE.COLUMNS,
-    tableConfig: {
-      dataSource: SCORE.DATA,
-    },
+    table: SCORE.TABLE,
     panel: SCORE.PANEL,
   },
 ];

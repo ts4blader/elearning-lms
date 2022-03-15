@@ -1,9 +1,10 @@
 import React from "react";
 import { Table } from "antd";
 import ItemActions from "@components/ItemActions";
-import DATA from "@seeds/thcs/semesters.json";
+import { MenuOutlined } from "@ant-design/icons";
+import DATA from "@seeds/thcs/groups.json";
 
-const SemesterTable = () => {
+const GroupTable = () => {
   const { Column } = Table;
 
   return (
@@ -16,17 +17,22 @@ const SemesterTable = () => {
       dataSource={DATA}
       rowKey={(record) => record.id}
     >
-      <Column title="ID" dataIndex="id" key="id" sorter={true} />
       <Column title="Name" dataIndex="name" key="name" sorter={true} />
-      <Column title="Begin" dataIndex="begin" key="begin" />
-      <Column title="End" dataIndex="end" key="end" />
+      <Column title="Leader" dataIndex="leader" key="leader" />
       <Column
         key="action"
         render={(text, record) => (
           <ItemActions
-            name="niên khóa"
+            name="tổ - bộ môn"
             onDelete={() => null}
             onEdit={() => null}
+            buttons={[
+              {
+                className: "menu-btn",
+                icon: MenuOutlined,
+                onClick: () => null,
+              },
+            ]}
           />
         )}
       />
@@ -34,4 +40,4 @@ const SemesterTable = () => {
   );
 };
 
-export default SemesterTable;
+export default GroupTable;
