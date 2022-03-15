@@ -1,0 +1,19 @@
+.ant-checkbox {
+  &-inner {
+    border-color: @color-secondary;
+  }
+  &.ant-checkbox-checked {
+    .ant-checkbox-inner {
+      border-color: @color-secondary;
+      background: @color-secondary;
+    }
+  }
+  &.ant-checkbox-indeterminate {
+    .ant-checkbox-inner {
+      border-color: @color-secondary;
+      &::after {
+        background: @color-secondary;
+      }
+    }
+  }
+}
