@@ -21,7 +21,11 @@ const ItemActions = ({ name, onDelete, onEdit, buttons }: Props) => {
   return (
     <div className="item-actions">
       {buttons?.map((item) => (
-        <span className={item.className} onClick={item.onClick}>
+        <span
+          key={`item-action-${item.className}`}
+          className={item.className}
+          onClick={item.onClick}
+        >
           <item.icon />
         </span>
       ))}
