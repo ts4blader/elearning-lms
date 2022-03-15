@@ -2,6 +2,7 @@ import React from "react";
 import { Table } from "antd";
 import ItemActions from "@components/ItemActions";
 import DATA from "@seeds/thcs/grades.json";
+import { MenuOutlined } from "@ant-design/icons";
 
 const GradeTable = () => {
   const { Column } = Table;
@@ -25,6 +26,13 @@ const GradeTable = () => {
             name="khoa - khối"
             onDelete={() => null}
             onEdit={() => null}
+            buttons={[
+              {
+                className: "menu-btn",
+                icon: MenuOutlined,
+                onClick: () => null,
+              },
+            ]}
           />
         )}
       />
