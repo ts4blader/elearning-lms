@@ -3,9 +3,12 @@ import { Table } from "antd";
 import ItemActions from "@components/ItemActions";
 import { EyeOutlined } from "@ant-design/icons";
 import DATA from "@seeds/thcs/classes.json";
+import { useHistory, useRouteMatch } from "react-router-dom";
 
 const ClassTable = () => {
   const { Column } = Table;
+  const history = useHistory();
+  const { path } = useRouteMatch();
 
   return (
     <Table
@@ -36,7 +39,7 @@ const ClassTable = () => {
       <Column title="Leader" dataIndex="leader" key="leader" />
       <Column
         key="action"
-        render={(text, record) => (
+        render={(text, record: any) => (
           <ItemActions
             name="lớp học"
             onDelete={() => null}
@@ -45,7 +48,7 @@ const ClassTable = () => {
               {
                 className: "detail-btn",
                 icon: EyeOutlined,
-                onClick: () => null,
+                onClick: () => history.push(`${path}/classes/${record.id}`),
               },
             ]}
           />
