@@ -2,10 +2,10 @@ import React from "react";
 import { UserOutlined } from "@ant-design/icons";
 
 type Props = {
-  title: string;
+  title: React.ReactNode;
   children: React.ReactNode;
   className?: string;
-} & React.ComponentProps<"section">;
+} & Omit<React.ComponentProps<"section">, "title">;
 
 const Section = ({ title, children, className = "", ...rest }: Props) => {
   return (
