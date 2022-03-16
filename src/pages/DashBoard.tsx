@@ -1,9 +1,9 @@
 import React from "react";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, useRouteMatch } from "react-router-dom";
 import Nav from "@components/Nav";
-import { useRouteMatch } from "react-router-dom";
 import Overview from "@pages/Overview";
 import Database from "@pages/Database";
+import ClassDetail from "@pages/ClassDetail";
 import DeleteModal from "@components/DeleteModal";
 
 const DashBoard = () => {
@@ -26,6 +26,9 @@ const DashBoard = () => {
           </Route>
           <Route path={`${path}/database`} exact>
             <Database />
+          </Route>
+          <Route path={`${path}/database/classes/:classId`} exact>
+            <ClassDetail />
           </Route>
         </Switch>
       </div>
