@@ -2,10 +2,11 @@ import { configureStore } from '@reduxjs/toolkit'
 import deleteModalReducer from "@slices/deleteModalSlice"
 import formModalReducer from "@slices/formModalSlice"
 import counterReducer from "@slices/counterSlice"
-
+import pageSizeReducer from "@slices/pageSizeSlice"
 
 export const store = configureStore({
   reducer: {
+    pageSize: pageSizeReducer,
     deleteModal: deleteModalReducer,
     formModal: formModalReducer,
     counter: counterReducer,

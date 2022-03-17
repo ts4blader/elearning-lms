@@ -5,6 +5,7 @@ import { MenuOutlined } from "@ant-design/icons";
 import DATA from "@seeds/thcs/groups.json";
 import SUBJECTS from "@seeds/thcs/subjects.json";
 import TableModal from "@components/TableModal";
+import { useAppSelector } from "@stores/hooks";
 
 const tableConfig = {
   dataSource: SUBJECTS,
@@ -27,6 +28,7 @@ const tableConfig = {
 const GroupTable = () => {
   const { Column } = Table;
   const [show, setShow] = useState(false);
+  const pageSize = useAppSelector((state) => state.pageSize);
 
   return (
     <>
@@ -39,9 +41,8 @@ const GroupTable = () => {
       />
       <Table
         pagination={{
-          showSizeChanger: true,
-          pageSizeOptions: [8, 10, 15],
-          defaultPageSize: 8,
+          showSizeChanger: false,
+          pageSize: pageSize.value,
         }}
         dataSource={DATA}
         rowKey={(record) => record.id}

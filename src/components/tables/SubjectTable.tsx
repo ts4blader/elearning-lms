@@ -2,16 +2,17 @@ import React from "react";
 import { Table } from "antd";
 import ItemActions from "@components/ItemActions";
 import DATA from "@seeds/thcs/subjects.json";
+import { useAppSelector } from "@stores/hooks";
 
 const SubjectTable = () => {
   const { Column } = Table;
+  const pageSize = useAppSelector((state) => state.pageSize);
 
   return (
     <Table
       pagination={{
-        showSizeChanger: true,
-        pageSizeOptions: [8, 10, 15],
-        defaultPageSize: 8,
+        showSizeChanger: false,
+        pageSize: pageSize.value,
       }}
       dataSource={DATA}
       rowKey={(record) => record.id}

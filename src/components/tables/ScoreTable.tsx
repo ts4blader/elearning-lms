@@ -2,16 +2,17 @@ import React from "react";
 import { Table } from "antd";
 import ItemActions from "@components/ItemActions";
 import DATA from "@seeds/thcs/scores.json";
+import { useAppSelector } from "@stores/hooks";
 
 const ScoreTable = () => {
   const { Column, ColumnGroup } = Table;
+  const pageSize = useAppSelector((state) => state.pageSize);
 
   return (
     <Table
       pagination={{
-        showSizeChanger: true,
-        pageSizeOptions: [8, 10, 15],
-        defaultPageSize: 8,
+        showSizeChanger: false,
+        pageSize: pageSize.value,
       }}
       rowKey={(record) => record.id}
       dataSource={DATA}

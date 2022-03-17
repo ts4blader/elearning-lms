@@ -5,6 +5,14 @@
   margin-top: 1em;
   min-height: 50rem;
   font-size: 1.6rem;
+  .item-actions {
+    span {
+      font-size: 2rem;
+      color: @color-primary;
+      margin-right: 0.5em;
+      cursor: pointer;
+    }
+  }
   //* Indent for the first column
   tr {
     th:nth-child(1) {
@@ -30,6 +38,29 @@
   tbody {
     tr:nth-child(even) {
       background: @color-gray-light;
+    }
+  }
+}
+
+/* ------------ page size ----------- */
+.table-wrapper {
+  position: relative;
+  .ant-table-pagination {
+    margin-top: 2em;
+  }
+  .pagesize-changer {
+    font-size: 0.9em;
+    position: absolute;
+    display: flex;
+    gap: 0.5em;
+    font-style: italic;
+    align-items: center;
+    white-space: nowrap;
+    bottom: 1em;
+    z-index: @layer-float;
+    .ant-input {
+      font-size: 1em;
+      width: 8rem;
     }
   }
 }

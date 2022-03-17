@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Input } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
+import TableWrapper from "@components/TableWrapper";
 
 type Props = {
   children: React.ReactNode;
@@ -32,7 +33,9 @@ const TableFrame = ({
             placeholder="Tìm kiếm"
           />
         </div>
-        <DataTable />
+        <TableWrapper>
+          <DataTable />
+        </TableWrapper>
       </div>
     </div>
   );

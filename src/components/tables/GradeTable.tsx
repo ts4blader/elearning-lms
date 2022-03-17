@@ -5,6 +5,7 @@ import DATA from "@seeds/thcs/grades.json";
 import { MenuOutlined } from "@ant-design/icons";
 import TableModal from "@components/TableModal";
 import CLASSES from "@seeds/thcs/classes.json";
+import { useAppSelector } from "@stores/hooks";
 
 const TABLE_MODAL = {
   dataSource: CLASSES,
@@ -17,6 +18,7 @@ const TABLE_MODAL = {
 const GradeTable = () => {
   const { Column } = Table;
   const [show, setShow] = useState(false);
+  const pageSize = useAppSelector((state) => state.pageSize);
 
   return (
     <>
@@ -29,9 +31,8 @@ const GradeTable = () => {
       />
       <Table
         pagination={{
-          showSizeChanger: true,
-          pageSizeOptions: [8, 10, 15],
-          defaultPageSize: 8,
+          showSizeChanger: false,
+          pageSize: pageSize.value,
         }}
         dataSource={DATA}
         rowKey={(record) => record.id}

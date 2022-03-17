@@ -4,18 +4,19 @@ import ItemActions from "@components/ItemActions";
 import { EyeOutlined } from "@ant-design/icons";
 import DATA from "@seeds/thcs/classes.json";
 import { useHistory, useRouteMatch } from "react-router-dom";
+import { useAppSelector } from "@stores/hooks";
 
 const ClassTable = () => {
   const { Column } = Table;
   const history = useHistory();
   const { path } = useRouteMatch();
+  const pageSize = useAppSelector((state) => state.pageSize);
 
   return (
     <Table
       pagination={{
-        showSizeChanger: true,
-        pageSizeOptions: [8, 10, 15],
-        defaultPageSize: 8,
+        showSizeChanger: false,
+        pageSize: pageSize.value,
       }}
       dataSource={DATA}
       rowKey={(record) => record.id}
