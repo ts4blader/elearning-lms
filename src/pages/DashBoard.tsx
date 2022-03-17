@@ -5,6 +5,7 @@ import Overview from "@pages/Overview";
 import Database from "@pages/Database";
 import ClassDetail from "@pages/ClassDetail";
 import DeleteModal from "@components/DeleteModal";
+import FormModal from "@components/FormModal";
 
 const DashBoard = () => {
   const { path } = useRouteMatch();
@@ -13,6 +14,8 @@ const DashBoard = () => {
     <main className="dashboard-page">
       {/* Delete Modal */}
       <DeleteModal />
+      {/* Form Modal */}
+      <FormModal />
       {/* Page sider */}
       <div className="page-sider">
         <Nav rootPath={path} />

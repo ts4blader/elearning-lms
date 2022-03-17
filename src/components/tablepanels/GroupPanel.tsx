@@ -1,29 +1,31 @@
-import React, { useState } from "react";
+import React from "react";
 import TablePanel from "@components/TablePanel";
 import { Button } from "antd";
 import { PlusOutlined } from "@ant-design/icons";
 import GroupForm from "@components/forms/GroupForm";
+import { useAppDispatch } from "@stores/hooks";
+import { showFormModal } from "@slices/formModalSlice";
 
 const GroupPanel = () => {
-  const [showModal, setShowModal] = useState(false);
-
-  const show = () => setShowModal(true);
-  const hide = () => setShowModal(false);
+  const dispatch = useAppDispatch();
+  const showModal = () => {
+    dispatch(
+      showFormModal({
+        title: "Thêm tổ - bộ môn",
+        innerForm: GroupForm,
+      })
+    );
+  };
 
   return (
-    <TablePanel
-      popUpTitle="Thêm tổ - bộ môn"
-      innerForm={GroupForm}
-      show={showModal}
-      onCancel={hide}
-    >
+    <TablePanel>
       <TablePanel.ButtonGrp>
         <Button
           className="add-btn"
           type="primary"
           size="large"
           icon={<PlusOutlined />}
-          onClick={show}
+          onClick={showModal}
         >
           Thêm mới
         </Button>

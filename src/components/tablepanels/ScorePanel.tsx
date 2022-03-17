@@ -1,26 +1,31 @@
-import React, { useState } from "react";
+import React from "react";
 import TablePanel from "@components/TablePanel";
 import { Button } from "antd";
 import { PlusOutlined } from "@ant-design/icons";
 import ScoreForm from "@components/forms/ScoreForm";
+import { useAppDispatch } from "@stores/hooks";
+import { showFormModal } from "@slices/formModalSlice";
 
 const ScorePanel = () => {
-  const [show, setShow] = useState(false);
+  const dispatch = useAppDispatch();
+  const showModal = () => {
+    dispatch(
+      showFormModal({
+        title: "Thêm loại điểm",
+        innerForm: ScoreForm,
+      })
+    );
+  };
 
   return (
-    <TablePanel
-      onCancel={() => setShow(false)}
-      innerForm={ScoreForm}
-      show={show}
-      popUpTitle="Thêm loại điểm"
-    >
+    <TablePanel>
       <TablePanel.ButtonGrp>
         <Button
           className="add-btn"
           type="primary"
           size="large"
           icon={<PlusOutlined />}
-          onClick={() => setShow(true)}
+          onClick={showModal}
         >
           Thêm mới
         </Button>

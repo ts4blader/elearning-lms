@@ -1,20 +1,25 @@
-import React, { useState } from "react";
+import React from "react";
 import TablePanel from "@components/TablePanel";
 import Selection from "@components/Selection";
 import { Button, Divider } from "antd";
 import { DeleteOutlined, PlusOutlined } from "@ant-design/icons";
 import ClassForm from "@components/forms/ClassForm";
+import { useAppDispatch } from "@stores/hooks";
+import { showFormModal } from "@slices/formModalSlice";
 
 const ClassPanel = () => {
-  const [show, setShow] = useState(false);
+  const dispatch = useAppDispatch();
+  const showModal = () => {
+    dispatch(
+      showFormModal({
+        title: "Thêm lớp học",
+        innerForm: ClassForm,
+      })
+    );
+  };
 
   return (
-    <TablePanel
-      innerForm={ClassForm}
-      popUpTitle="Thêm lớp học"
-      show={show}
-      onCancel={() => setShow(false)}
-    >
+    <TablePanel>
       <TablePanel.SelectionGrp>
         <TablePanel.Field>
           <Selection
@@ -34,7 +39,7 @@ const ClassPanel = () => {
           type="primary"
           size="large"
           icon={<PlusOutlined />}
-          onClick={() => setShow(true)}
+          onClick={showModal}
         >
           Thêm mới
         </Button>

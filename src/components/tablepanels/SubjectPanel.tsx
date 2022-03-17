@@ -1,20 +1,25 @@
-import React, { useState } from "react";
+import React from "react";
 import { Button, Divider } from "antd";
 import TablePanel from "@components/TablePanel";
 import Selection from "@components/Selection";
 import { DeleteOutlined, PlusOutlined } from "@ant-design/icons";
 import SubjectForm from "@components/forms/SubjectForm";
+import { useAppDispatch } from "@stores/hooks";
+import { showFormModal } from "@slices/formModalSlice";
 
 const SubjectPanel = () => {
-  const [show, setShow] = useState(false);
+  const dispatch = useAppDispatch();
+  const showModal = () => {
+    dispatch(
+      showFormModal({
+        title: "Thêm môn học",
+        innerForm: SubjectForm,
+      })
+    );
+  };
 
   return (
-    <TablePanel
-      show={show}
-      innerForm={SubjectForm}
-      onCancel={() => setShow(false)}
-      popUpTitle="Thêm môn học"
-    >
+    <TablePanel>
       <TablePanel.SelectionGrp>
         <TablePanel.Field>
           <div className="label">Khối</div>
@@ -33,7 +38,7 @@ const SubjectPanel = () => {
           type="primary"
           size="large"
           icon={<PlusOutlined />}
-          onClick={() => setShow(true)}
+          onClick={showModal}
         >
           Thêm mới
         </Button>

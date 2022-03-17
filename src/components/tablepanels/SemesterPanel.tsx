@@ -1,22 +1,24 @@
-import React, { useState } from "react";
+import React from "react";
 import { Button } from "antd";
 import TablePanel from "@components/TablePanel";
-import SemesterForm from "@components/forms/SemesterForm";
 import { PlusOutlined } from "@ant-design/icons";
+import { useAppDispatch } from "@stores/hooks";
+import { showFormModal } from "@slices/formModalSlice";
+import SemesterForm from "@components/forms/SemesterForm";
 
 const SemesterPanel = () => {
-  const [show, setShow] = useState(false);
-
-  const showModal = () => setShow(true);
-  const hideModal = () => setShow(false);
+  const dispatch = useAppDispatch();
+  const showModal = () => {
+    dispatch(
+      showFormModal({
+        title: "Thêm niên khóa",
+        innerForm: SemesterForm,
+      })
+    );
+  };
 
   return (
-    <TablePanel
-      popUpTitle="Thêm niên khóa"
-      innerForm={SemesterForm}
-      show={show}
-      onCancel={hideModal}
-    >
+    <TablePanel>
       <TablePanel.ButtonGrp>
         <Button
           className="add-btn"

@@ -1,43 +1,14 @@
 import React from "react";
-import { Modal } from "antd";
 
 type Props = {
   className?: string;
 } & React.ComponentProps<"div">;
 
-type Additional = {
-  innerForm: React.ComponentType<any>;
-  show: boolean;
-  onCancel: () => void;
-  popUpTitle: string;
-};
-
-const TablePanel = ({
-  children,
-  className,
-  innerForm,
-  show,
-  onCancel,
-  popUpTitle,
-  ...rest
-}: Props & Additional) => {
-  const Form = innerForm;
-
+const TablePanel = ({ children, className, ...rest }: Props) => {
   return (
-    <>
-      <Modal
-        title={popUpTitle}
-        visible={show}
-        onCancel={onCancel}
-        footer={<></>}
-        centered={true}
-      >
-        <Form onCancel={onCancel} />
-      </Modal>
-      <div className={`table-panel ${className}`} {...rest}>
-        {children}
-      </div>
-    </>
+    <div className={`table-panel ${className}`} {...rest}>
+      {children}
+    </div>
   );
 };
 
