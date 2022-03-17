@@ -7,6 +7,10 @@ const DeleteModal = () => {
   const deleteModal = useAppSelector((state) => state.deleteModal);
   const dispatch = useAppDispatch();
 
+  const text = deleteModal.name
+    ? `${deleteModal.name} này và toàn bộ`
+    : "những";
+
   return (
     <Modal
       className="delete-modal"
@@ -17,7 +21,7 @@ const DeleteModal = () => {
       onOk={() => deleteModal.onAction}
       okText="Xác nhận"
     >
-      {`Xác nhận muốn xóa ${deleteModal.name} này và toàn bộ thông tin bên trong? Sau khi xóa không thể hoàn tác.`}
+      {`Xác nhận muốn xóa ${text} thông tin bên trong? Sau khi xóa không thể hoàn tác.`}
     </Modal>
   );
 };
