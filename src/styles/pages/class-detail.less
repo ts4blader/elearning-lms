@@ -1,7 +1,8 @@
 .class-detail {
+  @padding: 1em 4em;
   &-header {
     .general-info {
-      padding: 1em 4em;
+      padding: @padding;
       padding-bottom: 3em;
       border-radius: 1rem;
       margin-top: 1em;
@@ -46,5 +47,16 @@
     }
   }
   &-body {
+    margin-top: 1.5em;
+    padding: @padding;
+    border-radius: 1rem;
+    box-shadow: @box-shadow-dimblue;
+    .ant-table {
+      .save-btn {
+        border-radius: 0.5rem;
+        color: @color-primary;
+        border: 1px solid currentColor;
+      }
+    }
   }
 }

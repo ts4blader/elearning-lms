@@ -1,3 +1,5 @@
+import STUDENTS from "@seeds/thcs/students.json"
+
 export const PILLARS = [
     [
         { key: "Niên khóa", value: "2021-2022"},
@@ -15,3 +17,10 @@ export const PILLARS = [
         { key: "Mô tả", value: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. A sequi assumenda sunt itaque consequatur animi dicta, delectus quia iste maxime."},
     ],
 ]
+
+export const STUDENT_CONFIG = {
+    dataSource: STUDENTS,
+    columns: [
+        { title: ""}
+    ]
+}

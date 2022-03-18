@@ -6,11 +6,15 @@ import Selection from "@components/Selection";
 import TableWrapper from "@components/TableWrapper";
 import { useAppSelector } from "@stores/hooks";
 
+type TableEntry = typeof DATA[0];
+
 const SubjectList = () => {
   const { Column } = Table;
-  const [edit, setEdit] = useState(false);
+  const [edit, setEdit] = useState("");
   const [page, setPage] = useState(1);
   const pageSize = useAppSelector((state) => state.pageSize);
+
+  const isEditing = (record: TableEntry) => record.id === edit;
 
   return (
     <TableWrapper>
@@ -28,10 +32,9 @@ const SubjectList = () => {
         <Column
           key="no"
           title="NO"
-          render={(text, record: any, index) =>
+          render={(text, record: TableEntry, index) =>
             (page - 1) * pageSize.value + index + 1
           }
-          align="center"
         />
         <Column key="id" title="ID" dataIndex="id" sorter={true} />
         <Column key="name" title="Name" dataIndex="name" sorter={true} />
@@ -39,8 +42,8 @@ const SubjectList = () => {
         <Column
           key="status"
           title="Status"
-          render={(text, record: typeof DATA[0]) =>
-            edit ? (
+          render={(text, record: TableEntry) =>
+            isEditing(record) ? (
               <Selection data={["abc", "xyz"]} keyAffix="status" />
             ) : (
               <Tag
@@ -54,12 +57,14 @@ const SubjectList = () => {
         />
         <Column
           key="actions"
-          render={(text, record) =>
-            edit ? (
-              <Button onClick={() => setEdit(false)}>Lưu</Button>
+          render={(text, record: TableEntry) =>
+            isEditing(record) ? (
+              <Button className="save-btn" onClick={() => setEdit("")}>
+                Lưu
+              </Button>
             ) : (
               <div className="item-actions">
-                <span onClick={() => setEdit(true)}>
+                <span onClick={() => setEdit(record.id)}>
                   <EditOutlined />
                 </span>
               </div>
