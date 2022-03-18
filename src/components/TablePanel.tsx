@@ -4,7 +4,7 @@ type Props = {
   className?: string;
 } & React.ComponentProps<"div">;
 
-const TablePanel = ({ children, className, ...rest }: Props) => {
+const TablePanel = ({ children, className = "", ...rest }: Props) => {
   return (
     <div className={`table-panel ${className}`} {...rest}>
       {children}
@@ -12,7 +12,7 @@ const TablePanel = ({ children, className, ...rest }: Props) => {
   );
 };
 
-TablePanel.SelectionGrp = ({ children, className, ...rest }: Props) => {
+TablePanel.SelectionGrp = ({ children, className = "", ...rest }: Props) => {
   return (
     <div className={`selection-grp ${className}`} {...rest}>
       {children}
@@ -20,7 +20,7 @@ TablePanel.SelectionGrp = ({ children, className, ...rest }: Props) => {
   );
 };
 
-TablePanel.Field = ({ children, className, ...rest }: Props) => {
+TablePanel.Field = ({ children, className = "", ...rest }: Props) => {
   return (
     <div className={`field ${className}`} {...rest}>
       {children}
@@ -28,7 +28,7 @@ TablePanel.Field = ({ children, className, ...rest }: Props) => {
   );
 };
 
-TablePanel.ButtonGrp = ({ children, className, ...rest }: Props) => {
+TablePanel.ButtonGrp = ({ children, className = "", ...rest }: Props) => {
   return (
     <div className={`btn-grp ${className}`} {...rest}>
       {children}
