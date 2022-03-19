@@ -3,7 +3,7 @@ import { useAppDispatch } from "@stores/hooks";
 import { showDeleteModal } from "@slices/deleteModalSlice";
 import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
 
-type Additional = {
+type Button = {
   className: string;
   icon: typeof EditOutlined;
   onClick: () => void;
@@ -13,10 +13,21 @@ type Props = {
   name: string;
   onDelete: () => void;
   onEdit: () => void;
-  buttons?: Additional[];
+  buttons?: Button[];
+  editIcon?: typeof EditOutlined;
+  deleteIcon?: typeof EditOutlined;
 };
 
-const ItemActions = ({ name, onDelete, onEdit, buttons }: Props) => {
+const ItemActions = ({
+  name,
+  onDelete,
+  onEdit,
+  buttons,
+  editIcon = EditOutlined,
+  deleteIcon = DeleteOutlined,
+}: Props) => {
+  const EditIcon = editIcon;
+  const DeleteIcon = deleteIcon;
   const dispatch = useAppDispatch();
   return (
     <div className="item-actions">
@@ -30,7 +41,7 @@ const ItemActions = ({ name, onDelete, onEdit, buttons }: Props) => {
         </span>
       ))}
       <span className="edit-btn">
-        <EditOutlined />
+        <EditIcon />
       </span>
       <span
         className="delete-btn"
@@ -43,7 +54,7 @@ const ItemActions = ({ name, onDelete, onEdit, buttons }: Props) => {
           )
         }
       >
-        <DeleteOutlined />
+        <DeleteIcon />
       </span>
     </div>
   );

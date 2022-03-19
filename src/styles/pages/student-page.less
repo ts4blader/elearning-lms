@@ -1,0 +1,21 @@
+.students-page {
+  .tabs {
+    margin-left: 1em;
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    font-size: 1.8rem;
+    font-weight: bold;
+    .tabs-item {
+      cursor: pointer;
+      padding: 0.2em 2em;
+      background: @color-gray-light;
+      color: @color-gray-dark;
+      border-radius: 999px;
+      &[data-active="true"] {
+        background: @color-dark;
+        color: white;
+      }
+    }
+  }
+}

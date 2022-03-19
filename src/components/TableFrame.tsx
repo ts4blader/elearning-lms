@@ -7,7 +7,7 @@ type Props = {
   children: React.ReactNode;
   title: string;
   className?: string;
-  table: any;
+  table: React.ComponentType<any>;
 } & React.ComponentProps<"div">;
 
 const TableFrame = ({

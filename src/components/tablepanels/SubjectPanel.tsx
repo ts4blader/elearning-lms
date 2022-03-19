@@ -23,11 +23,15 @@ const SubjectPanel = () => {
       <TablePanel.SelectionGrp>
         <TablePanel.Field>
           <div className="label">Khối</div>
-          <Selection keyAffix="grade" data={["6", "7", "8"]} />
+          <Selection keyAffix="grade" data={["6", "7", "8"]} defaultValue="6" />
         </TablePanel.Field>
         <TablePanel.Field>
           <div className="label">Lớp</div>
-          <Selection keyAffix="class" data={["6A", "6B", "6C", "6D"]} />
+          <Selection
+            defaultValue="6A"
+            keyAffix="class"
+            data={["6A", "6B", "6C", "6D"]}
+          />
         </TablePanel.Field>
       </TablePanel.SelectionGrp>
       <TablePanel.ButtonGrp>

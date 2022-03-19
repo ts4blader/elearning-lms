@@ -25,6 +25,7 @@ const ClassPanel = () => {
           <Selection
             keyAffix="grade"
             data={["Tất cả các khối", "Khối 6", "Khối 7", "Khối 8"]}
+            defaultValue="Tất cả các khối"
           />
         </TablePanel.Field>
       </TablePanel.SelectionGrp>

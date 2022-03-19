@@ -44,7 +44,11 @@ const SubjectList = () => {
           title="Status"
           render={(text, record: TableEntry) =>
             isEditing(record) ? (
-              <Selection data={["abc", "xyz"]} keyAffix="status" />
+              <Selection
+                data={["abc", "xyz"]}
+                defaultValue="abc"
+                keyAffix="status"
+              />
             ) : (
               <Tag
                 icon={<div className="dot"></div>}
