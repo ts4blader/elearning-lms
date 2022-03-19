@@ -18,11 +18,19 @@ const Database = () => {
           <div className="view-panel-title">Đang chọn xem:</div>
           <div className="view-panel-field">
             <div className="label">Trường:</div>
-            <Selection keyAffix="school" data={SCHOOL_DROPDOWN} />
+            <Selection
+              keyAffix="school"
+              data={SCHOOL_DROPDOWN}
+              defaultValue={SCHOOL_DROPDOWN[0]}
+            />
           </div>
           <div className="view-panel-field">
             <div className="label">Niên khóa:</div>
-            <Selection keyAffix="semester" data={SEMESTERS_DROPDOWN} />
+            <Selection
+              keyAffix="semester"
+              data={SEMESTERS_DROPDOWN}
+              defaultValue={SEMESTERS_DROPDOWN[0]}
+            />
           </div>
         </div>
         <ul className="entry-list">

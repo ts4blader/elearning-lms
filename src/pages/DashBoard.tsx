@@ -4,6 +4,7 @@ import Nav from "@components/Nav";
 import Overview from "@pages/Overview";
 import Database from "@pages/Database";
 import ClassDetail from "@pages/ClassDetail";
+import Students from "@pages/Students";
 import DeleteModal from "@components/DeleteModal";
 import FormModal from "@components/FormModal";
 
@@ -32,6 +33,9 @@ const DashBoard = () => {
           </Route>
           <Route path={`${path}/database/classes/:classId`} exact>
             <ClassDetail />
+          </Route>
+          <Route path={`${path}/student`} exact>
+            <Students />
           </Route>
         </Switch>
       </div>

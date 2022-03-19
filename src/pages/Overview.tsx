@@ -32,7 +32,11 @@ const Overview = () => {
       <div className="overview-row row">
         <div className="semester-dropdown-wrapper">
           <div className="row-label">Niên khóa</div>
-          <Selection keyAffix="semester" data={SEMESTER} />
+          <Selection
+            keyAffix="semester"
+            data={SEMESTER}
+            defaultValue={SEMESTER[0]}
+          />
         </div>
         <ul className="overview-cards">
           {CARDS.map((item) => (
@@ -55,7 +59,11 @@ const Overview = () => {
         <StatisticalEntry className="study-result">
           <StatisticalEntry.Header>
             <h3 className="title">Thống kê kết quả học tập</h3>
-            <Selection keyAffix="class" data={CLASSES} />
+            <Selection
+              keyAffix="class"
+              data={CLASSES}
+              placeholder="Chọn khối"
+            />
           </StatisticalEntry.Header>
           <StatisticalEntry.Content>
             <ColumnGroupChart />
@@ -65,7 +73,11 @@ const Overview = () => {
         <StatisticalEntry className="students-amount">
           <StatisticalEntry.Header>
             <h3 className="title">Số lượng học viên</h3>
-            <Selection keyAffix="level" data={LEVELS} />
+            <Selection
+              keyAffix="level"
+              data={LEVELS}
+              defaultValue={LEVELS[0]}
+            />
           </StatisticalEntry.Header>
           <StatisticalEntry.Content>
             <ul className="students-amount-list">

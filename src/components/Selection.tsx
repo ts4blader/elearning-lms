@@ -1,27 +1,14 @@
 import React from "react";
-import { Select } from "antd";
+import { Select, SelectProps } from "antd";
 
 type Props = {
   data: string[];
   keyAffix: string;
-  defaultValue?: string;
-  selectConfig?: any;
-  className?: string;
-};
+} & SelectProps;
 
-const Selection = ({
-  data,
-  className,
-  keyAffix,
-  defaultValue,
-  selectConfig,
-}: Props) => {
+const Selection = ({ data, keyAffix, ...rest }: Props) => {
   return (
-    <Select
-      className={className}
-      {...selectConfig}
-      defaultValue={defaultValue ? defaultValue : data[0]}
-    >
+    <Select {...rest}>
       {data.map((item) => (
         <Select.Option key={`item-${keyAffix}`} value={item}>
           {item}
