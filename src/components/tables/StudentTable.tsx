@@ -1,11 +1,29 @@
 import React from "react";
 import ItemActions from "@components/ItemActions";
-import { Table, Tag } from "antd";
+import { Table, Tag, Dropdown } from "antd";
 import { useAppSelector } from "@stores/hooks";
 import DATA from "@seeds/thcs/students.json";
 import { EyeOutlined, SyncOutlined } from "@ant-design/icons";
+import { useAppDispatch } from "@stores/hooks";
+import { showFormModal } from "@slices/formModalSlice";
 
 type StudentType = typeof DATA[0];
+
+const DropdownOverlay = () => {
+  const dispatch = useAppDispatch();
+
+  return (
+    <ul className="edit-student-dropdown-overlay">
+      <li onClick={() => null}>Sửa hồ sơ</li>
+      <li onClick={() => null}>Chuyển lớp</li>
+      <li onClick={() => null}>Chuyển trường</li>
+      <li onClick={() => null}>Bảo lưu</li>
+      <li onClick={() => null}>Cập nhật miễn giảm</li>
+      <li onClick={() => null}>Cập nhật khen thưởng</li>
+      <li onClick={() => null}>Cập nhật kỷ luật</li>
+    </ul>
+  );
+};
 
 const StudentTable = () => {
   const { Column } = Table;
@@ -67,11 +85,11 @@ const StudentTable = () => {
               icon={EyeOutlined}
               onClick={() => null}
             />
-            <ItemActions.EditButton
-              title="Thiết lập học viên"
-              innerForm={() => null}
-              icon={SyncOutlined}
-            />
+            <span>
+              <Dropdown overlay={<DropdownOverlay />} trigger={["click"]}>
+                <SyncOutlined />
+              </Dropdown>
+            </span>
             <ItemActions.DeleteButton
               deleteName="học viên"
               onDelete={() => null}
