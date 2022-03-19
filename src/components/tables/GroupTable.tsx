@@ -6,6 +6,7 @@ import DATA from "@seeds/thcs/groups.json";
 import SUBJECTS from "@seeds/thcs/subjects.json";
 import TableModal from "@components/TableModal";
 import { useAppSelector } from "@stores/hooks";
+import GroupForm from "@components/forms/GroupForm";
 
 const tableConfig = {
   dataSource: SUBJECTS,
@@ -52,18 +53,21 @@ const GroupTable = () => {
         <Column
           key="action"
           render={(text, record) => (
-            <ItemActions
-              name="tổ - bộ môn"
-              onDelete={() => null}
-              onEdit={() => null}
-              buttons={[
-                {
-                  className: "menu-btn",
-                  icon: MenuOutlined,
-                  onClick: () => setShow(true),
-                },
-              ]}
-            />
+            <ItemActions>
+              <ItemActions.Button
+                icon={MenuOutlined}
+                className="menu-btn"
+                onClick={() => setShow(true)}
+              />
+              <ItemActions.EditButton
+                title="Thiết lập tổ - bộ môn"
+                innerForm={GroupForm}
+              />
+              <ItemActions.DeleteButton
+                deleteName="tổ - bộ môn"
+                onDelete={() => null}
+              />
+            </ItemActions>
           )}
         />
       </Table>

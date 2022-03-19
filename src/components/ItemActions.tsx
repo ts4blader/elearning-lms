@@ -2,62 +2,90 @@ import React from "react";
 import { useAppDispatch } from "@stores/hooks";
 import { showDeleteModal } from "@slices/deleteModalSlice";
 import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
+import { showFormModal } from "@slices/formModalSlice";
 
-type Button = {
+type ButtonProps = {
   className: string;
   icon: typeof EditOutlined;
   onClick: () => void;
 };
 
-type Props = {
-  name: string;
+type DeleteButtonProps = {
+  icon?: typeof EditOutlined;
+  deleteName: string;
   onDelete: () => void;
-  onEdit: () => void;
-  buttons?: Button[];
-  editIcon?: typeof EditOutlined;
-  deleteIcon?: typeof EditOutlined;
 };
 
-const ItemActions = ({
-  name,
-  onDelete,
-  onEdit,
-  buttons,
-  editIcon = EditOutlined,
-  deleteIcon = DeleteOutlined,
-}: Props) => {
-  const EditIcon = editIcon;
-  const DeleteIcon = deleteIcon;
+type EditButtonProps = {
+  icon?: typeof EditOutlined;
+  title: string;
+  innerForm: React.ComponentType<any>;
+};
+
+type MainProps = {
+  children: React.ReactNode;
+};
+
+const ItemActions = ({ children }: MainProps) => {
+  return <div className="item-actions">{children && children}</div>;
+};
+
+const DeleteButton = ({
+  icon = DeleteOutlined,
+  onDelete = () => null,
+  deleteName,
+}: DeleteButtonProps) => {
   const dispatch = useAppDispatch();
+
   return (
-    <div className="item-actions">
-      {buttons?.map((item) => (
-        <span
-          key={`item-action-${item.className}`}
-          className={item.className}
-          onClick={item.onClick}
-        >
-          <item.icon />
-        </span>
-      ))}
-      <span className="edit-btn">
-        <EditIcon />
-      </span>
-      <span
-        className="delete-btn"
-        onClick={() =>
-          dispatch(
-            showDeleteModal({
-              onAction: onDelete,
-              name: name,
-            })
-          )
-        }
-      >
-        <DeleteIcon />
-      </span>
-    </div>
+    <ItemActions.Button
+      icon={icon}
+      className="delete-btn"
+      onClick={() =>
+        dispatch(
+          showDeleteModal({
+            onAction: onDelete,
+            name: deleteName,
+          })
+        )
+      }
+    />
   );
 };
+
+const EditButton = ({
+  icon = EditOutlined,
+  title,
+  innerForm,
+}: EditButtonProps) => {
+  const dispatch = useAppDispatch();
+  return (
+    <ItemActions.Button
+      className="edit-btn"
+      icon={icon}
+      onClick={() =>
+        dispatch(
+          showFormModal({
+            title,
+            innerForm,
+          })
+        )
+      }
+    />
+  );
+};
+
+ItemActions.Button = ({ icon, className, onClick }: ButtonProps) => {
+  const Icon = icon;
+
+  return (
+    <span className={className} onClick={onClick}>
+      <Icon />
+    </span>
+  );
+};
+
+ItemActions.DeleteButton = DeleteButton;
+ItemActions.EditButton = EditButton;
 
 export default ItemActions;

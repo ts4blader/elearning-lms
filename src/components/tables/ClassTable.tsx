@@ -5,6 +5,7 @@ import { EyeOutlined } from "@ant-design/icons";
 import DATA from "@seeds/thcs/classes.json";
 import { useHistory, useRouteMatch } from "react-router-dom";
 import { useAppSelector } from "@stores/hooks";
+import ClassForm from "@components/forms/ClassForm";
 
 const ClassTable = () => {
   const { Column } = Table;
@@ -41,18 +42,21 @@ const ClassTable = () => {
       <Column
         key="action"
         render={(text, record: any) => (
-          <ItemActions
-            name="lớp học"
-            onDelete={() => null}
-            onEdit={() => null}
-            buttons={[
-              {
-                className: "detail-btn",
-                icon: EyeOutlined,
-                onClick: () => history.push(`${path}/classes/${record.id}`),
-              },
-            ]}
-          />
+          <ItemActions>
+            <ItemActions.Button
+              icon={EyeOutlined}
+              className="detail-btn"
+              onClick={() => history.push(`${path}/classes/${record.id}`)}
+            />
+            <ItemActions.EditButton
+              title="Thiết lập lớp học"
+              innerForm={ClassForm}
+            />
+            <ItemActions.DeleteButton
+              deleteName="lớp học"
+              onDelete={() => null}
+            />
+          </ItemActions>
         )}
       />
     </Table>

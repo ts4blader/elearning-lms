@@ -3,6 +3,7 @@ import { Table } from "antd";
 import ItemActions from "@components/ItemActions";
 import DATA from "@seeds/thcs/semesters.json";
 import { useAppSelector } from "@stores/hooks";
+import SemesterForm from "@components/forms/SemesterForm";
 
 const SemesterTable = () => {
   const { Column } = Table;
@@ -33,11 +34,16 @@ const SemesterTable = () => {
       <Column
         key="action"
         render={(text, record) => (
-          <ItemActions
-            name="niên khóa"
-            onDelete={() => null}
-            onEdit={() => null}
-          />
+          <ItemActions>
+            <ItemActions.EditButton
+              title="Thiết lập niên khóa"
+              innerForm={SemesterForm}
+            />
+            <ItemActions.DeleteButton
+              deleteName="niên khóa"
+              onDelete={() => null}
+            />
+          </ItemActions>
         )}
       />
     </Table>

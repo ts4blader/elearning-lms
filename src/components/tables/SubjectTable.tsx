@@ -3,6 +3,7 @@ import { Table } from "antd";
 import ItemActions from "@components/ItemActions";
 import DATA from "@seeds/thcs/subjects.json";
 import { useAppSelector } from "@stores/hooks";
+import SubjectForm from "@components/forms/SubjectForm";
 
 const SubjectTable = () => {
   const { Column } = Table;
@@ -39,11 +40,16 @@ const SubjectTable = () => {
       <Column
         key="action"
         render={(text, record) => (
-          <ItemActions
-            name="môn học"
-            onDelete={() => null}
-            onEdit={() => null}
-          />
+          <ItemActions>
+            <ItemActions.EditButton
+              title="Thiết lập môn học"
+              innerForm={SubjectForm}
+            />
+            <ItemActions.DeleteButton
+              deleteName="môn học"
+              onDelete={() => null}
+            />
+          </ItemActions>
         )}
       />
     </Table>

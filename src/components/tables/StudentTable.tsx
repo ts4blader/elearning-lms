@@ -61,19 +61,22 @@ const StudentTable = () => {
       <Column
         title=""
         render={(text, record) => (
-          <ItemActions
-            name="học viên"
-            onDelete={() => null}
-            onEdit={() => null}
-            editIcon={SyncOutlined}
-            buttons={[
-              {
-                className: "detail-btn",
-                icon: EyeOutlined,
-                onClick: () => null,
-              },
-            ]}
-          />
+          <ItemActions>
+            <ItemActions.Button
+              className="detail-btn"
+              icon={EyeOutlined}
+              onClick={() => null}
+            />
+            <ItemActions.EditButton
+              title="Thiết lập học viên"
+              innerForm={() => null}
+              icon={SyncOutlined}
+            />
+            <ItemActions.DeleteButton
+              deleteName="học viên"
+              onDelete={() => null}
+            />
+          </ItemActions>
         )}
       />
     </Table>

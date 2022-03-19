@@ -3,6 +3,7 @@ import { Table } from "antd";
 import ItemActions from "@components/ItemActions";
 import DATA from "@seeds/thcs/scores.json";
 import { useAppSelector } from "@stores/hooks";
+import ScoreForm from "@components/forms/ScoreForm";
 
 const ScoreTable = () => {
   const { Column, ColumnGroup } = Table;
@@ -38,11 +39,16 @@ const ScoreTable = () => {
       <Column
         key="action"
         render={(text, record) => (
-          <ItemActions
-            name="loại điểm"
-            onDelete={() => null}
-            onEdit={() => null}
-          />
+          <ItemActions>
+            <ItemActions.EditButton
+              title="Thiết lập loại điểm"
+              innerForm={ScoreForm}
+            />
+            <ItemActions.DeleteButton
+              deleteName="loại điểm"
+              onDelete={() => null}
+            />
+          </ItemActions>
         )}
       />
     </Table>

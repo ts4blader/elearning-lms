@@ -6,6 +6,7 @@ import { MenuOutlined } from "@ant-design/icons";
 import TableModal from "@components/TableModal";
 import CLASSES from "@seeds/thcs/classes.json";
 import { useAppSelector } from "@stores/hooks";
+import GradeForm from "@components/forms/GradeForm";
 
 const TABLE_MODAL = {
   dataSource: CLASSES,
@@ -42,18 +43,21 @@ const GradeTable = () => {
         <Column
           key="action"
           render={(text, record) => (
-            <ItemActions
-              name="khoa - khối"
-              onDelete={() => null}
-              onEdit={() => null}
-              buttons={[
-                {
-                  className: "menu-btn",
-                  icon: MenuOutlined,
-                  onClick: () => setShow(true),
-                },
-              ]}
-            />
+            <ItemActions>
+              <ItemActions.Button
+                icon={MenuOutlined}
+                className="menu-btn"
+                onClick={() => setShow(true)}
+              />
+              <ItemActions.EditButton
+                title="Thiết lập khoa khối"
+                innerForm={GradeForm}
+              />
+              <ItemActions.DeleteButton
+                deleteName="khoa khối"
+                onDelete={() => null}
+              />
+            </ItemActions>
           )}
         />
       </Table>
