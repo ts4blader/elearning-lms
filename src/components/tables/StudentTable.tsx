@@ -6,6 +6,7 @@ import DATA from "@seeds/thcs/students.json";
 import { EyeOutlined, SyncOutlined } from "@ant-design/icons";
 import { useAppDispatch } from "@stores/hooks";
 import { showFormModal } from "@slices/formModalSlice";
+import ColumnTitle from "@components/ColumnTitle";
 
 type StudentType = typeof DATA[0];
 
@@ -52,7 +53,14 @@ const StudentTable = () => {
         }),
       }}
     >
-      <Column title="ID" dataIndex="id" key="id" sorter={true} />
+      <Column
+        title={({ sortColumns }) => (
+          <ColumnTitle reactKey="id" sortColumns={sortColumns} title="ID" />
+        )}
+        dataIndex="id"
+        key="id"
+        sorter={true}
+      />
       <Column title="Name" dataIndex="name" key="name" sorter={true} />
       <Column
         title="Birthday"

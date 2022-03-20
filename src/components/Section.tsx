@@ -1,5 +1,4 @@
 import React from "react";
-import { UserOutlined } from "@ant-design/icons";
 
 type Props = {
   title: React.ReactNode;
@@ -13,7 +12,7 @@ const Section = ({ title, children, className = "", ...rest }: Props) => {
       <header className="header">
         <div className="user-panel">
           <div className="avatar">
-            <UserOutlined />
+            <img src="/icons/user_circle.svg" alt="user" />
           </div>
           <div className="username">Admin</div>
           <div className="divider">|</div>
