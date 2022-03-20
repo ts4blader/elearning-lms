@@ -6,6 +6,7 @@ import DATA from "@seeds/thcs/classes.json";
 import { useHistory, useRouteMatch } from "react-router-dom";
 import { useAppSelector } from "@stores/hooks";
 import ClassForm from "@components/forms/ClassForm";
+import ColumnTitle from "@components/ColumnTitle";
 
 const ClassTable = () => {
   const { Column } = Table;
@@ -36,8 +37,22 @@ const ClassTable = () => {
         }),
       }}
     >
-      <Column title="ID" dataIndex="id" key="id" sorter={true} />
-      <Column title="Name" dataIndex="name" key="name" sorter={true} />
+      <Column
+        title={({ sortColumns }) => (
+          <ColumnTitle sortColumns={sortColumns} text="ID" reactKey="id" />
+        )}
+        dataIndex="id"
+        key="id"
+        sorter={true}
+      />
+      <Column
+        title={({ sortColumns }) => (
+          <ColumnTitle sortColumns={sortColumns} text="Name" reactKey="name" />
+        )}
+        dataIndex="name"
+        key="name"
+        sorter={true}
+      />
       <Column title="Leader" dataIndex="leader" key="leader" />
       <Column
         key="action"

@@ -7,13 +7,12 @@ import TableModal from "@components/TableModal";
 import CLASSES from "@seeds/thcs/classes.json";
 import { useAppSelector } from "@stores/hooks";
 import GradeForm from "@components/forms/GradeForm";
+import ColumnTitle from "@components/ColumnTitle";
+import { ADDITIONAL_COLUMN } from "@constants/tables/addition-tables";
 
 const TABLE_MODAL = {
   dataSource: CLASSES,
-  columns: [
-    { title: "ID", dataIndex: "id", key: "id", sorter: true },
-    { title: "Name", dataIndex: "name", key: "name", sorter: true },
-  ],
+  columns: ADDITIONAL_COLUMN,
 };
 
 const GradeTable = () => {
@@ -38,8 +37,26 @@ const GradeTable = () => {
         dataSource={DATA}
         rowKey={(record) => record.id}
       >
-        <Column title="ID" dataIndex="id" key="id" sorter={true} />
-        <Column title="Name" dataIndex="name" key="name" sorter={true} />
+        <Column
+          title={({ sortColumns }) => (
+            <ColumnTitle sortColumns={sortColumns} text="ID" reactKey="id" />
+          )}
+          dataIndex="id"
+          key="id"
+          sorter={true}
+        />
+        <Column
+          title={({ sortColumns }) => (
+            <ColumnTitle
+              sortColumns={sortColumns}
+              text="Name"
+              reactKey="name"
+            />
+          )}
+          dataIndex="name"
+          key="name"
+          sorter={true}
+        />
         <Column
           key="action"
           render={(text, record) => (

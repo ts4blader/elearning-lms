@@ -7,23 +7,12 @@ import SUBJECTS from "@seeds/thcs/subjects.json";
 import TableModal from "@components/TableModal";
 import { useAppSelector } from "@stores/hooks";
 import GroupForm from "@components/forms/GroupForm";
+import ColumnTitle from "@components/ColumnTitle";
+import { ADDITIONAL_COLUMN } from "@constants/tables/addition-tables";
 
 const tableConfig = {
   dataSource: SUBJECTS,
-  columns: [
-    {
-      title: "ID",
-      dataIndex: "id",
-      key: "id",
-      sorter: true,
-    },
-    {
-      title: "Name",
-      dataIndex: "name",
-      key: "name",
-      sorter: true,
-    },
-  ],
+  columns: ADDITIONAL_COLUMN,
 };
 
 const GroupTable = () => {
@@ -48,7 +37,18 @@ const GroupTable = () => {
         dataSource={DATA}
         rowKey={(record) => record.id}
       >
-        <Column title="Name" dataIndex="name" key="name" sorter={true} />
+        <Column
+          title={({ sortColumns }) => (
+            <ColumnTitle
+              sortColumns={sortColumns}
+              text="Name"
+              reactKey="name"
+            />
+          )}
+          dataIndex="name"
+          key="name"
+          sorter={true}
+        />
         <Column title="Leader" dataIndex="leader" key="leader" />
         <Column
           key="action"

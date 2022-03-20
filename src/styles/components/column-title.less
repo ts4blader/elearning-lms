@@ -1,0 +1,27 @@
+.ant-table-column-sorter {
+  display: none;
+}
+.column-title {
+  display: flex;
+  gap: 0.2em;
+  align-items: center;
+  .sort-icons {
+    display: flex;
+    align-items: center;
+    img {
+      width: 1.5rem;
+      filter: brightness(0) saturate(100%) invert(100%) sepia(0%)
+        saturate(7499%) hue-rotate(279deg) brightness(113%) contrast(99%);
+    }
+    .up-icon {
+      transform: rotate(180deg);
+    }
+    .full {
+      display: flex;
+      flex-direction: column;
+      .up-icon {
+        margin-bottom: -0.3em;
+      }
+    }
+  }
+}

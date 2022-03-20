@@ -4,6 +4,7 @@ import ItemActions from "@components/ItemActions";
 import DATA from "@seeds/thcs/semesters.json";
 import { useAppSelector } from "@stores/hooks";
 import SemesterForm from "@components/forms/SemesterForm";
+import ColumnTitle from "@components/ColumnTitle";
 
 const SemesterTable = () => {
   const { Column } = Table;
@@ -21,14 +22,23 @@ const SemesterTable = () => {
       rowKey={(record) => record.id}
     >
       <Column
-        title="NO"
-        key="id"
+        title={({ sortColumns }) => (
+          <ColumnTitle sortColumns={sortColumns} reactKey="no" text="NO" />
+        )}
+        key="no"
         sorter={true}
         render={(text, record, index) =>
           (page - 1) * pageSize.value + index + 1
         }
       />
-      <Column title="Name" dataIndex="name" key="name" sorter={true} />
+      <Column
+        title={({ sortColumns }) => (
+          <ColumnTitle sortColumns={sortColumns} text="Name" reactKey="name" />
+        )}
+        dataIndex="name"
+        key="name"
+        sorter={true}
+      />
       <Column title="Begin" dataIndex="begin" key="begin" />
       <Column title="End" dataIndex="end" key="end" />
       <Column

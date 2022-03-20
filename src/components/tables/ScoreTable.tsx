@@ -4,6 +4,7 @@ import ItemActions from "@components/ItemActions";
 import DATA from "@seeds/thcs/scores.json";
 import { useAppSelector } from "@stores/hooks";
 import ScoreForm from "@components/forms/ScoreForm";
+import ColumnTitle from "@components/ColumnTitle";
 
 const ScoreTable = () => {
   const { Column, ColumnGroup } = Table;
@@ -18,8 +19,22 @@ const ScoreTable = () => {
       rowKey={(record) => record.id}
       dataSource={DATA}
     >
-      <Column title="Name" dataIndex="name" key="name" sorter={true} />
-      <Column title="Base" dataIndex="base" key="base" sorter={true} />
+      <Column
+        title={({ sortColumns }) => (
+          <ColumnTitle sortColumns={sortColumns} text="Name" reactKey="name" />
+        )}
+        dataIndex="name"
+        key="name"
+        sorter={true}
+      />
+      <Column
+        title={({ sortColumns }) => (
+          <ColumnTitle sortColumns={sortColumns} text="Base" reactKey="base" />
+        )}
+        dataIndex="base"
+        key="base"
+        sorter={true}
+      />
 
       <ColumnGroup title="Minimum scores amount" align="center">
         <Column

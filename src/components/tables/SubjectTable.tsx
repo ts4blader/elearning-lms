@@ -4,6 +4,7 @@ import ItemActions from "@components/ItemActions";
 import DATA from "@seeds/thcs/subjects.json";
 import { useAppSelector } from "@stores/hooks";
 import SubjectForm from "@components/forms/SubjectForm";
+import ColumnTitle from "@components/ColumnTitle";
 
 const SubjectTable = () => {
   const { Column } = Table;
@@ -32,8 +33,22 @@ const SubjectTable = () => {
         }),
       }}
     >
-      <Column title="ID" dataIndex="id" key="id" sorter={true} />
-      <Column title="Name" dataIndex="name" key="name" sorter={true} />
+      <Column
+        title={({ sortColumns }) => (
+          <ColumnTitle sortColumns={sortColumns} text="ID" reactKey="id" />
+        )}
+        dataIndex="id"
+        key="id"
+        sorter={true}
+      />
+      <Column
+        title={({ sortColumns }) => (
+          <ColumnTitle sortColumns={sortColumns} text="Name" reactKey="name" />
+        )}
+        dataIndex="name"
+        key="name"
+        sorter={true}
+      />
       <Column title="Type" dataIndex="type" key="type" />
       <Column title="1st semester" dataIndex="first" key="first" />
       <Column title="2nd semester" dataIndex="secondary" key="secondary" />

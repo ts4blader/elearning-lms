@@ -55,26 +55,71 @@ const StudentTable = () => {
     >
       <Column
         title={({ sortColumns }) => (
-          <ColumnTitle reactKey="id" sortColumns={sortColumns} title="ID" />
+          <ColumnTitle sortColumns={sortColumns} reactKey="id" text="ID" />
         )}
         dataIndex="id"
         key="id"
         sorter={true}
       />
-      <Column title="Name" dataIndex="name" key="name" sorter={true} />
       <Column
-        title="Birthday"
+        title={({ sortColumns }) => (
+          <ColumnTitle sortColumns={sortColumns} reactKey="name" text="Name" />
+        )}
+        dataIndex="name"
+        key="name"
+        sorter={true}
+      />
+      <Column
+        title={({ sortColumns }) => (
+          <ColumnTitle
+            sortColumns={sortColumns}
+            reactKey="birthday"
+            text="Birthday"
+          />
+        )}
         dataIndex="birthday"
         key="birthday"
         sorter={true}
       />
-      <Column title="Gender" dataIndex="gender" key="gender" sorter={true} />
-      <Column title="Ethic" dataIndex="ethic" key="ethic" sorter={true} />
-      <Column title="Class" dataIndex="class" key="class" sorter={true} />
+      <Column
+        title={({ sortColumns }) => (
+          <ColumnTitle
+            sortColumns={sortColumns}
+            reactKey="gender"
+            text="Gender"
+          />
+        )}
+        dataIndex="gender"
+        key="gender"
+        sorter={true}
+      />
+      <Column
+        title={({ sortColumns }) => (
+          <ColumnTitle
+            sortColumns={sortColumns}
+            reactKey="ethic"
+            text="Ethic"
+          />
+        )}
+        dataIndex="ethic"
+        key="ethic"
+        sorter={true}
+      />
+      <Column
+        title={({ sortColumns }) => (
+          <ColumnTitle
+            sortColumns={sortColumns}
+            reactKey="class"
+            text="Class"
+          />
+        )}
+        dataIndex="class"
+        key="class"
+        sorter={true}
+      />
       <Column
         title="Status"
         key="status"
-        sorter={true}
         render={(text, record: StudentType) => (
           <Tag
             icon={<div className="dot"></div>}
@@ -83,9 +128,9 @@ const StudentTable = () => {
             {record.status}
           </Tag>
         )}
+        sorter={true}
       />
       <Column
-        title=""
         render={(text, record) => (
           <ItemActions>
             <ItemActions.Button
