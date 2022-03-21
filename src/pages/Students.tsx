@@ -32,7 +32,7 @@ const Students = () => {
                         pageSize: pageSize.value,
                       }}
                       rowKey={(record) => record.id}
-                      dataSource={DATA}
+                      dataSource={DATA.filter(selected.filter)}
                       columns={selected.columns}
                     />
                   )

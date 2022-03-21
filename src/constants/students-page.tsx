@@ -12,6 +12,7 @@ export const TABLES = [
   {
     title: "Danh sách khen thưởng của học viên",
     table: null,
+    filter: (item: any) => item.prized !== 0,
     tab: {
       name: "praised-student",
       text: "Khen thưởng",
@@ -32,6 +33,7 @@ export const TABLES = [
   {
     title: "Danh sách kỷ luật của học viên",
     table: null,
+    filter: (item: any) => item.disciplined !== 0,
     tab: {
       name: "disciplined-student",
       text: "Kỷ luật",
