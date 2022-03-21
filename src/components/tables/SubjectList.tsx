@@ -3,8 +3,7 @@ import TableWrapper from "@components/TableWrapper";
 import DATA from "@seeds/thcs/subjects.json";
 import { Table } from "antd";
 import { useAppSelector } from "@stores/hooks";
-
-type TableEntry = typeof DATA[0];
+import ColumnTitle from "@components/ColumnTitle";
 
 const SubjectList = () => {
   const { Column } = Table;
@@ -24,17 +23,65 @@ const SubjectList = () => {
         }}
       >
         <Column
-          key="no"
           title="NO"
-          render={(text, record: TableEntry, index) =>
+          key="no"
+          render={(text, record: any, index) =>
             (page - 1) * pageSize.value + index + 1
           }
         />
-        <Column key="id" title="ID" dataIndex="id" sorter={true} />
-        <Column key="name" title="Name" dataIndex="name" sorter={true} />
-        <Column key="type" title="Type" dataIndex="type" />
-        <Column key="first" title="First" dataIndex="first" />
-        <Column key="secondary" title="Secondary" dataIndex="secondary" />
+        <Column
+          key="id"
+          title={({ sortColumns }) => (
+            <ColumnTitle sortColumns={sortColumns} reactKey="id" text="ID" />
+          )}
+          dataIndex="id"
+          sorter={true}
+        />
+        <Column
+          key="name"
+          title={({ sortColumns }) => (
+            <ColumnTitle
+              sortColumns={sortColumns}
+              reactKey="name"
+              text="Name"
+            />
+          )}
+          dataIndex="name"
+          sorter={true}
+        />
+        <Column
+          key="type"
+          title={({ sortColumns }) => (
+            <ColumnTitle
+              sortColumns={sortColumns}
+              reactKey="type"
+              text="Type"
+            />
+          )}
+          dataIndex="type"
+        />
+        <Column
+          key="first"
+          title={({ sortColumns }) => (
+            <ColumnTitle
+              sortColumns={sortColumns}
+              reactKey="first"
+              text="First"
+            />
+          )}
+          dataIndex="first"
+        />
+        <Column
+          key="secondary"
+          title={({ sortColumns }) => (
+            <ColumnTitle
+              sortColumns={sortColumns}
+              reactKey="secondary"
+              text="Secondary"
+            />
+          )}
+          dataIndex="secondary"
+        />
       </Table>
     </TableWrapper>
   );

@@ -5,8 +5,7 @@ import { EditOutlined } from "@ant-design/icons";
 import Selection from "@components/Selection";
 import TableWrapper from "@components/TableWrapper";
 import { useAppSelector } from "@stores/hooks";
-
-type TableEntry = typeof DATA[0];
+import ColumnTitle from "@components/ColumnTitle";
 
 const SubjectList = () => {
   const { Column } = Table;
@@ -14,7 +13,7 @@ const SubjectList = () => {
   const [page, setPage] = useState(1);
   const pageSize = useAppSelector((state) => state.pageSize);
 
-  const isEditing = (record: TableEntry) => record.id === edit;
+  const isEditing = (record: any) => record.id === edit;
 
   return (
     <TableWrapper>
@@ -30,19 +29,53 @@ const SubjectList = () => {
         }}
       >
         <Column
-          key="no"
           title="NO"
-          render={(text, record: TableEntry, index) =>
+          key="no"
+          render={(text, record: any, index) =>
             (page - 1) * pageSize.value + index + 1
           }
         />
-        <Column key="id" title="ID" dataIndex="id" sorter={true} />
-        <Column key="name" title="Name" dataIndex="name" sorter={true} />
-        <Column key="birthday" title="Birthday" dataIndex="birthday" />
+        <Column
+          key="id"
+          title={({ sortColumns }) => (
+            <ColumnTitle sortColumns={sortColumns} reactKey="id" text="ID" />
+          )}
+          dataIndex="id"
+          sorter={true}
+        />
+        <Column
+          key="name"
+          title={({ sortColumns }) => (
+            <ColumnTitle
+              sortColumns={sortColumns}
+              reactKey="name"
+              text="Name"
+            />
+          )}
+          dataIndex="name"
+          sorter={true}
+        />
+        <Column
+          key="birthday"
+          title={({ sortColumns }) => (
+            <ColumnTitle
+              sortColumns={sortColumns}
+              reactKey="birthday"
+              text="Birthday"
+            />
+          )}
+          dataIndex="birthday"
+        />
         <Column
           key="status"
-          title="Status"
-          render={(text, record: TableEntry) =>
+          title={({ sortColumns }) => (
+            <ColumnTitle
+              sortColumns={sortColumns}
+              reactKey="status"
+              text="Status"
+            />
+          )}
+          render={(text, record: any) =>
             isEditing(record) ? (
               <Selection
                 data={["abc", "xyz"]}
@@ -61,7 +94,7 @@ const SubjectList = () => {
         />
         <Column
           key="actions"
-          render={(text, record: TableEntry) =>
+          render={(text, record: any) =>
             isEditing(record) ? (
               <Button className="save-btn" onClick={() => setEdit("")}>
                 Lưu
