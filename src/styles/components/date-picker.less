@@ -4,6 +4,17 @@
   &-suffix {
     color: @color-primary;
   }
+  &-footer {
+    border-top: 0 !important;
+    margin: 0.5em 0;
+  }
+  &-today-btn {
+    color: white;
+    background: @color-primary;
+    padding: 0.5em 1.5em;
+    border-radius: 0.5rem;
+    font-weight: bold;
+  }
 }
 /* ------------ dropdown ------------ */
 .ant-picker-dropdown {
@@ -41,6 +52,11 @@
     }
     .ant-picker-cell {
       padding: 0.5rem 0;
+    }
+    .ant-picker-cell-selected {
+      .ant-picker-cell-inner {
+        border-radius: 0.5rem;
+      }
     }
   }
 }
