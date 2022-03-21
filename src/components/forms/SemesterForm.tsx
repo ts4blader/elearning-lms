@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import {
-  Input,
   Form,
   Select,
   Checkbox,
@@ -15,6 +14,7 @@ import {
   InfoCircleOutlined,
 } from "@ant-design/icons";
 import moment from "moment";
+import TextInput from "@components/TextInput";
 
 type Props = {
   onCancel: () => void;
@@ -115,7 +115,7 @@ const SemesterForm = ({ onCancel }: Props) => {
                       initialValue="Học kỳ 2"
                       className="semester-name"
                     >
-                      <Input />
+                      <TextInput />
                     </Form.Item>
 
                     <Form.Item
