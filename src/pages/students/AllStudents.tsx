@@ -6,12 +6,28 @@ import TablePanel from "@components/TablePanel";
 import Selection from "@components/Selection";
 import DATA from "@seeds/thcs/students.json";
 import { TABLES } from "@constants/students-page";
-import { PlusOutlined, DeleteOutlined } from "@ant-design/icons";
-import { useAppSelector } from "@stores/hooks";
+import { DeleteOutlined } from "@ant-design/icons";
+import { useHistory, useRouteMatch } from "react-router-dom";
+import { useAppSelector, useAppDispatch } from "@stores/hooks";
+import DropdownActions from "@components/DropdownActions";
+import { showFormModal } from "@stores/slices/formModalSlice";
+import UploadForm from "@components/forms/UploadForm";
 
 const AllStudents = () => {
   const [selected, setSelected] = useState(TABLES[0]);
   const pageSize = useAppSelector((state) => state.pageSize);
+  const dispatch = useAppDispatch();
+  const history = useHistory();
+  const { path } = useRouteMatch();
+
+  const showImport = () =>
+    dispatch(
+      showFormModal({
+        title: "Tải file lên",
+        innerForm: UploadForm,
+      })
+    );
+  const showForm = () => history.push(`${path}/add-student`);
 
   return (
     <Section title="Hồ sơ học viên" className="students-page">
@@ -70,15 +86,10 @@ const AllStudents = () => {
             <Button className="export-btn" type="primary" ghost size="large">
               Xuất file
             </Button>
-            <Button
-              className="add-btn"
-              type="primary"
-              size="large"
-              icon={<PlusOutlined />}
-              onClick={() => null}
-            >
-              Thêm mới
-            </Button>
+            <DropdownActions
+              onManualClick={showForm}
+              onImportClick={showImport}
+            />
           </TablePanel.ButtonGrp>
         </TablePanel>
       </TableFrame>

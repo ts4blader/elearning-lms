@@ -1,0 +1,31 @@
+.dropdown-actions {
+  position: relative;
+  .add-item-dropdown {
+    position: absolute;
+    inset: 100% 0 auto 0;
+    display: flex;
+    gap: 1em;
+    flex-direction: column;
+    margin-top: 1em;
+    z-index: @layer-float + 1;
+    .ant-btn {
+      height: auto;
+      font-size: 1.6rem;
+      padding-block: 0.5em;
+      background: @color-primary-light-3;
+      color: @color-primary;
+      border: 1px solid currentColor;
+    }
+  }
+}
+
+.add-item-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: @layer-float;
+  width: 100vw;
+  height: 100vh;
+  background: black;
+  opacity: 0.5;
+}
