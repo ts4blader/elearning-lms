@@ -1,0 +1,47 @@
+.upload-form {
+  min-width: 80rem;
+  .field[data-length="true"] .ant-input-affix-wrapper {
+    background: white;
+    border-color: @color-gray-dark;
+  }
+  .field[data-length="true"] .ant-input {
+    background: white;
+  }
+  .anticon {
+    color: @color-primary;
+  }
+  .btn-grp {
+    margin-top: 2em;
+  }
+  .field {
+    margin-top: 1em;
+    display: flex;
+    align-items: center;
+    &-label {
+      flex: 3;
+      font-weight: 600;
+    }
+    &-control {
+      display: flex;
+      align-items: center;
+      gap: 1em;
+      flex: 8;
+      .text {
+        font-style: italic;
+        font-size: 1.4rem;
+      }
+      .ant-btn {
+        margin-left: 1em;
+        background: @color-primary-light-3;
+        border: 1px solid currentColor;
+        border-radius: 0.5rem;
+        padding-block: 0.5em;
+        font-size: 1.6rem;
+        height: auto;
+      }
+      .ant-upload-list {
+        display: none;
+      }
+    }
+  }
+}
