@@ -5,6 +5,7 @@ import { TextAreaProps } from "rc-textarea";
 const TextInput = ({ onChange, ...rest }: InputProps) => {
   return (
     <Input
+      size="large"
       {...rest}
       onChange={(e) => {
         if (onChange) onChange(e);
@@ -18,6 +19,7 @@ const TextInput = ({ onChange, ...rest }: InputProps) => {
 TextInput.TextArea = ({ onChange, ...rest }: TextAreaProps) => {
   return (
     <Input.TextArea
+      size="large"
       {...rest}
       onChange={(e) => {
         if (onChange) onChange(e);
