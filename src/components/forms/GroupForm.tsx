@@ -1,7 +1,8 @@
 import React from "react";
-import { Form, Select, Divider, Space, Button } from "antd";
+import { Form, Divider, Space, Button } from "antd";
 import { MinusCircleFilled, PlusCircleFilled } from "@ant-design/icons";
 import TextInput from "@components/TextInput";
+import { SelectInForm as Select } from "@components/Select";
 
 type Props = {
   onCancel: () => void;
@@ -26,13 +27,8 @@ const GroupForm = ({ onCancel }: Props) => {
           label="Tên trưởng tổ - bộ môn"
           name="leader"
           rules={[{ required: true, message: "Xin hãy chọn tên trưởng tổ" }]}
-          initialValue="thu"
         >
-          <Select>
-            <Select.Option>Thu</Select.Option>
-            <Select.Option>Ha</Select.Option>
-            <Select.Option>An</Select.Option>
-          </Select>
+          <Select data={["Thu", "Ha", "An"]} keyAffix="leader" />
         </Form.Item>
       </div>
 
@@ -55,10 +51,11 @@ const GroupForm = ({ onCancel }: Props) => {
                       className="subject-select"
                       initialValue="Ngữ văn"
                     >
-                      <Select>
-                        <Select.Option>Ngữ văn</Select.Option>
-                        <Select.Option>Toán</Select.Option>
-                      </Select>
+                      <Select
+                        size="middle"
+                        data={["Toan", "Ngu van"]}
+                        keyAffix="subject-selector"
+                      />
                     </Form.Item>
                   </Space>
                 ))}

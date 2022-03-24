@@ -3,7 +3,7 @@ import { Table, Button, Divider } from "antd";
 import Section from "@components/Section";
 import TableFrame from "@components/TableFrame";
 import TablePanel from "@components/TablePanel";
-import Selection from "@components/Selection";
+import Select from "@components/Select";
 import DATA from "@seeds/thcs/students.json";
 import { TABLES } from "@constants/students-page";
 import { DeleteOutlined } from "@ant-design/icons";
@@ -52,14 +52,14 @@ const AllStudents = () => {
         <TablePanel>
           <TablePanel.SelectionGrp>
             <TablePanel.Field>
-              <Selection
+              <Select
                 defaultValue="Tất cả các khối"
                 data={["Khối 6", "Khối 7", "Khối 8"]}
                 keyAffix="grade-select"
               />
             </TablePanel.Field>
             <TablePanel.Field>
-              <Selection
+              <Select
                 defaultValue="2021-2022"
                 data={["2021-2022", "2021-2023", "2021-2024"]}
                 keyAffix="semester-select"

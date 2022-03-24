@@ -1,24 +1,37 @@
-.ant-select {
-  min-width: 10rem;
-  &-selector {
+.select.ant-select {
+  .ant-select-selector {
     border: 1px solid currentColor !important;
     border-radius: 0.5rem !important;
+    height: auto !important;
   }
-  &-selection-item {
+  .ant-select-selection-item {
     border-right: 1px solid currentColor;
     margin-right: 2rem;
     font-weight: 600;
   }
-  &-arrow {
-    color: @color-primary;
-  }
-}
-.ant-select.selection {
   .ant-select-arrow {
     width: auto;
     height: auto;
     margin-top: 0;
     inset: 50% 0.5rem auto auto;
     transform: translateY(-50%);
+  }
+}
+.select.select-inform {
+  min-width: 15rem;
+  .ant-select-selection-item {
+    border-right: 1px solid transparent;
+  }
+  .ant-select-arrow {
+    right: 1em;
+  }
+  .ant-select-selector {
+    border-color: @color-gray-dark !important;
+  }
+  &[data-empty="true"] {
+    .ant-select-selector {
+      background: @color-gray-light;
+      border-color: transparent !important;
+    }
   }
 }

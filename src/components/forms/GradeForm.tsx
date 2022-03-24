@@ -1,6 +1,7 @@
 import React from "react";
-import { Form, Select, Space, Button } from "antd";
+import { Form, Space, Button } from "antd";
 import TextInput from "@components/TextInput";
+import { SelectInForm as Select } from "@components/Select";
 
 type Props = {
   onCancel: () => void;
@@ -33,13 +34,8 @@ const GradeForm = ({ onCancel }: Props) => {
           label="Trưởng khoa khối"
           name="leader"
           rules={[{ required: true, message: "Xin hãy chọn tên trưởng khoa" }]}
-          initialValue="thu"
         >
-          <Select>
-            <Select.Option>Thu</Select.Option>
-            <Select.Option>Ha</Select.Option>
-            <Select.Option>An</Select.Option>
-          </Select>
+          <Select data={["Thu", "Ha", "An"]} keyAffix="leader" />
         </Form.Item>
       </div>
 

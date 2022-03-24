@@ -1,6 +1,7 @@
 import React from "react";
-import { Form, Select, Space, Button, Divider } from "antd";
+import { Form, Space, Button, Divider } from "antd";
 import TextInput from "@components/TextInput";
+import { SelectInForm as Select } from "@components/Select";
 
 type Props = {
   onCancel: () => void;
@@ -19,12 +20,8 @@ const SubjectForm = ({ onCancel }: Props) => {
           label="Tổ bộ môn"
           name="group"
           rules={[{ required: true, message: "Xin hãy chọn tổ bộ môn" }]}
-          initialValue="Social"
         >
-          <Select>
-            <Select.Option>Social</Select.Option>
-            <Select.Option>Sience</Select.Option>
-          </Select>
+          <Select data={["Social", "Sience"]} keyAffix="group" />
         </Form.Item>
         {/* name input */}
         <Form.Item
@@ -48,12 +45,8 @@ const SubjectForm = ({ onCancel }: Props) => {
           label="Loại môn học"
           name="type"
           rules={[{ required: true, message: "Xin hãy chọn loại môn học" }]}
-          initialValue="required"
         >
-          <Select>
-            <Select.Option>Required</Select.Option>
-            <Select.Option>Optional</Select.Option>
-          </Select>
+          <Select data={["Required", "Optional"]} keyAffix="subject-type" />
         </Form.Item>
       </div>
 

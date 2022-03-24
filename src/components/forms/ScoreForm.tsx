@@ -1,6 +1,7 @@
 import React from "react";
-import { Form, Select, Space, Button, Divider } from "antd";
+import { Form, Space, Button, Divider } from "antd";
 import TextInput from "@components/TextInput";
+import { SelectInForm } from "@components/Select";
 
 type Props = {
   onCancel: () => void;
@@ -27,11 +28,11 @@ const ScoreForm = ({ onCancel }: Props) => {
             name="multiplier"
             rules={[{ required: true, message: "Xin hãy chọn hệ số" }]}
           >
-            <Select placeholder="Hệ số điểm">
-              <Select.Option>1</Select.Option>
-              <Select.Option>2</Select.Option>
-              <Select.Option>3</Select.Option>
-            </Select>
+            <SelectInForm
+              placeholder="Hệ số điểm"
+              data={["1", "2", "3"]}
+              keyAffix="base-score-selector"
+            />
           </Form.Item>
         </Space>
       </div>

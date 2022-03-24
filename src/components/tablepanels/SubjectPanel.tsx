@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Divider } from "antd";
 import TablePanel from "@components/TablePanel";
-import Selection from "@components/Selection";
+import Select from "@components/Select";
 import { DeleteOutlined, PlusOutlined } from "@ant-design/icons";
 import SubjectForm from "@components/forms/SubjectForm";
 import { useAppDispatch } from "@stores/hooks";
@@ -23,11 +23,11 @@ const SubjectPanel = () => {
       <TablePanel.SelectionGrp>
         <TablePanel.Field>
           <div className="label">Khối</div>
-          <Selection keyAffix="grade" data={["6", "7", "8"]} defaultValue="6" />
+          <Select keyAffix="grade" data={["6", "7", "8"]} defaultValue="6" />
         </TablePanel.Field>
         <TablePanel.Field>
           <div className="label">Lớp</div>
-          <Selection
+          <Select
             defaultValue="6A"
             keyAffix="class"
             data={["6A", "6B", "6C", "6D"]}

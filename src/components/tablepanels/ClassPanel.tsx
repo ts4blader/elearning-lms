@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import TablePanel from "@components/TablePanel";
-import Selection from "@components/Selection";
+import Select from "@components/Select";
 import { Button, Divider } from "antd";
-import { DeleteOutlined, PlusOutlined } from "@ant-design/icons";
+import { DeleteOutlined } from "@ant-design/icons";
 import ClassForm from "@components/forms/ClassForm";
 import UploadForm from "@components/forms/UploadForm";
 import { useAppDispatch } from "@stores/hooks";
@@ -11,7 +11,6 @@ import DropdownActions from "@components/DropdownActions";
 
 const ClassPanel = () => {
   const dispatch = useAppDispatch();
-  const [overlay, setOverlay] = useState(false);
   const showForm = () => {
     dispatch(
       showFormModal({
@@ -33,7 +32,7 @@ const ClassPanel = () => {
     <TablePanel>
       <TablePanel.SelectionGrp>
         <TablePanel.Field>
-          <Selection
+          <Select
             keyAffix="grade"
             data={["Tất cả các khối", "Khối 6", "Khối 7", "Khối 8"]}
             defaultValue="Tất cả các khối"

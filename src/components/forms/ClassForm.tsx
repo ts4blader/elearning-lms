@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { Form, Select, Space, Button, Divider, Checkbox } from "antd";
+import { Form, Space, Button, Divider, Checkbox } from "antd";
 import { MinusCircleFilled, PlusCircleFilled } from "@ant-design/icons";
 import TextInput from "@components/TextInput";
+import Select, { SelectInForm } from "@components/Select";
 
 type Props = {
   onCancel: () => void;
@@ -21,10 +22,10 @@ const ClassForm = ({ onCancel }: Props) => {
         {/* choose group */}
         <Space size={10} className="semester-group-selection">
           <Form.Item label="Niên khóa" name="semester" initialValue="2021-2022">
-            <Select>
-              <Select.Option>2021 - 2022</Select.Option>
-              <Select.Option>2021 - 2023</Select.Option>
-            </Select>
+            <Select
+              data={["2021-2022", "2021-2023"]}
+              keyAffix="semester-select"
+            />
           </Form.Item>
           <Form.Item
             label="Khoa - Khối"
@@ -32,11 +33,10 @@ const ClassForm = ({ onCancel }: Props) => {
             className="group-select"
             rules={[{ required: true, message: "Chọn khoa khối" }]}
           >
-            <Select>
-              <Select.Option>Khối 6</Select.Option>
-              <Select.Option>Khối 7</Select.Option>
-              <Select.Option>Khối 8</Select.Option>
-            </Select>
+            <SelectInForm
+              data={["Khoi 6", "Khoi 7", "Khoi 8"]}
+              keyAffix="grade-select"
+            />
           </Form.Item>
         </Space>
         {/* name input */}
@@ -64,25 +64,16 @@ const ClassForm = ({ onCancel }: Props) => {
           label="Phân loại lớp"
           name="type"
           rules={[{ required: true, message: "Xin hãy chọn phân loại lớp" }]}
-          initialValue="Basic"
         >
-          <Select>
-            <Select.Option>Basic</Select.Option>
-            <Select.Option>Advance</Select.Option>
-          </Select>
+          <SelectInForm data={["Basic", "Advanced"]} keyAffix="type-select" />
         </Form.Item>
         {/* choose leader */}
         <Form.Item
           label="Giáo viên chủ nhiệm"
           name="leader"
           rules={[{ required: true, message: "Xin hãy chọn giáo viên" }]}
-          initialValue="Thu"
         >
-          <Select>
-            <Select.Option>Thu</Select.Option>
-            <Select.Option>An</Select.Option>
-            <Select.Option>Vinh</Select.Option>
-          </Select>
+          <SelectInForm data={["Thu", "Ha", "An"]} keyAffix="leader-selector" />
         </Form.Item>
         {/* description text area */}
         <Form.Item label="Mô tả" name="description" initialValue="">
@@ -98,11 +89,12 @@ const ClassForm = ({ onCancel }: Props) => {
           <Checkbox onChange={({ target }) => setExtend(target.checked)}>
             Kế thừa dữ liệu:
           </Checkbox>
-          <Select disabled={!extend} placeholder="Niên khóa">
-            <Select.Option>2021-2022</Select.Option>
-            <Select.Option>2021-2023</Select.Option>
-            <Select.Option>2021-2024</Select.Option>
-          </Select>
+          <Select
+            data={["2021-2022", "2022-2023"]}
+            keyAffix="extend-semester-selector"
+            disabled={!extend}
+            placeholder="Niên khóa"
+          />
         </Space>
         {/* Form list */}
         <Form.List name="subjects">
@@ -120,10 +112,10 @@ const ClassForm = ({ onCancel }: Props) => {
                       className="subject-select"
                       initialValue="Ngữ văn"
                     >
-                      <Select>
-                        <Select.Option>Ngữ văn</Select.Option>
-                        <Select.Option>Toán</Select.Option>
-                      </Select>
+                      <SelectInForm
+                        data={["Ngu Van", "Toan"]}
+                        keyAffix="subject-selector"
+                      />
                     </Form.Item>
                   </Space>
                 ))}

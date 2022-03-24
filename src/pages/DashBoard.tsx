@@ -34,7 +34,7 @@ const DashBoard = () => {
           <Route path={`${path}/database/classes/:classId`} exact>
             <ClassDetail />
           </Route>
-          <Route path={`${path}/student`} exact>
+          <Route path={`${path}/student`}>
             <Students />
           </Route>
         </Switch>

@@ -1,13 +1,5 @@
 import React, { useState } from "react";
-import {
-  Form,
-  Select,
-  Checkbox,
-  Button,
-  Space,
-  Divider,
-  DatePicker,
-} from "antd";
+import { Form, Checkbox, Button, Space, Divider, DatePicker } from "antd";
 import {
   MinusCircleFilled,
   PlusCircleFilled,
@@ -15,6 +7,7 @@ import {
 } from "@ant-design/icons";
 import moment from "moment";
 import TextInput from "@components/TextInput";
+import Select from "@components/Select";
 
 type Props = {
   onCancel: () => void;
@@ -39,21 +32,13 @@ const SemesterForm = ({ onCancel }: Props) => {
               name="beginYear"
               className="begin-year"
             >
-              <Select>
-                <Select.Option value="2021">2021</Select.Option>
-                <Select.Option value="2022">2022</Select.Option>
-                <Select.Option value="2023">2023</Select.Option>
-              </Select>
+              <Select data={["2021", "2022", "2023"]} keyAffix="begin-year" />
             </Form.Item>
 
             <span>đến</span>
 
             <Form.Item name="endYear" className="end-year" initialValue="2022">
-              <Select>
-                <Select.Option value="2021">2021</Select.Option>
-                <Select.Option value="2022">2022</Select.Option>
-                <Select.Option value="2023">2023</Select.Option>
-              </Select>
+              <Select data={["2021", "2022", "2023"]} keyAffix="end-year" />
             </Form.Item>
           </Space>
         </div>
@@ -72,10 +57,11 @@ const SemesterForm = ({ onCancel }: Props) => {
               initialValue="2021-2022"
               className="extended-semester"
             >
-              <Select disabled={!extendsData}>
-                <Select.Option value="2021-2022">2021-2022</Select.Option>
-                <Select.Option value="2022-2023">2022-2023</Select.Option>
-              </Select>
+              <Select
+                disabled={!extendsData}
+                data={["2021-2022", "2022-2023"]}
+                keyAffix="extend-semester"
+              />
             </Form.Item>
           </Space>
           <Space size={10} className="info-wrapper" align="start">
