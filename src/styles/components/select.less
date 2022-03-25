@@ -2,7 +2,6 @@
   .ant-select-selector {
     border: 1px solid currentColor !important;
     border-radius: 0.5rem !important;
-    height: auto !important;
   }
   .ant-select-selection-item {
     border-right: 1px solid currentColor;
@@ -16,9 +15,11 @@
     inset: 50% 0.5rem auto auto;
     transform: translateY(-50%);
   }
+  .ant-select-selection-placeholder {
+    padding-right: 1.5em;
+  }
 }
 .select.select-inform {
-  min-width: 15rem;
   .ant-select-selection-item {
     border-right: 1px solid transparent;
   }
@@ -27,6 +28,9 @@
   }
   .ant-select-selector {
     border-color: @color-gray-dark !important;
+  }
+  .ant-select-selection-placeholder {
+    padding-right: 2em;
   }
   &[data-empty="true"] {
     .ant-select-selector {
