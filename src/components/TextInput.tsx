@@ -2,30 +2,22 @@ import React from "react";
 import { Input, InputProps } from "antd";
 import { TextAreaProps } from "rc-textarea";
 
-const TextInput = ({ onChange, ...rest }: InputProps) => {
+const TextInput = ({ className = "", ...rest }: InputProps) => {
   return (
     <Input
       size="large"
+      className={`text-input ${className} ${rest.value ? "not-empty" : ""}`}
       {...rest}
-      onChange={(e) => {
-        if (onChange) onChange(e);
-        if (e.target.value.length > 0) e.target.classList.add("not-empty");
-        else e.target.classList.remove("not-empty");
-      }}
     />
   );
 };
 
-TextInput.TextArea = ({ onChange, ...rest }: TextAreaProps) => {
+TextInput.TextArea = ({ className, ...rest }: TextAreaProps) => {
   return (
     <Input.TextArea
       size="large"
+      className={`text-input ${className} ${rest.value ? "not-empty" : ""}`}
       {...rest}
-      onChange={(e) => {
-        if (onChange) onChange(e);
-        if (e.target.value.length > 0) e.target.classList.add("not-empty");
-        else e.target.classList.remove("not-empty");
-      }}
     />
   );
 };
