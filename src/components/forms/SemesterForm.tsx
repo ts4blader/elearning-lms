@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Checkbox, Button, Space, Divider, DatePicker } from "antd";
+import { Form, Checkbox, Button, Space, Divider } from "antd";
 import {
   MinusCircleFilled,
   PlusCircleFilled,
@@ -8,6 +8,7 @@ import {
 import moment from "moment";
 import TextInput from "@components/TextInput";
 import Select from "@components/Select";
+import DatePicker from "@components/DatePicker";
 
 type Props = {
   onCancel: () => void;

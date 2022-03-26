@@ -3,7 +3,7 @@ import Section from "@components/Section";
 import moment from "moment";
 import Select from "@components/Select";
 import Card from "@components/Card";
-import { Progress, DatePicker } from "antd";
+import { Progress } from "antd";
 import StatisticalEntry from "@components/StatisticalEntry";
 import VisitChart from "@components/VisitChart";
 import ColumnGroupChart from "@components/ColumnGroupChart";
@@ -14,6 +14,7 @@ import {
   LEVELS,
   STUDENTS_AMOUNT,
 } from "@constants/overview";
+import DatePicker from "@components/DatePicker";
 
 const MAX_STUDENT = 500;
 

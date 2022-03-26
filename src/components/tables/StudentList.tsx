@@ -2,7 +2,7 @@ import { Button, Table, Tag } from "antd";
 import React, { useState } from "react";
 import DATA from "@seeds/thcs/students.json";
 import { EditOutlined } from "@ant-design/icons";
-import Selection from "@components/Selection";
+import Select from "@components/Select";
 import TableWrapper from "@components/TableWrapper";
 import { useAppSelector } from "@stores/hooks";
 import ColumnTitle from "@components/ColumnTitle";
@@ -77,7 +77,7 @@ const SubjectList = () => {
           )}
           render={(text, record: any) =>
             isEditing(record) ? (
-              <Selection
+              <Select
                 data={["abc", "xyz"]}
                 defaultValue="abc"
                 keyAffix="status"

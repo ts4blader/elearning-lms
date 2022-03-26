@@ -1,0 +1,70 @@
+.add-student-form {
+  @p-inline: 4em;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: @box-shadow-dimblue;
+  font-size: 1.6rem;
+  label {
+    font-size: 1.6rem;
+  }
+  .title {
+    font-size: 1.8rem;
+    color: white;
+    font-weight: 800;
+    background: @color-primary-dark-2;
+    padding: 0.7em @p-inline;
+  }
+  .form-row {
+    padding: 1em @p-inline;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1em;
+    gap: 10rem;
+    .avatar-upload {
+      width: 25rem;
+      aspect-ratio: 1 / 1;
+    }
+    .form-items {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      .ant-form-item {
+        font-size: 1.6rem;
+        width: 50rem;
+        &-label {
+          text-align: left;
+          font-weight: 600;
+          flex: 3;
+        }
+        &-control {
+          &-input-content {
+            display: flex;
+            gap: 1.5em;
+            // align-items: center;
+          }
+          flex: 8;
+        }
+        &.grade-select {
+          .select {
+            flex-shrink: 0;
+            width: 12rem;
+          }
+        }
+        &.class-selector {
+          margin-bottom: 0;
+        }
+        &.id-input {
+          .ant-checkbox-wrapper {
+            align-self: center;
+            white-space: nowrap;
+          }
+        }
+      }
+    }
+    .subtitle {
+      color: @color-primary;
+      font-weight: 600;
+      margin-bottom: 1em;
+    }
+  }
+}

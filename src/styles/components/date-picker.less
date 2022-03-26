@@ -1,14 +1,15 @@
-.ant-picker {
+/* ------- original datepicker ------ */
+.datepicker.ant-picker {
   border-color: currentColor;
   border-radius: 0.5rem;
-  &-suffix {
+  .ant-picker-suffix {
     color: @color-primary;
   }
-  &-footer {
+  .ant-picker-footer {
     border-top: 0 !important;
     margin: 0.5em 0;
   }
-  &-today-btn {
+  .ant-picker-today-btn {
     color: white;
     background: @color-primary;
     padding: 0.5em 1.5em;
@@ -16,8 +17,21 @@
     font-weight: bold;
   }
 }
+/* -------- inform datepicker ------- */
+.datepicker.datepicker-inform {
+  width: 100%;
+  border-color: @color-gray-dark;
+  .ant-picker-suffix {
+    margin-right: 0.5em;
+  }
+  &.empty {
+    border-color: transparent;
+    background-color: @color-gray-light;
+  }
+}
+
 /* ------------ dropdown ------------ */
-.ant-picker-dropdown {
+.datepicker-dropdown {
   font-size: 1.6rem;
   .ant-picker-panel-container {
     border-radius: 1rem;
@@ -57,6 +71,17 @@
       .ant-picker-cell-inner {
         border-radius: 0.5rem;
       }
+    }
+  }
+  .ant-picker-footer {
+    border-top: none;
+    margin: 0.5em 0;
+    .ant-picker-today-btn {
+      font-weight: bold;
+      padding: 0.5em 1.5em;
+      border-radius: 0.5rem;
+      background-color: @color-primary;
+      color: white;
     }
   }
 }
