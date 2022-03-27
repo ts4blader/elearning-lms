@@ -2,6 +2,7 @@ import React from "react";
 import { Form, Space, Button, Divider } from "antd";
 import TextInput from "@components/TextInput";
 import { SelectInForm as Select } from "@components/Select";
+import { RULES } from "@constants/rules";
 
 type Props = {
   onCancel: () => void;
@@ -56,11 +57,7 @@ const SubjectForm = ({ onCancel }: Props) => {
         <div className="title">Số tiết/học kỳ</div>
         <Space className="semester-list">
           {/* first semester  */}
-          <Form.Item
-            name="first"
-            label="Học kỳ 1"
-            rules={[{ pattern: /[1-9][\d]*/g, message: "Nhập một số" }]}
-          >
+          <Form.Item name="first" label="Học kỳ 1" rules={[RULES.number]}>
             <TextInput />
           </Form.Item>
           {/* secondary semester  */}

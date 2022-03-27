@@ -2,6 +2,7 @@ import React from "react";
 import { Form, Space, Button, Divider } from "antd";
 import TextInput from "@components/TextInput";
 import { SelectInForm } from "@components/Select";
+import { RULES } from "@constants/rules";
 
 type Props = {
   onCancel: () => void;
@@ -47,7 +48,7 @@ const ScoreForm = ({ onCancel }: Props) => {
             label="Học kỳ 1"
             rules={[
               { required: true, message: "Xin hãy nhập điểm" },
-              { pattern: /[1-9][0-9]*/g, message: "Nhập vào một sô" },
+              RULES.number,
             ]}
           >
             <TextInput />
@@ -57,7 +58,7 @@ const ScoreForm = ({ onCancel }: Props) => {
             label="Học kỳ 2"
             rules={[
               { required: true, message: "Xin hãy nhập điểm" },
-              { pattern: /[1-9][0-9]*/g, message: "Nhập vào một sô" },
+              RULES.number,
             ]}
           >
             <TextInput />

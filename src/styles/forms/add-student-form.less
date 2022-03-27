@@ -1,11 +1,16 @@
 .add-student-form {
   @p-inline: 4em;
+  @form-item-width: 50rem;
   border-radius: 1rem;
   overflow: hidden;
   box-shadow: @box-shadow-dimblue;
   font-size: 1.6rem;
   label {
     font-size: 1.6rem;
+  }
+  .divider {
+    background-color: @color-gray-light;
+    height: 1rem;
   }
   .title {
     font-size: 1.8rem;
@@ -18,11 +23,38 @@
     padding: 1em @p-inline;
     display: flex;
     justify-content: space-between;
-    margin-top: 1em;
+    margin-top: 2em;
     gap: 10rem;
     .avatar-upload {
       width: 25rem;
       aspect-ratio: 1 / 1;
+      .avatar {
+        width: 80%;
+        aspect-ratio: 1 / 1;
+        background-color: @color-gray-light;
+        border-radius: 50%;
+        position: relative;
+        .upload-btn {
+          display: grid;
+          place-items: center;
+          width: 5rem;
+          aspect-ratio: 1 / 1;
+          position: absolute;
+          left: 50%;
+          bottom: 0;
+          transform: translate(-50%, 50%);
+          background-color: @color-gray-dark;
+          border: 0.5rem solid white;
+          border-radius: 50%;
+          .ant-btn {
+            color: white;
+            background-color: transparent;
+            .anticon {
+              font-size: 2rem;
+            }
+          }
+        }
+      }
     }
     .form-items {
       display: flex;
@@ -30,41 +62,88 @@
       flex-wrap: wrap;
       .ant-form-item {
         font-size: 1.6rem;
-        width: 50rem;
+        width: @form-item-width;
         &-label {
           text-align: left;
           font-weight: 600;
-          flex: 3;
+          width: 15rem;
         }
-        &-control {
-          &-input-content {
-            display: flex;
-            gap: 1.5em;
-            // align-items: center;
-          }
-          flex: 8;
+      }
+      .pseudo-form-item {
+        width: @form-item-width;
+        display: flex;
+        gap: 1.5em;
+        .ant-form-item {
+          width: fit-content;
         }
-        &.grade-select {
+        .ant-form-item-control {
           .select {
-            flex-shrink: 0;
             width: 12rem;
           }
         }
-        &.class-selector {
-          margin-bottom: 0;
-        }
-        &.id-input {
-          .ant-checkbox-wrapper {
-            align-self: center;
-            white-space: nowrap;
-          }
+      }
+      .id-form-item {
+        width: 50rem;
+        display: flex;
+        align-items: center;
+        gap: 1.5em;
+        .ant-checkbox-wrapper {
+          white-space: nowrap;
+          margin-bottom: 1.5em;
         }
       }
     }
     .subtitle {
       color: @color-primary;
-      font-weight: 600;
+      font-weight: 800;
       margin-bottom: 1em;
+    }
+    &.family-info {
+      padding-block: 0;
+      .form-col {
+        width: 100%;
+      }
+      .ant-form-item.year-form-item {
+        width: @form-item-width * 0.4;
+        .ant-form-item-label {
+          flex: 4;
+        }
+        .ant-form-item-control {
+          flex: 5;
+        }
+      }
+    }
+    &.family-contact {
+      margin-top: 0;
+      padding-top: 0;
+      .form-col {
+        width: 100%;
+      }
+      .ant-form-item {
+        .ant-form-item-control input {
+          width: 60%;
+        }
+      }
+    }
+  }
+  /* ------------ btn group ----------- */
+  .btn-grp {
+    display: flex;
+    justify-content: center;
+    margin-top: 1em;
+    margin-bottom: 2em;
+    .ant-form-item {
+      margin-bottom: 0;
+    }
+    .ant-btn {
+      min-width: 15rem;
+      height: auto;
+      font-size: 1.8rem;
+      font-weight: bold;
+      padding: 0.5em 1em;
+      &.cancel-btn {
+        background: @color-gray-light;
+      }
     }
   }
 }
