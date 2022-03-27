@@ -27,15 +27,16 @@
     right: 1em;
   }
   .ant-select-selector {
-    border-color: @color-gray-dark !important;
+    border-color: transparent !important;
+    background: @color-gray-light;
   }
   .ant-select-selection-placeholder {
     padding-right: 2em;
   }
-  &[data-empty="true"] {
+  &.not-empty {
     .ant-select-selector {
-      background: @color-gray-light;
-      border-color: transparent !important;
+      background-color: white;
+      border-color: @color-gray-dark !important;
     }
   }
 }

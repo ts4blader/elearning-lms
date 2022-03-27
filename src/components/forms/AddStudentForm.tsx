@@ -32,7 +32,7 @@ const AddStudentForm = () => {
           <div className="subtitle">Thông tin học viên</div>
           <div className="form-items">
             {/* Full name  */}
-            <Form.Item name="fullName" initialValue="asdasd" label="Họ và tên">
+            <Form.Item name="fullName" label="Họ và tên">
               <TextInput maxLength={50} />
             </Form.Item>
             {/* Semester selector */}

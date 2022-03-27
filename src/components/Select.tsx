@@ -28,13 +28,10 @@ const Select = ({ data, keyAffix, className = "", ...rest }: SelectProps) => {
 };
 
 export const SelectInForm = (props: SelectProps) => {
-  const [empty, setEmpty] = useState(true);
   return (
     <Select
       size="large"
-      data-empty={empty}
-      onSelect={() => setEmpty(false)}
-      className="select-inform"
+      className={`select-inform ${props.value ? "not-empty" : ""}`}
       {...props}
     />
   );
