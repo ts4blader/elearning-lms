@@ -19,7 +19,7 @@ const TableWrapper = ({ children, className, ...rest }: Props) => {
       <div className="pagesize-changer">
         Hiển thị{" "}
         <TextInput
-          value={pageSize.value}
+          defaultValue={pageSize.value}
           onChange={({ target }) => {
             let num = parseInt(target.value);
             if (num) dispatch(setPageSize(num));
