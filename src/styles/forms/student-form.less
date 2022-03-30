@@ -12,7 +12,7 @@
   .ant-upload-list {
     display: none;
   }
-  .transfer-day-picker {
+  .day-picker-field {
     display: flex;
     gap: 1.5em;
     align-items: flex-start;
@@ -24,6 +24,21 @@
     .text-input {
       width: @input-size * 0.5;
       background: @color-gray-light;
+    }
+  }
+  .reason-field {
+    font-size: 1.6rem;
+    margin-bottom: 3em;
+    .ant-form-item-control {
+      position: relative;
+      &::after {
+        content: "Kết quả học tập của học viên sẽ được bảo lưu trong hồ sơ học viên";
+        position: absolute;
+        inset: 110% 0 auto 0;
+        font-size: 0.9em;
+        color: @color-gray-dark;
+        font-style: italic;
+      }
     }
   }
 }

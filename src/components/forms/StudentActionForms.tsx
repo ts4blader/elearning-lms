@@ -59,7 +59,7 @@ const ClassTransfer = ({ onCancel }: FormProps) => {
       className="class-transfer"
     >
       {/* transfer day picker */}
-      <div className="transfer-day-picker">
+      <div className="day-picker-field">
         <Form.Item
           name="transferDay"
           label="Ngày chuyển lớp"
@@ -100,7 +100,7 @@ const SchoolTransfer = ({ onCancel }: FormProps) => {
       className="school-transfer"
     >
       {/* transfer day picker */}
-      <div className="transfer-day-picker">
+      <div className="day-picker-field">
         <Form.Item
           name="transferDay"
           label="Ngày chuyển trường"
@@ -128,8 +128,45 @@ const SchoolTransfer = ({ onCancel }: FormProps) => {
     </StudentActionForms>
   );
 };
+//* Reserve
+const Reserve = ({ onCancel }: FormProps) => {
+  return (
+    <StudentActionForms name="reserve" onCancel={onCancel} className="reserve">
+      {/* transfer day picker */}
+      <div className="day-picker-field">
+        <Form.Item
+          name="reserveDay"
+          label="Ngày bảo lưu"
+          rules={[RULES.required]}
+        >
+          <DatePickerInForm format="DD/MM/YYYY" defaultValue={moment()} />
+        </Form.Item>
+        <TextInput disabled value="HK 1" />
+      </div>
+      {/* school input */}
+      <Form.Item
+        name="reserveDuration"
+        label="Thời hạn bảo lưu"
+        rules={[RULES.required]}
+        className="reserve-duration-input"
+      >
+        <TextInput />
+      </Form.Item>
+      {/* Reason text area input */}
+      <div className="reason-field">
+        <Form.Item name="reason" label="Lý do" rules={[RULES.required]}>
+          <TextInput.TextArea />
+        </Form.Item>
+      </div>
+      {/* File upload */}
+      <UploadField affixNote="Kiểu file .pdf.jpeg.png.jpg với dung lượng tối đa 100MB" />
+    </StudentActionForms>
+  );
+};
 
+//* namespace assign
 StudentActionForms.ClassTransfer = ClassTransfer;
 StudentActionForms.SchoolTransfer = SchoolTransfer;
+StudentActionForms.Reserve = Reserve;
 
 export default StudentActionForms;
