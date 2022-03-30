@@ -7,4 +7,7 @@ export const RULES = {
         pattern: /[1-9][\d]*/g,
         message: "Số không hợp lệ",
     },
+    required: {
+        required: true, message: "Thông tin bắt buộc"
+    }
 }

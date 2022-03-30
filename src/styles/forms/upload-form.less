@@ -1,5 +1,5 @@
 .upload-form {
-  min-width: 80rem;
+  min-width: 70rem;
   .field[data-length="true"] .ant-input-affix-wrapper {
     background: white;
     border-color: @color-gray-dark;
@@ -13,34 +13,16 @@
   .btn-grp {
     margin-top: 2em;
   }
-  .field {
-    margin-top: 1em;
-    display: flex;
-    align-items: center;
+  .ant-form-item {
     &-label {
-      flex: 3;
-      font-weight: 600;
+      width: 15rem;
+      text-align: left;
     }
-    &-control {
-      display: flex;
-      align-items: center;
-      gap: 1em;
-      flex: 8;
-      .text {
-        font-style: italic;
-        font-size: 1.4rem;
-      }
-      .ant-btn {
-        margin-left: 1em;
-        background: @color-primary-light-3;
-        border: 1px solid currentColor;
-        border-radius: 0.5rem;
-        padding-block: 0.5em;
-        font-size: 1.6rem;
-        height: auto;
-      }
-      .ant-upload-list {
-        display: none;
+    &.download-example {
+      font-style: italic;
+      .anticon {
+        font-size: 1.5em;
+        margin-right: 0.5em;
       }
     }
   }

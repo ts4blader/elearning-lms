@@ -7,16 +7,31 @@ import { EyeOutlined, SyncOutlined } from "@ant-design/icons";
 import { useAppDispatch } from "@stores/hooks";
 import { showFormModal } from "@slices/formModalSlice";
 import ColumnTitle from "@components/ColumnTitle";
+import StudentForm from "@components/forms/StudentActionForms";
 
 type StudentType = typeof DATA[0];
 
 const DropdownOverlay = () => {
   const dispatch = useAppDispatch();
+  const showModal = (title: string, innerForm: any) => {
+    dispatch(
+      showFormModal({
+        innerForm,
+        title,
+      })
+    );
+  };
 
   return (
     <ul className="edit-student-dropdown-overlay">
       <li onClick={() => null}>Sửa hồ sơ</li>
-      <li onClick={() => null}>Chuyển lớp</li>
+      <li
+        onClick={() =>
+          showModal("Cap nhat chuyen lop", StudentForm.ClassTransfer)
+        }
+      >
+        Chuyển lớp
+      </li>
       <li onClick={() => null}>Chuyển trường</li>
       <li onClick={() => null}>Bảo lưu</li>
       <li onClick={() => null}>Cập nhật miễn giảm</li>
