@@ -12,13 +12,24 @@
   .ant-upload-list {
     display: none;
   }
-  .datepicker {
-    width: auto;
+  .transfer-day-picker {
+    display: flex;
+    gap: 1.5em;
+    align-items: flex-start;
+    justify-content: flex-start;
+    @input-size: 20rem;
+    .ant-form-item-control {
+      width: @input-size;
+    }
+    .text-input {
+      width: @input-size * 0.5;
+      background: @color-gray-light;
+    }
   }
 }
 
 .class-transfer {
-  .transfer-day-selector {
+  .transfer-to-selector {
     .select {
       width: 20rem;
     }

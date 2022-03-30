@@ -50,7 +50,7 @@ const StudentActionForms = ({
     </Form>
   );
 };
-
+//* Class transfer
 const ClassTransfer = ({ onCancel }: FormProps) => {
   return (
     <StudentActionForms
@@ -59,19 +59,22 @@ const ClassTransfer = ({ onCancel }: FormProps) => {
       className="class-transfer"
     >
       {/* transfer day picker */}
-      <Form.Item
-        name="transferDay"
-        label="Ngày chuyển lớp"
-        rules={[RULES.required]}
-      >
-        <DatePickerInForm format="DD/MM/YYYY" defaultValue={moment()} />
-      </Form.Item>
+      <div className="transfer-day-picker">
+        <Form.Item
+          name="transferDay"
+          label="Ngày chuyển lớp"
+          rules={[RULES.required]}
+        >
+          <DatePickerInForm format="DD/MM/YYYY" defaultValue={moment()} />
+        </Form.Item>
+        <TextInput disabled value="HK 1" />
+      </div>
       {/* class selector */}
       <Form.Item
         name="transferToClass"
         label="Chuyển đến lớp"
         rules={[RULES.required]}
-        className="transfer-day-selector"
+        className="transfer-to-selector"
       >
         <SelectInForm
           placeholder="Chọn lớp"
@@ -88,7 +91,45 @@ const ClassTransfer = ({ onCancel }: FormProps) => {
     </StudentActionForms>
   );
 };
+//* School transfer
+const SchoolTransfer = ({ onCancel }: FormProps) => {
+  return (
+    <StudentActionForms
+      name="school-transfer"
+      onCancel={onCancel}
+      className="school-transfer"
+    >
+      {/* transfer day picker */}
+      <div className="transfer-day-picker">
+        <Form.Item
+          name="transferDay"
+          label="Ngày chuyển trường"
+          rules={[RULES.required]}
+        >
+          <DatePickerInForm format="DD/MM/YYYY" defaultValue={moment()} />
+        </Form.Item>
+        <TextInput disabled value="HK 1" />
+      </div>
+      {/* school input */}
+      <Form.Item
+        name="transferToSchool"
+        label="Chuyển đến trường"
+        rules={[RULES.required]}
+        className="transfer-to-input"
+      >
+        <TextInput />
+      </Form.Item>
+      {/* Reason text area input */}
+      <Form.Item name="reason" label="Lý do" rules={[RULES.required]}>
+        <TextInput.TextArea />
+      </Form.Item>
+      {/* File upload */}
+      <UploadField affixNote="Kiểu file .pdf.jpeg.png.jpg với dung lượng tối đa 100MB" />
+    </StudentActionForms>
+  );
+};
 
 StudentActionForms.ClassTransfer = ClassTransfer;
+StudentActionForms.SchoolTransfer = SchoolTransfer;
 
 export default StudentActionForms;

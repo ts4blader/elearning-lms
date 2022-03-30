@@ -32,7 +32,13 @@ const DropdownOverlay = () => {
       >
         Chuyển lớp
       </li>
-      <li onClick={() => null}>Chuyển trường</li>
+      <li
+        onClick={() =>
+          showModal("Cap nhat chuyen truong", StudentForm.SchoolTransfer)
+        }
+      >
+        Chuyển trường
+      </li>
       <li onClick={() => null}>Bảo lưu</li>
       <li onClick={() => null}>Cập nhật miễn giảm</li>
       <li onClick={() => null}>Cập nhật khen thưởng</li>
