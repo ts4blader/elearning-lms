@@ -50,6 +50,7 @@ const StudentActionForms = ({
     </Form>
   );
 };
+
 //* Class transfer
 const ClassTransfer = ({ onCancel }: FormProps) => {
   return (
@@ -143,7 +144,7 @@ const Reserve = ({ onCancel }: FormProps) => {
         </Form.Item>
         <TextInput disabled value="HK 1" />
       </div>
-      {/* school input */}
+      {/* reserve duration input */}
       <Form.Item
         name="reserveDuration"
         label="Thời hạn bảo lưu"
@@ -163,10 +164,42 @@ const Reserve = ({ onCancel }: FormProps) => {
     </StudentActionForms>
   );
 };
+//* Discount
+const Discount = ({ onCancel }: FormProps) => {
+  return (
+    <StudentActionForms
+      name="discount"
+      onCancel={onCancel}
+      className="discount"
+    >
+      {/* discount type selector */}
+      <Form.Item
+        label="Đối tượng miễn giảm"
+        name="discountType"
+        rules={[RULES.required]}
+      >
+        <SelectInForm
+          data={["Con thuong binh", "Dan toc thieu so"]}
+          keyAffix="discount-type"
+        />
+      </Form.Item>
+      {/* discount detail input */}
+      <Form.Item
+        name="discountDetail"
+        label="Hình thức miễn giảm"
+        rules={[RULES.required]}
+        className="discount-detail-input"
+      >
+        <TextInput />
+      </Form.Item>
+    </StudentActionForms>
+  );
+};
 
 //* namespace assign
 StudentActionForms.ClassTransfer = ClassTransfer;
 StudentActionForms.SchoolTransfer = SchoolTransfer;
 StudentActionForms.Reserve = Reserve;
+StudentActionForms.Discount = Discount;
 
 export default StudentActionForms;

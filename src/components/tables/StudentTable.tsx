@@ -42,7 +42,9 @@ const DropdownOverlay = () => {
       <li onClick={() => showModal("Cap nhat bao luu", StudentForm.Reserve)}>
         Bảo lưu
       </li>
-      <li onClick={() => null}>Cập nhật miễn giảm</li>
+      <li onClick={() => showModal("Cap nhat mien giam", StudentForm.Discount)}>
+        Cập nhật miễn giảm
+      </li>
       <li onClick={() => null}>Cập nhật khen thưởng</li>
       <li onClick={() => null}>Cập nhật kỷ luật</li>
     </ul>
