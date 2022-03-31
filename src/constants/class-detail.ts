@@ -1,5 +1,20 @@
 import STUDENTS from "@seeds/thcs/students.json"
 
+export const BREADCRUMB_DATA = [
+    {
+        text: "Khai báo dữ liệu",
+        link: "/dashboard/database",
+    },
+    {
+        text: "Lớp học",
+        link: "/dashboard/database",
+    },
+    {
+        text: "Chi tiết lớp học",
+        link: "/",
+    },
+]
+
 export const PILLARS = [
     [
         { key: "Niên khóa", value: "2021-2022"},

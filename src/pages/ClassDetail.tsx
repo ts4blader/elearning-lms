@@ -1,29 +1,22 @@
 import React from "react";
 import Section from "@components/Section";
-import { Breadcrumb, Space, Tabs } from "antd";
-import { RightOutlined, EditOutlined, DeleteOutlined } from "@ant-design/icons";
-import { PILLARS } from "@constants/class-detail";
+import { Space, Tabs } from "antd";
+import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
+import { PILLARS, BREADCRUMB_DATA } from "@constants/class-detail";
 import { showDeleteModal } from "@slices/deleteModalSlice";
 import { showFormModal } from "@slices/formModalSlice";
 import { useAppDispatch } from "@stores/hooks";
 import ClassForm from "@components/forms/ClassForm";
 import StudentList from "@components/tables/StudentList";
 import SubjectList from "@components/tables/SubjectList";
+import Breadcrumb from "@components/Breadcrumb";
 
 type PillarProps = {
   data: any[];
 };
 
 const Title = () => {
-  const { Item } = Breadcrumb;
-
-  return (
-    <Breadcrumb separator={<RightOutlined />}>
-      <Item>Khai báo dữ liệu</Item>
-      <Item>Lớp học</Item>
-      <Item className="main-branch">Chi tiết lớp học</Item>
-    </Breadcrumb>
-  );
+  return <Breadcrumb data={BREADCRUMB_DATA} keyAffix="section-title" />;
 };
 
 const Pillar = ({ data }: PillarProps) => {

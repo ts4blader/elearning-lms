@@ -1,16 +1,21 @@
 import React from "react";
 import Section from "@components/Section";
-import { Breadcrumb } from "antd";
-import { RightOutlined } from "@ant-design/icons";
 import AddStudentForm from "@components/forms/AddStudentForm";
+import Breadcrumb from "@components/Breadcrumb";
+
+const BREADCRUMB_DATA = [
+  {
+    text: "Hồ sơ học viên",
+    link: "/dashboard/student",
+  },
+  {
+    text: "Thêm học viên",
+    link: "",
+  },
+];
 
 const Title = () => {
-  return (
-    <Breadcrumb separator={<RightOutlined />}>
-      <Breadcrumb.Item>Hồ sơ học viên</Breadcrumb.Item>
-      <Breadcrumb.Item className="main-branch">Thêm học viên</Breadcrumb.Item>
-    </Breadcrumb>
-  );
+  return <Breadcrumb data={BREADCRUMB_DATA} keyAffix="section-title" />;
 };
 
 const AddStudent = () => {
