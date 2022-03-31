@@ -1,61 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import ItemActions from "@components/ItemActions";
-import { Table, Tag, Dropdown } from "antd";
+import { Table, Tag } from "antd";
 import { useAppSelector } from "@stores/hooks";
 import DATA from "@seeds/thcs/students.json";
-import { EyeOutlined, SyncOutlined } from "@ant-design/icons";
-import { useAppDispatch } from "@stores/hooks";
-import { showFormModal } from "@slices/formModalSlice";
+import { EyeOutlined } from "@ant-design/icons";
 import ColumnTitle from "@components/ColumnTitle";
-import StudentForm from "@components/forms/StudentActionForms";
+import StudentDropdownAction from "@components/StudentDropdownAction";
 
 type StudentType = typeof DATA[0];
-
-const DropdownOverlay = () => {
-  const dispatch = useAppDispatch();
-  const showModal = (title: string, innerForm: any) => {
-    dispatch(
-      showFormModal({
-        innerForm,
-        title,
-      })
-    );
-  };
-
-  return (
-    <ul className="edit-student-dropdown-overlay">
-      <li onClick={() => null}>Sửa hồ sơ</li>
-      <li
-        onClick={() =>
-          showModal("Cap nhat chuyen lop", StudentForm.ClassTransfer)
-        }
-      >
-        Chuyển lớp
-      </li>
-      <li
-        onClick={() =>
-          showModal("Cap nhat chuyen truong", StudentForm.SchoolTransfer)
-        }
-      >
-        Chuyển trường
-      </li>
-      <li onClick={() => showModal("Cap nhat bao luu", StudentForm.Reserve)}>
-        Bảo lưu
-      </li>
-      <li onClick={() => showModal("Cap nhat mien giam", StudentForm.Discount)}>
-        Cập nhật miễn giảm
-      </li>
-      <li onClick={() => showModal("Cap nhat khen thuong", StudentForm.Prized)}>
-        Cập nhật khen thưởng
-      </li>
-      <li
-        onClick={() => showModal("Cap nhat ky luat", StudentForm.Disciplined)}
-      >
-        Cập nhật kỷ luật
-      </li>
-    </ul>
-  );
-};
 
 const StudentTable = () => {
   const { Column } = Table;
@@ -170,9 +122,7 @@ const StudentTable = () => {
               onClick={() => null}
             />
             <span>
-              <Dropdown overlay={<DropdownOverlay />} trigger={["click"]}>
-                <SyncOutlined />
-              </Dropdown>
+              <StudentDropdownAction />
             </span>
             <ItemActions.DeleteButton
               deleteName="học viên"
