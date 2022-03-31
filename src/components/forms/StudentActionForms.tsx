@@ -219,6 +219,34 @@ const Prized = ({ onCancel }: FormProps) => {
     </StudentActionForms>
   );
 };
+//* Disciplined
+const Disciplined = ({ onCancel }: FormProps) => {
+  return (
+    <StudentActionForms
+      name="disciplined"
+      onCancel={onCancel}
+      className="disciplined"
+    >
+      {/* day picker field */}
+      <div className="day-picker-field">
+        <Form.Item
+          name="prizedDay"
+          label="Ngày kỷ luật"
+          rules={[RULES.required]}
+        >
+          <DatePickerInForm format="DD/MM/YYYY" defaultValue={moment()} />
+        </Form.Item>
+        <TextInput disabled value="HK 1" />
+      </div>
+      {/* content textarea input */}
+      <Form.Item name="prizedContent" label="Nội dung" rules={[RULES.required]}>
+        <TextInput.TextArea />
+      </Form.Item>
+      {/* File upload */}
+      <UploadField affixNote="Kiểu file .pdf.jpeg.png.jpg với dung lượng tối đa 100MB" />
+    </StudentActionForms>
+  );
+};
 
 //* namespace assign
 StudentActionForms.ClassTransfer = ClassTransfer;
@@ -226,5 +254,6 @@ StudentActionForms.SchoolTransfer = SchoolTransfer;
 StudentActionForms.Reserve = Reserve;
 StudentActionForms.Discount = Discount;
 StudentActionForms.Prized = Prized;
+StudentActionForms.Disciplined = Disciplined;
 
 export default StudentActionForms;

@@ -41,7 +41,7 @@ const UploadField = ({
 
   return (
     <Form.Item
-      className={`upload-field ${className}`}
+      className={`upload-field ${className} ${affixNote ? "has-affix" : ""}`}
       label="Tệp đính kèm"
       data-length={file.length !== 0}
     >
