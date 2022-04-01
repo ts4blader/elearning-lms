@@ -7,7 +7,7 @@ import Header from "@layouts/Header";
 import Overview from "@pages/Overview";
 import Database from "@pages/Database";
 import ClassDetail from "@pages/ClassDetail";
-import Students from "@pages/Students";
+import StudentsPage from "@pages/Students";
 
 const DashBoard = () => {
   const { path } = useRouteMatch();
@@ -38,7 +38,7 @@ const DashBoard = () => {
             <ClassDetail />
           </Route>
           <Route path={`${path}/student`}>
-            <Students />
+            <StudentsPage />
           </Route>
         </Switch>
       </div>

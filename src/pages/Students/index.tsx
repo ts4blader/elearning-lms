@@ -1,11 +1,11 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 import { useRouteMatch } from "react-router-dom";
-import AllStudents from "@pages/students/AllStudents";
-import AddStudent from "@pages/students/AddStudent";
-import StudentDetail from "@pages/students/StudentDetail";
+import AllStudents from "./AllStudents";
+import AddStudent from "./AddStudent";
+import StudentDetail from "./StudentDetail";
 
-const Students = () => {
+const StudentsPage = () => {
   const { path } = useRouteMatch();
 
   return (
@@ -23,4 +23,4 @@ const Students = () => {
   );
 };
 
-export default Students;
+export default StudentsPage;
