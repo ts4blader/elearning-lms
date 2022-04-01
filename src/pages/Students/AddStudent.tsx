@@ -1,6 +1,6 @@
 import React from "react";
 import Section from "@components/Section";
-import AddStudentForm from "@components/forms/AddStudentForm";
+import AddStudentForm from "./AddStudentForm";
 import Breadcrumb from "@components/Breadcrumb";
 
 const BREADCRUMB_DATA = [

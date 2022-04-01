@@ -5,12 +5,12 @@ import TableFrame from "@components/TableFrame";
 import TablePanel from "@components/TablePanel";
 import Select from "@components/Select";
 import DATA from "@seeds/thcs/students.json";
-import { TABLES } from "@constants/students-page";
+import { TABLES } from "./data";
 import { DeleteOutlined } from "@ant-design/icons";
 import { useHistory, useRouteMatch } from "react-router-dom";
 import { useAppSelector, useAppDispatch } from "@stores/hooks";
 import DropdownActions from "@components/DropdownActions";
-import { showFormModal } from "@stores/slices/formModalSlice";
+import { showFormModal } from "@slices/formModalSlice";
 import UploadForm from "@components/forms/UploadForm";
 
 const AllStudents = () => {
