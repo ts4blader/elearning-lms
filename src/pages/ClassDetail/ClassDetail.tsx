@@ -1,8 +1,8 @@
 import React from "react";
 import Section from "@components/Section";
-import { Space, Tabs } from "antd";
+import { Tabs } from "antd";
 import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
-import { PILLARS, BREADCRUMB_DATA } from "@constants/class-detail";
+import { PILLARS, BREADCRUMB_DATA } from "./data";
 import { showDeleteModal } from "@slices/deleteModalSlice";
 import { showFormModal } from "@slices/formModalSlice";
 import { useAppDispatch } from "@stores/hooks";
@@ -10,28 +10,10 @@ import ClassForm from "@components/forms/ClassForm";
 import StudentList from "@components/tables/StudentList";
 import SubjectList from "@components/tables/SubjectList";
 import Breadcrumb from "@components/Breadcrumb";
-
-type PillarProps = {
-  data: any[];
-};
+import Pillar from "./Pillar";
 
 const Title = () => {
   return <Breadcrumb data={BREADCRUMB_DATA} keyAffix="section-title" />;
-};
-
-const Pillar = ({ data }: PillarProps) => {
-  return (
-    <ul className="pillar">
-      {data.map((item) => (
-        <li className="pillar-item" key={item.key}>
-          <Space size={20} align="start">
-            <div className="label">{item.key}</div>
-            <div className="value">{item.value}</div>
-          </Space>
-        </li>
-      ))}
-    </ul>
-  );
 };
 
 const ClassDetail = () => {
