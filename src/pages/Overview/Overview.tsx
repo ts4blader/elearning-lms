@@ -4,17 +4,11 @@ import moment from "moment";
 import Select from "@components/Select";
 import Card from "@components/Card";
 import { Progress } from "antd";
-import StatisticalEntry from "@components/StatisticalEntry";
-import VisitChart from "@components/VisitChart";
+import StatisticalEntry from "./StatisticalEntry";
+import VisitChart from "./VisitChart";
 import ColumnGroupChart from "@components/ColumnGroupChart";
-import {
-  SEMESTER,
-  CARDS,
-  CLASSES,
-  LEVELS,
-  STUDENTS_AMOUNT,
-} from "@constants/overview";
 import DatePicker from "@components/DatePicker";
+import { SEMESTER, CARDS, CLASSES, LEVELS, STUDENTS_AMOUNT } from "./data";
 
 const MAX_STUDENT = 500;
 

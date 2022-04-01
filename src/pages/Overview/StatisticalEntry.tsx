@@ -1,11 +1,15 @@
 import React from "react";
 
-type MainProps = {
+type StatisticalEntryProps = {
   children: React.ReactNode;
   className?: string;
 } & React.ComponentProps<"div">;
 
-const StatisticalEntry = ({ children, className = "", ...rest }: MainProps) => {
+const StatisticalEntry = ({
+  children,
+  className = "",
+  ...rest
+}: StatisticalEntryProps) => {
   return (
     <div className={`statistical-entry ${className}`} {...rest}>
       {children}
@@ -17,7 +21,7 @@ StatisticalEntry.Header = ({
   children,
   className = "",
   ...rest
-}: MainProps) => {
+}: StatisticalEntryProps) => {
   return (
     <div className={`statistical-header ${className}`} {...rest}>
       {children}
@@ -28,7 +32,7 @@ StatisticalEntry.Content = ({
   children,
   className = "",
   ...rest
-}: MainProps) => {
+}: StatisticalEntryProps) => {
   return (
     <div className={`statistical-content ${className}`} {...rest}>
       {children}
