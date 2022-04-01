@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import LoginForm from "@components/forms/LoginForm";
-import ForgotPassForm from "@components/forms/ForgotPassForm";
+import LoginForm from "./LoginForm";
+import ForgotPassForm from "./ForgotPassForm";
 
 const Login = () => {
   const [showLogin, setShowLogin] = useState(true);
@@ -9,7 +9,7 @@ const Login = () => {
     <main
       className="login-page"
       style={{
-        backgroundImage: "url(/images/login-background.png)",
+        backgroundImage: "url(./assets/images/login-background.png)",
         backgroundSize: "cover",
         backgroundPosition: "center center",
       }}
