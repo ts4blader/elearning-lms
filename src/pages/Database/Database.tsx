@@ -1,11 +1,7 @@
 import React, { useState } from "react";
 import Section from "@components/Section";
 import TableFrame from "@components/TableFrame";
-import {
-  TABLES,
-  SCHOOL_DROPDOWN,
-  SEMESTERS_DROPDOWN,
-} from "@constants/database";
+import { TABLES, SCHOOL_DROPDOWN, SEMESTERS_DROPDOWN } from "./data";
 import Select from "@components/Select";
 
 const Database = () => {
