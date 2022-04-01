@@ -1,8 +1,10 @@
 import React from "react";
 
-const Header = () => {
+export type HeaderProps = {} & React.ComponentProps<"header">;
+
+const Header = (props: HeaderProps) => {
   return (
-    <header className="header">
+    <header className="header" {...props}>
       <div className="user-panel">
         <div className="avatar">
           <img src="/icons/user_circle.svg" alt="user" />
