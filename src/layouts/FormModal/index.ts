@@ -1,3 +1,1 @@
-import FormModal from "./FormModal";
-
-export default FormModal
+export {default} from "./FormModal"
