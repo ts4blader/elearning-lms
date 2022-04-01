@@ -1,12 +1,12 @@
 import React from "react";
 import { Switch, Route, useRouteMatch } from "react-router-dom";
-import Nav from "@components/Nav";
+import Nav from "@layouts/Nav";
 import Overview from "@pages/Overview";
 import Database from "@pages/Database";
 import ClassDetail from "@pages/ClassDetail";
 import Students from "@pages/Students";
-import DeleteModal from "@components/DeleteModal";
-import FormModal from "@components/FormModal";
+import DeleteModal from "@layouts/DeleteModal";
+import FormModal from "@layouts/FormModal";
 
 const DashBoard = () => {
   const { path } = useRouteMatch();

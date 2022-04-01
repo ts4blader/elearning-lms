@@ -35,6 +35,9 @@
           "@hooks/*":[
              "./services/hooks/*"
           ],
+          "@layouts/*":[
+             "./layouts/*"
+          ],
        }
     }
  }
