@@ -7,6 +7,7 @@ import ClassDetail from "@pages/ClassDetail";
 import Students from "@pages/Students";
 import DeleteModal from "@layouts/DeleteModal";
 import FormModal from "@layouts/FormModal";
+import Header from "@layouts/Header";
 
 const DashBoard = () => {
   const { path } = useRouteMatch();
@@ -24,6 +25,8 @@ const DashBoard = () => {
       <div className="sider-placeholder"></div>
       {/* Page content */}
       <div className="page-content">
+        {/* Header */}
+        <Header />
         <Switch>
           <Route path={path} exact>
             <Overview />
