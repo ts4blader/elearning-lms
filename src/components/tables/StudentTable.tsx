@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import ItemActions from "@components/ItemActions";
 import { Table, Tag } from "antd";
 import { useAppSelector } from "@stores/hooks";
@@ -6,10 +6,13 @@ import DATA from "@seeds/thcs/students.json";
 import { EyeOutlined } from "@ant-design/icons";
 import ColumnTitle from "@components/ColumnTitle";
 import StudentDropdownAction from "@components/StudentDropdownAction";
+import { useHistory, useRouteMatch } from "react-router-dom";
 
 type StudentType = typeof DATA[0];
 
 const StudentTable = () => {
+  const history = useHistory();
+  const { path } = useRouteMatch();
   const { Column } = Table;
   const pageSize = useAppSelector((state) => state.pageSize);
 
@@ -114,12 +117,12 @@ const StudentTable = () => {
         sorter={true}
       />
       <Column
-        render={(text, record) => (
+        render={(text, record: any) => (
           <ItemActions>
             <ItemActions.Button
               className="detail-btn"
               icon={EyeOutlined}
-              onClick={() => null}
+              onClick={() => history.push(`${path}/${record.id}`)}
             />
             <span>
               <StudentDropdownAction />
