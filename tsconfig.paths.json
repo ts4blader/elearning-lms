@@ -6,23 +6,35 @@
              "./components/*"
           ],
           "@constants/*":[
-             "./constants/*"
+             "./services/constants/*"
           ],
           "@pages/*":[
              "./pages/*"
           ],
           "@stores/*":[
-             "./stores/*"
+             "./services/stores/*"
           ],
           "@styles/*":[
-             "./styles/*"
+             "./assets/styles/*"
           ],
           "@seeds/*":[
-             "./seeds/*"
+             "./services/seeds/*"
           ],
           "@slices/*":[
-             "./stores/slices/*"
-          ]
+             "./services/slices/*"
+          ],
+          "@icons/*":[
+             "./assets/icons/*"
+          ],
+          "@images/*":[
+             "./assets/images/*"
+          ],
+          "@utils/*":[
+             "./services/utils/*"
+          ],
+          "@hooks/*":[
+             "./services/hooks/*"
+          ],
        }
     }
  }
