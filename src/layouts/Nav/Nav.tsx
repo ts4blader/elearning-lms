@@ -5,11 +5,11 @@ import { useHistory } from "react-router-dom";
 
 //* Init select
 const initialSelect = CATALOG[0].name;
-type Props = {
+export type NavProps = {
   rootPath: string;
 };
 
-const Nav = ({ rootPath }: Props) => {
+const Nav = ({ rootPath }: NavProps) => {
   const [selected, setSelected] = useState(initialSelect);
 
   const history = useHistory();
