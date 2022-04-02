@@ -6,6 +6,7 @@ export type RowProps = {
   gapY?: string;
   gap?: Property.Gap;
   align?: Property.AlignItems;
+  arrange?: Property.JustifyContent;
   direction?: Property.FlexDirection;
 } & React.ComponentProps<"div">;
 
@@ -17,6 +18,7 @@ const Row = ({
   gapY,
   align = "center",
   direction = "row",
+  arrange,
   ...rest
 }: RowProps) => {
   const style = {
@@ -26,6 +28,7 @@ const Row = ({
     columnGap: gapY,
     display: "flex",
     flexDirection: direction,
+    justifyContent: arrange,
   };
 
   return (
