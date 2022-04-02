@@ -3,7 +3,7 @@ import { Form, Button, message, Upload } from "antd";
 import TextInput from "@components/TextInput";
 import { PaperClipOutlined } from "@ant-design/icons";
 
-type UploadFieldProps = {
+export type UploadFieldProps = {
   className?: string;
   affixNote?: string;
   onChange?: (value: string) => void;

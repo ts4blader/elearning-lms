@@ -6,7 +6,7 @@ import Card from "@components/Card";
 import { Progress } from "antd";
 import StatisticalEntry from "./StatisticalEntry";
 import VisitChart from "./VisitChart";
-import ColumnGroupChart from "@components/ColumnGroupChart";
+import ColumnGroupChart from "./ColumnGroupChart";
 import DatePicker from "@components/DatePicker";
 import { SEMESTER, CARDS, CLASSES, LEVELS, STUDENTS_AMOUNT } from "./data";
 

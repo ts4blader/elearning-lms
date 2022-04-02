@@ -5,7 +5,7 @@ import {
 } from "antd";
 import { Link } from "react-router-dom";
 
-type BreadcrumbProps = {
+export type BreadcrumbProps = {
   data: {
     text: string;
     link: string;

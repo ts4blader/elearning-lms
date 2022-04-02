@@ -1,12 +1,12 @@
 import React from "react";
 
-type Props = {
+type CardProps = {
   title: string;
   description: string;
   variant?: "primary" | "secondary";
 };
 
-const Card = ({ title, description, variant }: Props) => {
+const Card = ({ title, description, variant }: CardProps) => {
   return (
     <div className="card" data-variant={variant}>
       <div className="card-decor">
