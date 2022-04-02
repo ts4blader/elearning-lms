@@ -1,5 +1,6 @@
 import React from "react";
 import { Select as AntSelect, SelectProps as AntSelectProps } from "antd";
+import Icon from "@assets/Icon";
 
 export type SelectProps = {
   data: string[];
@@ -12,7 +13,7 @@ const Select = ({ data, keyAffix, className = "", ...rest }: SelectProps) => {
   return (
     <AntSelect
       className={`select ${className}`}
-      suffixIcon={<img src="/icons/caret.svg" alt="caret" />}
+      suffixIcon={<Icon src="caret.svg" alt="caret" />}
       {...rest}
     >
       {data.map((item) => (

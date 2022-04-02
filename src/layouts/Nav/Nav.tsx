@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Menu } from "antd";
 import { CATALOG, OPEN_KEYS } from "@constants/nav";
 import { useHistory } from "react-router-dom";
+import Image from "@assets/Image";
 
 //* Init select
 const initialSelect = CATALOG[0].name;
@@ -23,7 +24,7 @@ const Nav = ({ rootPath }: NavProps) => {
   return (
     <nav className="nav">
       <div className="logo">
-        <img src="/images/logo-white.png" alt="logo" />
+        <Image src="logo-white.png" alt="logo" />
       </div>
       {/* Main nav */}
       <ul className="nav-main">

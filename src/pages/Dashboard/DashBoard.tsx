@@ -3,7 +3,6 @@ import { Switch, Route, useRouteMatch } from "react-router-dom";
 import Nav from "@layouts/Nav";
 import DeleteModal from "@layouts/DeleteModal";
 import FormModal from "@layouts/FormModal";
-import Header from "@layouts/Header";
 import Overview from "@pages/Overview";
 import Database from "@pages/Database";
 import ClassDetail from "@pages/ClassDetail";
@@ -25,8 +24,6 @@ const DashBoard = () => {
       <div className="sider-placeholder"></div>
       {/* Page content */}
       <div className="page-content">
-        {/* Header */}
-        <Header />
         <Switch>
           <Route path={path} exact>
             <Overview />

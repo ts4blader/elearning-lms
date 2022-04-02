@@ -1,4 +1,5 @@
 import React from "react";
+import Header from "@layouts/Header";
 
 export type PageProps = {
   title: React.ReactNode;
@@ -8,7 +9,8 @@ export type PageProps = {
 
 const Page = ({ title, children, className = "", ...rest }: PageProps) => {
   return (
-    <main className={`page ${className}-page`} {...rest}>
+    <main className={`page ${className}`} {...rest}>
+      <Header />
       <h2 className="page-title">{title}</h2>
       <div className="page-content">{children}</div>
     </main>
