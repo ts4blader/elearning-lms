@@ -43,6 +43,7 @@ const LoginForm = ({ switchLayout }: Props) => {
             prefix={<UserOutlined className="icon-user" />}
             maxLength={50}
             value={username}
+            size="large"
             onChange={({ target }) => setUsername(target.value)}
           />
         </Form.Item>
@@ -55,6 +56,7 @@ const LoginForm = ({ switchLayout }: Props) => {
         >
           <Input.Password
             value={password}
+            size="large"
             onChange={({ target }) => setPassword(target.value)}
             prefix={<LockOutlined className="icon-password" />}
             maxLength={20}
@@ -68,7 +70,7 @@ const LoginForm = ({ switchLayout }: Props) => {
             Quên mật khẩu?
           </div>
         </Form.Item>
-        <Form.Item>
+        <Form.Item className="submit-field">
           <Button
             type="primary"
             size="large"

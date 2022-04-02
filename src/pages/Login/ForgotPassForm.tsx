@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import { Form, Input, Button } from "antd";
 import { UserOutlined, LeftOutlined } from "@ant-design/icons";
+import TextInput from "@components/TextInput";
 
 type LayoutType = Parameters<typeof Form>[0]["layout"];
 type Props = {
@@ -36,6 +37,7 @@ const ForgotPassForm = ({ switchLayout }: Props) => {
             prefix={<UserOutlined className="icon-user" />}
             maxLength={50}
             value={username}
+            size="large"
             onChange={({ target }) => setUsername(target.value)}
           />
         </Form.Item>
@@ -47,7 +49,7 @@ const ForgotPassForm = ({ switchLayout }: Props) => {
           name="confirm"
           rules={[{ required: true, message: "Xin hãy điền mã xác thực" }]}
         >
-          <Input
+          <TextInput
             type="text"
             maxLength={20}
             value={confirmCode}
@@ -62,7 +64,7 @@ const ForgotPassForm = ({ switchLayout }: Props) => {
             <LeftOutlined /> Quay lại trang chủ
           </div>
         </Form.Item>
-        <Form.Item>
+        <Form.Item className="submit-field">
           <Button
             type="primary"
             size="large"

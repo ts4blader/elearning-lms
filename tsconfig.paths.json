@@ -23,6 +23,9 @@
          "@slices/*":[
             "./services/slices/*"
          ],
+         "@assets/*":[
+            "./assets/*"
+         ],
          "@icons/*":[
             "./assets/icons/*"
          ],
