@@ -1,6 +1,6 @@
 import React from "react";
 import TextInput from "@components/TextInput";
-import { useAppDispatch, useAppSelector } from "@stores/hooks";
+import { useAppDispatch, useAppSelector } from "@hooks";
 import { setPageSize } from "@slices/pageSizeSlice";
 
 const DEFAULT_PAGESIZE = 8;

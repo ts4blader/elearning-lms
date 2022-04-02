@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Table } from "antd";
 import ItemActions from "@components/ItemActions";
 import DATA from "@seeds/thcs/semesters.json";
-import { useAppSelector } from "@stores/hooks";
+import { useAppSelector } from "@hooks";
 import SemesterForm from "@components/forms/SemesterForm";
 import ColumnTitle from "@components/ColumnTitle";
 

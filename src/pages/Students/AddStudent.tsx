@@ -1,5 +1,5 @@
 import React from "react";
-import Section from "@components/Section";
+import Page from "@components/Page";
 import AddStudentForm from "./AddStudentForm";
 import Breadcrumb from "@components/Breadcrumb";
 
@@ -15,14 +15,14 @@ const BREADCRUMB_DATA = [
 ];
 
 const Title = () => {
-  return <Breadcrumb data={BREADCRUMB_DATA} keyAffix="section-title" />;
+  return <Breadcrumb data={BREADCRUMB_DATA} keyAffix="page-title" />;
 };
 
 const AddStudent = () => {
   return (
-    <Section title={<Title />}>
+    <Page title={<Title />}>
       <AddStudentForm />
-    </Section>
+    </Page>
   );
 };
 

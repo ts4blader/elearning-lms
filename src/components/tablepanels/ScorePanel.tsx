@@ -3,7 +3,7 @@ import TablePanel from "@components/TablePanel";
 import { Button } from "antd";
 import { PlusOutlined } from "@ant-design/icons";
 import ScoreForm from "@components/forms/ScoreForm";
-import { useAppDispatch } from "@stores/hooks";
+import { useAppDispatch } from "@hooks";
 import { showFormModal } from "@slices/formModalSlice";
 
 const ScorePanel = () => {

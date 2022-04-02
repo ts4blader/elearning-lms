@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Table, Button, Divider } from "antd";
-import Section from "@components/Section";
+import Page from "@components/Page";
 import TableFrame from "@components/TableFrame";
 import TablePanel from "@components/TablePanel";
 import Select from "@components/Select";
@@ -8,7 +8,7 @@ import DATA from "@seeds/thcs/students.json";
 import { TABLES } from "./data";
 import { DeleteOutlined } from "@ant-design/icons";
 import { useHistory, useRouteMatch } from "react-router-dom";
-import { useAppSelector, useAppDispatch } from "@stores/hooks";
+import { useAppSelector, useAppDispatch } from "@hooks";
 import DropdownActions from "@components/DropdownActions";
 import { showFormModal } from "@slices/formModalSlice";
 import UploadForm from "@components/forms/UploadForm";
@@ -30,7 +30,7 @@ const AllStudents = () => {
   const showForm = () => history.push(`${path}/add-student`);
 
   return (
-    <Section title="Hồ sơ học viên" className="students-page">
+    <Page title="Hồ sơ học viên" className="students-page">
       <TableFrame
         title={selected.title}
         table={
@@ -93,7 +93,7 @@ const AllStudents = () => {
           </TablePanel.ButtonGrp>
         </TablePanel>
       </TableFrame>
-    </Section>
+    </Page>
   );
 };
 

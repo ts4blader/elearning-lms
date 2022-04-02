@@ -4,7 +4,7 @@ import DATA from "@seeds/thcs/students.json";
 import { EditOutlined } from "@ant-design/icons";
 import Select from "@components/Select";
 import TableWrapper from "@components/TableWrapper";
-import { useAppSelector } from "@stores/hooks";
+import { useAppSelector } from "@hooks";
 import ColumnTitle from "@components/ColumnTitle";
 
 const SubjectList = () => {

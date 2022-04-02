@@ -1,6 +1,6 @@
-import grade7 from "../seeds/classes/grade-7.json"
-import grade6 from "../seeds/classes/grade-6.json"
-import grade8 from "../seeds/classes/grade-8.json"
+import grade7 from "@seeds/classes/grade-7.json"
+import grade6 from "@seeds/classes/grade-6.json"
+import grade8 from "@seeds/classes/grade-8.json"
 
 export const SEMESTER = ["2019-2020", "2020-2021", "2021-2022"];
 

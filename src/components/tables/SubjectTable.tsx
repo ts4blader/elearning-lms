@@ -2,7 +2,7 @@ import React from "react";
 import { Table } from "antd";
 import ItemActions from "@components/ItemActions";
 import DATA from "@seeds/thcs/subjects.json";
-import { useAppSelector } from "@stores/hooks";
+import { useAppSelector } from "@hooks";
 import SubjectForm from "@components/forms/SubjectForm";
 import ColumnTitle from "@components/ColumnTitle";
 

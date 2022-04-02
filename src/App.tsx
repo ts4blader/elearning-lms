@@ -1,7 +1,7 @@
 import React from "react";
-import "./styles/main.less";
+import "@styles/main.less";
 import Login from "@pages/Login";
-import DashBoard from "@pages/DashBoard";
+import DashBoard from "@pages/Dashboard";
 import { Switch, Route } from "react-router-dom";
 
 function App() {

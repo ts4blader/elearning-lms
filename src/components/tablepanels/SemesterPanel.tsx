@@ -2,7 +2,7 @@ import React from "react";
 import { Button } from "antd";
 import TablePanel from "@components/TablePanel";
 import { PlusOutlined } from "@ant-design/icons";
-import { useAppDispatch } from "@stores/hooks";
+import { useAppDispatch } from "@hooks";
 import { showFormModal } from "@slices/formModalSlice";
 import SemesterForm from "@components/forms/SemesterForm";
 

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Breadcrumb from "@components/Breadcrumb";
-import Section from "@components/Section";
+import Page from "@components/Page";
 import { Space } from "antd";
 
 const TABS = ["Thông tin chung", "Quá trình học tập"];
@@ -16,14 +16,14 @@ const BREADCRUMB_DATA = [
 ];
 
 const Title = () => {
-  return <Breadcrumb data={BREADCRUMB_DATA} keyAffix="section-title" />;
+  return <Breadcrumb data={BREADCRUMB_DATA} keyAffix="page-title" />;
 };
 
 const StudentDetail = () => {
   const [tab, setTab] = useState(TABS[0]);
 
   return (
-    <Section title={<Title />} className="student-detail-section">
+    <Page title={<Title />} className="student-detail">
       <div className="panel">
         {/* Tabs */}
         <div className="tabs">
@@ -41,7 +41,7 @@ const StudentDetail = () => {
         {/* control buttons */}
         <Space className="control-btns"></Space>
       </div>
-    </Section>
+    </Page>
   );
 };
 

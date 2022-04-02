@@ -1,5 +1,5 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
-import type {RootState} from "@stores/store"
+import type {RootState} from "@stores"
 
 type FormModalState = {
     show: boolean;

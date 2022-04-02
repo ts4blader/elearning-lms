@@ -1,5 +1,5 @@
 import React from "react";
-import { useAppDispatch } from "@stores/hooks";
+import { useAppDispatch } from "@hooks";
 import { showDeleteModal } from "@slices/deleteModalSlice";
 import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
 import { showFormModal } from "@slices/formModalSlice";

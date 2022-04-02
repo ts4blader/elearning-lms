@@ -2,7 +2,7 @@ import React from "react";
 import { Table } from "antd";
 import ItemActions from "@components/ItemActions";
 import DATA from "@seeds/thcs/scores.json";
-import { useAppSelector } from "@stores/hooks";
+import { useAppSelector } from "@hooks";
 import ScoreForm from "@components/forms/ScoreForm";
 import ColumnTitle from "@components/ColumnTitle";
 

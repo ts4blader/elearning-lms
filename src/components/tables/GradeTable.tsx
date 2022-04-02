@@ -5,7 +5,7 @@ import DATA from "@seeds/thcs/grades.json";
 import { MenuOutlined } from "@ant-design/icons";
 import TableModal from "@components/TableModal";
 import CLASSES from "@seeds/thcs/classes.json";
-import { useAppSelector } from "@stores/hooks";
+import { useAppSelector } from "@hooks";
 import GradeForm from "@components/forms/GradeForm";
 import ColumnTitle from "@components/ColumnTitle";
 import { ADDITIONAL_COLUMN } from "@constants/tables/addition-tables";

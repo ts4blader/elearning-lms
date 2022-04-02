@@ -4,7 +4,7 @@ import ItemActions from "@components/ItemActions";
 import { EyeOutlined } from "@ant-design/icons";
 import DATA from "@seeds/thcs/classes.json";
 import { useHistory, useRouteMatch } from "react-router-dom";
-import { useAppSelector } from "@stores/hooks";
+import { useAppSelector } from "@hooks";
 import ClassForm from "@components/forms/ClassForm";
 import ColumnTitle from "@components/ColumnTitle";
 

@@ -1,5 +1,5 @@
 import React from "react";
-import Section from "@components/Section";
+import Page from "@components/Page";
 import moment from "moment";
 import Select from "@components/Select";
 import Card from "@components/Card";
@@ -22,7 +22,7 @@ const Overview = () => {
   };
 
   return (
-    <Section className="overview-section" title="Tổng quan">
+    <Page className="overview-page" title="Tổng quan">
       {/* Overview row */}
       <div className="overview-row row">
         <div className="semester-dropdown-wrapper">
@@ -102,7 +102,7 @@ const Overview = () => {
           </StatisticalEntry.Content>
         </StatisticalEntry>
       </div>
-    </Section>
+    </Page>
   );
 };
 

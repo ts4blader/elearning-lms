@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, Modal, Table } from "antd";
 import { DeleteOutlined } from "@ant-design/icons";
-import { useAppDispatch } from "@stores/hooks";
+import { useAppDispatch } from "@hooks";
 import { showDeleteModal } from "@slices/deleteModalSlice";
 
 type Props = {

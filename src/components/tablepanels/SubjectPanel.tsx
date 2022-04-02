@@ -4,7 +4,7 @@ import TablePanel from "@components/TablePanel";
 import Select from "@components/Select";
 import { DeleteOutlined, PlusOutlined } from "@ant-design/icons";
 import SubjectForm from "@components/forms/SubjectForm";
-import { useAppDispatch } from "@stores/hooks";
+import { useAppDispatch } from "@hooks";
 import { showFormModal } from "@slices/formModalSlice";
 
 const SubjectPanel = () => {

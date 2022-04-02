@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import TableWrapper from "@components/TableWrapper";
 import DATA from "@seeds/thcs/subjects.json";
 import { Table } from "antd";
-import { useAppSelector } from "@stores/hooks";
+import { useAppSelector } from "@hooks";
 import ColumnTitle from "@components/ColumnTitle";
 
 const SubjectList = () => {

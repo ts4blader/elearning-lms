@@ -1,6 +1,6 @@
 import React from "react";
 import { Modal } from "antd";
-import { useAppSelector, useAppDispatch } from "@stores/hooks";
+import { useAppSelector, useAppDispatch } from "@hooks";
 import { hideDeleteModal } from "@slices/deleteModalSlice";
 
 const DeleteModal = () => {

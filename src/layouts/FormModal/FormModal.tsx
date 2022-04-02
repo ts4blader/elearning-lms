@@ -1,6 +1,6 @@
 import React from "react";
 import { Modal } from "antd";
-import { useAppDispatch, useAppSelector } from "@stores/hooks";
+import { useAppDispatch, useAppSelector } from "@hooks";
 import { hideFormModal } from "@slices/formModalSlice";
 
 const FormModal = () => {

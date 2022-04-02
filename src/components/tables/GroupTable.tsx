@@ -5,7 +5,7 @@ import { MenuOutlined } from "@ant-design/icons";
 import DATA from "@seeds/thcs/groups.json";
 import SUBJECTS from "@seeds/thcs/subjects.json";
 import TableModal from "@components/TableModal";
-import { useAppSelector } from "@stores/hooks";
+import { useAppSelector } from "@hooks";
 import GroupForm from "@components/forms/GroupForm";
 import ColumnTitle from "@components/ColumnTitle";
 import { ADDITIONAL_COLUMN } from "@constants/tables/addition-tables";

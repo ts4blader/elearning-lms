@@ -1,11 +1,11 @@
 import React from "react";
-import Section from "@components/Section";
+import Page from "@components/Page";
 import { Tabs } from "antd";
 import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
 import { PILLARS, BREADCRUMB_DATA } from "./data";
 import { showDeleteModal } from "@slices/deleteModalSlice";
 import { showFormModal } from "@slices/formModalSlice";
-import { useAppDispatch } from "@stores/hooks";
+import { useAppDispatch } from "@hooks";
 import ClassForm from "@components/forms/ClassForm";
 import StudentList from "@components/tables/StudentList";
 import SubjectList from "@components/tables/SubjectList";
@@ -13,7 +13,7 @@ import Breadcrumb from "@components/Breadcrumb";
 import Pillar from "./Pillar";
 
 const Title = () => {
-  return <Breadcrumb data={BREADCRUMB_DATA} keyAffix="section-title" />;
+  return <Breadcrumb data={BREADCRUMB_DATA} keyAffix="page-title" />;
 };
 
 const ClassDetail = () => {
@@ -34,7 +34,7 @@ const ClassDetail = () => {
     );
 
   return (
-    <Section title={<Title />} className="class-detail">
+    <Page title={<Title />} className="class-detail">
       <div className="class-detail-header">
         <div className="general-info">
           {/* Top bar */}
@@ -67,7 +67,7 @@ const ClassDetail = () => {
           </Tabs.TabPane>
         </Tabs>
       </div>
-    </Section>
+    </Page>
   );
 };
 

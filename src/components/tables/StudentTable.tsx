@@ -1,7 +1,7 @@
 import React from "react";
 import ItemActions from "@components/ItemActions";
 import { Table, Tag } from "antd";
-import { useAppSelector } from "@stores/hooks";
+import { useAppSelector } from "@hooks";
 import DATA from "@seeds/thcs/students.json";
 import { EyeOutlined } from "@ant-design/icons";
 import ColumnTitle from "@components/ColumnTitle";
