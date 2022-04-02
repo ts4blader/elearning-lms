@@ -3,7 +3,7 @@ import { Input } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
 import TableWrapper from "@components/TableWrapper";
 
-type Props = {
+export type TableFrameProps = {
   children: React.ReactNode;
   title: string;
   className?: string;
@@ -16,7 +16,7 @@ const TableFrame = ({
   table,
   className = "",
   ...rest
-}: Props) => {
+}: TableFrameProps) => {
   const [searchTerm, setSearchTerm] = useState("");
   const DataTable = table;
 
@@ -27,7 +27,6 @@ const TableFrame = ({
         <div className="row" data-length={searchTerm.length !== 0}>
           <h3 className="title">{title}</h3>
           <Input
-            value={searchTerm}
             onChange={({ target }) => setSearchTerm(target.value)}
             prefix={<SearchOutlined />}
             placeholder="Tìm kiếm"

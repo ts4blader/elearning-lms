@@ -10,7 +10,7 @@ export type RowProps = {
   direction?: Property.FlexDirection;
 } & React.ComponentProps<"div">;
 
-const Row = ({
+export const Row = ({
   className = "",
   children,
   gap,
@@ -37,5 +37,3 @@ const Row = ({
     </div>
   );
 };
-
-export default Row;

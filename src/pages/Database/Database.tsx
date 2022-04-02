@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Section from "@components/Section";
+import Page from "@components/Page";
 import TableFrame from "@components/TableFrame";
 import { TABLES, SCHOOL_DROPDOWN, SEMESTERS_DROPDOWN } from "./data";
 import Select from "@components/Select";
@@ -8,7 +8,7 @@ const Database = () => {
   const [selected, setSelected] = useState(TABLES[0]);
 
   return (
-    <Section className="database-page" title="Khai báo dữ liệu">
+    <Page className="database-page" title="Khai báo dữ liệu">
       <div className="side-panel">
         <div className="view-panel">
           <div className="view-panel-title">Đang chọn xem:</div>
@@ -49,7 +49,7 @@ const Database = () => {
       >
         <selected.panel />
       </TableFrame>
-    </Section>
+    </Page>
   );
 };
 
