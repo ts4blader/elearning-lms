@@ -4,6 +4,7 @@ import {
   BreadcrumbProps as AntBreadCrumbProps,
 } from "antd";
 import { Link } from "react-router-dom";
+import Icon from "@assets/Icon";
 
 export type BreadcrumbProps = {
   data: {
@@ -25,7 +26,7 @@ const Breadcrumb = ({
     <AntBreadCrumb
       className={`breadcrumb ${className}`}
       separator={
-        <img src="/icons/caret.svg" alt="" className="separator-icon" />
+        <Icon src="caret.svg" alt="caret" className="separator-icon" />
       }
       {...rest}
     >

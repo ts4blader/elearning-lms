@@ -12,6 +12,9 @@ import { useAppSelector, useAppDispatch } from "@hooks";
 import DropdownActions from "@components/DropdownActions";
 import { showFormModal } from "@slices/formModalSlice";
 import UploadForm from "@components/forms/UploadForm";
+import Tabs from "@components/Tabs";
+
+const TABS = TABLES.map((item) => item.tab.text);
 
 const AllStudents = () => {
   const [selected, setSelected] = useState(TABLES[0]);
@@ -66,18 +69,12 @@ const AllStudents = () => {
               />
             </TablePanel.Field>
             <TablePanel.Field>
-              <div className="tabs">
-                {TABLES.map((item) => (
-                  <div
-                    data-active={item.tab.name === selected.tab.name}
-                    className="tabs-item"
-                    key={item.tab.name}
-                    onClick={() => setSelected(item)}
-                  >
-                    {item.tab.text}
-                  </div>
-                ))}
-              </div>
+              <Tabs
+                data={TABS}
+                keyAffix="student-field"
+                onChange={(value) => setSelected(TABLES[value])}
+                variant="separate"
+              />
             </TablePanel.Field>
           </TablePanel.SelectionGrp>
           <TablePanel.ButtonGrp>

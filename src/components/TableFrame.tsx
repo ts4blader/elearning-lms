@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Input } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
 import TableWrapper from "@components/TableWrapper";
+import { Row } from "@layouts/Grid";
 
 export type TableFrameProps = {
   children: React.ReactNode;
@@ -24,14 +25,14 @@ const TableFrame = ({
     <div className={`table-frame ${className}`} {...rest}>
       <div className="table-frame-header">{children}</div>
       <div className="table-frame-body">
-        <div className="row" data-length={searchTerm.length !== 0}>
+        <Row data-length={searchTerm.length !== 0}>
           <h3 className="title">{title}</h3>
           <Input
             onChange={({ target }) => setSearchTerm(target.value)}
             prefix={<SearchOutlined />}
             placeholder="Tìm kiếm"
           />
-        </div>
+        </Row>
         <TableWrapper>
           <DataTable />
         </TableWrapper>

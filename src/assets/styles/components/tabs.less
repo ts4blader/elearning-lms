@@ -1,27 +1,27 @@
-.ant-tabs {
-  &-ink-bar {
-    display: none;
-  }
-  &-nav::before {
-    border-bottom: 0 !important;
-  }
-  .ant-tabs-nav-list {
-    padding: 0.3em;
+.tabs {
+  font-size: 1.8rem;
+  font-weight: bold;
+  width: fit-content;
+  &-inner {
+    padding: 0.5rem;
     background: @color-gray-light;
     border-radius: 999px;
   }
-  .ant-tabs-tab {
-    margin: 0;
-    font-size: 1.8rem;
-    font-weight: bold;
-    padding: 0.3em 2em;
-    border-radius: 999px;
+  &-item {
+    cursor: pointer;
+    padding: 0.2em 2em;
+    background: @color-gray-light;
     color: @color-gray-dark;
-    &-active {
+    border-radius: inherit;
+    &[data-active="true"] {
       background: @color-dark;
-      .ant-tabs-tab-btn {
-        color: white;
-      }
+      color: white;
+    }
+  }
+  &[data-variant="separate"] {
+    .tabs-inner {
+      background: transparent;
+      gap: 1em;
     }
   }
 }

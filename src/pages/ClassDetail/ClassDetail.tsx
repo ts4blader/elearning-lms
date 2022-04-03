@@ -1,23 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import Page from "@components/Page";
-import { Tabs } from "antd";
 import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
-import { PILLARS, BREADCRUMB_DATA } from "./data";
+import { PILLARS, BREADCRUMB_DATA, TABLES } from "./data";
 import { showDeleteModal } from "@slices/deleteModalSlice";
 import { showFormModal } from "@slices/formModalSlice";
 import { useAppDispatch } from "@hooks";
 import ClassForm from "@components/forms/ClassForm";
-import StudentList from "@components/tables/StudentList";
-import SubjectList from "@components/tables/SubjectList";
 import Breadcrumb from "@components/Breadcrumb";
 import Pillar from "./Pillar";
+import Tabs from "@components/Tabs";
 
 const Title = () => {
   return <Breadcrumb data={BREADCRUMB_DATA} keyAffix="page-title" />;
 };
 
 const ClassDetail = () => {
+  const [selected, setSelected] = useState(TABLES[0]);
+  const InTabTable = selected;
   const dispatch = useAppDispatch();
+
   const showDelete = () =>
     dispatch(
       showDeleteModal({
@@ -58,14 +59,14 @@ const ClassDetail = () => {
         </div>
       </div>
       <div className="class-detail-body">
-        <Tabs className="students-tab" defaultActiveKey="1">
-          <Tabs.TabPane tab="Danh sách học viên" key="1">
-            <StudentList />
-          </Tabs.TabPane>
-          <Tabs.TabPane tab="Danh sách môn học" key="2">
-            <SubjectList />
-          </Tabs.TabPane>
-        </Tabs>
+        <Tabs
+          data={["Danh sách học viên", "Danh sách môn học"]}
+          keyAffix="student-tabs"
+          onChange={(value) => setSelected(TABLES[value])}
+        />
+        <div className="intab-table">
+          <selected.table />
+        </div>
       </div>
     </Page>
   );

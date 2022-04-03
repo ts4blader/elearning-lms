@@ -1,4 +1,14 @@
 import STUDENTS from "@seeds/thcs/students.json"
+import StudentTable from "./StudentTable";
+import SubjectTable from "./SubjectTable";
+
+export const TABLES = [{
+    table: StudentTable,
+},
+    {
+        table: SubjectTable
+    }
+];
 
 export const BREADCRUMB_DATA = [
     {
