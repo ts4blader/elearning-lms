@@ -6,7 +6,7 @@ import { Row, RowProps } from "@layouts/Grid";
 export type ControlPanelProps = RowProps;
 export type SharedProps = React.ComponentProps<"div">;
 
-const ControlPanel = ({ className = "", children, ...rest }: SharedProps) => {
+const ControlPanel = ({ className = "", children, ...rest }: RowProps) => {
   return (
     <Row className={`control-panel ${className}`} gap="2em" {...rest}>
       {children}
@@ -36,16 +36,12 @@ const AddButton = ({ onClick, className = "", ...rest }: SharedProps) => {
     </div>
   );
 };
-const DeleteButton = ({ onClick, className = "", ...rest }: SharedProps) => {
+const DeleteButton = ({ className = "", ...rest }: SharedProps) => {
   return (
     <div className="delete-btn-wrapper" {...rest}>
-      <Button
-        className={`delete-btn ${className}`}
-        type="primary"
-        size="large"
-        icon={<DeleteOutlined />}
-        onClick={onClick}
-      ></Button>
+      <div className="delete-btn">
+        <DeleteOutlined />
+      </div>
     </div>
   );
 };

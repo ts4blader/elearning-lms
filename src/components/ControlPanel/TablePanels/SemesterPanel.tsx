@@ -1,6 +1,6 @@
 import React from "react";
 import { Button } from "antd";
-import TablePanel from "@components/TablePanel";
+import ControlPanel from "@components/ControlPanel";
 import { PlusOutlined } from "@ant-design/icons";
 import { useAppDispatch } from "@hooks";
 import { showFormModal } from "@slices/formModalSlice";
@@ -17,20 +17,14 @@ const SemesterPanel = () => {
     );
   };
 
+  const { AddButton, Group } = ControlPanel;
+
   return (
-    <TablePanel>
-      <TablePanel.ButtonGrp>
-        <Button
-          className="add-btn"
-          type="primary"
-          size="large"
-          icon={<PlusOutlined />}
-          onClick={showModal}
-        >
-          Thêm mới
-        </Button>
-      </TablePanel.ButtonGrp>
-    </TablePanel>
+    <ControlPanel arrange="flex-end">
+      <Group>
+        <AddButton onClick={showModal} />
+      </Group>
+    </ControlPanel>
   );
 };
 export default SemesterPanel;

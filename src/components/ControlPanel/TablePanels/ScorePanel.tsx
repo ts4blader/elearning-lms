@@ -1,7 +1,5 @@
 import React from "react";
-import TablePanel from "@components/TablePanel";
-import { Button } from "antd";
-import { PlusOutlined } from "@ant-design/icons";
+import ControlPanel from "@components/ControlPanel";
 import ScoreForm from "@components/forms/ScoreForm";
 import { useAppDispatch } from "@hooks";
 import { showFormModal } from "@slices/formModalSlice";
@@ -17,20 +15,14 @@ const ScorePanel = () => {
     );
   };
 
+  const { Group, AddButton } = ControlPanel;
+
   return (
-    <TablePanel>
-      <TablePanel.ButtonGrp>
-        <Button
-          className="add-btn"
-          type="primary"
-          size="large"
-          icon={<PlusOutlined />}
-          onClick={showModal}
-        >
-          Thêm mới
-        </Button>
-      </TablePanel.ButtonGrp>
-    </TablePanel>
+    <ControlPanel arrange="flex-end">
+      <Group>
+        <AddButton onClick={showModal} />
+      </Group>
+    </ControlPanel>
   );
 };
 
