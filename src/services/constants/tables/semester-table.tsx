@@ -1,4 +1,4 @@
-import SemesterPanel from "@components/tablepanels/SemesterPanel";
+import SemesterPanel from "@components/ControlPanel/TablePanels/SemesterPanel";
 import SemesterTable from "@components/tables/SemesterTable";
 
 export const PANEL = SemesterPanel;

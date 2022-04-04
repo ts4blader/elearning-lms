@@ -1,4 +1,4 @@
-import ScorePanel from "@components/tablepanels/ScorePanel";
+import ScorePanel from "@components/ControlPanel/TablePanels/ScorePanel";
 import ScoreTable from "@components/tables/ScoreTable";
 
 export const PANEL = ScorePanel;

@@ -2,8 +2,6 @@ import React from "react";
 import { Property } from "csstype";
 
 export type RowProps = {
-  gapX?: string;
-  gapY?: string;
   gap?: Property.Gap;
   align?: Property.AlignItems;
   arrange?: Property.JustifyContent;
@@ -14,8 +12,6 @@ export const Row = ({
   className = "",
   children,
   gap,
-  gapX,
-  gapY,
   align = "center",
   direction = "row",
   arrange,
@@ -24,8 +20,6 @@ export const Row = ({
   const style = {
     gap,
     alignItems: align,
-    rowGap: gapX,
-    columnGap: gapY,
     display: "flex",
     flexDirection: direction,
     justifyContent: arrange,

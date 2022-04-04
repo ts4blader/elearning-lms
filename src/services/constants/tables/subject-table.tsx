@@ -1,4 +1,4 @@
-import SubjectPanel from "@components/tablepanels/SubjectPanel";
+import SubjectPanel from "@components/ControlPanel/TablePanels/SubjectPanel";
 import SubjectTable from "@components/tables/SubjectTable";
 
 export const PANEL = SubjectPanel;

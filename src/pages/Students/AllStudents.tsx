@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { Table, Button, Divider } from "antd";
+import { Table } from "antd";
 import Page from "@components/Page";
 import TableFrame from "@components/TableFrame";
-import TablePanel from "@components/TablePanel";
+import ControlPanel from "@components/ControlPanel";
 import Select from "@components/Select";
 import DATA from "@seeds/thcs/students.json";
 import { TABLES } from "./data";
-import { DeleteOutlined } from "@ant-design/icons";
+import { Row } from "@layouts/Grid";
 import { useHistory, useRouteMatch } from "react-router-dom";
 import { useAppSelector, useAppDispatch } from "@hooks";
 import DropdownActions from "@components/DropdownActions";
@@ -22,6 +22,7 @@ const AllStudents = () => {
   const dispatch = useAppDispatch();
   const history = useHistory();
   const { path } = useRouteMatch();
+  const { Group, AddButton, DeleteButton, ExportButton } = ControlPanel;
 
   const showImport = () =>
     dispatch(
@@ -52,43 +53,41 @@ const AllStudents = () => {
               )
         }
       >
-        <TablePanel>
-          <TablePanel.SelectionGrp>
-            <TablePanel.Field>
+        <ControlPanel>
+          <Group>
+            <Row gap="1em">
               <Select
                 defaultValue="Tất cả các khối"
                 data={["Khối 6", "Khối 7", "Khối 8"]}
                 keyAffix="grade-select"
               />
-            </TablePanel.Field>
-            <TablePanel.Field>
               <Select
                 defaultValue="2021-2022"
                 data={["2021-2022", "2021-2023", "2021-2024"]}
                 keyAffix="semester-select"
               />
-            </TablePanel.Field>
-            <TablePanel.Field>
-              <Tabs
-                data={TABS}
-                keyAffix="student-field"
-                onChange={(value) => setSelected(TABLES[value])}
-                variant="separate"
-              />
-            </TablePanel.Field>
-          </TablePanel.SelectionGrp>
-          <TablePanel.ButtonGrp>
-            <Button className="delete-btn" icon={<DeleteOutlined />} />
-            <Divider type="vertical" />
-            <Button className="export-btn" type="primary" ghost size="large">
-              Xuất file
-            </Button>
-            <DropdownActions
-              onManualClick={showForm}
-              onImportClick={showImport}
+            </Row>
+          </Group>
+          <Group>
+            <Tabs
+              data={TABS}
+              keyAffix="student-field"
+              onChange={(value) => setSelected(TABLES[value])}
+              variant="separate"
             />
-          </TablePanel.ButtonGrp>
-        </TablePanel>
+          </Group>
+          <Group className="btn-grp">
+            <Row gap="1em">
+              <DeleteButton />
+              <div className="divider"></div>
+              <ExportButton />
+              <DropdownActions
+                onManualClick={showForm}
+                onImportClick={showImport}
+              />
+            </Row>
+          </Group>
+        </ControlPanel>
       </TableFrame>
     </Page>
   );

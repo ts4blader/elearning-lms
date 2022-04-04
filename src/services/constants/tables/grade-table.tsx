@@ -1,4 +1,4 @@
-import GradePanel from "@components/tablepanels/GradePanel";
+import GradePanel from "@components/ControlPanel/TablePanels/GradePanel";
 import GradeTable from "@components/tables/GradeTable";
 
 export const PANEL = GradePanel;
