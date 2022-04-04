@@ -1,8 +1,7 @@
 import React from "react";
 import ControlPanel from "@components/ControlPanel";
 import Select from "@components/Select";
-import ClassForm from "@components/forms/ClassForm";
-import UploadForm from "@components/forms/UploadForm";
+import { ClassForm, UploadForm } from "@components/Forms";
 import { useAppDispatch } from "@hooks";
 import { showFormModal } from "@slices/formModalSlice";
 import Dropdown from "@components/Dropdown";

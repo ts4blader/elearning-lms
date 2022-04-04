@@ -5,7 +5,7 @@ import { EyeOutlined } from "@ant-design/icons";
 import DATA from "@seeds/thcs/classes.json";
 import { useHistory, useRouteMatch } from "react-router-dom";
 import { useAppSelector } from "@hooks";
-import ClassForm from "@components/forms/ClassForm";
+import { ClassForm } from "@components/Forms";
 import { ColumnTitle } from "@components/Table";
 
 const ClassTable = () => {

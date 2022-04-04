@@ -2,7 +2,7 @@ import React from "react";
 import ControlPanel from "@components/ControlPanel";
 import Select from "@components/Select";
 import { Row } from "@layouts/Grid";
-import SubjectForm from "@components/forms/SubjectForm";
+import { SubjectForm } from "@components/Forms";
 import { useAppDispatch } from "@hooks";
 import { showFormModal } from "@slices/formModalSlice";
 import { showDeleteModal } from "@slices/deleteModalSlice";

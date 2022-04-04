@@ -8,7 +8,7 @@ type Props = {
   onCancel: () => void;
 };
 
-const ClassForm = ({ onCancel }: Props) => {
+export const ClassForm = ({ onCancel }: Props) => {
   const [extend, setExtend] = useState(false);
 
   const handleSubmit = (values: any) => {

@@ -8,7 +8,7 @@ type Props = {
   onCancel: () => void;
 };
 
-const SubjectForm = ({ onCancel }: Props) => {
+export const SubjectForm = ({ onCancel }: Props) => {
   const handleSubmit = (values: any) => {
     console.log(values);
   };

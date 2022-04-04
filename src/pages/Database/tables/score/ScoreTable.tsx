@@ -3,7 +3,7 @@ import { Table } from "antd";
 import ItemActions from "@components/ItemActions";
 import DATA from "@seeds/thcs/scores.json";
 import { useAppSelector } from "@hooks";
-import ScoreForm from "@components/forms/ScoreForm";
+import { ScoreForm } from "@components/Forms";
 import { ColumnTitle } from "@components/Table";
 
 const ScoreTable = () => {

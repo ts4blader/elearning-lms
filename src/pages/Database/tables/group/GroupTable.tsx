@@ -5,7 +5,7 @@ import { MenuOutlined } from "@ant-design/icons";
 import DATA from "@seeds/thcs/groups.json";
 import SUBJECTS from "@seeds/thcs/subjects.json";
 import { useAppSelector } from "@hooks";
-import GroupForm from "@components/forms/GroupForm";
+import { GroupForm } from "@components/Forms";
 import { ColumnTitle, TableModal } from "@components/Table";
 import { SUBTABLE_COLUMNS } from "../sub-table";
 

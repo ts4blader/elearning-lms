@@ -1,6 +1,6 @@
 import React from "react";
 import ControlPanel from "@components/ControlPanel";
-import GradeForm from "@components/forms/GradeForm";
+import { GradeForm } from "@components/Forms";
 import { useAppDispatch } from "@hooks";
 import { showFormModal } from "@slices/formModalSlice";
 

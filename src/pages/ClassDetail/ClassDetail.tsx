@@ -5,7 +5,7 @@ import { PILLARS, BREADCRUMB_DATA, TABLES } from "./data";
 import { showDeleteModal } from "@slices/deleteModalSlice";
 import { showFormModal } from "@slices/formModalSlice";
 import { useAppDispatch } from "@hooks";
-import ClassForm from "@components/forms/ClassForm";
+import { ClassForm } from "@components/Forms";
 import Breadcrumb from "@components/Breadcrumb";
 import Pillar from "./Pillar";
 import Tabs from "@components/Tabs";

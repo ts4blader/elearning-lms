@@ -1,6 +1,6 @@
 import React from "react";
 import ControlPanel from "@components/ControlPanel";
-import GroupForm from "@components/forms/GroupForm";
+import { GroupForm } from "@components/Forms";
 import { useAppDispatch } from "@hooks";
 import { showFormModal } from "@slices/formModalSlice";
 

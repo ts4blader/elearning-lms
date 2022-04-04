@@ -14,7 +14,7 @@ type Props = {
   onCancel: () => void;
 };
 
-const SemesterForm = ({ onCancel }: Props) => {
+export const SemesterForm = ({ onCancel }: Props) => {
   const [extendsData, setExtendsData] = useState(false);
 
   const handleSubmit = (values: any) => {

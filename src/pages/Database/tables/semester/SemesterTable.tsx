@@ -3,7 +3,7 @@ import { Table } from "antd";
 import ItemActions from "@components/ItemActions";
 import DATA from "@seeds/thcs/semesters.json";
 import { useAppSelector } from "@hooks";
-import SemesterForm from "@components/forms/SemesterForm";
+import { SemesterForm } from "@components/Forms";
 import { ColumnTitle } from "@components/Table";
 
 const SemesterTable = () => {

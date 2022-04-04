@@ -5,7 +5,7 @@ import DATA from "@seeds/thcs/grades.json";
 import { MenuOutlined } from "@ant-design/icons";
 import CLASSES from "@seeds/thcs/classes.json";
 import { useAppSelector } from "@hooks";
-import GradeForm from "@components/forms/GradeForm";
+import { GradeForm } from "@components/Forms";
 import { ColumnTitle, TableModal } from "@components/Table";
 import { SUBTABLE_COLUMNS } from "../sub-table";
 

@@ -7,7 +7,7 @@ type Props = {
   onCancel: () => void;
 };
 
-const GradeForm = ({ onCancel }: Props) => {
+export const GradeForm = ({ onCancel }: Props) => {
   const handleSubmit = (values: any) => {
     console.log(values);
   };

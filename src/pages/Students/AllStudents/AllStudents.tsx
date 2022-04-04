@@ -11,7 +11,7 @@ import { useHistory, useRouteMatch } from "react-router-dom";
 import { useAppSelector, useAppDispatch } from "@hooks";
 import Dropdown from "@components/Dropdown";
 import { showFormModal } from "@slices/formModalSlice";
-import UploadForm from "@components/forms/UploadForm";
+import { UploadForm } from "@components/Forms";
 import Tabs from "@components/Tabs";
 
 const TABS = TABLES.map((item) => item.tab.text);

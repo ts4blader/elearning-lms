@@ -3,7 +3,7 @@ import { Table } from "antd";
 import ItemActions from "@components/ItemActions";
 import DATA from "@seeds/thcs/subjects.json";
 import { useAppSelector } from "@hooks";
-import SubjectForm from "@components/forms/SubjectForm";
+import { SubjectForm } from "@components/Forms";
 import { ColumnTitle } from "@components/Table";
 
 const SubjectTable = () => {

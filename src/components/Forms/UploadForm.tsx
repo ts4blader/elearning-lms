@@ -7,7 +7,7 @@ type Props = {
   onCancel: () => void;
 };
 
-const UploadForm = ({ onCancel }: Props) => {
+export const UploadForm = ({ onCancel }: Props) => {
   return (
     <Form className="upload-form">
       <UploadField />
