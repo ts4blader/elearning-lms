@@ -5,10 +5,11 @@ import ClassForm from "@components/forms/ClassForm";
 import UploadForm from "@components/forms/UploadForm";
 import { useAppDispatch } from "@hooks";
 import { showFormModal } from "@slices/formModalSlice";
-import DropdownActions from "@components/DropdownActions";
+import Dropdown from "@components/Dropdown";
 import { Row } from "@layouts/Grid";
+import { Button } from "antd";
 
-const ClassPanel = () => {
+const DropdownContent = () => {
   const dispatch = useAppDispatch();
   const showForm = () => {
     dispatch(
@@ -27,6 +28,15 @@ const ClassPanel = () => {
     );
   };
 
+  return (
+    <div className="dropdown-content-inner">
+      <Button onClick={showImport}>Tải file lên</Button>
+      <Button onClick={showForm}>Nhập thủ công</Button>
+    </div>
+  );
+};
+
+const ClassPanel = () => {
   const { Group, AddButton, ExportButton, DeleteButton } = ControlPanel;
 
   return (
@@ -43,10 +53,12 @@ const ClassPanel = () => {
           <DeleteButton />
           <div className="divider"></div>
           <ExportButton />
-          <DropdownActions
-            onManualClick={showForm}
-            onImportClick={showImport}
-          />
+          <Dropdown
+            dropdownContent={<DropdownContent />}
+            className="in-control-panel"
+          >
+            <AddButton />
+          </Dropdown>
         </Row>
       </Group>
     </ControlPanel>

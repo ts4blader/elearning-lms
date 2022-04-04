@@ -1,0 +1,31 @@
+.dropdown {
+  position: relative;
+  &-content {
+    position: absolute;
+    inset: 100% 0 auto 0;
+    z-index: @layer-modal;
+  }
+  &.in-control-panel {
+    .dropdown-content {
+      margin-top: 0.5em;
+      .ant-btn {
+        width: 100%;
+        height: auto;
+        font-size: 1.8rem;
+        margin-block: 0.5em;
+        padding-block: 0.5em;
+        color: @color-primary;
+        border: 1px solid currentColor;
+        background-color: @color-primary-light-3;
+      }
+    }
+  }
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: black;
+  opacity: 0.5;
+  z-index: @layer-modal - 1;
+}

@@ -6,7 +6,7 @@ import { Switch, Route } from "react-router-dom";
 
 function App() {
   return (
-    <div className="app">
+    <div className="app" id="app">
       <Switch>
         <Route path="/" exact>
           <Login />

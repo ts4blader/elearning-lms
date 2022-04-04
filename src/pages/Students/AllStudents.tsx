@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Table } from "antd";
+import { Table, Button } from "antd";
 import Page from "@components/Page";
 import TableFrame from "@components/TableFrame";
 import ControlPanel from "@components/ControlPanel";
@@ -9,20 +9,17 @@ import { TABLES } from "./data";
 import { Row } from "@layouts/Grid";
 import { useHistory, useRouteMatch } from "react-router-dom";
 import { useAppSelector, useAppDispatch } from "@hooks";
-import DropdownActions from "@components/DropdownActions";
+import Dropdown from "@components/Dropdown";
 import { showFormModal } from "@slices/formModalSlice";
 import UploadForm from "@components/forms/UploadForm";
 import Tabs from "@components/Tabs";
 
 const TABS = TABLES.map((item) => item.tab.text);
 
-const AllStudents = () => {
-  const [selected, setSelected] = useState(TABLES[0]);
-  const pageSize = useAppSelector((state) => state.pageSize);
+const DropdownContent = () => {
   const dispatch = useAppDispatch();
   const history = useHistory();
   const { path } = useRouteMatch();
-  const { Group, AddButton, DeleteButton, ExportButton } = ControlPanel;
 
   const showImport = () =>
     dispatch(
@@ -32,6 +29,19 @@ const AllStudents = () => {
       })
     );
   const showForm = () => history.push(`${path}/add-student`);
+
+  return (
+    <div className="dropdown-content-inner">
+      <Button onClick={showImport}>Tải file lên</Button>
+      <Button onClick={showForm}>Nhập thủ công</Button>
+    </div>
+  );
+};
+
+const AllStudents = () => {
+  const [selected, setSelected] = useState(TABLES[0]);
+  const pageSize = useAppSelector((state) => state.pageSize);
+  const { Group, AddButton, DeleteButton, ExportButton } = ControlPanel;
 
   return (
     <Page title="Hồ sơ học viên" className="students-page">
@@ -81,10 +91,12 @@ const AllStudents = () => {
               <DeleteButton />
               <div className="divider"></div>
               <ExportButton />
-              <DropdownActions
-                onManualClick={showForm}
-                onImportClick={showImport}
-              />
+              <Dropdown
+                dropdownContent={<DropdownContent />}
+                className="in-control-panel"
+              >
+                <AddButton />
+              </Dropdown>
             </Row>
           </Group>
         </ControlPanel>
