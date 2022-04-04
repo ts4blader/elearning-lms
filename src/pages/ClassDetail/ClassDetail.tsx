@@ -16,7 +16,6 @@ const Title = () => {
 
 const ClassDetail = () => {
   const [selected, setSelected] = useState(TABLES[0]);
-  const InTabTable = selected;
   const dispatch = useAppDispatch();
 
   const showDelete = () =>
