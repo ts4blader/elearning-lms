@@ -57,5 +57,3 @@ export const TABLES = [
     ],
   },
 ];
-
-export const TABS = ["Tất cả hồ sơ", "Khen thưởng", "Kỷ luật"];

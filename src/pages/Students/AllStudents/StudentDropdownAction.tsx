@@ -3,7 +3,7 @@ import { Dropdown } from "antd";
 import { SyncOutlined } from "@ant-design/icons";
 import { useAppDispatch } from "@hooks";
 import { showFormModal } from "@slices/formModalSlice";
-import StudentForm from "@components/forms/StudentActionForms";
+import StudentForm from "./StudentActionForms";
 
 type OverlayProps = {
   onItemClick: () => void;
