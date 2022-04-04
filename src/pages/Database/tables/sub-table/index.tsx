@@ -1,6 +1,6 @@
-import ColumnTitle from "@components/ColumnTitle";
+import { ColumnTitle } from "@components/Table";
 
-export const ADDITIONAL_COLUMN = [
+export const SUBTABLE_COLUMNS = [
   {
     title: (item: any) => (
       <ColumnTitle sortColumns={item.sortColumns} text="ID" reactKey="id" />

@@ -2,7 +2,7 @@ import React from "react";
 import { Form, Space, Button, Divider } from "antd";
 import TextInput from "@components/TextInput";
 import { SelectInForm } from "@components/Select";
-import { RULES } from "@constants/rules";
+import { RULES } from "@utils/rules";
 
 type Props = {
   onCancel: () => void;

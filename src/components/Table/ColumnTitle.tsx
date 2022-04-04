@@ -7,7 +7,11 @@ type ColumnTitleProps = {
   text: string;
 };
 
-const ColumnTitle = ({ sortColumns, reactKey, text }: ColumnTitleProps) => {
+export const ColumnTitle = ({
+  sortColumns,
+  reactKey,
+  text,
+}: ColumnTitleProps) => {
   const sortedColumn = sortColumns?.find(
     (item: any) => item.column.key === reactKey
   );
@@ -32,5 +36,3 @@ const ColumnTitle = ({ sortColumns, reactKey, text }: ColumnTitleProps) => {
     </div>
   );
 };
-
-export default ColumnTitle;

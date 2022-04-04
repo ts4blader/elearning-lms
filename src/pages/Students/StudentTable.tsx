@@ -4,8 +4,8 @@ import { Table, Tag } from "antd";
 import { useAppSelector } from "@hooks";
 import DATA from "@seeds/thcs/students.json";
 import { EyeOutlined } from "@ant-design/icons";
-import ColumnTitle from "@components/ColumnTitle";
-import StudentDropdownAction from "@components/StudentDropdownAction";
+import { ColumnTitle } from "@components/Table";
+import StudentDropdownAction from "./StudentDropdownAction";
 import { useHistory, useRouteMatch } from "react-router-dom";
 
 type StudentType = typeof DATA[0];

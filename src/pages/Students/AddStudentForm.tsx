@@ -4,7 +4,7 @@ import TextInput from "@components/TextInput";
 import { SelectInForm } from "@components/Select";
 import { CameraOutlined } from "@ant-design/icons";
 import { DatePickerInForm } from "@components/DatePicker";
-import { RULES } from "@constants/rules";
+import { RULES } from "@utils/rules";
 import { useHistory } from "react-router-dom";
 
 const AddStudentForm = () => {

@@ -1,4 +1,4 @@
-import StudentTable from "@components/tables/StudentTable";
+import StudentTable from "./StudentTable";
 
 export const TABLES = [
   {

@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import TableWrapper from "@components/TableWrapper";
+import { TableWrapper, ColumnTitle } from "@components/Table";
 import DATA from "@seeds/thcs/subjects.json";
 import { Table } from "antd";
 import { useAppSelector } from "@hooks";
-import ColumnTitle from "@components/ColumnTitle";
 
 const SubjectList = () => {
   const { Column } = Table;

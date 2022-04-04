@@ -4,7 +4,7 @@ import { DatePickerInForm } from "@components/DatePicker";
 import TextInput from "@components/TextInput";
 import { SelectInForm } from "@components/Select";
 import moment from "moment";
-import { RULES } from "@constants/rules";
+import { RULES } from "@utils/rules";
 import UploadField from "@components/UploadField";
 
 type FormProps = {

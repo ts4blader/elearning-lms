@@ -1,9 +1,9 @@
-import * as SEMESTER from "@constants/tables/semester-table";
-import * as GROUP from "@constants/tables/group-table";
-import * as GRADE from "@constants/tables/grade-table";
-import * as SUBJECT from "@constants/tables/subject-table";
-import * as CLASS from "@constants/tables/class-table";
-import * as SCORE from "@constants/tables/score-table";
+import * as SEMESTER from "./tables/semester";
+import * as GROUP from "./tables/group";
+import * as GRADE from "./tables/grade";
+import * as SUBJECT from "./tables/subject";
+import * as CLASS from "./tables/class";
+import * as SCORE from "./tables/score";
 
 export const TABLES = [
   {

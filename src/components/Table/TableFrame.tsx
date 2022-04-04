@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Input } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
-import TableWrapper from "@components/TableWrapper";
+import { TableWrapper } from "./TableWrapper";
 import { Row } from "@layouts/Grid";
 
 export type TableFrameProps = {

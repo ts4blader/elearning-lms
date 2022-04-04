@@ -4,7 +4,7 @@ import ItemActions from "@components/ItemActions";
 import DATA from "@seeds/thcs/scores.json";
 import { useAppSelector } from "@hooks";
 import ScoreForm from "@components/forms/ScoreForm";
-import ColumnTitle from "@components/ColumnTitle";
+import { ColumnTitle } from "@components/Table";
 
 const ScoreTable = () => {
   const { Column, ColumnGroup } = Table;

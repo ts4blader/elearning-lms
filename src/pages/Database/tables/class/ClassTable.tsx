@@ -1,13 +1,17 @@
 import React from "react";
 import { Table } from "antd";
 import ItemActions from "@components/ItemActions";
-import DATA from "@seeds/thcs/subjects.json";
+import { EyeOutlined } from "@ant-design/icons";
+import DATA from "@seeds/thcs/classes.json";
+import { useHistory, useRouteMatch } from "react-router-dom";
 import { useAppSelector } from "@hooks";
-import SubjectForm from "@components/forms/SubjectForm";
-import ColumnTitle from "@components/ColumnTitle";
+import ClassForm from "@components/forms/ClassForm";
+import { ColumnTitle } from "@components/Table";
 
-const SubjectTable = () => {
+const ClassTable = () => {
   const { Column } = Table;
+  const history = useHistory();
+  const { path } = useRouteMatch();
   const pageSize = useAppSelector((state) => state.pageSize);
 
   return (
@@ -49,19 +53,22 @@ const SubjectTable = () => {
         key="name"
         sorter={true}
       />
-      <Column title="Type" dataIndex="type" key="type" />
-      <Column title="1st semester" dataIndex="first" key="first" />
-      <Column title="2nd semester" dataIndex="secondary" key="secondary" />
+      <Column title="Leader" dataIndex="leader" key="leader" />
       <Column
         key="action"
-        render={(text, record) => (
+        render={(text, record: any) => (
           <ItemActions>
+            <ItemActions.Button
+              icon={EyeOutlined}
+              className="detail-btn"
+              onClick={() => history.push(`${path}/classes/${record.id}`)}
+            />
             <ItemActions.EditButton
-              title="Thiết lập môn học"
-              innerForm={SubjectForm}
+              title="Thiết lập lớp học"
+              innerForm={ClassForm}
             />
             <ItemActions.DeleteButton
-              deleteName="môn học"
+              deleteName="lớp học"
               onDelete={() => null}
             />
           </ItemActions>
@@ -71,4 +78,4 @@ const SubjectTable = () => {
   );
 };
 
-export default SubjectTable;
+export default ClassTable;

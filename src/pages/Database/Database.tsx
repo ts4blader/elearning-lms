@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Page from "@components/Page";
-import TableFrame from "@components/TableFrame";
+import TableFrame from "@components/Table";
 import { TABLES, SCHOOL_DROPDOWN, SEMESTERS_DROPDOWN } from "./data";
 import Select from "@components/Select";
 

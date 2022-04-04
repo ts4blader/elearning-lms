@@ -4,7 +4,7 @@ import ItemActions from "@components/ItemActions";
 import DATA from "@seeds/thcs/semesters.json";
 import { useAppSelector } from "@hooks";
 import SemesterForm from "@components/forms/SemesterForm";
-import ColumnTitle from "@components/ColumnTitle";
+import { ColumnTitle } from "@components/Table";
 
 const SemesterTable = () => {
   const { Column } = Table;

@@ -3,9 +3,8 @@ import React, { useState } from "react";
 import DATA from "@seeds/thcs/students.json";
 import { EditOutlined } from "@ant-design/icons";
 import Select from "@components/Select";
-import TableWrapper from "@components/TableWrapper";
+import { TableWrapper, ColumnTitle } from "@components/Table";
 import { useAppSelector } from "@hooks";
-import ColumnTitle from "@components/ColumnTitle";
 
 const SubjectList = () => {
   const { Column } = Table;

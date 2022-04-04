@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Table, Button } from "antd";
 import Page from "@components/Page";
-import TableFrame from "@components/TableFrame";
+import TableFrame from "@components/Table";
 import ControlPanel from "@components/ControlPanel";
 import Select from "@components/Select";
 import DATA from "@seeds/thcs/students.json";

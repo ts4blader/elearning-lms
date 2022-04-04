@@ -1,17 +1,13 @@
 import React from "react";
 import { Table } from "antd";
 import ItemActions from "@components/ItemActions";
-import { EyeOutlined } from "@ant-design/icons";
-import DATA from "@seeds/thcs/classes.json";
-import { useHistory, useRouteMatch } from "react-router-dom";
+import DATA from "@seeds/thcs/subjects.json";
 import { useAppSelector } from "@hooks";
-import ClassForm from "@components/forms/ClassForm";
-import ColumnTitle from "@components/ColumnTitle";
+import SubjectForm from "@components/forms/SubjectForm";
+import { ColumnTitle } from "@components/Table";
 
-const ClassTable = () => {
+const SubjectTable = () => {
   const { Column } = Table;
-  const history = useHistory();
-  const { path } = useRouteMatch();
   const pageSize = useAppSelector((state) => state.pageSize);
 
   return (
@@ -53,22 +49,19 @@ const ClassTable = () => {
         key="name"
         sorter={true}
       />
-      <Column title="Leader" dataIndex="leader" key="leader" />
+      <Column title="Type" dataIndex="type" key="type" />
+      <Column title="1st semester" dataIndex="first" key="first" />
+      <Column title="2nd semester" dataIndex="secondary" key="secondary" />
       <Column
         key="action"
-        render={(text, record: any) => (
+        render={(text, record) => (
           <ItemActions>
-            <ItemActions.Button
-              icon={EyeOutlined}
-              className="detail-btn"
-              onClick={() => history.push(`${path}/classes/${record.id}`)}
-            />
             <ItemActions.EditButton
-              title="Thiết lập lớp học"
-              innerForm={ClassForm}
+              title="Thiết lập môn học"
+              innerForm={SubjectForm}
             />
             <ItemActions.DeleteButton
-              deleteName="lớp học"
+              deleteName="môn học"
               onDelete={() => null}
             />
           </ItemActions>
@@ -78,4 +71,4 @@ const ClassTable = () => {
   );
 };
 
-export default ClassTable;
+export default SubjectTable;

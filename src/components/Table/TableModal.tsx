@@ -12,7 +12,13 @@ type Props = {
   onCancel: () => void;
 };
 
-const TableModal = ({ name, onDelete, tableConfig, show, onCancel }: Props) => {
+export const TableModal = ({
+  name,
+  onDelete,
+  tableConfig,
+  show,
+  onCancel,
+}: Props) => {
   const [disabled, setDisabled] = useState(true);
   const dispatch = useAppDispatch();
 
@@ -66,5 +72,3 @@ const TableModal = ({ name, onDelete, tableConfig, show, onCancel }: Props) => {
     </Modal>
   );
 };
-
-export default TableModal;

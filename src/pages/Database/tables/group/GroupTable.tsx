@@ -1,21 +1,20 @@
 import React, { useState } from "react";
 import { Table } from "antd";
 import ItemActions from "@components/ItemActions";
-import DATA from "@seeds/thcs/grades.json";
 import { MenuOutlined } from "@ant-design/icons";
-import TableModal from "@components/TableModal";
-import CLASSES from "@seeds/thcs/classes.json";
+import DATA from "@seeds/thcs/groups.json";
+import SUBJECTS from "@seeds/thcs/subjects.json";
 import { useAppSelector } from "@hooks";
-import GradeForm from "@components/forms/GradeForm";
-import ColumnTitle from "@components/ColumnTitle";
-import { ADDITIONAL_COLUMN } from "@constants/tables/addition-tables";
+import GroupForm from "@components/forms/GroupForm";
+import { ColumnTitle, TableModal } from "@components/Table";
+import { SUBTABLE_COLUMNS } from "../sub-table";
 
-const TABLE_MODAL = {
-  dataSource: CLASSES,
-  columns: ADDITIONAL_COLUMN,
+const tableConfig = {
+  dataSource: SUBJECTS,
+  columns: SUBTABLE_COLUMNS,
 };
 
-const GradeTable = () => {
+const GroupTable = () => {
   const { Column } = Table;
   const [show, setShow] = useState(false);
   const pageSize = useAppSelector((state) => state.pageSize);
@@ -23,11 +22,11 @@ const GradeTable = () => {
   return (
     <>
       <TableModal
-        name="lớp học"
+        name="môn học"
         onDelete={() => null}
+        tableConfig={tableConfig}
         show={show}
         onCancel={() => setShow(false)}
-        tableConfig={TABLE_MODAL}
       />
       <Table
         pagination={{
@@ -37,14 +36,6 @@ const GradeTable = () => {
         dataSource={DATA}
         rowKey={(record) => record.id}
       >
-        <Column
-          title={({ sortColumns }) => (
-            <ColumnTitle sortColumns={sortColumns} text="ID" reactKey="id" />
-          )}
-          dataIndex="id"
-          key="id"
-          sorter={true}
-        />
         <Column
           title={({ sortColumns }) => (
             <ColumnTitle
@@ -57,6 +48,7 @@ const GradeTable = () => {
           key="name"
           sorter={true}
         />
+        <Column title="Leader" dataIndex="leader" key="leader" />
         <Column
           key="action"
           render={(text, record) => (
@@ -67,11 +59,11 @@ const GradeTable = () => {
                 onClick={() => setShow(true)}
               />
               <ItemActions.EditButton
-                title="Thiết lập khoa khối"
-                innerForm={GradeForm}
+                title="Thiết lập tổ - bộ môn"
+                innerForm={GroupForm}
               />
               <ItemActions.DeleteButton
-                deleteName="khoa khối"
+                deleteName="tổ - bộ môn"
                 onDelete={() => null}
               />
             </ItemActions>
@@ -82,4 +74,4 @@ const GradeTable = () => {
   );
 };
 
-export default GradeTable;
+export default GroupTable;
