@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "antd";
+import { Button, ButtonProps } from "antd";
 import { PlusOutlined, DeleteOutlined } from "@ant-design/icons";
 import { Row, RowProps } from "@layouts/Grid";
 
@@ -21,6 +21,13 @@ const Group = ({ className = "", children, ...rest }: SharedProps) => {
   );
 };
 //* Buttons
+const FeatureButton = (props: ButtonProps) => {
+  return (
+    <div className="button-wrapper">
+      <Button {...props}>{props.children}</Button>
+    </div>
+  );
+};
 const AddButton = ({ onClick, className = "", ...rest }: SharedProps) => {
   return (
     <div className="add-btn-wrapper" {...rest}>
@@ -66,5 +73,6 @@ ControlPanel.Group = Group;
 ControlPanel.AddButton = AddButton;
 ControlPanel.DeleteButton = DeleteButton;
 ControlPanel.ExportButton = ExportButton;
+ControlPanel.Button = FeatureButton;
 
 export default ControlPanel;

@@ -4,6 +4,17 @@ export type ColProps = {
   flex?: number;
 } & React.ComponentProps<"div">;
 
-export const Col = ({ flex, className = "", ...rest }: ColProps) => {
-  return <div className={`col ${className}`} style={{ flex }} {...rest}></div>;
+export const Col = ({ flex, children, className = "", ...rest }: ColProps) => {
+  return (
+    <div
+      className={`col ${className}`}
+      style={{
+        flexGrow: flex,
+        flexBasis: "100%",
+      }}
+      {...rest}
+    >
+      {children}
+    </div>
+  );
 };

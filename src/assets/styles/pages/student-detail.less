@@ -1,0 +1,38 @@
+.student-detail-page{
+    .student-info-wrapper{
+        .basic-info{
+            margin-top: 2em;
+        }
+        .avatar{
+            width: 25%;
+            img{
+                border-radius: 50%;
+                max-width: 50%;
+            }
+        }
+        &-divider{
+            margin-block: 2em;
+        }
+        &-container{
+            & > .row{
+                .pseudo-field{
+                    flex: 1;
+                    margin-bottom: 1em;
+                    &-label{
+                        font-weight: bold;
+                        width: 15rem;
+                    }
+                }
+                .info-entry{
+                    flex: 1;
+                }
+            }
+            .contact-info{
+                margin-bottom: 1em;
+            }
+            .family-info{
+                margin-top: 1em;
+            }
+        }
+    }
+}
