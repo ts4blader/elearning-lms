@@ -39,7 +39,12 @@ const Breadcrumb = ({
             <Link to={item.link}>{item.text}</Link>
           </Item>
         ) : (
-          <Item className="breadcrumb-item main-branch">{item.text}</Item>
+          <Item
+            className="breadcrumb-item main-branch"
+            key={`${keyAffix}-${index}-breadcrumb`}
+          >
+            {item.text}
+          </Item>
         )
       )}
     </AntBreadCrumb>
