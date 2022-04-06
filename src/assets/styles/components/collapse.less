@@ -1,0 +1,33 @@
+.ant-collapse.collapse{
+    border: 0;
+    font-size: 1.8rem;
+    background-color: transparent;
+    .ant-collapse-item{
+        border: 1px solid @color-gray-light ;
+        border-radius: 1rem ;
+        margin-top: 1em;
+        font-weight: bold;
+        overflow: hidden;
+        .ant-collapse-arrow{
+            transform: rotate(-90deg);
+        }
+        .ant-collapse-header{
+            align-items: center;
+            padding: 0.7em;
+            & > div{
+                line-height: 0;
+            }
+        }
+        &-active{
+            .ant-collapse-arrow{
+                transform: rotate(0);
+                filter: brightness(0) saturate(100%) invert(100%) sepia(0%)
+                saturate(7499%) hue-rotate(279deg) brightness(113%) contrast(99%);
+                  }
+            .ant-collapse-header{
+                background: @gradient-primary;
+                color: white;
+            }
+        }
+    }
+}

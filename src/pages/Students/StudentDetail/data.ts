@@ -1,4 +1,21 @@
-export const TABS = ["Thông tin chung", "Quá trình học tập"];
+import * as STUDENT_ARCHIVE from  "./StudentArchive"
+import * as STUDENT_INFO from  "./StudentInfo"
+
+export const TABS = [
+  {
+    text: "Thông tin chung",
+    name: "student-info",
+    panel: STUDENT_INFO.Panel,
+    content: STUDENT_INFO.Content,
+  },
+  {
+    text: "Quá trình học tập",
+    name: "student-archive",
+    panel: STUDENT_ARCHIVE.Panel,
+    content: STUDENT_ARCHIVE.Content,
+  },
+]
+
 export const BREADCRUMB_DATA = [
   {
     text: "Hồ sơ học viên",
@@ -66,4 +83,22 @@ export const PILLARS = [
   [
       { label: "Mô tả", value: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. A sequi assumenda sunt itaque consequatur animi dicta, delectus quia iste maxime."},
   ],
+]
+
+export const ARCHIVES = [
+  {
+    name: "study-report",
+    header: "Kết quả học tập",
+    content: undefined,
+  },
+  {
+    name: "reward-list",
+    header: "Danh sách khen thưởng",
+    content: undefined,
+  },
+  {
+    name: "disciplined-list",
+    header: "Danh sách kỷ luật",
+    content: undefined,
+  },
 ]
