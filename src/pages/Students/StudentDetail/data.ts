@@ -49,3 +49,21 @@ export const MOCK_STUDENT = {
   }
 
 }
+
+export const PILLARS = [
+  [
+      { label: "Niên khóa", value: "2021-2022"},
+      { label: "Khoa khối", value: "Khối 6"},
+      { label: "Mã lớp học", value: "ABC"},
+      { label: "Tên lớp học", value: "6A1"},
+  ],
+  [
+      { label: "GV chủ nhiệm", value: "Trần Minh Quốc"},
+      { label: "Số lượng học viên", value: "45 học viên"},
+      { label: "Loại lớp học", value: "Lớp học căn bản"},
+      { label: "Số lượng môn học", value: "10 môn học"},
+  ],
+  [
+      { label: "Mô tả", value: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. A sequi assumenda sunt itaque consequatur animi dicta, delectus quia iste maxime."},
+  ],
+]

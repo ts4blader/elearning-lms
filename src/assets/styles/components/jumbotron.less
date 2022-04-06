@@ -1,0 +1,34 @@
+.jumbotron{
+    @p-inline: 4em;
+    padding: 1.5em @p-inline;
+    border: 1px solid @color-primary;
+    background-color: @color-primary-light-3;
+    border-radius: 1rem;
+    margin-top: 1em;
+    &-title{
+        font-weight: bold;
+        font-size: 1.8rem;
+        color: @color-primary-dark-2;
+    }
+    &-content{
+        margin-block: 1em;
+    }
+}
+.info-jumbotron{
+    .pseudo-field{
+        margin-top: 0.25em;
+        &-label{
+            width: 15rem;
+            font-weight: 600;
+        }
+    }
+    .jumbotron-panel{
+        .anticon{
+            cursor: pointer;
+            color: @color-primary;
+            font-size: 1.5em;
+            margin-left: 0.5em;
+        }
+    }
+
+}

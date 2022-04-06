@@ -1,51 +1,5 @@
 .class-detail {
   @padding: 1em 4em;
-  &-header {
-    .general-info {
-      padding: @padding;
-      padding-bottom: 3em;
-      border-radius: 1rem;
-      margin-top: 1em;
-      border: 2px solid @color-primary-light-1;
-      background: @color-primary-light-3;
-      .top-bar {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        .title {
-          font-weight: bold;
-          font-size: 1.8rem;
-          color: @color-primary-dark-2;
-        }
-        .buttons-panel {
-          font-size: 1.5em;
-          color: @color-primary;
-          .btn {
-            margin-left: 0.5em;
-            cursor: pointer;
-          }
-        }
-      }
-      /* ------------- pillars ------------ */
-      .pillars {
-        // margin-top: 1em;
-        display: flex;
-        .pillar {
-          flex-basis: 30%;
-          &-item {
-            margin-top: 0.5em;
-            .label {
-              white-space: nowrap;
-              font-weight: bold;
-              &::after {
-                content: ":";
-              }
-            }
-          }
-        }
-      }
-    }
-  }
   &-body {
     margin-top: 1.5em;
     padding: @padding;

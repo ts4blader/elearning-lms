@@ -7,15 +7,14 @@ import { showFormModal } from "@slices/formModalSlice";
 import { useAppDispatch } from "@hooks";
 import { ClassForm } from "@components/Forms";
 import Breadcrumb from "@components/Breadcrumb";
-import Pillar from "./Pillar";
 import Tabs from "@components/Tabs";
+import { InfoJumbotron } from "@components/Jumbotron";
 
 const Title = () => {
   return <Breadcrumb data={BREADCRUMB_DATA} keyAffix="page-title" />;
 };
 
-const ClassDetail = () => {
-  const [selected, setSelected] = useState(TABLES[0]);
+const Panel = () => {
   const dispatch = useAppDispatch();
 
   const showDelete = () =>
@@ -34,28 +33,29 @@ const ClassDetail = () => {
     );
 
   return (
+    <div className="buttons-panel">
+      <span onClick={showForm}>
+        <EditOutlined />
+      </span>
+      <span onClick={showDelete}>
+        <DeleteOutlined />
+      </span>
+    </div>
+  );
+};
+
+const ClassDetail = () => {
+  const [selected, setSelected] = useState(TABLES[0]);
+
+  return (
     <Page title={<Title />} className="class-detail">
       <div className="class-detail-header">
-        <div className="general-info">
-          {/* Top bar */}
-          <div className="top-bar">
-            <h3 className="title">Thông tin chung</h3>
-            <div className="buttons-panel">
-              <span className="btn" onClick={showForm}>
-                <EditOutlined />
-              </span>
-              <span className="btn" onClick={showDelete}>
-                <DeleteOutlined />
-              </span>
-            </div>
-          </div>
-          {/* Content */}
-          <div className="pillars">
-            {PILLARS.map((item, index) => (
-              <Pillar data={item} key={`pillar-${index}`} />
-            ))}
-          </div>
-        </div>
+        <InfoJumbotron
+          title="Thông tin chung"
+          data={PILLARS}
+          panel={<Panel />}
+          keyAffix="general-info"
+        />
       </div>
       <div className="class-detail-body">
         <Tabs

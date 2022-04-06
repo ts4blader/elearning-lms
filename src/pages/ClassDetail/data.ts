@@ -27,19 +27,19 @@ export const BREADCRUMB_DATA = [
 
 export const PILLARS = [
     [
-        { key: "Niên khóa", value: "2021-2022"},
-        { key: "Khoa khối", value: "Khối 6"},
-        { key: "Mã lớp học", value: "ABC"},
-        { key: "Tên lớp học", value: "6A1"},
+        { label: "Niên khóa", value: "2021-2022"},
+        { label: "Khoa khối", value: "Khối 6"},
+        { label: "Mã lớp học", value: "ABC"},
+        { label: "Tên lớp học", value: "6A1"},
     ],
     [
-        { key: "GV chủ nhiệm", value: "Trần Minh Quốc"},
-        { key: "Số lượng học viên", value: "45 học viên"},
-        { key: "Loại lớp học", value: "Lớp học căn bản"},
-        { key: "Số lượng môn học", value: "10 môn học"},
+        { label: "GV chủ nhiệm", value: "Trần Minh Quốc"},
+        { label: "Số lượng học viên", value: "45 học viên"},
+        { label: "Loại lớp học", value: "Lớp học căn bản"},
+        { label: "Số lượng môn học", value: "10 môn học"},
     ],
     [
-        { key: "Mô tả", value: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. A sequi assumenda sunt itaque consequatur animi dicta, delectus quia iste maxime."},
+        { label: "Mô tả", value: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. A sequi assumenda sunt itaque consequatur animi dicta, delectus quia iste maxime."},
     ],
 ]
 
