@@ -110,12 +110,19 @@
                             td:last-child {
                               border-left: 1px solid @color-gray-dark;
                             }
+                            td{
+                                border-color: @color-gray-dark;
+                            }
                           }
-                        
+                        tbody{
+                            tr:nth-child(even){
+                                background: transparent;
+                            }
+                        }
                     }
                 }
             }
         }
     }
-
+    
 }
