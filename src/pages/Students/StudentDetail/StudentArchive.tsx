@@ -40,7 +40,7 @@ export const Content = () => {
       <Collapse className="student-archives" accordion>
         {ARCHIVES.map((item, index) => (
           <Collapse.Panel header={item.header} key={`${item.name}-${index}`}>
-            {item.content}
+            <item.content />
           </Collapse.Panel>
         ))}
       </Collapse>

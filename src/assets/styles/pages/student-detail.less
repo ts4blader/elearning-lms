@@ -57,6 +57,64 @@
         }
         .collapse{
             margin-top: 1.5em;
+            .ant-collapse-content-box{
+                padding: 1.5em 4em;
+            }
+        }
+        .student-report{
+            text-align: center;
+            .semester-report{
+                border-radius: 1rem;
+                overflow: hidden;
+                box-shadow: @box-shadow-dimblue;
+                & > .col:nth-child(2){
+                    border-right: 1px solid @color-gray-dark;
+                    border-left: 1px solid @color-gray-dark;
+                }
+                &-header{
+                    font-size: 1.8rem;
+                    background-color: @color-primary-dark-3;
+                    color: white;
+                    padding: 0.5em;
+                }
+                .report-entry{
+                    padding: 1em;
+                    &-title{
+                        color: @color-primary;
+                        margin-bottom: 0.5em;
+                    }
+                    &-value{
+                        font-weight: 400;
+                        font-family: @sub-font;
+                    }
+                }
+            }
+            .score-report{
+                margin-top: 1em;
+                .data-table{
+                    .ant-table{
+                        font-weight: 400;
+                        thead.ant-table-thead{
+                            background: @color-primary-dark-3;
+                        }
+                        tr {
+                            th:first-child {
+                              border-right: 1px solid @color-gray-dark;
+                            }
+                            td:first-child {
+                              border-right: 1px solid @color-gray-dark;
+                            }
+                            th:last-child {
+                              border-left: 1px solid @color-gray-dark;
+                            }
+                            td:last-child {
+                              border-left: 1px solid @color-gray-dark;
+                            }
+                          }
+                        
+                    }
+                }
+            }
         }
     }
 

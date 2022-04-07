@@ -1,0 +1,10 @@
+[{"subject":"Chrysler","breakExam":7,"dilligence":7,"quarterExam":6,"lessonExam":7,"finalExam":7,"average":6.5},
+{"subject":"Volkswagen","breakExam":6,"dilligence":7,"quarterExam":6,"lessonExam":9,"finalExam":7,"average":7.8},
+{"subject":"Toyota","breakExam":6,"dilligence":8,"quarterExam":8,"lessonExam":8,"finalExam":10,"average":9.9},
+{"subject":"Audi","breakExam":10,"dilligence":9,"quarterExam":7,"lessonExam":5,"finalExam":7,"average":6.1},
+{"subject":"Saab","breakExam":7,"dilligence":10,"quarterExam":8,"lessonExam":7,"finalExam":7,"average":9.4},
+{"subject":"Toyota","breakExam":8,"dilligence":9,"quarterExam":9,"lessonExam":5,"finalExam":10,"average":6.6},
+{"subject":"Subaru","breakExam":9,"dilligence":7,"quarterExam":6,"lessonExam":5,"finalExam":7,"average":5.7},
+{"subject":"GMC","breakExam":9,"dilligence":6,"quarterExam":8,"lessonExam":9,"finalExam":6,"average":6.4},
+{"subject":"Mercedes-Benz","breakExam":7,"dilligence":5,"quarterExam":5,"lessonExam":6,"finalExam":6,"average":5.4},
+{"subject":"Mercedes-Benz","breakExam":8,"dilligence":7,"quarterExam":10,"lessonExam":8,"finalExam":8,"average":6.5}]
