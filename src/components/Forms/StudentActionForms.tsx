@@ -17,7 +17,7 @@ type StudentActionFormsProps = {
   className?: string;
 } & FormProps;
 
-const StudentActionForms = ({
+export const StudentActionForms = ({
   name,
   children,
   onCancel,

@@ -1,4 +1,4 @@
-import { StudentReport } from './archives/StudentReport';
+import { StudentReport, RewardList, DisciplinedList } from './archives';
 import * as STUDENT_ARCHIVE from  "./StudentArchive"
 import * as STUDENT_INFO from  "./StudentInfo"
 
@@ -95,11 +95,11 @@ export const ARCHIVES = [
   {
     name: "reward-list",
     header: "Danh sách khen thưởng",
-    content: () => null,
+    content: RewardList,
   },
   {
     name: "disciplined-list",
     header: "Danh sách kỷ luật",
-    content: () => null,
+    content: DisciplinedList,
   },
 ]

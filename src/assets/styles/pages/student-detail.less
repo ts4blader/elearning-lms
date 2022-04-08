@@ -61,6 +61,34 @@
                 padding: 1.5em 4em;
             }
         }
+        .ant-table{
+            font-weight: 400;
+            thead.ant-table-thead{
+                background: @color-primary-dark-3;
+            }
+            tr {
+                th:first-child {
+                  border-right: 1px solid @color-gray-dark;
+                }
+                td:first-child {
+                  border-right: 1px solid @color-gray-dark;
+                }
+                th:last-child {
+                  border-left: 1px solid @color-gray-dark;
+                }
+                td:last-child {
+                  border-left: 1px solid @color-gray-dark;
+                }
+                td{
+                    border-color: @color-gray-dark;
+                }
+              }
+            tbody{
+                tr:nth-child(even){
+                    background: transparent;
+                }
+            }
+        }
         .student-report{
             text-align: center;
             .semester-report{
@@ -91,36 +119,6 @@
             }
             .score-report{
                 margin-top: 1em;
-                .data-table{
-                    .ant-table{
-                        font-weight: 400;
-                        thead.ant-table-thead{
-                            background: @color-primary-dark-3;
-                        }
-                        tr {
-                            th:first-child {
-                              border-right: 1px solid @color-gray-dark;
-                            }
-                            td:first-child {
-                              border-right: 1px solid @color-gray-dark;
-                            }
-                            th:last-child {
-                              border-left: 1px solid @color-gray-dark;
-                            }
-                            td:last-child {
-                              border-left: 1px solid @color-gray-dark;
-                            }
-                            td{
-                                border-color: @color-gray-dark;
-                            }
-                          }
-                        tbody{
-                            tr:nth-child(even){
-                                background: transparent;
-                            }
-                        }
-                    }
-                }
             }
         }
     }

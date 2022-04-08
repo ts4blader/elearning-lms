@@ -5,10 +5,11 @@ import { TableWrapper } from "./TableWrapper";
 import { Row } from "@layouts/Grid";
 
 export type TableFrameProps = {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   title: string;
   className?: string;
   table: React.ComponentType<any>;
+  pagination?: boolean;
 } & React.ComponentProps<"div">;
 
 const TableFrame = ({
@@ -16,6 +17,7 @@ const TableFrame = ({
   title,
   table,
   className = "",
+  pagination = true,
   ...rest
 }: TableFrameProps) => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -33,9 +35,13 @@ const TableFrame = ({
             placeholder="Tìm kiếm"
           />
         </Row>
-        <TableWrapper>
+        {pagination ? (
+          <TableWrapper>
+            <DataTable />
+          </TableWrapper>
+        ) : (
           <DataTable />
-        </TableWrapper>
+        )}
       </div>
     </div>
   );

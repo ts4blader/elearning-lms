@@ -73,3 +73,38 @@ export const RESULT_TABLE =
         key: "average",
     },
 ]
+
+export const PRIZED_COLUMN = [
+    {
+        title: "Nội dung khen thưởng",
+        dataIndex: "content",
+        key: "content"
+    },
+    {
+        title: "Quyết định khen thưởng",
+        dataIndex: "file",
+        key: "file"
+    },
+    {
+        title: "Ngày quyết định",
+        dataIndex: "date",
+        key: "date"
+    },
+]
+export const DISCIPLINED_COLUMN = [
+    {
+        title: "Nội dung kỷ luật",
+        dataIndex: "content",
+        key: "content"
+    },
+    {
+        title: "Quyết định kỷ luật",
+        dataIndex: "file",
+        key: "file"
+    },
+    {
+        title: "Ngày quyết định",
+        dataIndex: "date",
+        key: "date"
+    },
+]

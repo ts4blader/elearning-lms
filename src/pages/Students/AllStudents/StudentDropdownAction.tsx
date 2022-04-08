@@ -3,7 +3,7 @@ import { Dropdown } from "antd";
 import { SyncOutlined } from "@ant-design/icons";
 import { useAppDispatch } from "@hooks";
 import { showFormModal } from "@slices/formModalSlice";
-import StudentForm from "./StudentActionForms";
+import { StudentActionForms } from "@components/Forms";
 
 type OverlayProps = {
   onItemClick: () => void;
@@ -26,29 +26,43 @@ const Overlay = ({ onItemClick }: OverlayProps) => {
       <li onClick={() => null}>Sửa hồ sơ</li>
       <li
         onClick={() => {
-          showModal("Cap nhat chuyen lop", StudentForm.ClassTransfer);
+          showModal("Cap nhat chuyen lop", StudentActionForms.ClassTransfer);
         }}
       >
         Chuyển lớp
       </li>
       <li
         onClick={() =>
-          showModal("Cap nhat chuyen truong", StudentForm.SchoolTransfer)
+          showModal("Cap nhat chuyen truong", StudentActionForms.SchoolTransfer)
         }
       >
         Chuyển trường
       </li>
-      <li onClick={() => showModal("Cap nhat bao luu", StudentForm.Reserve)}>
+      <li
+        onClick={() =>
+          showModal("Cap nhat bao luu", StudentActionForms.Reserve)
+        }
+      >
         Bảo lưu
       </li>
-      <li onClick={() => showModal("Cap nhat mien giam", StudentForm.Discount)}>
+      <li
+        onClick={() =>
+          showModal("Cap nhat mien giam", StudentActionForms.Discount)
+        }
+      >
         Cập nhật miễn giảm
       </li>
-      <li onClick={() => showModal("Cap nhat khen thuong", StudentForm.Prized)}>
+      <li
+        onClick={() =>
+          showModal("Cap nhat khen thuong", StudentActionForms.Prized)
+        }
+      >
         Cập nhật khen thưởng
       </li>
       <li
-        onClick={() => showModal("Cap nhat ky luat", StudentForm.Disciplined)}
+        onClick={() =>
+          showModal("Cap nhat ky luat", StudentActionForms.Disciplined)
+        }
       >
         Cập nhật kỷ luật
       </li>
