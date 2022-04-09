@@ -3,6 +3,7 @@ import { Form, Space, Button, Divider } from "antd";
 import TextInput from "@components/TextInput";
 import { SelectInForm as Select } from "@components/Select";
 import { RULES } from "@utils/rules";
+import { FormButton } from "./FormButtons";
 
 type Props = {
   onCancel: () => void;
@@ -72,16 +73,10 @@ export const SubjectForm = ({ onCancel }: Props) => {
       </div>
 
       {/* Modal buttons */}
-      <Space className="btn-grp" size={40}>
-        <Button className="cancel-btn" onClick={onCancel}>
-          Hủy
-        </Button>
-        <Form.Item>
-          <Button className="save-btn" type="primary" htmlType="submit">
-            Lưu
-          </Button>
-        </Form.Item>
-      </Space>
+      <FormButton.Container>
+        <FormButton.CancelButton onClick={onCancel} />
+        <FormButton.SaveButton onClick={onCancel} />
+      </FormButton.Container>
     </Form>
   );
 };

@@ -2,6 +2,7 @@ import React from "react";
 import { Space, Button, Form } from "antd";
 import { DownloadOutlined } from "@ant-design/icons";
 import UploadField from "@components/UploadField";
+import { FormButton } from "./FormButtons";
 
 type Props = {
   onCancel: () => void;
@@ -17,14 +18,10 @@ export const UploadForm = ({ onCancel }: Props) => {
       </Form.Item>
 
       {/* Buttons */}
-      <Space className="btn-grp" size={40}>
-        <Button className="cancel-btn" onClick={onCancel}>
-          Hủy
-        </Button>
-        <Button className="upload-btn" type="primary" htmlType="submit">
-          Tải file lên
-        </Button>
-      </Space>
+      <FormButton.Container>
+        <FormButton.CancelButton onClick={onCancel} />
+        <FormButton.SaveButton>Tải file lên</FormButton.SaveButton>
+      </FormButton.Container>
     </Form>
   );
 };

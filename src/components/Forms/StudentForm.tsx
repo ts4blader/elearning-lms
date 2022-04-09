@@ -9,6 +9,7 @@ import { useHistory, useParams } from "react-router-dom";
 import StudentInfoWrapper from "@pages/Students/StudentInfoWrapper";
 import studentData from "@seeds/thcs/students.json";
 import moment from "moment";
+import { FormButton } from "./FormButtons";
 
 export const StudentForm = () => {
   const history = useHistory();
@@ -317,19 +318,10 @@ export const StudentForm = () => {
         </Container>
         {/* Btn group */}
         {!data && (
-          <Space className="btn-grp" size={40}>
-            <Button
-              className="cancel-btn"
-              onClick={() => history.push("/dashboard/student")}
-            >
-              Hủy
-            </Button>
-            <Form.Item>
-              <Button className="save-btn" type="primary" htmlType="submit">
-                Lưu
-              </Button>
-            </Form.Item>
-          </Space>
+          <FormButton.Container>
+            <FormButton.CancelButton onClick={() => history.goBack()} />
+            <FormButton.SaveButton onClick={() => history.goBack()} />
+          </FormButton.Container>
         )}
       </StudentInfoWrapper>
     </Form>

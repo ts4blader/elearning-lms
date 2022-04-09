@@ -6,6 +6,7 @@ import { SelectInForm } from "@components/Select";
 import moment from "moment";
 import { RULES } from "@utils/rules";
 import UploadField from "@components/UploadField";
+import { FormButton } from "./FormButtons";
 
 type FormProps = {
   onCancel: () => void;
@@ -35,18 +36,11 @@ export const StudentActionForms = ({
         6A
       </Form.Item>
       {children}
-      <Space className="btn-grp" size={40}>
-        <Form.Item>
-          <Button className="cancel-btn" onClick={onCancel}>
-            Hủy
-          </Button>
-        </Form.Item>
-        <Form.Item>
-          <Button className="save-btn" type="primary" htmlType="submit">
-            Lưu
-          </Button>
-        </Form.Item>
-      </Space>
+      {/* Form Button */}
+      <FormButton.Container>
+        <FormButton.CancelButton onClick={onCancel} />
+        <FormButton.SaveButton onClick={onCancel} />
+      </FormButton.Container>
     </Form>
   );
 };

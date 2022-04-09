@@ -9,6 +9,7 @@ import moment from "moment";
 import TextInput from "@components/TextInput";
 import Select from "@components/Select";
 import DatePicker from "@components/DatePicker";
+import { FormButton } from "@components/Forms";
 
 type Props = {
   onCancel: () => void;
@@ -142,16 +143,10 @@ export const SemesterForm = ({ onCancel }: Props) => {
         </Form.List>
       </div>
       {/* Modal buttons */}
-      <Space className="btn-grp" size={40}>
-        <Button className="cancel-btn" onClick={onCancel}>
-          Hủy
-        </Button>
-        <Form.Item>
-          <Button className="save-btn" type="primary" htmlType="submit">
-            Lưu
-          </Button>
-        </Form.Item>
-      </Space>
+      <FormButton.Container>
+        <FormButton.CancelButton onClick={onCancel} />
+        <FormButton.SaveButton onClick={onCancel} />
+      </FormButton.Container>
     </Form>
   );
 };

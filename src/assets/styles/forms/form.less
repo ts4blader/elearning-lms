@@ -13,28 +13,20 @@
     font-weight: 700;
   }
 }
-.upload-form,
-.ant-form {
-  .btn-grp {
-    display: flex;
-    justify-content: center;
+/* ---------- form buttons ---------- */
+.form-btn{
+  min-width: 15rem;
+  height: auto;
+  font-size: 1.8rem;
+  font-weight: bold;
+  padding: 0.5em 1em;
+  &.cancel-btn{
+    background-color: @color-gray-light;
+  }
+  &-container{
     margin-top: 1em;
-    .ant-form-item {
-      margin-bottom: 0;
-    }
-    .ant-btn {
-      min-width: 15rem;
-      height: auto;
-      font-size: 1.8rem;
-      font-weight: bold;
-      padding: 0.5em 1em;
-      &.cancel-btn {
-        background: @color-gray-light;
-      }
-    }
   }
 }
-/* ---------- button group ---------- */
 /* ------------ form area modal ----------- */
 .form-top,
 .form-bottom {
