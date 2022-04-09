@@ -1,23 +1,31 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import { Form, Upload, Button, Checkbox, Space } from "antd";
 import TextInput from "@components/TextInput";
 import { SelectInForm } from "@components/Select";
 import { CameraOutlined } from "@ant-design/icons";
 import { DatePickerInForm } from "@components/DatePicker";
 import { RULES } from "@utils/rules";
-import { useHistory } from "react-router-dom";
-import StudentInfoWrapper from "../StudentInfoWrapper";
+import { useHistory, useParams } from "react-router-dom";
+import StudentInfoWrapper from "@pages/Students/StudentInfoWrapper";
+import studentData from "@seeds/thcs/students.json";
+import moment from "moment";
 
-const AddStudentForm = () => {
-  const [autoGenerate, setAutoGenerate] = useState(false);
-  const [avatar, setAvatar] = useState(undefined);
-  const [id, setId] = useState("");
+export const StudentForm = () => {
   const history = useHistory();
+  const params: any = useParams();
+
+  const data = useMemo(() => {
+    let result = studentData.filter((item) => item.id === params.id)[0];
+    return result;
+  }, [params]);
 
   const handleFinish = (values: any) => {
     console.log(values);
   };
 
+  const [id, setId] = useState(data?.id);
+  const [autoGenerate, setAutoGenerate] = useState(false);
+  const [avatar, setAvatar] = useState(undefined);
   const { Title, Divider, Subtitle, Container } = StudentInfoWrapper;
 
   return (
@@ -46,18 +54,30 @@ const AddStudentForm = () => {
               <Subtitle>Thông tin học viên</Subtitle>
               <div className="form-items">
                 {/* Full name  */}
-                <Form.Item name="fullName" label="Họ và tên">
+                <Form.Item
+                  name="fullName"
+                  label="Họ và tên"
+                  initialValue={data?.name}
+                >
                   <TextInput maxLength={50} />
                 </Form.Item>
                 {/* Semester selector */}
-                <Form.Item name="semester" label="Niên khóa">
+                <Form.Item
+                  name="semester"
+                  label="Niên khóa"
+                  initialValue={"2021-2022"}
+                >
                   <SelectInForm
                     data={["2021-2022", "2021-2023", "2022-2023"]}
                     keyAffix="semester-selector"
                   />
                 </Form.Item>
                 {/* Gender selector */}
-                <Form.Item name="gender" label="Giới tính">
+                <Form.Item
+                  name="gender"
+                  label="Giới tính"
+                  initialValue={data?.gender}
+                >
                   <SelectInForm
                     data={["Male", "Female"]}
                     keyAffix="gender-select"
@@ -65,14 +85,23 @@ const AddStudentForm = () => {
                 </Form.Item>
                 {/* Grade and class selector */}
                 <div className="pseudo-form-item">
-                  <Form.Item name="grade" label="Khối" className="grade-select">
+                  <Form.Item
+                    initialValue={"Khoi 6"}
+                    name="grade"
+                    label="Khối"
+                    className="grade-select"
+                  >
                     <SelectInForm
                       data={["Khoi 6", "Khoi 7"]}
                       keyAffix="grade-selector"
                       placeholder="Khối"
                     />
                   </Form.Item>
-                  <Form.Item name="class" className="class-selector">
+                  <Form.Item
+                    initialValue={data?.class}
+                    name="class"
+                    className="class-selector"
+                  >
                     <SelectInForm
                       placeholder="Lớp"
                       data={["6A", "6B"]}
@@ -81,7 +110,11 @@ const AddStudentForm = () => {
                   </Form.Item>
                 </div>
                 {/* Birhday datepicker */}
-                <Form.Item label="Ngày sinh" name="birthday">
+                <Form.Item
+                  label="Ngày sinh"
+                  name="birthday"
+                  initialValue={moment(data?.birthday)}
+                >
                   <DatePickerInForm
                     placeholder="dd/mm/yy"
                     format="DD/MM/YYYY"
@@ -109,7 +142,7 @@ const AddStudentForm = () => {
                   </Checkbox>
                 </div>
                 {/* Born place */}
-                <Form.Item label="Nơi sinh" name="bornPlace">
+                <Form.Item label="Nơi sinh" name="bornPlace" initialValue="BL">
                   <TextInput />
                 </Form.Item>
                 {/* Admission date */}
@@ -120,7 +153,11 @@ const AddStudentForm = () => {
                   />
                 </Form.Item>
                 {/* Ethic input */}
-                <Form.Item label="Dân tộc" name="ethic">
+                <Form.Item
+                  label="Dân tộc"
+                  name="ethic"
+                  initialValue={data?.ethic}
+                >
                   <TextInput />
                 </Form.Item>
                 {/* Admission type selector */}
@@ -135,7 +172,11 @@ const AddStudentForm = () => {
                   <TextInput />
                 </Form.Item>
                 {/* Status selector */}
-                <Form.Item label="Trạng thái" name="status">
+                <Form.Item
+                  initialValue={data?.status}
+                  label="Trạng thái"
+                  name="status"
+                >
                   <SelectInForm
                     data={["Learning", "Ejected", "Shool transfered"]}
                     keyAffix="status-selector"
@@ -281,22 +322,22 @@ const AddStudentForm = () => {
           </div>
         </Container>
         {/* Btn group */}
-        <Space className="btn-grp" size={40}>
-          <Button
-            className="cancel-btn"
-            onClick={() => history.push("/dashboard/student")}
-          >
-            Hủy
-          </Button>
-          <Form.Item>
-            <Button className="save-btn" type="primary" htmlType="submit">
-              Lưu
+        {!data && (
+          <Space className="btn-grp" size={40}>
+            <Button
+              className="cancel-btn"
+              onClick={() => history.push("/dashboard/student")}
+            >
+              Hủy
             </Button>
-          </Form.Item>
-        </Space>
+            <Form.Item>
+              <Button className="save-btn" type="primary" htmlType="submit">
+                Lưu
+              </Button>
+            </Form.Item>
+          </Space>
+        )}
       </StudentInfoWrapper>
     </Form>
   );
 };
-
-export default AddStudentForm;

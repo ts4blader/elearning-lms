@@ -8,10 +8,13 @@ import StudentInfoWrapper from "../StudentInfoWrapper";
 import Field from "@components/PseudoField";
 import { MOCK_STUDENT as data } from "./data";
 import { Tag } from "antd";
+import { useHistory, useRouteMatch } from "react-router";
 
 export const Panel = () => {
   const dispatch = useAppDispatch();
   const { Group, DeleteButton, ExportButton, Button } = ControlPanel;
+  const { url } = useRouteMatch();
+  const history = useHistory();
 
   return (
     <Group className="student-info-panel">
@@ -33,6 +36,7 @@ export const Panel = () => {
           icon={<EditOutlined />}
           size="large"
           type="primary"
+          onClick={() => history.push(`${url}/edit`)}
         >
           Chỉnh sửa
         </Button>

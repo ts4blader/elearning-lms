@@ -1,6 +1,6 @@
 import React from "react";
 import Page from "@components/Page";
-import AddStudentForm from "./AddStudentForm";
+import { StudentForm } from "@components/Forms";
 import Breadcrumb from "@components/Breadcrumb";
 import { BREADCRUMB_DATA } from "./data";
 const Title = () => {
@@ -10,7 +10,7 @@ const Title = () => {
 const AddStudent = () => {
   return (
     <Page title={<Title />}>
-      <AddStudentForm />
+      <StudentForm />
     </Page>
   );
 };
