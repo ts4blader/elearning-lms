@@ -5,6 +5,7 @@ import AllStudents from "./AllStudents";
 import AddStudent from "./AddStudent";
 import StudentDetail from "./StudentDetail";
 import StudentEdit from "./StudentEdit";
+import StudentTransfer from "./StudentTransfer";
 
 const StudentsPage = () => {
   const { path } = useRouteMatch();
@@ -17,10 +18,13 @@ const StudentsPage = () => {
       <Route path={`${path}/add-student`} exact>
         <AddStudent />
       </Route>
+      <Route path={`${path}/transfer`} exact>
+        <StudentTransfer />
+      </Route>
       <Route path={`${path}/:id`} exact>
         <StudentDetail />
       </Route>
-      <Route path={`${path}/:id/edit`}>
+      <Route path={`${path}/:id/edit`} exact>
         <StudentEdit />
       </Route>
     </Switch>

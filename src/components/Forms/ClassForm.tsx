@@ -128,7 +128,7 @@ export const ClassForm = ({ onCancel }: Props) => {
                   block
                   icon={<PlusCircleFilled />}
                 >
-                  Thêm học kỳ
+                  Thêm môn học
                 </Button>
               </Form.Item>
             </>

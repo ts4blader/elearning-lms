@@ -66,7 +66,7 @@ const ClassTransfer = ({ onCancel }: FormProps) => {
           label="Ngày chuyển lớp"
           rules={[RULES.required]}
         >
-          <DatePickerInForm format="DD/MM/YYYY" defaultValue={moment()} />
+          <DatePickerInForm defaultValue={moment()} />
         </Form.Item>
         <TextInput disabled value="HK 1" />
       </div>
@@ -107,7 +107,7 @@ const SchoolTransfer = ({ onCancel }: FormProps) => {
           label="Ngày chuyển trường"
           rules={[RULES.required]}
         >
-          <DatePickerInForm format="DD/MM/YYYY" defaultValue={moment()} />
+          <DatePickerInForm defaultValue={moment()} />
         </Form.Item>
         <TextInput disabled value="HK 1" />
       </div>
@@ -140,7 +140,7 @@ const Reserve = ({ onCancel }: FormProps) => {
           label="Ngày bảo lưu"
           rules={[RULES.required]}
         >
-          <DatePickerInForm format="DD/MM/YYYY" defaultValue={moment()} />
+          <DatePickerInForm defaultValue={moment()} />
         </Form.Item>
         <TextInput disabled value="HK 1" />
       </div>
@@ -206,7 +206,7 @@ const Prized = ({ onCancel }: FormProps) => {
           label="Ngày khen thưởng"
           rules={[RULES.required]}
         >
-          <DatePickerInForm format="DD/MM/YYYY" defaultValue={moment()} />
+          <DatePickerInForm defaultValue={moment()} />
         </Form.Item>
         <TextInput disabled value="HK 1" />
       </div>
@@ -234,7 +234,7 @@ const Disciplined = ({ onCancel }: FormProps) => {
           label="Ngày kỷ luật"
           rules={[RULES.required]}
         >
-          <DatePickerInForm format="DD/MM/YYYY" defaultValue={moment()} />
+          <DatePickerInForm defaultValue={moment()} />
         </Form.Item>
         <TextInput disabled value="HK 1" />
       </div>

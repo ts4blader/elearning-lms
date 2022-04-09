@@ -6,12 +6,17 @@ import {
 
 export type DatePickerProps = AntDatePickerProps;
 
-const DatePicker = ({ className = "", ...rest }: DatePickerProps) => {
+const DatePicker = ({
+  format = "DD/MM/YYYY",
+  className = "",
+  ...rest
+}: DatePickerProps) => {
   return (
     <AntDatePicker
       allowClear={false}
       className={`datepicker ${className}`}
       dropdownClassName="datepicker-dropdown"
+      format={format}
       {...rest}
     />
   );

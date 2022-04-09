@@ -112,7 +112,7 @@ export const SemesterForm = ({ onCancel }: Props) => {
                       name={[name, "begin"]}
                       initialValue={moment()}
                     >
-                      <DatePicker format={"DD/MM/YYYY"} allowClear={false} />
+                      <DatePicker allowClear={false} />
                     </Form.Item>
                     <Form.Item
                       className="semester-end"
@@ -121,7 +121,7 @@ export const SemesterForm = ({ onCancel }: Props) => {
                       name={[name, "end"]}
                       initialValue={moment()}
                     >
-                      <DatePicker format={"DD/MM/YYYY"} allowClear={false} />
+                      <DatePicker allowClear={false} />
                     </Form.Item>
                   </Space>
                 ))}

@@ -115,10 +115,7 @@ export const StudentForm = () => {
                   name="birthday"
                   initialValue={moment(data?.birthday)}
                 >
-                  <DatePickerInForm
-                    placeholder="dd/mm/yy"
-                    format="DD/MM/YYYY"
-                  />
+                  <DatePickerInForm placeholder="dd/mm/yy" />
                 </Form.Item>
                 {/* ID generator */}
                 <div className="id-form-item">
@@ -147,10 +144,7 @@ export const StudentForm = () => {
                 </Form.Item>
                 {/* Admission date */}
                 <Form.Item label="Ngày nhập học" name="admission">
-                  <DatePickerInForm
-                    placeholder="dd/mm/yy"
-                    format="DD/MM/YYYY"
-                  />
+                  <DatePickerInForm placeholder="dd/mm/yy" />
                 </Form.Item>
                 {/* Ethic input */}
                 <Form.Item
