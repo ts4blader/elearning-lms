@@ -4,13 +4,21 @@ import { SyncOutlined } from "@ant-design/icons";
 import { useAppDispatch } from "@hooks";
 import { showFormModal } from "@slices/formModalSlice";
 import { StudentActionForms } from "@components/Forms";
+import { useHistory, useRouteMatch } from "react-router-dom";
 
 type OverlayProps = {
   onItemClick: () => void;
+  studentId: string;
 };
 
-const Overlay = ({ onItemClick }: OverlayProps) => {
+type StudentDropdownActionProps = {
+  studentId: string;
+};
+
+const Overlay = ({ onItemClick, studentId }: OverlayProps) => {
   const dispatch = useAppDispatch();
+  const history = useHistory();
+  const { url } = useRouteMatch();
   const showModal = (title: string, innerForm: any) => {
     onItemClick();
     dispatch(
@@ -23,7 +31,9 @@ const Overlay = ({ onItemClick }: OverlayProps) => {
 
   return (
     <ul className="edit-student-dropdown-overlay">
-      <li onClick={() => null}>Sửa hồ sơ</li>
+      <li onClick={() => history.push(`${url}/${studentId}/edit`)}>
+        Sửa hồ sơ
+      </li>
       <li
         onClick={() => {
           showModal("Cap nhat chuyen lop", StudentActionForms.ClassTransfer);
@@ -70,13 +80,15 @@ const Overlay = ({ onItemClick }: OverlayProps) => {
   );
 };
 
-const StudentDropdownAction = () => {
+const StudentDropdownAction = ({ studentId }: StudentDropdownActionProps) => {
   const [visible, setVisible] = useState(false);
 
   return (
     <Dropdown
       destroyPopupOnHide={true}
-      overlay={<Overlay onItemClick={() => setVisible(false)} />}
+      overlay={
+        <Overlay onItemClick={() => setVisible(false)} studentId={studentId} />
+      }
       trigger={["click"]}
       visible={visible}
       onVisibleChange={(value) => setVisible(value)}

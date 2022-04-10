@@ -125,7 +125,7 @@ const StudentTable = () => {
               onClick={() => history.push(`${path}/${record.id}`)}
             />
             <span>
-              <StudentDropdownAction />
+              <StudentDropdownAction studentId={record.id} />
             </span>
             <ItemActions.DeleteButton
               deleteName="học viên"
