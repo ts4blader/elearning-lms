@@ -1,0 +1,25 @@
+.reserve-form{
+    @label-width: 20rem;
+    .ant-form-item{
+        &-label{
+            text-align: left;
+            width: @label-width;
+        }
+        &-control{
+            width: @label-width * 3;
+        }
+    }
+    .day-picker-field {
+        display: flex;
+        gap: 1.5em;
+        align-items: flex-start;
+        justify-content: flex-start;
+        .ant-form-item-control {
+          width: @label-width;
+        }
+        .text-input {
+          width: @label-width * 0.5;
+          background: @color-gray-light;
+        }
+      }
+}

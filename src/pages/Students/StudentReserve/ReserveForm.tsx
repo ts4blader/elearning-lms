@@ -8,8 +8,9 @@ import UploadField from "@components/UploadField";
 import { FormButton } from "@components/Forms";
 import { hideFormModal } from "@slices/formModalSlice";
 import { useAppDispatch } from "@hooks";
+import { SearchOutlined } from "@ant-design/icons";
 
-export const TransferForm = () => {
+export const ReserveForm = () => {
   const { Item } = Form;
   const dispatch = useAppDispatch();
 
@@ -21,46 +22,24 @@ export const TransferForm = () => {
   };
 
   return (
-    <Form onFinish={handleFinish} className="transfer-form">
+    <Form onFinish={handleFinish} className="reserve-form">
+      <Item name="class" label="Lớp hiện tại">
+        <SelectInForm
+          placeholder="Lựa chọn"
+          data={["6A", "6B"]}
+          keyAffix="class-selector"
+        />
+      </Item>
       {/* Name input */}
       <Item name="name" label="Tên học viên" rules={[RULES.required]}>
-        <TextInput />
+        <TextInput suffix={<SearchOutlined />} />
       </Item>
-      {/* ID input */}
-      <Item name="id" label="Mã học viên" rules={[RULES.required]}>
-        <TextInput maxLength={20} />
-      </Item>
-      {/* Transfer day picker */}
       <div className="day-picker-field">
-        <Item
-          name="transferDay"
-          label="Ngày chuyển đến"
-          rules={[RULES.required]}
-        >
+        <Item name="reserveDay" label="Ngày bảo lưu" rules={[RULES.required]}>
           <DatePickerInForm />
         </Item>
         <TextInput disabled value="Học kỳ I" />
       </div>
-      {/* province selector */}
-      <Item name="province" label="Tỉnh/Thành" rules={[RULES.required]}>
-        <SelectInForm
-          placeholder="Lựa chọn"
-          data={["BL", "CT", "TP.HCM"]}
-          keyAffix="province-selector"
-        />
-      </Item>
-      {/* district selector */}
-      <Item name="district" label="Quận/Huyện" rules={[RULES.required]}>
-        <SelectInForm
-          placeholder="Lựa chọn"
-          data={["Quận 1", "Quận 2", "Quận TB"]}
-          keyAffix="district-selector"
-        />
-      </Item>
-      {/* from section input */}
-      <Item name="from" label="Chuyển từ" rules={[RULES.required]}>
-        <TextInput />
-      </Item>
       {/* reason area input */}
       <Item name="reason" label="Lý do" rules={[RULES.required]}>
         <TextInput.TextArea />
@@ -71,9 +50,7 @@ export const TransferForm = () => {
       {/* Buttons group */}
       <FormButton.Container>
         <FormButton.CancelButton onClick={hideForm} />
-        <FormButton.SaveButton onClick={hideForm}>
-          Tiếp theo
-        </FormButton.SaveButton>
+        <FormButton.SaveButton onClick={hideForm} />
       </FormButton.Container>
     </Form>
   );

@@ -1,6 +1,10 @@
 import React from "react";
 import { Input, InputProps } from "antd";
-import { TextAreaProps } from "rc-textarea";
+import { TextAreaProps as AntTextAreaProps } from "rc-textarea";
+
+type TextAreaProps = {
+  affixNote?: string;
+} & AntTextAreaProps;
 
 const TextInput = ({ className = "", ...rest }: InputProps) => {
   return (
@@ -12,11 +16,13 @@ const TextInput = ({ className = "", ...rest }: InputProps) => {
   );
 };
 
-TextInput.TextArea = ({ className, ...rest }: TextAreaProps) => {
+TextInput.TextArea = ({ className = "", ...rest }: TextAreaProps) => {
   return (
     <Input.TextArea
       size="large"
-      className={`text-input ${className} ${rest.value ? "not-empty" : ""}`}
+      className={`text-input-area ${className} ${
+        rest.value ? "not-empty" : ""
+      }`}
       {...rest}
     />
   );

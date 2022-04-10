@@ -6,6 +6,7 @@ import AddStudent from "./AddStudent";
 import StudentDetail from "./StudentDetail";
 import StudentEdit from "./StudentEdit";
 import StudentTransfer from "./StudentTransfer";
+import StudentReserve from "./StudentReserve";
 
 const StudentsPage = () => {
   const { path } = useRouteMatch();
@@ -20,6 +21,9 @@ const StudentsPage = () => {
       </Route>
       <Route path={`${path}/transfer`} exact>
         <StudentTransfer />
+      </Route>
+      <Route path={`${path}/reserve`} exact>
+        <StudentReserve />
       </Route>
       <Route path={`${path}/:id`} exact>
         <StudentDetail />
