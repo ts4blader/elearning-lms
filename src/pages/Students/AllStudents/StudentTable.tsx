@@ -1,12 +1,13 @@
 import React from "react";
 import ItemActions from "@components/ItemActions";
-import { Table, Tag } from "antd";
+import { Table } from "antd";
 import { useAppSelector } from "@hooks";
 import DATA from "@seeds/thcs/students.json";
 import { EyeOutlined } from "@ant-design/icons";
 import { ColumnTitle } from "@components/Table";
 import StudentDropdownAction from "./StudentDropdownAction";
 import { useHistory, useRouteMatch } from "react-router-dom";
+import Tag from "@components/Tag";
 
 type StudentType = typeof DATA[0];
 
@@ -107,12 +108,7 @@ const StudentTable = () => {
         title="Status"
         key="status"
         render={(text, record: StudentType) => (
-          <Tag
-            icon={<div className="dot"></div>}
-            className={record.status.toLowerCase().split(" ").join("-")}
-          >
-            {record.status}
-          </Tag>
+          <Tag.Status status={record.status}>{record.status}</Tag.Status>
         )}
         sorter={true}
       />
