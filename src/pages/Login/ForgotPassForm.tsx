@@ -1,5 +1,5 @@
-import React, { useRef, useState } from "react";
-import { Form, Input, Button } from "antd";
+import React, { useRef } from "react";
+import { Form, Button } from "antd";
 import { UserOutlined, LeftOutlined } from "@ant-design/icons";
 import TextInput from "@components/TextInput";
 
@@ -12,49 +12,34 @@ const ForgotPassForm = ({ switchLayout }: Props) => {
   const [form] = Form.useForm();
   const formLayout = useRef<LayoutType>("vertical");
 
-  const [username, setUsername] = useState("");
-  const [confirmCode, setConfirmCode] = useState("");
+  const handleFinish = () => {};
 
-  const onLogin = () => {};
   return (
     <div className="form-wrapper">
       <h2 className="form-title">Cấp lại mật khẩu</h2>
       <Form
         className="forgot-password-form"
-        onFinish={onLogin}
+        onFinish={handleFinish}
         layout={formLayout.current}
         form={form}
         requiredMark={false}
       >
         {/* Username */}
         <Form.Item
-          data-length={username.length !== 0}
           label="Tên đăng nhập"
           name="username"
           rules={[{ required: true, message: "Xin hãy điền tên đăng nhập!" }]}
         >
-          <Input
-            prefix={<UserOutlined className="icon-user" />}
-            maxLength={50}
-            value={username}
-            size="large"
-            onChange={({ target }) => setUsername(target.value)}
-          />
+          <TextInput prefix={<UserOutlined />} maxLength={50} size="large" />
         </Form.Item>
         {/* Confirm code */}
         <Form.Item
-          data-length={confirmCode.length !== 0}
           className="confirm-code-field"
           label="Mã xác thực"
           name="confirm"
           rules={[{ required: true, message: "Xin hãy điền mã xác thực" }]}
         >
-          <TextInput
-            type="text"
-            maxLength={20}
-            value={confirmCode}
-            onChange={({ target }) => setConfirmCode(target.value)}
-          />
+          <TextInput type="text" maxLength={20} />
         </Form.Item>
         <Form.Item>
           <div

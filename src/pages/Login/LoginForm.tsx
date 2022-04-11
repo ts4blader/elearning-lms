@@ -1,7 +1,8 @@
-import React, { useRef, useState } from "react";
-import { Form, Input, Button } from "antd";
+import React, { useRef } from "react";
+import { Form, Button } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import { useHistory } from "react-router-dom";
+import TextInput from "@components/TextInput";
 
 type LayoutType = Parameters<typeof Form>[0]["layout"];
 type Props = {
@@ -11,9 +12,6 @@ type Props = {
 const LoginForm = ({ switchLayout }: Props) => {
   const [form] = Form.useForm();
   const formLayout = useRef<LayoutType>("vertical");
-
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
 
   const history = useHistory();
 
@@ -37,28 +35,20 @@ const LoginForm = ({ switchLayout }: Props) => {
           label="Tên đăng nhập"
           name="username"
           rules={[{ required: true, message: "Xin hãy điền tên đăng nhập!" }]}
-          data-length={username.length !== 0}
         >
-          <Input
-            prefix={<UserOutlined className="icon-user" />}
+          <TextInput
+            prefix={<UserOutlined />}
             maxLength={50}
-            value={username}
-            size="large"
-            onChange={({ target }) => setUsername(target.value)}
           />
         </Form.Item>
         {/* Password */}
         <Form.Item
-          data-length={password.length !== 0}
           label="Mật khẩu"
           name="password"
           rules={[{ required: true, message: "Xin hãy điền mật khẩu!" }]}
         >
-          <Input.Password
-            value={password}
-            size="large"
-            onChange={({ target }) => setPassword(target.value)}
-            prefix={<LockOutlined className="icon-password" />}
+          <TextInput.Password
+            prefix={<LockOutlined />}
             maxLength={20}
           />
         </Form.Item>

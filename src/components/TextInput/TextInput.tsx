@@ -28,4 +28,8 @@ TextInput.TextArea = ({ className = "", ...rest }: TextAreaProps) => {
   );
 };
 
+TextInput.Password = (props: InputProps) => {
+  return <TextInput {...props} type="password" />;
+};
+
 export default TextInput;

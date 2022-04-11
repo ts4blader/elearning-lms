@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { Input } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
 import { TableWrapper } from "./TableWrapper";
 import { Row } from "@layouts/Grid";
+import TextInput from "@components/TextInput";
 
 export type TableFrameProps = {
   children?: React.ReactNode;
@@ -29,7 +29,8 @@ const TableFrame = ({
       <div className="table-frame-body">
         <Row data-length={searchTerm.length !== 0} arrange="space-between">
           <h3 className="title">{title}</h3>
-          <Input
+          <TextInput
+            value={searchTerm}
             onChange={({ target }) => setSearchTerm(target.value)}
             prefix={<SearchOutlined />}
             placeholder="Tìm kiếm"
