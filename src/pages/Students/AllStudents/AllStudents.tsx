@@ -13,6 +13,7 @@ import Dropdown from "@components/Dropdown";
 import { showFormModal } from "@slices/formModalSlice";
 import { UploadForm } from "@components/Forms";
 import Tabs from "@components/Tabs";
+import { showDeleteModal } from "@slices/deleteModalSlice";
 
 const TABS = TABLES.map((item) => item.tab.text);
 
@@ -42,6 +43,16 @@ const AllStudents = () => {
   const [selected, setSelected] = useState(TABLES[0]);
   const pageSize = useAppSelector((state) => state.pageSize);
   const { Group, AddButton, DeleteButton, ExportButton } = ControlPanel;
+  const dispatch = useAppDispatch();
+
+  const showDelete = () => {
+    dispatch(
+      showDeleteModal({
+        name: "học viên",
+        onAction: () => null,
+      })
+    );
+  };
 
   return (
     <Page title="Hồ sơ học viên" className="students-page">
@@ -88,7 +99,7 @@ const AllStudents = () => {
           </Group>
           <Group className="btn-grp">
             <Row gap="1em">
-              <DeleteButton />
+              <DeleteButton onClick={showDelete} />
               <div className="divider"></div>
               <ExportButton />
               <Dropdown
