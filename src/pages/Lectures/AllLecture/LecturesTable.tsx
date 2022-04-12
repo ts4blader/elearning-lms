@@ -39,10 +39,11 @@ export const LecturesTable = () => {
       {TABLE_COLUMN.map((item) => (
         <Column
           {...item}
+          sorter={true}
           title={({ sortColumns }) => (
             <ColumnTitle
               sortColumns={sortColumns}
-              reactKey="class"
+              reactKey={item.key}
               text={item.title}
             />
           )}
