@@ -6,7 +6,8 @@ import lectureData from "@seeds/thcs/lectures.json";
 import Tag from "@components/Tag";
 import { useAppSelector } from "@hooks";
 import ItemActions from "@components/ItemActions";
-import { EyeOutlined, SyncOutlined } from "@ant-design/icons";
+import { EyeOutlined } from "@ant-design/icons";
+import { OptionDropdown } from "./OptionDropdown";
 
 export const LecturesTable = () => {
   const { Column } = Table;
@@ -69,11 +70,9 @@ export const LecturesTable = () => {
               onClick={() => null}
               className="detail-btn"
             />
-            <ItemActions.Button
-              icon={SyncOutlined}
-              onClick={() => null}
-              className="options-btn"
-            />
+            <span>
+              <OptionDropdown lectureId={record.id} />
+            </span>
             <ItemActions.DeleteButton
               deleteName="giảng viên"
               onDelete={() => null}

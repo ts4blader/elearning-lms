@@ -11,7 +11,7 @@ type OverlayProps = {
   studentId: string;
 };
 
-type StudentDropdownActionProps = {
+type OptionDropdownProps = {
   studentId: string;
 };
 
@@ -30,7 +30,7 @@ const Overlay = ({ onItemClick, studentId }: OverlayProps) => {
   };
 
   return (
-    <ul className="edit-student-dropdown-overlay">
+    <ul className="option-dropdown-overlay">
       <li onClick={() => history.push(`${url}/${studentId}/edit`)}>
         Sửa hồ sơ
       </li>
@@ -80,7 +80,7 @@ const Overlay = ({ onItemClick, studentId }: OverlayProps) => {
   );
 };
 
-const StudentDropdownAction = ({ studentId }: StudentDropdownActionProps) => {
+const OptionDropdown = ({ studentId }: OptionDropdownProps) => {
   const [visible, setVisible] = useState(false);
 
   return (
@@ -98,4 +98,4 @@ const StudentDropdownAction = ({ studentId }: StudentDropdownActionProps) => {
   );
 };
 
-export default StudentDropdownAction;
+export default OptionDropdown;

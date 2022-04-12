@@ -5,7 +5,7 @@ import { useAppSelector } from "@hooks";
 import DATA from "@seeds/thcs/students.json";
 import { EyeOutlined } from "@ant-design/icons";
 import { ColumnTitle } from "@components/Table";
-import StudentDropdownAction from "./StudentDropdownAction";
+import OptionDropdown from "./OptionDropdown";
 import { useHistory, useRouteMatch } from "react-router-dom";
 import Tag from "@components/Tag";
 
@@ -121,7 +121,7 @@ const StudentTable = () => {
               onClick={() => history.push(`${path}/${record.id}`)}
             />
             <span>
-              <StudentDropdownAction studentId={record.id} />
+              <OptionDropdown studentId={record.id} />
             </span>
             <ItemActions.DeleteButton
               deleteName="học viên"
