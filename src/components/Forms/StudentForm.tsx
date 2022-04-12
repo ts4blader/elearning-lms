@@ -27,7 +27,15 @@ export const StudentForm = () => {
   const [id, setId] = useState(data?.id);
   const [autoGenerate, setAutoGenerate] = useState(false);
   const [avatar, setAvatar] = useState(undefined);
-  const { Title, Divider, Subtitle, Container } = InfoWrapper;
+
+  const {
+    Title,
+    Divider,
+    Subtitle,
+    Container,
+    AvatarSection,
+    AvatarPlaceHolder,
+  } = InfoWrapper;
 
   return (
     <Form
@@ -42,14 +50,7 @@ export const StudentForm = () => {
         <Container>
           <div className="form-row basic info">
             <div className="form-col">
-              <div className="avatar-upload">
-                <div className="avatar">
-                  <img src={avatar} alt="avatar" />
-                  <Upload name="avatar" className="upload-btn">
-                    <Button icon={<CameraOutlined />} />
-                  </Upload>
-                </div>
-              </div>
+              <AvatarSection uploadAble={true} />
             </div>
             <div className="form-col">
               <Subtitle>Thông tin học viên</Subtitle>
@@ -187,7 +188,7 @@ export const StudentForm = () => {
         <Container>
           <div className="form-row contact-info">
             <div className="form-col">
-              <div className="avatar-upload"></div>
+              <AvatarPlaceHolder />
             </div>
             <div className="form-col">
               <Subtitle>Địa chỉ liên hệ</Subtitle>

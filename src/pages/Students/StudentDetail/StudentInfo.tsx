@@ -46,7 +46,14 @@ export const Panel = () => {
 };
 
 export const Content = () => {
-  const { Title, Container, Subtitle, Divider } = InfoWrapper;
+  const {
+    Title,
+    Container,
+    Subtitle,
+    Divider,
+    AvatarSection,
+    AvatarPlaceHolder,
+  } = InfoWrapper;
 
   return (
     <InfoWrapper className="student-info-content">
@@ -54,9 +61,7 @@ export const Content = () => {
       {/* Basic info */}
       <Container>
         <Row className="basic-info" align="flex-start">
-          <div className="avatar">
-            <img src="https://picsum.photos/seed/picsum/300" alt="" />
-          </div>
+          <AvatarSection uploadAble={false} />
           <div className="info-entry">
             <Subtitle>Thông tin học viên</Subtitle>
             <Row align="flex-start">
@@ -90,7 +95,7 @@ export const Content = () => {
       {/* Contact info */}
       <Container>
         <Row className="contact-info" align="flex-start">
-          <div className="avatar"></div>
+          <AvatarPlaceHolder />
           <div className="info-entry">
             <Subtitle>Thông tin liên hệ</Subtitle>
             <Row align="flex-start">

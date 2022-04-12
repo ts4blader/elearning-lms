@@ -1,6 +1,6 @@
 import { Button, Upload } from "antd";
 import React from "react";
-import {CameraOutlined} from "@ant-design/icons";
+import { CameraOutlined } from "@ant-design/icons";
 
 export type InfoWrapperProps = {} & React.ComponentProps<"div">;
 
@@ -11,8 +11,8 @@ type InfoRecordProps = {
 } & SharedProps;
 
 type AvatarSectionProps = {
-    uploadAble?: boolean
-} & SharedProps
+  uploadAble?: boolean;
+} & SharedProps;
 
 export const InfoWrapper = ({
   children,
@@ -51,15 +51,25 @@ InfoWrapper.InfoRecord = ({
     </div>
   );
 };
-InfoWrapper.AvatarSection = ({uploadAble = false} : AvatarSectionProps) => {
-    return <div className="info-wrapper-avatar-section">
-        <div className="avatar"></div>
-        {uploadAble && 
-            <Upload>
-                <Button icon={<CameraOutlined />} size="large" />
-            </Upload>
-        }
+InfoWrapper.AvatarSection = ({
+  uploadAble = false,
+  className = "",
+}: AvatarSectionProps) => {
+  return (
+    <div className={`info-wrapper-avatar-section ${className}`}>
+      <div className="avatar">
+        <img src="https://picsum.photos/seed/picsum/300" alt="" />
+        {uploadAble && (
+          <Upload className="upload-zone">
+            <Button icon={<CameraOutlined />} size="large" />
+          </Upload>
+        )}
+      </div>
     </div>
-}
+  );
+};
+InfoWrapper.AvatarPlaceHolder = () => {
+  return <div className="info-wrapper-avatar-section"></div>;
+};
 
 export default InfoWrapper;
