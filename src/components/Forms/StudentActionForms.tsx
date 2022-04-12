@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, Button, Space } from "antd";
+import { Form, FormProps as AntFormProps } from "antd";
 import { DatePickerInForm } from "@components/DatePicker";
 import TextInput from "@components/TextInput";
 import { SelectInForm } from "@components/Select";
@@ -10,12 +10,10 @@ import { FormButton } from "./FormButtons";
 
 type FormProps = {
   onCancel: () => void;
-};
+} & AntFormProps;
 
 type StudentActionFormsProps = {
   name: string;
-  children: React.ReactNode;
-  className?: string;
 } & FormProps;
 
 export const StudentActionForms = ({
@@ -23,11 +21,13 @@ export const StudentActionForms = ({
   children,
   onCancel,
   className = "",
+  ...rest
 }: StudentActionFormsProps) => {
   return (
     <Form
       name={`${name}-student-form`}
       className={`${name}-student-form student-form ${className}`}
+      {...rest}
     >
       <Form.Item name="name" label="Học viên" initialValue="Jonh Doe">
         John Doe

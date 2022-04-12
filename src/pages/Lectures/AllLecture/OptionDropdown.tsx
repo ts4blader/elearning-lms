@@ -4,6 +4,7 @@ import { Dropdown } from "antd";
 import { showFormModal } from "@slices/formModalSlice";
 import { useHistory, useRouteMatch } from "react-router-dom";
 import { SyncOutlined } from "@ant-design/icons";
+import LectureForm from "./LectureActionForms";
 
 type OverlayProps = {
   onItemClick: () => void;
@@ -33,13 +34,13 @@ const Overlay = ({ onItemClick, lectureId }: OverlayProps) => {
       <li onClick={() => history.push(`${url}/${lectureId}/edit`)}>
         Sửa hồ sơ
       </li>
-      <li onClick={() => showModal("Cập nhật nghỉ hưu", () => null)}>
+      <li onClick={() => showModal("Cập nhật nghỉ hưu", LectureForm.Retired)}>
         Cập nhật nghỉ hưu
       </li>
-      <li onClick={() => showModal("Cập nhật nghỉ việc", () => null)}>
+      <li onClick={() => showModal("Cập nhật nghỉ việc", LectureForm.Eject)}>
         Cập nhật nghỉ việc
       </li>
-      <li onClick={() => showModal("Cập nhật tạm nghỉ", () => null)}>
+      <li onClick={() => showModal("Cập nhật tạm nghỉ", LectureForm.Temporary)}>
         Cập nhật tạm nghỉ
       </li>
     </ul>
