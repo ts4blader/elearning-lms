@@ -38,19 +38,6 @@ InfoWrapper.Subtitle = ({ children }: SharedProps) => {
 InfoWrapper.Container = ({ children }: SharedProps) => {
   return <div className="info-wrapper-container">{children}</div>;
 };
-InfoWrapper.InfoRecord = ({
-  title,
-  className = "",
-  children,
-  ...rest
-}: InfoRecordProps) => {
-  return (
-    <div className={`info-wrapper-record ${className}`} {...rest}>
-      {title && <InfoWrapper.Subtitle>{title}</InfoWrapper.Subtitle>}
-      <div className="info-wrapper-record-content">{children}</div>
-    </div>
-  );
-};
 InfoWrapper.AvatarSection = ({
   uploadAble = false,
   className = "",
