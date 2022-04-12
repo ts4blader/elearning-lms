@@ -6,7 +6,7 @@ import { CameraOutlined } from "@ant-design/icons";
 import { DatePickerInForm } from "@components/DatePicker";
 import { RULES } from "@utils/rules";
 import { useHistory, useParams } from "react-router-dom";
-import StudentInfoWrapper from "@pages/Students/StudentInfoWrapper";
+import InfoWrapper from "@components/InfoWrapper";
 import studentData from "@seeds/thcs/students.json";
 import moment from "moment";
 import { FormButton } from "./FormButtons";
@@ -27,7 +27,7 @@ export const StudentForm = () => {
   const [id, setId] = useState(data?.id);
   const [autoGenerate, setAutoGenerate] = useState(false);
   const [avatar, setAvatar] = useState(undefined);
-  const { Title, Divider, Subtitle, Container } = StudentInfoWrapper;
+  const { Title, Divider, Subtitle, Container } = InfoWrapper;
 
   return (
     <Form
@@ -35,7 +35,7 @@ export const StudentForm = () => {
       className="add-student-form"
       onFinish={handleFinish}
     >
-      <StudentInfoWrapper>
+      <InfoWrapper>
         {/* Basic info title */}
         <Title>Thông tin chung</Title>
         {/* Basic info */}
@@ -323,7 +323,7 @@ export const StudentForm = () => {
             <FormButton.SaveButton onClick={() => history.goBack()} />
           </FormButton.Container>
         )}
-      </StudentInfoWrapper>
+      </InfoWrapper>
     </Form>
   );
 };

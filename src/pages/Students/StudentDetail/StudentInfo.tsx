@@ -4,11 +4,11 @@ import { useAppDispatch } from "@hooks";
 import { showDeleteModal } from "@slices/deleteModalSlice";
 import { Row, Col } from "@layouts/Grid";
 import { EditOutlined } from "@ant-design/icons";
-import StudentInfoWrapper from "../StudentInfoWrapper";
+import InfoWrapper from "@components/InfoWrapper";
 import Field from "@components/PseudoField";
 import { MOCK_STUDENT as data } from "./data";
-import { Tag } from "antd";
 import { useHistory, useRouteMatch } from "react-router";
+import Tag from "@components/Tag";
 
 export const Panel = () => {
   const dispatch = useAppDispatch();
@@ -46,10 +46,10 @@ export const Panel = () => {
 };
 
 export const Content = () => {
-  const { Title, Container, Subtitle, Divider } = StudentInfoWrapper;
+  const { Title, Container, Subtitle, Divider } = InfoWrapper;
 
   return (
-    <StudentInfoWrapper className="student-info-content">
+    <InfoWrapper className="student-info-content">
       <Title>Thông tin chung</Title>
       {/* Basic info */}
       <Container>
@@ -78,7 +78,7 @@ export const Content = () => {
               </Col>
               <Col>
                 <Field label="Trạng thái">
-                  <Tag icon={<div className="dot"></div>}>{data.status}</Tag>
+                  <Tag.Status status={data.status}>{data.status}</Tag.Status>
                 </Field>
               </Col>
             </Row>
@@ -131,6 +131,6 @@ export const Content = () => {
           </Col>
         </Row>
       </Container>
-    </StudentInfoWrapper>
+    </InfoWrapper>
   );
 };
