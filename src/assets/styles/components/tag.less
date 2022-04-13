@@ -1,12 +1,18 @@
 .tag.ant-tag {
   font-size: 1.4rem;
-  background: transparent;
-  border-radius: 0.5rem;
   padding: 0.4em 1em;
-  border-color: currentColor;
-  display: inline-flex;
-  align-items: center;
-  gap: 1rem;
+  border-radius: 999px;
+  color: white;
+  background-color: @color-secondary;
+  border-width: 0;
+  &.status-tag {
+    border: 1px solid currentColor;
+    background-color: transparent;
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    border-radius: 0.5rem;
+  }
   .dot {
     width: 0.5em;
     aspect-ratio: 1 / 1;
@@ -16,16 +22,19 @@
   &.ejected {
     color: #e91f24;
   }
-  &.school-transfered, &.retired {
+  &.school-transfered,
+  &.retired {
     color: #373839;
   }
-  &.class-transfered, &.temporary {
+  &.class-transfered,
+  &.temporary {
     color: #ff7506;
   }
   &.graduated {
     color: #51a4f1;
   }
-  &.learning, &.working {
+  &.learning,
+  &.working {
     color: #3cc13b;
   }
 }

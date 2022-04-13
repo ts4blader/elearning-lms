@@ -8,10 +8,13 @@ import { useAppSelector } from "@hooks";
 import ItemActions from "@components/ItemActions";
 import { EyeOutlined } from "@ant-design/icons";
 import { OptionDropdown } from "./OptionDropdown";
+import { useHistory, useRouteMatch } from "react-router-dom";
 
 export const LecturesTable = () => {
   const { Column } = Table;
   const pageSize = useAppSelector((state) => state.pageSize);
+  const history = useHistory();
+  const { url } = useRouteMatch();
 
   return (
     <Table
@@ -68,7 +71,7 @@ export const LecturesTable = () => {
           <ItemActions>
             <ItemActions.Button
               icon={EyeOutlined}
-              onClick={() => null}
+              onClick={() => history.push(`${url}/${record.id}`)}
               className="detail-btn"
             />
             <span>

@@ -13,7 +13,7 @@ const PseudoField = ({
 }: PseudoFieldProps) => {
   return (
     <Row className={`pseudo-field ${className}`} {...rest}>
-      <div className="pseudo-field-label">{label + ":"}</div>
+      <div className="pseudo-field-label">{label && label + ":"}</div>
       <div className="pseudo-field-control">{children}</div>
     </Row>
   );
