@@ -14,7 +14,7 @@ const Table = () => {
       pagination={false}
       dataSource={tableData}
       rowKey={(record) => record.id}
-      scroll={{ y: 400 }}
+      scroll={{ y: 300 }}
     >
       <Column
         title="STT"
@@ -45,7 +45,7 @@ const Table = () => {
 export const DisciplinedList = () => {
   return (
     <div className="disciplined-list">
-      <TableFrame title="" table={Table} />
+      <TableFrame title="" pageChanger={false} table={Table} />
     </div>
   );
 };

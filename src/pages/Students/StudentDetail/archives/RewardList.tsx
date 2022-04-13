@@ -14,7 +14,7 @@ const Table = () => {
       pagination={false}
       dataSource={tableData}
       rowKey={(record) => record.id}
-      scroll={{ y: 400 }}
+      scroll={{ y: 300 }}
     >
       <Column
         title="STT"
@@ -45,7 +45,7 @@ const Table = () => {
 export const RewardList = () => {
   return (
     <div className="reward-list">
-      <TableFrame title="" table={Table} />
+      <TableFrame title="" table={Table} pageChanger={false} />
     </div>
   );
 };
