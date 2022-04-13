@@ -1,4 +1,6 @@
 import * as LECTURE_INFO from "./LectureInfo";
+import * as LECTURE_ARCHIVE from "./LectureArchive";
+import { CareerPath, TeachingInfo } from "./archives";
 
 export const BREADCRUMB_DATA = [
   {
@@ -19,8 +21,8 @@ export const TABS = [
   },
   {
     text: "Quá trình công tác",
-    panel: LECTURE_INFO.Panel,
-    content: LECTURE_INFO.Content,
+    panel: LECTURE_ARCHIVE.Panel,
+    content: LECTURE_ARCHIVE.Content,
   },
 ];
 
@@ -69,3 +71,16 @@ export const MOCK_LECTURE = {
     },
   ],
 };
+
+export const ARCHIVES = [
+  {
+    header: "Quá trình công tác",
+    name: "careerPath",
+    content: CareerPath,
+  },
+  {
+    header: "Thông tin đào tạo",
+    name: "teachingInfo",
+    content: TeachingInfo,
+  },
+];

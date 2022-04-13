@@ -5,19 +5,21 @@ type ColumnTitleProps = {
   sortColumns: any;
   reactKey: React.Key | undefined;
   text: string;
+  align?: "center" | "left" | "right";
 };
 
 export const ColumnTitle = ({
   sortColumns,
   reactKey,
   text,
+  align = "left",
 }: ColumnTitleProps) => {
   const sortedColumn = sortColumns?.find(
     (item: any) => item.column.key === reactKey
   );
 
   return (
-    <div className="column-title">
+    <div className="column-title" data-align={align}>
       <div className="text">{text}</div>
       <span className="sort-icons">
         {sortedColumn?.order === "ascend" && (

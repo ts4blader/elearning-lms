@@ -173,8 +173,8 @@ export const Content = () => {
           <div className="info-entry">
             <Subtitle>Thông tin gia đình</Subtitle>
             <Row>
-              {data.family.map((item) => (
-                <Col key={`${item.name}-family`}>
+              {data.family.map((item, index) => (
+                <Col key={`${item.name}-family-${index}`}>
                   <PseudoField label="Người liên hệ">{item.name}</PseudoField>
                   <PseudoField label="Địa chỉ">{item.address}</PseudoField>
                   <PseudoField label="SĐT">{item.phoneNumber}</PseudoField>

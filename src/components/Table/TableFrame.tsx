@@ -6,11 +6,11 @@ import TextInput from "@components/TextInput";
 
 export type TableFrameProps = {
   children?: React.ReactNode;
-  title: string;
+  title: React.ReactNode | string;
   className?: string;
   table: React.ComponentType<any>;
   pageChanger?: boolean;
-} & React.ComponentProps<"div">;
+} & Omit<React.ComponentProps<"div">, "title">;
 
 const TableFrame = ({
   children,

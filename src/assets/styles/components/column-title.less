@@ -5,6 +5,12 @@
   display: flex;
   gap: 0.3em;
   align-items: center;
+  &[data-align="center"] {
+    justify-content: center;
+  }
+  &[data-align="right"] {
+    justify-content: flex-end;
+  }
   .sort-icons {
     display: flex;
     align-items: center;

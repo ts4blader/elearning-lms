@@ -26,4 +26,34 @@
       }
     }
   }
+  /* ------ lecture archive panel ----- */
+  .lecture-archive-panel {
+    flex-grow: 1;
+    .btn-grp {
+      margin-left: auto;
+    }
+  }
+  /* ----- lecture archive content ---- */
+  .lecture-archive-content {
+    margin-top: 2em;
+    .table-frame {
+      &-body {
+        box-shadow: none;
+        padding-top: 0;
+        & > .row {
+          flex-direction: row-reverse !important;
+        }
+        .ant-table {
+          min-height: 0;
+          td {
+            font-family: @sub-font;
+            font-weight: 400;
+          }
+          thead {
+            background: @color-dark;
+          }
+        }
+      }
+    }
+  }
 }
