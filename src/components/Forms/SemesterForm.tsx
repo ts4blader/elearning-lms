@@ -66,7 +66,7 @@ export const SemesterForm = ({ onCancel }: Props) => {
               />
             </Form.Item>
           </Space>
-          <Space size={10} className="info-wrapper" align="start">
+          <Space size={10} className="warning-wrapper" align="start">
             <InfoCircleOutlined />
             <div className="info">
               <div className="info-title">
