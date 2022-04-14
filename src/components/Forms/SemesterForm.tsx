@@ -90,14 +90,13 @@ export const SemesterForm = ({ onCancel }: Props) => {
           {(fields, { add, remove }) => (
             <>
               <div className="list">
-                {fields.map(({ key, name, ...restField }) => (
+                {fields.map(({ key, name }) => (
                   <Space key={key} align="center" className="time-config-item">
                     <div className="remove-btn" onClick={() => remove(name)}>
                       <MinusCircleFilled />
                     </div>
 
                     <Form.Item
-                      {...restField}
                       name={[name, "name"]}
                       label="Tên học kỳ"
                       initialValue="Học kỳ 2"
@@ -108,7 +107,6 @@ export const SemesterForm = ({ onCancel }: Props) => {
 
                     <Form.Item
                       className="semester-begin"
-                      {...restField}
                       label="từ"
                       name={[name, "begin"]}
                       initialValue={moment()}
@@ -118,7 +116,6 @@ export const SemesterForm = ({ onCancel }: Props) => {
                     <Form.Item
                       className="semester-end"
                       label="đến"
-                      {...restField}
                       name={[name, "end"]}
                       initialValue={moment()}
                     >
