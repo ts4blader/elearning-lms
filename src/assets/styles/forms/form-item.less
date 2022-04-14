@@ -1,0 +1,49 @@
+.form-item {
+  @label-width: 20rem;
+  font-size: 1.6rem;
+  &.ant-form-item {
+    font-family: @sub-font;
+    &-label {
+      width: @label-width;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    &-control {
+      width: @label-width * 3;
+    }
+  }
+  &-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: @color-primary;
+  }
+}
+
+.form-list {
+  &-control {
+    .add-btn {
+      width: fit-content;
+      padding: 0;
+      margin-top: 1em;
+    }
+  }
+  &-item {
+    margin-top: 1em;
+    .ant-form-item {
+      align-items: center;
+      margin-bottom: 0;
+    }
+  }
+  .add-btn,
+  .remove-btn {
+    font-size: 1.8rem;
+    color: @color-secondary;
+  }
+}
+
+.pseudo-field {
+  font-family: @sub-font;
+  &-label {
+    white-space: nowrap;
+  }
+}

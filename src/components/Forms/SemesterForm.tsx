@@ -1,18 +1,49 @@
 import React, { useState } from "react";
-import { Form, Checkbox, Button, Space, Divider } from "antd";
-import {
-  MinusCircleFilled,
-  PlusCircleFilled,
-  InfoCircleOutlined,
-} from "@ant-design/icons";
+import { Form, Checkbox, Space, Divider } from "antd";
+import { InfoCircleOutlined } from "@ant-design/icons";
 import moment from "moment";
 import TextInput from "@components/TextInput";
 import Select from "@components/Select";
 import DatePicker from "@components/DatePicker";
-import { FormButton } from "@components/Forms";
+import { FormButton, FormList, FormItem } from "@components/Forms";
 
 type Props = {
   onCancel: () => void;
+};
+
+type ListItemProps = {
+  name: number;
+};
+
+const ListItem = ({ name }: ListItemProps) => {
+  return (
+    <>
+      <Form.Item
+        name={[name, "name"]}
+        label="Tên học kỳ"
+        initialValue="Học kỳ 2"
+        className="semester-name"
+      >
+        <TextInput />
+      </Form.Item>
+      <Form.Item
+        className="semester-begin"
+        label="từ"
+        name={[name, "begin"]}
+        initialValue={moment()}
+      >
+        <DatePicker allowClear={false} />
+      </Form.Item>
+      <Form.Item
+        className="semester-end"
+        label="đến"
+        name={[name, "end"]}
+        initialValue={moment()}
+      >
+        <DatePicker allowClear={false} />
+      </Form.Item>
+    </>
+  );
 };
 
 export const SemesterForm = ({ onCancel }: Props) => {
@@ -85,59 +116,16 @@ export const SemesterForm = ({ onCancel }: Props) => {
       <Divider />
       {/* Time config */}
       <div className="time-config form-bottom">
-        <div className="title">Cài đặt thời gian</div>
-        <Form.List name="semester">
-          {(fields, { add, remove }) => (
-            <>
-              <div className="list">
-                {fields.map(({ key, name }) => (
-                  <Space key={key} align="center" className="time-config-item">
-                    <div className="remove-btn" onClick={() => remove(name)}>
-                      <MinusCircleFilled />
-                    </div>
-
-                    <Form.Item
-                      name={[name, "name"]}
-                      label="Tên học kỳ"
-                      initialValue="Học kỳ 2"
-                      className="semester-name"
-                    >
-                      <TextInput />
-                    </Form.Item>
-
-                    <Form.Item
-                      className="semester-begin"
-                      label="từ"
-                      name={[name, "begin"]}
-                      initialValue={moment()}
-                    >
-                      <DatePicker allowClear={false} />
-                    </Form.Item>
-                    <Form.Item
-                      className="semester-end"
-                      label="đến"
-                      name={[name, "end"]}
-                      initialValue={moment()}
-                    >
-                      <DatePicker allowClear={false} />
-                    </Form.Item>
-                  </Space>
-                ))}
-              </div>
-              <Form.Item>
-                <Button
-                  type="link"
-                  className="add-btn"
-                  onClick={() => add()}
-                  block
-                  icon={<PlusCircleFilled />}
-                >
-                  Thêm học kỳ
-                </Button>
-              </Form.Item>
-            </>
+        <FormItem.Title>Cài đặt thời gian</FormItem.Title>
+        <FormList
+          name="semester"
+          addButtonText="Thêm học kỳ"
+          render={(props) => (
+            <FormList.Item {...props}>
+              <ListItem name={props.name} />
+            </FormList.Item>
           )}
-        </Form.List>
+        />
       </div>
       {/* Modal buttons */}
       <FormButton.Container>
