@@ -9,9 +9,9 @@ import { FormButton } from "@components/Forms";
 import { hideFormModal } from "@slices/formModalSlice";
 import { useAppDispatch } from "@hooks";
 import { SearchOutlined } from "@ant-design/icons";
+import { FormItem as Item } from "@components/Forms";
 
 export const ReserveForm = () => {
-  const { Item } = Form;
   const dispatch = useAppDispatch();
 
   const handleFinish = (values: any) => {

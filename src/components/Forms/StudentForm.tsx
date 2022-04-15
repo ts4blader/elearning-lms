@@ -1,15 +1,14 @@
 import React, { useState, useMemo } from "react";
-import { Form, Upload, Button, Checkbox, Space } from "antd";
+import { Form, Checkbox } from "antd";
 import TextInput from "@components/TextInput";
 import { SelectInForm } from "@components/Select";
-import { CameraOutlined } from "@ant-design/icons";
 import { DatePickerInForm } from "@components/DatePicker";
 import { RULES } from "@utils/rules";
 import { useHistory, useParams } from "react-router-dom";
 import InfoWrapper from "@components/InfoWrapper";
 import studentData from "@seeds/thcs/students.json";
 import moment from "moment";
-import { FormButton } from "./FormButtons";
+import { FormButton, FormItem } from "@components/Forms";
 
 export const StudentForm = () => {
   const history = useHistory();
@@ -56,15 +55,15 @@ export const StudentForm = () => {
               <Subtitle>Thông tin học viên</Subtitle>
               <div className="form-items">
                 {/* Full name  */}
-                <Form.Item
+                <FormItem
                   name="fullName"
                   label="Họ và tên"
                   initialValue={data?.name}
                 >
                   <TextInput maxLength={50} />
-                </Form.Item>
+                </FormItem>
                 {/* Semester selector */}
-                <Form.Item
+                <FormItem
                   name="semester"
                   label="Niên khóa"
                   initialValue={"2021-2022"}
@@ -73,9 +72,9 @@ export const StudentForm = () => {
                     data={["2021-2022", "2021-2023", "2022-2023"]}
                     keyAffix="semester-selector"
                   />
-                </Form.Item>
+                </FormItem>
                 {/* Gender selector */}
-                <Form.Item
+                <FormItem
                   name="gender"
                   label="Giới tính"
                   initialValue={data?.gender}
@@ -84,10 +83,10 @@ export const StudentForm = () => {
                     data={["Male", "Female"]}
                     keyAffix="gender-select"
                   />
-                </Form.Item>
+                </FormItem>
                 {/* Grade and class selector */}
                 <div className="pseudo-form-item">
-                  <Form.Item
+                  <FormItem
                     initialValue={"Khoi 6"}
                     name="grade"
                     label="Khối"
@@ -98,8 +97,8 @@ export const StudentForm = () => {
                       keyAffix="grade-selector"
                       placeholder="Khối"
                     />
-                  </Form.Item>
-                  <Form.Item
+                  </FormItem>
+                  <FormItem
                     initialValue={data?.class}
                     name="class"
                     className="class-selector"
@@ -109,19 +108,19 @@ export const StudentForm = () => {
                       data={["6A", "6B"]}
                       keyAffix="class-selector"
                     />
-                  </Form.Item>
+                  </FormItem>
                 </div>
                 {/* Birhday datepicker */}
-                <Form.Item
+                <FormItem
                   label="Ngày sinh"
                   name="birthday"
                   initialValue={moment(data?.birthday)}
                 >
                   <DatePickerInForm placeholder="dd/mm/yy" />
-                </Form.Item>
+                </FormItem>
                 {/* ID generator */}
                 <div className="id-form-item">
-                  <Form.Item label="Mã học viên">
+                  <FormItem label="Mã học viên">
                     <TextInput
                       maxLength={20}
                       disabled={autoGenerate}
@@ -130,7 +129,7 @@ export const StudentForm = () => {
                         setId(target.value);
                       }}
                     />
-                  </Form.Item>
+                  </FormItem>
                   <Checkbox
                     onChange={({ target }) => {
                       setAutoGenerate(target.checked);
@@ -141,34 +140,34 @@ export const StudentForm = () => {
                   </Checkbox>
                 </div>
                 {/* Born place */}
-                <Form.Item label="Nơi sinh" name="bornPlace" initialValue="BL">
+                <FormItem label="Nơi sinh" name="bornPlace" initialValue="BL">
                   <TextInput />
-                </Form.Item>
+                </FormItem>
                 {/* Admission date */}
-                <Form.Item label="Ngày nhập học" name="admission">
+                <FormItem label="Ngày nhập học" name="admission">
                   <DatePickerInForm placeholder="dd/mm/yy" />
-                </Form.Item>
+                </FormItem>
                 {/* Ethic input */}
-                <Form.Item
+                <FormItem
                   label="Dân tộc"
                   name="ethic"
                   initialValue={data?.ethic}
                 >
                   <TextInput />
-                </Form.Item>
+                </FormItem>
                 {/* Admission type selector */}
-                <Form.Item label="Hình thức" name="admissionType">
+                <FormItem label="Hình thức" name="admissionType">
                   <SelectInForm
                     data={["Trung tuyen", "Xet hoc ba"]}
                     keyAffix="admission-type-selector"
                   />
-                </Form.Item>
+                </FormItem>
                 {/* Religion input */}
-                <Form.Item label="Tôn giáo" name="religion">
+                <FormItem label="Tôn giáo" name="religion">
                   <TextInput />
-                </Form.Item>
+                </FormItem>
                 {/* Status selector */}
-                <Form.Item
+                <FormItem
                   initialValue={data?.status}
                   label="Trạng thái"
                   name="status"
@@ -177,7 +176,7 @@ export const StudentForm = () => {
                     data={["Learning", "Ejected", "Shool transfered"]}
                     keyAffix="status-selector"
                   />
-                </Form.Item>
+                </FormItem>
               </div>
             </div>
           </div>
@@ -194,29 +193,29 @@ export const StudentForm = () => {
               <Subtitle>Địa chỉ liên hệ</Subtitle>
               <div className="form-items">
                 {/* city input  */}
-                <Form.Item name="city" label="Tỉnh/Thành phố">
+                <FormItem name="city" label="Tỉnh/Thành phố">
                   <TextInput />
-                </Form.Item>
+                </FormItem>
                 {/* address input  */}
-                <Form.Item name="address" label="Địa chỉ">
+                <FormItem name="address" label="Địa chỉ">
                   <TextInput />
-                </Form.Item>
+                </FormItem>
                 {/* district input  */}
-                <Form.Item name="district" label="Quận/Huyện">
+                <FormItem name="district" label="Quận/Huyện">
                   <TextInput />
-                </Form.Item>
+                </FormItem>
                 {/* email input  */}
-                <Form.Item name="email" label="Email">
+                <FormItem name="email" label="Email">
                   <TextInput type="email" />
-                </Form.Item>
+                </FormItem>
                 {/* subdistrict  input  */}
-                <Form.Item name="subdistrict" label="Xã/Phường">
+                <FormItem name="subdistrict" label="Xã/Phường">
                   <TextInput />
-                </Form.Item>
+                </FormItem>
                 {/* phone number  input  */}
-                <Form.Item name="phoneNumber" label="Số điện thoại">
+                <FormItem name="phoneNumber" label="Số điện thoại">
                   <TextInput />
-                </Form.Item>
+                </FormItem>
               </div>
             </div>
           </div>
@@ -230,55 +229,55 @@ export const StudentForm = () => {
               <div className="form-items">
                 {/* Father section */}
                 {/* fatherName input  */}
-                <Form.Item name="fatherName" label="Họ tên cha">
+                <FormItem name="fatherName" label="Họ tên cha">
                   <TextInput />
-                </Form.Item>
+                </FormItem>
                 {/* fatherBirthYear input  */}
-                <Form.Item
+                <FormItem
                   name="fatherBirthYear"
                   className="year-form-item"
                   label="Năm sinh"
                 >
                   <TextInput />
-                </Form.Item>
+                </FormItem>
                 {/* fatherJob input  */}
-                <Form.Item name="fatherJob" label="Nghề nghiệp">
+                <FormItem name="fatherJob" label="Nghề nghiệp">
                   <TextInput />
-                </Form.Item>
+                </FormItem>
                 {/* Mother section */}
                 {/* motherName input  */}
-                <Form.Item name="motherName" label="Họ tên mẹ">
+                <FormItem name="motherName" label="Họ tên mẹ">
                   <TextInput />
-                </Form.Item>
+                </FormItem>
                 {/* motherBirthYear input  */}
-                <Form.Item
+                <FormItem
                   className="year-form-item"
                   name="motherBirthYear"
                   label="Năm sinh"
                 >
                   <TextInput />
-                </Form.Item>
+                </FormItem>
                 {/* motherJob input  */}
-                <Form.Item name="motherJob" label="Nghề nghiệp">
+                <FormItem name="motherJob" label="Nghề nghiệp">
                   <TextInput />
-                </Form.Item>
+                </FormItem>
                 {/* Mother section */}
                 {/* supervisorName input  */}
-                <Form.Item name="supervisorName" label="Họ tên giám hộ">
+                <FormItem name="supervisorName" label="Họ tên giám hộ">
                   <TextInput />
-                </Form.Item>
+                </FormItem>
                 {/* supervisorBirthYear input  */}
-                <Form.Item
+                <FormItem
                   className="year-form-item"
                   name="supervisorBirthYear"
                   label="Năm sinh"
                 >
                   <TextInput />
-                </Form.Item>
+                </FormItem>
                 {/* supervisorJob input  */}
-                <Form.Item name="supervisorJob" label="Nghề nghiệp">
+                <FormItem name="supervisorJob" label="Nghề nghiệp">
                   <TextInput />
-                </Form.Item>
+                </FormItem>
               </div>
             </div>
           </div>
@@ -290,29 +289,29 @@ export const StudentForm = () => {
               <Subtitle>Liên lạc gia đình</Subtitle>
               <div className="form-items">
                 {/* fatherNumber input  */}
-                <Form.Item
+                <FormItem
                   name="fatherNumber"
                   label="Điện thoại cha"
                   rules={[RULES.number]}
                 >
                   <TextInput />
-                </Form.Item>
+                </FormItem>
                 {/* motherNumber input  */}
-                <Form.Item
+                <FormItem
                   name="motherNumber"
                   label="Điện thoại mẹ"
                   rules={[RULES.phoneNumber]}
                 >
                   <TextInput />
-                </Form.Item>
+                </FormItem>
                 {/* supervisorNumber input  */}
-                <Form.Item
+                <FormItem
                   name="supervisorNumber"
                   label="Điện thoại GH"
                   rules={[RULES.phoneNumber]}
                 >
                   <TextInput />
-                </Form.Item>
+                </FormItem>
               </div>
             </div>
           </div>

@@ -1,8 +1,8 @@
 import React from "react";
-import { Space, Button, Form } from "antd";
+import { Form } from "antd";
 import { DownloadOutlined } from "@ant-design/icons";
 import UploadField from "@components/UploadField";
-import { FormButton } from "./FormButtons";
+import { FormButton, FormItem } from "@components/Forms";
 
 type Props = {
   onCancel: () => void;
@@ -12,10 +12,10 @@ export const UploadForm = ({ onCancel }: Props) => {
   return (
     <Form className="upload-form">
       <UploadField />
-      <Form.Item label="Tải file mẫu" className="download-example">
+      <FormItem label="Tải file mẫu" className="download-example">
         <DownloadOutlined />
         [Tải xuống file mẫu]
-      </Form.Item>
+      </FormItem>
 
       {/* Buttons */}
       <FormButton.Container>

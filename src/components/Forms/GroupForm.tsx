@@ -1,12 +1,27 @@
 import React from "react";
-import { Form, Divider, Space, Button } from "antd";
-import { MinusCircleFilled, PlusCircleFilled } from "@ant-design/icons";
+import { Form, Divider } from "antd";
 import TextInput from "@components/TextInput";
 import { SelectInForm as Select } from "@components/Select";
-import { FormButton } from "./FormButtons";
+import { FormButton, FormList, FormItem } from "@components/Forms";
 
 type Props = {
   onCancel: () => void;
+};
+
+const ListItem = ({ name }: { name: number }) => {
+  return (
+    <FormItem
+      name={[name, "name"]}
+      className="subject-select"
+      initialValue="Ngữ văn"
+    >
+      <Select
+        size="middle"
+        data={["Toan", "Ngu van"]}
+        keyAffix="subject-selector"
+      />
+    </FormItem>
+  );
 };
 
 export const GroupForm = ({ onCancel }: Props) => {
@@ -17,64 +32,35 @@ export const GroupForm = ({ onCancel }: Props) => {
   return (
     <Form name="add-group" onFinish={handleSubmit} className="group-form">
       <div className="form-top">
-        <Form.Item
+        <FormItem
           label="Tên tổ - bộ môn"
           name="name"
           rules={[{ required: true, message: "Xin hãy nhập tên tổ" }]}
         >
           <TextInput />
-        </Form.Item>
-        <Form.Item
+        </FormItem>
+        <FormItem
           label="Tên trưởng tổ - bộ môn"
           name="leader"
           rules={[{ required: true, message: "Xin hãy chọn tên trưởng tổ" }]}
         >
           <Select data={["Thu", "Ha", "An"]} keyAffix="leader" />
-        </Form.Item>
+        </FormItem>
       </div>
 
       <Divider />
       {/* Subject list */}
       <div className="subject-list-wrapper form-bottom">
-        <div className="title">Danh sách môn học</div>
-        <Form.List name="subjects">
-          {(fields, { add, remove }) => (
-            <>
-              <div className="list">
-                {fields.map(({ key, name, ...rest }) => (
-                  <Space key={key} align="center" className="subject-item">
-                    <div className="remove-btn" onClick={() => remove(name)}>
-                      <MinusCircleFilled />
-                    </div>
-                    <Form.Item
-                      {...rest}
-                      name={[name, "name"]}
-                      className="subject-select"
-                      initialValue="Ngữ văn"
-                    >
-                      <Select
-                        size="middle"
-                        data={["Toan", "Ngu van"]}
-                        keyAffix="subject-selector"
-                      />
-                    </Form.Item>
-                  </Space>
-                ))}
-              </div>
-              <Form.Item>
-                <Button
-                  type="link"
-                  className="add-btn"
-                  onClick={() => add()}
-                  block
-                  icon={<PlusCircleFilled />}
-                >
-                  Thêm môn học
-                </Button>
-              </Form.Item>
-            </>
+        <FormItem.Title>Danh sách môn học</FormItem.Title>
+        <FormList
+          addButtonText="Thêm môn học"
+          name="subjects"
+          render={(props) => (
+            <FormList.Item {...props}>
+              <ListItem name={props.name} />
+            </FormList.Item>
           )}
-        </Form.List>
+        />
       </div>
 
       {/* Modal buttons */}

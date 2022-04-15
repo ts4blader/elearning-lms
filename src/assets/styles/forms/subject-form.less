@@ -1,34 +1,38 @@
 .subject-form {
-  width: 50rem;
   .form-top {
-    & > .ant-form-item {
-      display: flex;
-      &.short-item .ant-form-item-control input {
-        max-width: 20rem;
+    @label-width: 15rem;
+    .ant-form-item {
+      &-label {
+        width: @label-width;
       }
-      .ant-form-item-label {
-        flex: 4;
-        text-align: left;
-      }
-      .ant-form-item-control {
-        flex: 7;
+      &-control {
+        width: @label-width * 2.5;
       }
     }
   }
   .form-bottom {
+    @label-width: auto;
+    .ant-form-item {
+      &-label {
+        width: @label-width;
+      }
+      &-control {
+        width: @label-width;
+      }
+    }
     .semester-list {
       display: flex;
       justify-content: space-between;
       margin-top: 1em;
       .ant-form-item {
-        .ant-form-item-control {
+        &-control {
           max-width: 12rem;
           margin-left: 2rem;
         }
       }
     }
   }
-  .form-btn-container{
+  .form-btn-container {
     margin-top: 2em;
   }
 }

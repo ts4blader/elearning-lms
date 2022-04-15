@@ -1,14 +1,15 @@
 .grade-form {
-  min-width: 50rem;
-  .form-top {
-    & > .ant-form-item {
-      display: flex;
-      .ant-form-item-control {
-        flex: 6;
-      }
-      .ant-form-item-label {
-        text-align: left;
-        flex: 4;
+  .form-item {
+    @label-width: 20rem;
+    .ant-form-item-label {
+      width: @label-width;
+    }
+    .ant-form-item-control {
+      width: @label-width * 2;
+    }
+    &.id-field {
+      input {
+        width: @label-width;
       }
     }
   }

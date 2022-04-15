@@ -8,14 +8,15 @@ import careerData from "@seeds/lecture/career-path.json";
 import { CAREER_TABLE } from "./data";
 import { ColumnTitle } from "@components/Table";
 import ItemActions from "@components/ItemActions";
+import { CareerForm } from "./CareerForm";
 
 const AddButton = () => {
   const dispatch = useAppDispatch();
   const showModal = () => {
     dispatch(
       showFormModal({
-        title: "",
-        innerForm: null,
+        title: "Thêm mới quá trình công tác",
+        innerForm: CareerForm,
       })
     );
   };

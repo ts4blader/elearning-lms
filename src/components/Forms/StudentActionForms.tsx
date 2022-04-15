@@ -6,7 +6,7 @@ import { SelectInForm } from "@components/Select";
 import moment from "moment";
 import { RULES } from "@utils/rules";
 import UploadField from "@components/UploadField";
-import { FormButton } from "./FormButtons";
+import { FormButton, FormItem } from "@components/Forms";
 
 type FormProps = {
   onCancel: () => void;
@@ -29,12 +29,12 @@ export const StudentActionForms = ({
       className={`${name}-student-form student-form ${className}`}
       {...rest}
     >
-      <Form.Item name="name" label="Học viên" initialValue="Jonh Doe">
+      <FormItem name="name" label="Học viên" initialValue="Jonh Doe">
         John Doe
-      </Form.Item>
-      <Form.Item name="class" label="Lớp học" initialValue="6A">
+      </FormItem>
+      <FormItem name="class" label="Lớp học" initialValue="6A">
         6A
-      </Form.Item>
+      </FormItem>
       {children}
       {/* Form Button */}
       <FormButton.Container>
@@ -55,17 +55,17 @@ const ClassTransfer = ({ onCancel }: FormProps) => {
     >
       {/* transfer day picker */}
       <div className="day-picker-field">
-        <Form.Item
+        <FormItem
           name="transferDay"
           label="Ngày chuyển lớp"
           rules={[RULES.required]}
         >
           <DatePickerInForm defaultValue={moment()} />
-        </Form.Item>
+        </FormItem>
         <TextInput disabled value="HK 1" />
       </div>
       {/* class selector */}
-      <Form.Item
+      <FormItem
         name="transferToClass"
         label="Chuyển đến lớp"
         rules={[RULES.required]}
@@ -76,11 +76,11 @@ const ClassTransfer = ({ onCancel }: FormProps) => {
           data={["6A", "6B", "6C", "6D"]}
           keyAffix="class-selector"
         />
-      </Form.Item>
+      </FormItem>
       {/* Reason text area input */}
-      <Form.Item name="reason" label="Lý do" rules={[RULES.required]}>
+      <FormItem name="reason" label="Lý do" rules={[RULES.required]}>
         <TextInput.TextArea />
-      </Form.Item>
+      </FormItem>
       {/* File upload */}
       <UploadField affixNote="Kiểu file .pdf.jpeg.png.jpg với dung lượng tối đa 100MB" />
     </StudentActionForms>
@@ -96,28 +96,28 @@ const SchoolTransfer = ({ onCancel }: FormProps) => {
     >
       {/* transfer day picker */}
       <div className="day-picker-field">
-        <Form.Item
+        <FormItem
           name="transferDay"
           label="Ngày chuyển trường"
           rules={[RULES.required]}
         >
           <DatePickerInForm defaultValue={moment()} />
-        </Form.Item>
+        </FormItem>
         <TextInput disabled value="HK 1" />
       </div>
       {/* school input */}
-      <Form.Item
+      <FormItem
         name="transferToSchool"
         label="Chuyển đến trường"
         rules={[RULES.required]}
         className="transfer-to-input"
       >
         <TextInput />
-      </Form.Item>
+      </FormItem>
       {/* Reason text area input */}
-      <Form.Item name="reason" label="Lý do" rules={[RULES.required]}>
+      <FormItem name="reason" label="Lý do" rules={[RULES.required]}>
         <TextInput.TextArea />
-      </Form.Item>
+      </FormItem>
       {/* File upload */}
       <UploadField affixNote="Kiểu file .pdf.jpeg.png.jpg với dung lượng tối đa 100MB" />
     </StudentActionForms>
@@ -129,29 +129,29 @@ const Reserve = ({ onCancel }: FormProps) => {
     <StudentActionForms name="reserve" onCancel={onCancel} className="reserve">
       {/* transfer day picker */}
       <div className="day-picker-field">
-        <Form.Item
+        <FormItem
           name="reserveDay"
           label="Ngày bảo lưu"
           rules={[RULES.required]}
         >
           <DatePickerInForm defaultValue={moment()} />
-        </Form.Item>
+        </FormItem>
         <TextInput disabled value="HK 1" />
       </div>
       {/* reserve duration input */}
-      <Form.Item
+      <FormItem
         name="reserveDuration"
         label="Thời hạn bảo lưu"
         rules={[RULES.required]}
         className="reserve-duration-input"
       >
         <TextInput />
-      </Form.Item>
+      </FormItem>
       {/* Reason text area input */}
       <div className="reason-field">
-        <Form.Item name="reason" label="Lý do" rules={[RULES.required]}>
+        <FormItem name="reason" label="Lý do" rules={[RULES.required]}>
           <TextInput.TextArea />
-        </Form.Item>
+        </FormItem>
       </div>
       {/* File upload */}
       <UploadField affixNote="Kiểu file .pdf.jpeg.png.jpg với dung lượng tối đa 100MB" />
@@ -167,7 +167,7 @@ const Discount = ({ onCancel }: FormProps) => {
       className="discount"
     >
       {/* discount type selector */}
-      <Form.Item
+      <FormItem
         label="Đối tượng miễn giảm"
         name="discountType"
         rules={[RULES.required]}
@@ -176,16 +176,16 @@ const Discount = ({ onCancel }: FormProps) => {
           data={["Con thuong binh", "Dan toc thieu so"]}
           keyAffix="discount-type"
         />
-      </Form.Item>
+      </FormItem>
       {/* discount detail input */}
-      <Form.Item
+      <FormItem
         name="discountDetail"
         label="Hình thức miễn giảm"
         rules={[RULES.required]}
         className="discount-detail-input"
       >
         <TextInput />
-      </Form.Item>
+      </FormItem>
     </StudentActionForms>
   );
 };
@@ -195,19 +195,19 @@ const Prized = ({ onCancel }: FormProps) => {
     <StudentActionForms name="prized" onCancel={onCancel} className="prized">
       {/* day picker field */}
       <div className="day-picker-field">
-        <Form.Item
+        <FormItem
           name="prizedDay"
           label="Ngày khen thưởng"
           rules={[RULES.required]}
         >
           <DatePickerInForm defaultValue={moment()} />
-        </Form.Item>
+        </FormItem>
         <TextInput disabled value="HK 1" />
       </div>
       {/* content textarea input */}
-      <Form.Item name="prizedContent" label="Nội dung" rules={[RULES.required]}>
+      <FormItem name="prizedContent" label="Nội dung" rules={[RULES.required]}>
         <TextInput.TextArea />
-      </Form.Item>
+      </FormItem>
       {/* File upload */}
       <UploadField affixNote="Kiểu file .pdf.jpeg.png.jpg với dung lượng tối đa 100MB" />
     </StudentActionForms>
@@ -223,19 +223,19 @@ const Disciplined = ({ onCancel }: FormProps) => {
     >
       {/* day picker field */}
       <div className="day-picker-field">
-        <Form.Item
+        <FormItem
           name="prizedDay"
           label="Ngày kỷ luật"
           rules={[RULES.required]}
         >
           <DatePickerInForm defaultValue={moment()} />
-        </Form.Item>
+        </FormItem>
         <TextInput disabled value="HK 1" />
       </div>
       {/* content textarea input */}
-      <Form.Item name="prizedContent" label="Nội dung" rules={[RULES.required]}>
+      <FormItem name="prizedContent" label="Nội dung" rules={[RULES.required]}>
         <TextInput.TextArea />
-      </Form.Item>
+      </FormItem>
       {/* File upload */}
       <UploadField affixNote="Kiểu file .pdf.jpeg.png.jpg với dung lượng tối đa 100MB" />
     </StudentActionForms>

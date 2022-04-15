@@ -3,10 +3,30 @@ import { Form, Space, Button, Divider, Checkbox } from "antd";
 import { MinusCircleFilled, PlusCircleFilled } from "@ant-design/icons";
 import TextInput from "@components/TextInput";
 import Select, { SelectInForm } from "@components/Select";
-import { FormButton } from "./FormButtons";
+import { FormButton, FormList, FormItem } from "@components/Forms";
 
 type Props = {
   onCancel: () => void;
+};
+
+type ListItemProps = {
+  name: number;
+};
+
+const ListItem = ({ name }: ListItemProps) => {
+  return (
+    <FormItem
+      name={[name, "name"]}
+      className="subject-select"
+      initialValue="Ngữ văn"
+    >
+      <SelectInForm
+        data={["Ngu Van", "Toan"]}
+        size="middle"
+        keyAffix="subject-selector"
+      />
+    </FormItem>
+  );
 };
 
 export const ClassForm = ({ onCancel }: Props) => {
@@ -22,13 +42,18 @@ export const ClassForm = ({ onCancel }: Props) => {
         <div className="title">Thông tin chung</div>
         {/* choose group */}
         <Space size={10} className="semester-group-selection">
-          <Form.Item label="Niên khóa" name="semester" initialValue="2021-2022">
+          <FormItem
+            className="semester-select"
+            label="Niên khóa"
+            name="semester"
+            initialValue="2021-2022"
+          >
             <Select
               data={["2021-2022", "2021-2023"]}
               keyAffix="semester-select"
             />
-          </Form.Item>
-          <Form.Item
+          </FormItem>
+          <FormItem
             label="Khoa - Khối"
             name="grade"
             className="group-select"
@@ -38,18 +63,18 @@ export const ClassForm = ({ onCancel }: Props) => {
               data={["Khoi 6", "Khoi 7", "Khoi 8"]}
               keyAffix="grade-select"
             />
-          </Form.Item>
+          </FormItem>
         </Space>
         {/* name input */}
-        <Form.Item
+        <FormItem
           label="Tên lớp"
           name="name"
           rules={[{ required: true, message: "Xin hãy nhập tên lớp" }]}
         >
           <TextInput />
-        </Form.Item>
+        </FormItem>
         {/* amount input */}
-        <Form.Item
+        <FormItem
           label="Số lượng học viên"
           name="amount"
           className="short-item"
@@ -59,33 +84,33 @@ export const ClassForm = ({ onCancel }: Props) => {
           ]}
         >
           <TextInput />
-        </Form.Item>
+        </FormItem>
         {/* choose type */}
-        <Form.Item
+        <FormItem
           label="Phân loại lớp"
           name="type"
           rules={[{ required: true, message: "Xin hãy chọn phân loại lớp" }]}
         >
           <SelectInForm data={["Basic", "Advanced"]} keyAffix="type-select" />
-        </Form.Item>
+        </FormItem>
         {/* choose leader */}
-        <Form.Item
+        <FormItem
           label="Giáo viên chủ nhiệm"
           name="leader"
           rules={[{ required: true, message: "Xin hãy chọn giáo viên" }]}
         >
           <SelectInForm data={["Thu", "Ha", "An"]} keyAffix="leader-selector" />
-        </Form.Item>
+        </FormItem>
         {/* description text area */}
-        <Form.Item label="Mô tả" name="description" initialValue="">
+        <FormItem label="Mô tả" name="description" initialValue="">
           <TextInput.TextArea />
-        </Form.Item>
+        </FormItem>
       </div>
 
       <Divider />
 
       <div className="form-bottom">
-        <div className="title">Danh sách môn học</div>
+        <FormItem.Title>Danh sách môn học</FormItem.Title>
         <Space size={10} className="extend-data">
           <Checkbox onChange={({ target }) => setExtend(target.checked)}>
             Kế thừa dữ liệu:
@@ -98,43 +123,15 @@ export const ClassForm = ({ onCancel }: Props) => {
           />
         </Space>
         {/* Form list */}
-        <Form.List name="subjects">
-          {(fields, { add, remove }) => (
-            <>
-              <div className="list">
-                {fields.map(({ key, name, ...rest }) => (
-                  <Space key={key} align="center" className="subject-item">
-                    <div className="remove-btn" onClick={() => remove(name)}>
-                      <MinusCircleFilled />
-                    </div>
-                    <Form.Item
-                      {...rest}
-                      name={[name, "name"]}
-                      className="subject-select"
-                      initialValue="Ngữ văn"
-                    >
-                      <SelectInForm
-                        data={["Ngu Van", "Toan"]}
-                        keyAffix="subject-selector"
-                      />
-                    </Form.Item>
-                  </Space>
-                ))}
-              </div>
-              <Form.Item>
-                <Button
-                  type="link"
-                  className="add-btn"
-                  onClick={() => add()}
-                  block
-                  icon={<PlusCircleFilled />}
-                >
-                  Thêm môn học
-                </Button>
-              </Form.Item>
-            </>
+        <FormList
+          addButtonText="Thêm môn học"
+          name="subjects"
+          render={(props) => (
+            <FormList.Item {...props}>
+              <ListItem name={props.name} />
+            </FormList.Item>
           )}
-        </Form.List>
+        />
       </div>
 
       {/* Modal buttons */}

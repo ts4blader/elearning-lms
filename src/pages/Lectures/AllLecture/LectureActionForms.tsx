@@ -5,6 +5,7 @@ import { DatePickerInForm } from "@components/DatePicker";
 import { RULES } from "@utils/rules";
 import TextInput from "@components/TextInput";
 import UploadField from "@components/UploadField";
+import { FormItem as Item } from "@components/Forms";
 
 type LectureActionFormsProps = {
   name: string;
@@ -38,8 +39,6 @@ const LectureActionForms = ({
 };
 
 LectureActionForms.Retired = ({ name, ...rest }: LectureActionFormsProps) => {
-  const { Item } = Form;
-
   return (
     <LectureActionForms name="retired" {...rest}>
       <Item name="retiredDay" label="Ngày nghỉ hưu" rules={[RULES.required]}>
@@ -54,8 +53,6 @@ LectureActionForms.Retired = ({ name, ...rest }: LectureActionFormsProps) => {
 };
 
 LectureActionForms.Eject = ({ name, ...rest }: LectureActionFormsProps) => {
-  const { Item } = Form;
-
   return (
     <LectureActionForms name="eject" {...rest}>
       <Item name="ejectDay" label="Ngày nghỉ việc" rules={[RULES.required]}>
@@ -69,8 +66,6 @@ LectureActionForms.Eject = ({ name, ...rest }: LectureActionFormsProps) => {
   );
 };
 LectureActionForms.Temporary = ({ name, ...rest }: LectureActionFormsProps) => {
-  const { Item } = Form;
-
   return (
     <LectureActionForms name="temporary" {...rest}>
       <Item name="temporaryDay" label="Ngày tạm nghỉ" rules={[RULES.required]}>

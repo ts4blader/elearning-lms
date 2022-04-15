@@ -8,9 +8,9 @@ import UploadField from "@components/UploadField";
 import { FormButton } from "@components/Forms";
 import { hideFormModal } from "@slices/formModalSlice";
 import { useAppDispatch } from "@hooks";
+import { FormItem as Item } from "@components/Forms";
 
 export const TransferForm = () => {
-  const { Item } = Form;
   const dispatch = useAppDispatch();
 
   const handleFinish = (values: any) => {

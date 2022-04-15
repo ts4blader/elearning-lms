@@ -1,21 +1,33 @@
 .form-item {
   @label-width: 20rem;
-  font-size: 1.6rem;
   &.ant-form-item {
     font-family: @sub-font;
-    &-label {
-      width: @label-width;
-      font-weight: 600;
-      white-space: nowrap;
-    }
-    &-control {
-      width: @label-width * 3;
-    }
   }
   &-title {
     font-size: 2rem;
     font-weight: bold;
     color: @color-primary;
+  }
+  .ant-form-item-label {
+    width: @label-width;
+    text-align: left;
+    font-weight: 600;
+    white-space: nowrap;
+    label {
+      font-size: 1.6rem;
+      &.ant-form-item-required {
+        position: relative;
+        &::before {
+          position: absolute;
+          top: baseline;
+          left: 100%;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+  .ant-form-item-control {
+    width: @label-width * 3;
   }
 }
 

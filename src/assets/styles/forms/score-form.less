@@ -1,7 +1,20 @@
 .score-form {
   .form-top {
-    .ant-form-item {
-      margin-bottom: 0;
+    .name-field {
+      .ant-form-item-label {
+        width: 15rem;
+      }
+      .ant-form-item-control {
+        width: 30rem;
+      }
+    }
+    .multiplier-field {
+      .ant-form-item-label {
+        width: 8rem;
+      }
+      .ant-form-item-control {
+        width: 15rem;
+      }
     }
   }
   .form-bottom {
@@ -9,8 +22,11 @@
       margin-top: 1em;
     }
     .ant-form-item {
+      &-label {
+        width: 10rem;
+      }
       &-control {
-        max-width: 15rem;
+        width: 15rem;
       }
     }
   }

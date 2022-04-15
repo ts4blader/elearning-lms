@@ -1,9 +1,9 @@
 import React from "react";
-import { Form, Space, Button, Divider } from "antd";
+import { Form, Space, Divider } from "antd";
 import TextInput from "@components/TextInput";
 import { SelectInForm as Select } from "@components/Select";
 import { RULES } from "@utils/rules";
-import { FormButton } from "./FormButtons";
+import { FormButton, FormItem } from "@components/Forms";
 
 type Props = {
   onCancel: () => void;
@@ -18,57 +18,57 @@ export const SubjectForm = ({ onCancel }: Props) => {
     <Form name="add-subject" onFinish={handleSubmit} className="subject-form">
       <div className="form-top">
         {/* choose group */}
-        <Form.Item
+        <FormItem
           label="Tổ bộ môn"
           name="group"
           rules={[{ required: true, message: "Xin hãy chọn tổ bộ môn" }]}
         >
           <Select data={["Social", "Sience"]} keyAffix="group" />
-        </Form.Item>
+        </FormItem>
         {/* name input */}
-        <Form.Item
+        <FormItem
           label="Tên môn học"
           name="name"
           rules={[{ required: true, message: "Xin hãy nhập tên môn học" }]}
         >
           <TextInput />
-        </Form.Item>
+        </FormItem>
         {/* id input */}
-        <Form.Item
+        <FormItem
           label="Mã môn học"
           name="id"
           className="short-item"
           rules={[{ required: true, message: "Xin hãy nhập mã môn học" }]}
         >
           <TextInput />
-        </Form.Item>
+        </FormItem>
         {/* choose type */}
-        <Form.Item
+        <FormItem
           label="Loại môn học"
           name="type"
           rules={[{ required: true, message: "Xin hãy chọn loại môn học" }]}
         >
           <Select data={["Required", "Optional"]} keyAffix="subject-type" />
-        </Form.Item>
+        </FormItem>
       </div>
 
       <Divider />
 
       <div className="form-bottom">
-        <div className="title">Số tiết/học kỳ</div>
+        <FormItem.Title>Số tiết/học kỳ</FormItem.Title>
         <Space className="semester-list">
           {/* first semester  */}
-          <Form.Item name="first" label="Học kỳ 1" rules={[RULES.number]}>
+          <FormItem name="first" label="Học kỳ 1" rules={[RULES.number]}>
             <TextInput />
-          </Form.Item>
+          </FormItem>
           {/* secondary semester  */}
-          <Form.Item
+          <FormItem
             name="secondary"
             rules={[{ pattern: /[1-9][\d]*/g, message: "Nhập một số" }]}
             label="Học kỳ 2"
           >
             <TextInput />
-          </Form.Item>
+          </FormItem>
         </Space>
       </div>
 

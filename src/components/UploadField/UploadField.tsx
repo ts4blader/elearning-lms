@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Form, Button, message, Upload } from "antd";
+import { Button, message, Upload } from "antd";
 import TextInput from "@components/TextInput";
 import { PaperClipOutlined } from "@ant-design/icons";
+import { FormItem } from "@components/Forms";
 
 export type UploadFieldProps = {
   className?: string;
@@ -40,7 +41,7 @@ const UploadField = ({
   }, [file, onChange]);
 
   return (
-    <Form.Item
+    <FormItem
       className={`upload-field ${className} ${affixNote ? "has-affix" : ""}`}
       label="Tệp đính kèm"
       data-length={file.length !== 0}
@@ -52,7 +53,7 @@ const UploadField = ({
         </Button>
       </Upload>
       {affixNote && <div className="affix-note">{affixNote}</div>}
-    </Form.Item>
+    </FormItem>
   );
 };
 
