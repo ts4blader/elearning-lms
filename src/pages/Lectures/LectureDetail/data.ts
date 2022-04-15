@@ -35,6 +35,7 @@ export const MOCK_LECTURE = {
   gender: "Nam",
   ethic: "Kinh",
   joinDay: "07/04/1999",
+  birthday: "07/04/1999",
   nationality: "Việt Nam",
   religion: "Công giáo",
   status: "Working",

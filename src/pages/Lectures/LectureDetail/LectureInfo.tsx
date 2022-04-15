@@ -78,6 +78,7 @@ export const Content = () => {
                     {data.subject}
                   </PseudoField>
                   <PseudoField label="Họ và tên">{data.name}</PseudoField>
+                  <PseudoField label="Ngày sinh">{data.birthday}</PseudoField>
                   <PseudoField label="Giới tính">{data.gender}</PseudoField>
                   <PseudoField label="Dân tộc">{data.ethic}</PseudoField>
                   <PseudoField label="Ngày vào trường">

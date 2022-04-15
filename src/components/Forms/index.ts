@@ -9,3 +9,4 @@ export * from "./StudentActionForms";
 export * from "./StudentForm";
 export * from "./FormButtons";
 export * from "./FormItem";
+export * from "./LectureForm";

@@ -4,9 +4,6 @@ import Breadcrumb from "@components/Breadcrumb";
 import { BREADCRUMB_DATA, TABS } from "./data";
 import ControlPanel from "@components/ControlPanel";
 import Tabs from "@components/Tabs";
-import Select from "@components/Select";
-import { EditOutlined } from "@ant-design/icons";
-import { Row } from "@layouts/Grid";
 
 const PageTitle = () => {
   return <Breadcrumb data={BREADCRUMB_DATA} keyAffix="page-title" />;

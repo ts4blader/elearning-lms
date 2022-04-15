@@ -1,58 +1,59 @@
-.info-wrapper{
-    @p-inline: 4em;
-    margin-top: 2em;
-    border-radius: 1em;
-    overflow: hidden;
-    box-shadow: @box-shadow-dimblue;
-    &-title{
-        font-size: 1.8rem;
-        color: white;
-        font-weight: bold;
-        background: @color-primary-dark-2;
-        padding: 0.7em @p-inline;
-    }
-    &-divider {
+.info-wrapper {
+  @p-inline: 4em;
+  margin-top: 2em;
+  border-radius: 1em;
+  overflow: hidden;
+  box-shadow: @box-shadow-dimblue;
+  &-title {
+    font-size: 1.8rem;
+    color: white;
+    font-weight: bold;
+    background: @color-primary-dark-2;
+    padding: 0.7em @p-inline;
+  }
+  &-divider {
+    background-color: @color-gray-light;
+    height: 1em;
+  }
+  &-subtitle {
+    font-size: 1.6rem;
+    color: @color-primary;
+    font-weight: 800;
+    margin-bottom: 1em;
+  }
+  &-container {
+    padding-inline: @p-inline;
+  }
+  &-avatar-section {
+    width: 25rem;
+    .avatar {
+      position: relative;
+      background-color: @color-gray-light;
+      width: 80%;
+      aspect-ratio: 1 / 1;
+      border-radius: 50%;
+      img {
+        border-radius: 50%;
+        max-width: 100%;
+      }
+      .upload-zone {
+        border: 0.5rem solid white;
+        border-radius: 50%;
+        position: absolute;
+        left: 50%;
+        top: 100%;
+        transform: translate(-50%, -50%);
         background-color: @color-gray-light;
-        height: 1em;
       }
-      &-subtitle {
-        color: @color-primary;
-        font-weight: 800;
-        margin-bottom: 1em;
-      }
-      &-container{
-        padding-inline: @p-inline;
-      }
-      &-avatar-section{
-        width: 25rem;
-        .avatar{
-          position: relative;
-          background-color: @color-gray-light;
-          width: 80%;
-          aspect-ratio: 1 / 1;
-          border-radius: 50%;
-          img{
-            border-radius: 50%;
-            max-width: 100%;
-          }
-          .upload-zone{
-            border: 0.5rem solid white;
-            border-radius: 50%;
-            position: absolute;
-            left: 50%;
-            top: 100%;
-            transform: translate(-50%, -50%);
-            background-color: @color-gray-light;
-          }
-            .ant-btn{
-              background-color: transparent;
-              .anticon{
-                font-size: 2rem;
-              }
-        }
-        .upload-list{
-          display: none;
-        }
+      .ant-btn {
+        background-color: transparent;
+        .anticon {
+          font-size: 2rem;
         }
       }
+      .upload-list {
+        display: none;
+      }
+    }
+  }
 }

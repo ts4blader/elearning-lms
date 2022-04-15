@@ -9,6 +9,7 @@ import { useAppDispatch } from "@hooks";
 import { showDeleteModal } from "@slices/deleteModalSlice";
 import TableFrame from "@components/Table/TableFrame";
 import { LecturesTable } from "./LecturesTable";
+import { useHistory, useRouteMatch } from "react-router-dom";
 
 const PageTitle = () => {
   return <Breadcrumb data={BREADCRUMB_DATA} keyAffix="page-title" />;
@@ -16,6 +17,10 @@ const PageTitle = () => {
 
 const AllLecture = () => {
   const { Group, DeleteButton, ExportButton, AddButton } = ControlPanel;
+
+  const history = useHistory();
+  const { url } = useRouteMatch();
+
   const dispatch = useAppDispatch();
   const showDelete = () => {
     dispatch(
@@ -42,7 +47,7 @@ const AllLecture = () => {
               <DeleteButton onClick={showDelete} />
               <div className="divider"></div>
               <ExportButton />
-              <AddButton />
+              <AddButton onClick={() => history.push(`${url}/add-lecture`)} />
             </Row>
           </Group>
         </ControlPanel>
