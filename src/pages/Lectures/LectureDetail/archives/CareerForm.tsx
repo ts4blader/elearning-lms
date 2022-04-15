@@ -28,7 +28,7 @@ export const CareerForm = ({ onCancel }: CareerFormProps) => {
   };
 
   return (
-    <Form className="career-form" onFinish={handleFinish}>
+    <Form className="career-form" onFinish={handleFinish} name="career-form">
       <Item label="Giảng viên" name="name">
         <TextInput />
       </Item>

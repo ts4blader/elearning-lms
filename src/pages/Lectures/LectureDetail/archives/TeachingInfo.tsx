@@ -8,14 +8,15 @@ import ItemActions from "@components/ItemActions";
 import teachingData from "@seeds/lecture/teaching-info.json";
 import { TEACHING_TABLE } from "./data";
 import { ColumnTitle } from "@components/Table";
+import TeachingForm from "./TeachingForm";
 
 const AddButton = () => {
   const dispatch = useAppDispatch();
   const showModal = () => {
     dispatch(
       showFormModal({
-        title: "",
-        innerForm: null,
+        title: "Thêm mới chương trình đào tạo",
+        innerForm: TeachingForm,
       })
     );
   };
@@ -67,7 +68,10 @@ const DataTable = () => {
         align="center"
         render={(text, record) => (
           <ItemActions>
-            <ItemActions.EditButton title="" innerForm={() => null} />
+            <ItemActions.EditButton
+              title="Thiết lập chương trình đào tạo"
+              innerForm={TeachingForm}
+            />
             <ItemActions.DeleteButton deleteName="" onDelete={() => null} />
           </ItemActions>
         )}

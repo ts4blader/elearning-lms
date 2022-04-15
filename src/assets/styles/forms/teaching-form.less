@@ -1,0 +1,23 @@
+.teaching-form {
+  .ant-form-item {
+    @label-width: 15rem;
+    &-label {
+      width: @label-width;
+      text-align: left;
+    }
+    &-control {
+      width: @label-width * 3;
+    }
+    .is-finish-checkbox {
+      font-weight: 400;
+      margin-left: @label-width;
+    }
+  }
+  .form-list {
+    &-inner {
+      display: grid;
+      row-gap: 1em;
+      grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+    }
+  }
+}

@@ -9,6 +9,7 @@ import { CAREER_TABLE } from "./data";
 import { ColumnTitle } from "@components/Table";
 import ItemActions from "@components/ItemActions";
 import { CareerForm } from "./CareerForm";
+import { showDeleteModal } from "@slices/deleteModalSlice";
 
 const AddButton = () => {
   const dispatch = useAppDispatch();
@@ -65,7 +66,10 @@ const DataTable = () => {
         align="center"
         render={(text, record) => (
           <ItemActions>
-            <ItemActions.EditButton title="" innerForm={() => null} />
+            <ItemActions.EditButton
+              title="Thiết lập quá trình công tác"
+              innerForm={CareerForm}
+            />
             <ItemActions.DeleteButton deleteName="" onDelete={() => null} />
           </ItemActions>
         )}
