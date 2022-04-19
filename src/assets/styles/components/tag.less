@@ -5,6 +5,10 @@
   color: white;
   background-color: @color-secondary;
   border-width: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5em;
   &.status-tag {
     border: 1px solid currentColor;
     background-color: transparent;
@@ -12,6 +16,12 @@
     align-items: center;
     gap: 1rem;
     border-radius: 0.5rem;
+  }
+  .anticon-close {
+    background: white;
+    color: @color-secondary;
+    padding: 0.2em;
+    border-radius: 50%;
   }
   .dot {
     width: 0.5em;
@@ -36,5 +46,17 @@
   &.learning,
   &.working {
     color: #3cc13b;
+  }
+}
+
+/* ---------- checkable tag --------- */
+.checkable-tag {
+  padding: 0.5em 1em;
+  border-radius: 999px;
+  font-weight: bold;
+  background-color: @color-gray-light;
+  &.ant-tag-checkable-checked {
+    background-color: @color-secondary;
+    color: white;
   }
 }

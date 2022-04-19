@@ -1,38 +1,42 @@
-import {createSlice, PayloadAction} from "@reduxjs/toolkit";
-import type {RootState} from "@stores"
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import type { RootState } from "@stores";
+
+type FormProps = {
+  onCancel: () => void;
+};
 
 type FormModalState = {
-    show: boolean;
-    title: string;
-    innerForm: React.ComponentType<any>  | null;
-}
+  show: boolean;
+  title: string;
+  innerForm: React.ComponentType<FormProps> | null;
+};
 
 type Payload = {
-    title: string;
-    innerForm: React.ComponentType<any> | null;
-}
+  title: string;
+  innerForm: React.ComponentType<FormProps> | null;
+};
 
 const initialState: FormModalState = {
-    show: false,
-    title: "",
-    innerForm: null
-}
+  show: false,
+  title: "",
+  innerForm: null,
+};
 
 export const formModalSlice = createSlice({
-    name: "formModal",
-    initialState,
-    reducers: {
-        showFormModal : (state, action : PayloadAction<Payload>) => {
-            state.show = true;
-            state.title = action.payload.title;
-            state.innerForm = action.payload.innerForm;
-        },
-        hideFormModal: (state) => {
-            state.show = false;
-        }
-    }
-})
+  name: "formModal",
+  initialState,
+  reducers: {
+    showFormModal: (state, action: PayloadAction<Payload>) => {
+      state.show = true;
+      state.title = action.payload.title;
+      state.innerForm = action.payload.innerForm;
+    },
+    hideFormModal: (state) => {
+      state.show = false;
+    },
+  },
+});
 
-export const {showFormModal, hideFormModal} = formModalSlice.actions
-export const selectFormModal = (state : RootState) => state.formModal;
+export const { showFormModal, hideFormModal } = formModalSlice.actions;
+export const selectFormModal = (state: RootState) => state.formModal;
 export default formModalSlice.reducer;

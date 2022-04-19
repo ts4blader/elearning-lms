@@ -1,20 +1,71 @@
 .lecture-form {
-  .info-row {
-    margin-block: 2em;
-    .info-wrapper-avatar-section {
+  .info-wrapper {
+    &-avatar-section {
       margin-right: 5rem;
     }
+    &-subtitle {
+      margin-bottom: 1em;
+    }
+  }
+  .info-row {
+    margin-block: 2em;
     .ant-form-item {
-      width: 40rem;
       &-label {
         width: 35%;
       }
       &-control {
         width: auto;
-        &-input {
-          width: 80%;
+      }
+    }
+    .info-entry {
+      flex-grow: 1;
+      display: grid;
+      column-gap: 5em;
+      grid-template-columns: repeat(3, 1fr);
+    }
+    &.basic-info {
+      .info-entry {
+        .info-wrapper-subtitle:nth-child(1) {
+          grid-column: 1 / span 2;
         }
       }
     }
+    &.private-info {
+      .info-entry {
+        .info-wrapper-subtitle:nth-child(1) {
+          grid-column: 1 / span 3;
+        }
+      }
+    }
+    /* ----------- item field ----------- */
+    .auto-generate-checkbox {
+      margin-left: 35%;
+    }
+    .add-subject-btn {
+      margin-left: 35%;
+      border-radius: 999px;
+      background-color: @color-secondary;
+      color: white;
+      width: fit-content;
+      padding: 0.3em 1em;
+      font-weight: bold;
+      cursor: pointer;
+      .icon {
+        font-size: 0.8em;
+        border-radius: 50%;
+        padding: 0.2em;
+        color: @color-secondary;
+        background: white;
+      }
+    }
+    .subject-list {
+      flex-wrap: wrap;
+    }
+  }
+}
+
+.multi-subject-form {
+  .subject-tags {
+    margin-block: 1em;
   }
 }
