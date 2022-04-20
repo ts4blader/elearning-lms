@@ -1,5 +1,6 @@
 .lecture-form {
   .info-wrapper {
+    padding-bottom: 3em;
     &-avatar-section {
       margin-right: 5rem;
     }
@@ -34,6 +35,22 @@
       .info-entry {
         .info-wrapper-subtitle:nth-child(1) {
           grid-column: 1 / span 3;
+        }
+      }
+    }
+    &.family-info {
+      .info-record {
+        flex-grow: 1;
+        .info-wrapper-subtitle {
+          margin-bottom: 0;
+        }
+      }
+      .family-contacts-table {
+        .ant-table {
+          min-height: 0;
+        }
+        thead {
+          background: @color-dark;
         }
       }
     }

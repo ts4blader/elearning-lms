@@ -1,8 +1,13 @@
 import InfoWrapper from "@components/InfoWrapper";
 import React, { useState } from "react";
-import { Form, Checkbox } from "antd";
-import { Row, RowProps, Col } from "@layouts/Grid";
-import { FormItem, FormButton } from "@components/Forms";
+import { Form, Checkbox, Button } from "antd";
+import { Row, RowProps } from "@layouts/Grid";
+import {
+  FormItem,
+  FormButton,
+  MultiSubjectForm,
+  FamilyContactForm,
+} from "@components/Forms";
 import TextInput from "@components/TextInput";
 import { PlusOutlined } from "@ant-design/icons";
 import { SelectInForm } from "@components/Select";
@@ -10,8 +15,8 @@ import { DatePickerInForm } from "@components/DatePicker";
 import Tag from "@components/Tag";
 import { useAppDispatch } from "@hooks";
 import { showFormModal } from "@slices/formModalSlice";
-import { MultiSubjectForm } from "./MultiSubjectForm";
 import { useHistory } from "react-router-dom";
+import { FamilyContactTable, FamilyContactProps } from "@components/Table";
 
 const InfoRow = ({ className = "", children, ...rest }: RowProps) => {
   return (
@@ -47,6 +52,19 @@ export const LectureForm = () => {
       })
     );
   };
+  const showContactForm = () => {
+    dispatch(
+      showFormModal({
+        title: "Thêm thông tin liên hệ",
+        innerForm: (props) => (
+          <FamilyContactForm
+            {...props}
+            onSubmit={(value) => setFamilyContacts([...familyContacts, value])}
+          />
+        ),
+      })
+    );
+  };
 
   const handleFinish = (value: any) => {
     console.log(value);
@@ -55,6 +73,9 @@ export const LectureForm = () => {
   const [id, setId] = useState("");
   const [autoGenerate, setAutoGenerate] = useState(false);
   const [subjects, setSubjects] = useState<string[]>([]);
+  const [familyContacts, setFamilyContacts] = useState<FamilyContactProps[]>(
+    []
+  );
 
   const [isInGroup, setIsInGroup] = useState(false);
   const [isInParty, setIsInParty] = useState(false);
@@ -263,7 +284,18 @@ export const LectureForm = () => {
           <InfoRow className="family-info">
             <AvatarPlaceHolder />
             <div className="info-record">
-              <Subtitle>Thông tin gia đình</Subtitle>
+              <Row arrange="space-between">
+                <Subtitle>Thông tin gia đình</Subtitle>
+                <Button
+                  onClick={showContactForm}
+                  type="primary"
+                  size="large"
+                  icon={<PlusOutlined />}
+                >
+                  Thêm
+                </Button>
+              </Row>
+              <FamilyContactTable {...{ familyContacts, setFamilyContacts }} />
             </div>
           </InfoRow>
         </Container>

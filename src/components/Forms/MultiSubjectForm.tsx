@@ -9,7 +9,7 @@ const SUBJECTS = ["Ngu van", "Toan", "Ly", "Hoa"];
 
 type FormProps = {
   onCancel: () => void;
-  onSubjectsChange?: (values: string[]) => void;
+  onSubjectsChange: (values: string[]) => void;
   initList?: string[];
 };
 
@@ -20,7 +20,7 @@ export const MultiSubjectForm = ({
 }: FormProps) => {
   const handleFinish = (value: any) => {
     console.log(value);
-    if (onSubjectsChange) onSubjectsChange(subjects);
+    onSubjectsChange(subjects);
     onCancel();
   };
 

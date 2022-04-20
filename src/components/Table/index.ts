@@ -1,4 +1,5 @@
-export {default} from "./TableFrame"
-export * from "./ColumnTitle" 
-export * from "./TableWrapper"
-export * from "./TableModal"
+export { default } from "./TableFrame";
+export * from "./ColumnTitle";
+export * from "./TableWrapper";
+export * from "./TableModal";
+export * from "./FamilyContactTable";

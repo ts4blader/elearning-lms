@@ -10,3 +10,5 @@ export * from "./StudentForm";
 export * from "./FormButtons";
 export * from "./FormItem";
 export * from "./LectureForm";
+export * from "./MultiSubjectForm";
+export * from "./FamilyContactForm";
