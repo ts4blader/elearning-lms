@@ -4,6 +4,7 @@ import AllLecture from "./AllLecture";
 import LectureDetail from "./LectureDetail";
 import AddLecture from "./AddLecture";
 import LectureEdit from "./LectureEdit";
+import LectureSchedule from "./LectureSchedule";
 
 const Lectures = () => {
   const { url } = useRouteMatch();
@@ -17,7 +18,7 @@ const Lectures = () => {
         <AddLecture />
       </Route>
       <Route path={`${url}/schedule`} exact>
-        abc
+        <LectureSchedule />
       </Route>
       <Route path={`${url}/:lectureId`} exact>
         <LectureDetail />

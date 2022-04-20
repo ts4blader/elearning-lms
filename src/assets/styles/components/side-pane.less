@@ -1,0 +1,45 @@
+.side-pane {
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: @box-shadow-dimblue;
+  @padding: 1em 1.5em;
+  &-head {
+    background-color: @color-dark;
+    color: white;
+    padding: @padding;
+    &-title {
+      color: white;
+    }
+    .pseudo-field {
+      font-family: @main-font;
+      margin-top: 0.5em;
+      gap: 1em;
+      justify-content: space-between;
+      &-label {
+        font-weight: bold;
+      }
+    }
+  }
+  &-body {
+    padding: @padding;
+    font-size: 1.8rem;
+    font-family: @sub-font;
+    &-item {
+      padding: 0.7em 1.2em;
+      border: 1px solid @color-primary;
+      background: @color-light;
+      margin-top: 1.25em;
+      border-radius: 1rem;
+      cursor: pointer;
+      &:hover {
+        background: @color-primary-light-2;
+      }
+      &[data-selected="true"] {
+        font-weight: 800;
+        color: white;
+        background: @color-primary-dark-2;
+        border-color: @color-primary-dark-2;
+      }
+    }
+  }
+}
