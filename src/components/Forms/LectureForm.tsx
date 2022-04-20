@@ -1,5 +1,5 @@
 import InfoWrapper from "@components/InfoWrapper";
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import { Form, Checkbox, Button } from "antd";
 import { Row, RowProps } from "@layouts/Grid";
 import {
@@ -15,8 +15,9 @@ import { DatePickerInForm } from "@components/DatePicker";
 import Tag from "@components/Tag";
 import { useAppDispatch } from "@hooks";
 import { showFormModal } from "@slices/formModalSlice";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import { FamilyContactTable, FamilyContactProps } from "@components/Table";
+import lectureData from "@seeds/thcs/lectures.json";
 
 const InfoRow = ({ className = "", children, ...rest }: RowProps) => {
   return (
@@ -35,8 +36,14 @@ export const LectureForm = () => {
     AvatarSection,
     AvatarPlaceHolder,
   } = InfoWrapper;
+  /* --------- router handler --------- */
   const history = useHistory();
+  const params: any = useParams();
 
+  const data = useMemo(() => {
+    return lectureData.filter((item) => item.id === params.lectureId)[0];
+  }, [params]);
+  /* --------- dispatch event --------- */
   const dispatch = useAppDispatch();
   const showSubjectsForm = () => {
     dispatch(
@@ -65,12 +72,12 @@ export const LectureForm = () => {
       })
     );
   };
-
+  /* ---------- form handler ---------- */
   const handleFinish = (value: any) => {
     console.log(value);
   };
-
-  const [id, setId] = useState("");
+  /* ---------- state declare --------- */
+  const [id, setId] = useState(data?.id);
   const [autoGenerate, setAutoGenerate] = useState(false);
   const [subjects, setSubjects] = useState<string[]>([]);
   const [familyContacts, setFamilyContacts] = useState<FamilyContactProps[]>(
@@ -300,10 +307,12 @@ export const LectureForm = () => {
           </InfoRow>
         </Container>
 
-        <FormButton.Container>
-          <FormButton.CancelButton onClick={() => history.goBack()} />
-          <FormButton.SaveButton />
-        </FormButton.Container>
+        {!data && (
+          <FormButton.Container>
+            <FormButton.CancelButton onClick={() => history.goBack()} />
+            <FormButton.SaveButton />
+          </FormButton.Container>
+        )}
       </InfoWrapper>
     </Form>
   );

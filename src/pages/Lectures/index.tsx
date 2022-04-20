@@ -3,6 +3,7 @@ import { Switch, Route, useRouteMatch } from "react-router-dom";
 import AllLecture from "./AllLecture";
 import LectureDetail from "./LectureDetail";
 import AddLecture from "./AddLecture";
+import LectureEdit from "./LectureEdit";
 
 const Lectures = () => {
   const { url } = useRouteMatch();
@@ -18,8 +19,11 @@ const Lectures = () => {
       <Route path={`${url}/schedule`} exact>
         abc
       </Route>
-      <Route path={`${url}/:lectureId`}>
+      <Route path={`${url}/:lectureId`} exact>
         <LectureDetail />
+      </Route>
+      <Route path={`${url}/:lectureId/edit`}>
+        <LectureEdit />
       </Route>
     </Switch>
   );

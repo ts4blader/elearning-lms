@@ -8,6 +8,7 @@ import Tag from "@components/Tag";
 import ControlPanel from "@components/ControlPanel";
 import Select from "@components/Select";
 import { EditOutlined } from "@ant-design/icons";
+import { useHistory, useRouteMatch } from "react-router-dom";
 
 const InfoRow = ({ className = "", children, ...rest }: RowProps) => {
   return (
@@ -19,6 +20,9 @@ const InfoRow = ({ className = "", children, ...rest }: RowProps) => {
 
 export const Panel = () => {
   const { Group, DeleteButton, Button } = ControlPanel;
+
+  const history = useHistory();
+  const { url } = useRouteMatch();
 
   return (
     <Row className="lecture-info-panel">
@@ -33,7 +37,12 @@ export const Panel = () => {
         <Row gap="1em">
           <DeleteButton />
           <div className="divider"></div>
-          <Button type="primary" className="edit-btn" icon={<EditOutlined />}>
+          <Button
+            type="primary"
+            className="edit-btn"
+            onClick={() => history.push(`${url}/edit`)}
+            icon={<EditOutlined />}
+          >
             Chỉnh sửa
           </Button>
         </Row>
