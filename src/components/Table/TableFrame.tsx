@@ -3,12 +3,14 @@ import { SearchOutlined } from "@ant-design/icons";
 import { TableWrapper } from "./TableWrapper";
 import { Row } from "@layouts/Grid";
 import TextInput from "@components/TextInput";
+import { TableProps } from "antd";
+import { useAppSelector } from "@hooks";
 
 export type TableFrameProps = {
   children?: React.ReactNode;
   title: React.ReactNode | string;
   className?: string;
-  table: React.ComponentType<any>;
+  table: React.ComponentType<TableProps<any>>;
   pageChanger?: boolean;
 } & Omit<React.ComponentProps<"div">, "title">;
 
@@ -22,6 +24,7 @@ const TableFrame = ({
 }: TableFrameProps) => {
   const [searchTerm, setSearchTerm] = useState("");
   const DataTable = table;
+  const pageSize = useAppSelector((state) => state.pageSize);
 
   return (
     <div className={`table-frame ${className}`} {...rest}>
@@ -38,10 +41,18 @@ const TableFrame = ({
         </Row>
         {pageChanger ? (
           <TableWrapper>
-            <DataTable />
+            <DataTable
+              pagination={{
+                pageSize: pageSize.value,
+              }}
+            />
           </TableWrapper>
         ) : (
-          <DataTable />
+          <DataTable
+            pagination={{
+              pageSize: pageSize.value,
+            }}
+          />
         )}
       </div>
     </div>
