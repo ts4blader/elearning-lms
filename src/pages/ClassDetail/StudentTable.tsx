@@ -1,16 +1,14 @@
-import { Button, Table, Tag } from "antd";
+import { Button } from "antd";
 import React, { useState } from "react";
 import DATA from "@seeds/thcs/students.json";
 import { EditOutlined } from "@ant-design/icons";
 import Select from "@components/Select";
-import { TableWrapper, ColumnTitle } from "@components/Table";
-import { useAppSelector } from "@hooks";
+import { TableWrapper, ColumnTitle, Table } from "@components/Table";
+import Tag from "@components/Tag";
 
 const SubjectList = () => {
   const { Column } = Table;
   const [edit, setEdit] = useState("");
-  const [page, setPage] = useState(1);
-  const pageSize = useAppSelector((state) => state.pageSize);
 
   const isEditing = (record: any) => record.id === edit;
 
@@ -19,21 +17,8 @@ const SubjectList = () => {
       <Table
         dataSource={DATA}
         rowKey={(record) => record.id}
-        pagination={{
-          showSizeChanger: false,
-          pageSize: pageSize.value,
-          onChange: (current) => {
-            setPage(current);
-          },
-        }}
+        countColumn={true}
       >
-        <Column
-          title="NO"
-          key="no"
-          render={(text, record: any, index) =>
-            (page - 1) * pageSize.value + index + 1
-          }
-        />
         <Column
           key="id"
           title={({ sortColumns }) => (
@@ -82,12 +67,7 @@ const SubjectList = () => {
                 keyAffix="status"
               />
             ) : (
-              <Tag
-                icon={<div className="dot"></div>}
-                className={record.status.toLowerCase().split(" ").join("-")}
-              >
-                {record.status}
-              </Tag>
+              <Tag.Status status={record.status}>{record.status}</Tag.Status>
             )
           }
         />

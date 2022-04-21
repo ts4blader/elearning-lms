@@ -1,33 +1,16 @@
 import React, { useState } from "react";
-import { TableWrapper, ColumnTitle } from "@components/Table";
+import { TableWrapper, ColumnTitle, Table } from "@components/Table";
 import DATA from "@seeds/thcs/subjects.json";
-import { Table } from "antd";
-import { useAppSelector } from "@hooks";
 
 const SubjectList = () => {
   const { Column } = Table;
-  const pageSize = useAppSelector((state) => state.pageSize);
-  const [page, setPage] = useState(1);
   return (
     <TableWrapper>
       <Table
         dataSource={DATA}
         rowKey={(record) => record.id}
-        pagination={{
-          showSizeChanger: false,
-          pageSize: pageSize.value,
-          onChange: (current) => {
-            setPage(current);
-          },
-        }}
+        countColumn={true}
       >
-        <Column
-          title="NO"
-          key="no"
-          render={(text, record: any, index) =>
-            (page - 1) * pageSize.value + index + 1
-          }
-        />
         <Column
           key="id"
           title={({ sortColumns }) => (

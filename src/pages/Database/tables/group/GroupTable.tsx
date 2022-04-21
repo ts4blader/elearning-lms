@@ -1,12 +1,10 @@
 import React, { useState } from "react";
-import { Table } from "antd";
 import ItemActions from "@components/ItemActions";
 import { MenuOutlined } from "@ant-design/icons";
 import DATA from "@seeds/thcs/groups.json";
 import SUBJECTS from "@seeds/thcs/subjects.json";
-import { useAppSelector } from "@hooks";
 import { GroupForm } from "@components/Forms";
-import { ColumnTitle, TableModal } from "@components/Table";
+import { ColumnTitle, TableModal, Table } from "@components/Table";
 import { SUBTABLE_COLUMNS } from "../sub-table";
 
 const tableConfig = {
@@ -17,7 +15,6 @@ const tableConfig = {
 const GroupTable = () => {
   const { Column } = Table;
   const [show, setShow] = useState(false);
-  const pageSize = useAppSelector((state) => state.pageSize);
 
   return (
     <>
@@ -28,14 +25,7 @@ const GroupTable = () => {
         show={show}
         onCancel={() => setShow(false)}
       />
-      <Table
-        pagination={{
-          showSizeChanger: false,
-          pageSize: pageSize.value,
-        }}
-        dataSource={DATA}
-        rowKey={(record) => record.id}
-      >
+      <Table dataSource={DATA} rowKey={(record) => record.id}>
         <Column
           title={({ sortColumns }) => (
             <ColumnTitle

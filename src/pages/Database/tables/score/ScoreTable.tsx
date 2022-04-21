@@ -1,24 +1,16 @@
 import React from "react";
-import { Table } from "antd";
 import ItemActions from "@components/ItemActions";
 import DATA from "@seeds/thcs/scores.json";
-import { useAppSelector } from "@hooks";
 import { ScoreForm } from "@components/Forms";
-import { ColumnTitle } from "@components/Table";
+import { ColumnTitle, Table } from "@components/Table";
+import { Table as AntTable } from "antd";
 
 const ScoreTable = () => {
-  const { Column, ColumnGroup } = Table;
-  const pageSize = useAppSelector((state) => state.pageSize);
+  const { Column } = Table;
+  const { ColumnGroup } = AntTable;
 
   return (
-    <Table
-      pagination={{
-        showSizeChanger: false,
-        pageSize: pageSize.value,
-      }}
-      rowKey={(record) => record.id}
-      dataSource={DATA}
-    >
+    <Table rowKey={(record) => record.id} dataSource={DATA}>
       <Column
         title={({ sortColumns }) => (
           <ColumnTitle sortColumns={sortColumns} text="Name" reactKey="name" />

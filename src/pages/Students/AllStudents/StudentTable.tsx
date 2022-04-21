@@ -1,10 +1,8 @@
 import React from "react";
 import ItemActions from "@components/ItemActions";
-import { Table } from "antd";
-import { useAppSelector } from "@hooks";
 import DATA from "@seeds/thcs/students.json";
 import { EyeOutlined } from "@ant-design/icons";
-import { ColumnTitle } from "@components/Table";
+import { ColumnTitle, Table } from "@components/Table";
 import OptionDropdown from "./OptionDropdown";
 import { useHistory, useRouteMatch } from "react-router-dom";
 import Tag from "@components/Tag";
@@ -15,31 +13,9 @@ const StudentTable = () => {
   const history = useHistory();
   const { path } = useRouteMatch();
   const { Column } = Table;
-  const pageSize = useAppSelector((state) => state.pageSize);
 
   return (
-    <Table
-      pagination={{
-        showSizeChanger: false,
-        pageSize: pageSize.value,
-      }}
-      dataSource={DATA}
-      rowKey={(record) => record.id}
-      rowSelection={{
-        type: "checkbox",
-        onChange: (selectedRowKeys: React.Key[], selectedRows: any[]) => {
-          console.log(
-            `selectedRowKeys: ${selectedRowKeys}`,
-            "selectedRows: ",
-            selectedRows
-          );
-        },
-        getCheckboxProps: (record: any) => ({
-          disabled: record.name === "Disabled User", // Column configuration not to be checked
-          name: record.name,
-        }),
-      }}
-    >
+    <Table dataSource={DATA} rowKey={(record) => record.id} selectColumn={true}>
       <Column
         title={({ sortColumns }) => (
           <ColumnTitle sortColumns={sortColumns} reactKey="id" text="ID" />

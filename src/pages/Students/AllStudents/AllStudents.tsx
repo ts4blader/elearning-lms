@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import { Table, Button } from "antd";
+import { Button } from "antd";
 import Page from "@components/Page";
-import TableFrame from "@components/Table";
+import TableFrame, { Table } from "@components/Table";
 import ControlPanel from "@components/ControlPanel";
 import Select from "@components/Select";
 import DATA from "@seeds/thcs/students.json";
 import { TABLES } from "./data";
 import { Row } from "@layouts/Grid";
 import { useHistory, useRouteMatch } from "react-router-dom";
-import { useAppSelector, useAppDispatch } from "@hooks";
+import { useAppDispatch } from "@hooks";
 import Dropdown from "@components/Dropdown";
 import { showFormModal } from "@slices/formModalSlice";
 import { UploadForm } from "@components/Forms";
@@ -18,10 +18,10 @@ import { showDeleteModal } from "@slices/deleteModalSlice";
 const TABS = TABLES.map((item) => item.tab.text);
 
 const DropdownContent = () => {
-  const dispatch = useAppDispatch();
   const history = useHistory();
   const { path } = useRouteMatch();
 
+  const dispatch = useAppDispatch();
   const showImport = () =>
     dispatch(
       showFormModal({
@@ -40,11 +40,8 @@ const DropdownContent = () => {
 };
 
 const AllStudents = () => {
-  const [selected, setSelected] = useState(TABLES[0]);
-  const pageSize = useAppSelector((state) => state.pageSize);
   const { Group, AddButton, DeleteButton, ExportButton } = ControlPanel;
   const dispatch = useAppDispatch();
-
   const showDelete = () => {
     dispatch(
       showDeleteModal({
@@ -53,6 +50,8 @@ const AllStudents = () => {
       })
     );
   };
+
+  const [selected, setSelected] = useState(TABLES[0]);
 
   return (
     <Page title="Hồ sơ học viên" className="students-page">
@@ -63,10 +62,6 @@ const AllStudents = () => {
             ? selected.table
             : () => (
                 <Table
-                  pagination={{
-                    showSizeChanger: false,
-                    pageSize: pageSize.value,
-                  }}
                   rowKey={(record) => record.id}
                   dataSource={DATA.filter(selected.filter)}
                   columns={selected.columns}

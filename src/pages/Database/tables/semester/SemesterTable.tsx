@@ -1,36 +1,14 @@
-import React, { useState } from "react";
-import { Table } from "antd";
+import React from "react";
 import ItemActions from "@components/ItemActions";
 import DATA from "@seeds/thcs/semesters.json";
-import { useAppSelector } from "@hooks";
 import { SemesterForm } from "@components/Forms";
-import { ColumnTitle } from "@components/Table";
+import { ColumnTitle, Table } from "@components/Table";
 
 const SemesterTable = () => {
   const { Column } = Table;
-  const pageSize = useAppSelector((state) => state.pageSize);
-  const [page, setPage] = useState(1);
 
   return (
-    <Table
-      pagination={{
-        showSizeChanger: false,
-        pageSize: pageSize.value,
-        onChange: (current) => setPage(current),
-      }}
-      dataSource={DATA}
-      rowKey={(record) => record.id}
-    >
-      <Column
-        title={({ sortColumns }) => (
-          <ColumnTitle sortColumns={sortColumns} reactKey="no" text="NO" />
-        )}
-        key="no"
-        sorter={true}
-        render={(text, record, index) =>
-          (page - 1) * pageSize.value + index + 1
-        }
-      />
+    <Table dataSource={DATA} rowKey={(record) => record.id} countColumn={true}>
       <Column
         title={({ sortColumns }) => (
           <ColumnTitle sortColumns={sortColumns} text="Name" reactKey="name" />

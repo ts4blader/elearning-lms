@@ -1,12 +1,10 @@
 import React, { useState } from "react";
-import { Table } from "antd";
 import ItemActions from "@components/ItemActions";
 import DATA from "@seeds/thcs/grades.json";
 import { MenuOutlined } from "@ant-design/icons";
 import CLASSES from "@seeds/thcs/classes.json";
-import { useAppSelector } from "@hooks";
 import { GradeForm } from "@components/Forms";
-import { ColumnTitle, TableModal } from "@components/Table";
+import { ColumnTitle, TableModal, Table } from "@components/Table";
 import { SUBTABLE_COLUMNS } from "../sub-table";
 
 const TABLE_MODAL = {
@@ -17,7 +15,6 @@ const TABLE_MODAL = {
 const GradeTable = () => {
   const { Column } = Table;
   const [show, setShow] = useState(false);
-  const pageSize = useAppSelector((state) => state.pageSize);
 
   return (
     <>
@@ -28,14 +25,7 @@ const GradeTable = () => {
         onCancel={() => setShow(false)}
         tableConfig={TABLE_MODAL}
       />
-      <Table
-        pagination={{
-          showSizeChanger: false,
-          pageSize: pageSize.value,
-        }}
-        dataSource={DATA}
-        rowKey={(record) => record.id}
-      >
+      <Table dataSource={DATA} rowKey={(record) => record.id}>
         <Column
           title={({ sortColumns }) => (
             <ColumnTitle sortColumns={sortColumns} text="ID" reactKey="id" />

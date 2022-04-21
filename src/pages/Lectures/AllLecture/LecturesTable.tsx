@@ -1,10 +1,8 @@
 import React from "react";
-import { Table } from "antd";
 import { TABLE_COLUMN } from "./data";
-import { ColumnTitle } from "@components/Table";
+import { ColumnTitle, Table } from "@components/Table";
 import lectureData from "@seeds/thcs/lectures.json";
 import Tag from "@components/Tag";
-import { useAppSelector } from "@hooks";
 import ItemActions from "@components/ItemActions";
 import { EyeOutlined } from "@ant-design/icons";
 import { OptionDropdown } from "./OptionDropdown";
@@ -12,32 +10,14 @@ import { useHistory, useRouteMatch } from "react-router-dom";
 
 export const LecturesTable = () => {
   const { Column } = Table;
-  const pageSize = useAppSelector((state) => state.pageSize);
   const history = useHistory();
   const { url } = useRouteMatch();
 
   return (
     <Table
       rowKey={(record: any) => record.id}
-      pagination={{
-        showSizeChanger: false,
-        pageSize: pageSize.value,
-      }}
       dataSource={lectureData}
-      rowSelection={{
-        type: "checkbox",
-        onChange: (selectedRowKeys: React.Key[], selectedRows: any[]) => {
-          console.log(
-            `selectedRowKeys: ${selectedRowKeys}`,
-            "selectedRows: ",
-            selectedRows
-          );
-        },
-        getCheckboxProps: (record: any) => ({
-          disabled: record.name === "Disabled User", // Column configuration not to be checked
-          name: record.name,
-        }),
-      }}
+      selectColumn={true}
     >
       {TABLE_COLUMN.map((item) => (
         <Column
