@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Button } from "antd";
 import Page from "@components/Page";
 import TableFrame, { Table } from "@components/Table";
 import ControlPanel from "@components/ControlPanel";
@@ -7,40 +6,12 @@ import Select from "@components/Select";
 import DATA from "@seeds/thcs/students.json";
 import { TABLES } from "./data";
 import { Row } from "@layouts/Grid";
-import { useHistory, useRouteMatch } from "react-router-dom";
-import { useAppDispatch } from "@hooks";
-import Dropdown from "@components/Dropdown";
-import { showFormModal } from "@slices/formModalSlice";
-import { UploadForm } from "@components/Forms";
 import Tabs from "@components/Tabs";
-import { showDeleteModal } from "@slices/deleteModalSlice";
 
 const TABS = TABLES.map((item) => item.tab.text);
 
-const DropdownContent = () => {
-  const history = useHistory();
-  const { path } = useRouteMatch();
-
-  const dispatch = useAppDispatch();
-  const showImport = () =>
-    dispatch(
-      showFormModal({
-        title: "Tải file lên",
-        innerForm: UploadForm,
-      })
-    );
-  const showForm = () => history.push(`${path}/add-student`);
-
-  return (
-    <div className="dropdown-content-inner">
-      <Button onClick={showImport}>Tải file lên</Button>
-      <Button onClick={showForm}>Nhập thủ công</Button>
-    </div>
-  );
-};
-
 const AllStudents = () => {
-  const { Group, AddButton, DeleteButton, ExportButton } = ControlPanel;
+  const { Group } = ControlPanel;
 
   const [selected, setSelected] = useState(TABLES[0]);
 
@@ -84,21 +55,7 @@ const AllStudents = () => {
             />
           </Group>
           <Group className="btn-grp">
-            <Row gap="1em">
-              <DeleteButton
-                selectedName="student-table"
-                name="học viên"
-                onDelete={() => null}
-              />
-              <div className="divider"></div>
-              <ExportButton />
-              <Dropdown
-                dropdownContent={<DropdownContent />}
-                className="in-control-panel"
-              >
-                <AddButton />
-              </Dropdown>
-            </Row>
+            <selected.panel />
           </Group>
         </ControlPanel>
       </TableFrame>

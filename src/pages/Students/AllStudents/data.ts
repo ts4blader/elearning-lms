@@ -1,9 +1,11 @@
 import StudentTable from "./StudentTable";
+import StudentPanel from "./StudentPanel";
 
 export const TABLES = [
   {
     title: "Danh sách học viên",
     table: StudentTable,
+    panel: StudentPanel.All,
     tab: {
       name: "all-student",
       text: "Tất cả hồ sơ",
@@ -12,6 +14,7 @@ export const TABLES = [
   {
     title: "Danh sách khen thưởng của học viên",
     table: null,
+    panel: StudentPanel.Prized,
     filter: (item: any) => item.prized !== 0,
     tab: {
       name: "praised-student",
@@ -33,6 +36,7 @@ export const TABLES = [
   {
     title: "Danh sách kỷ luật của học viên",
     table: null,
+    panel: StudentPanel.Disciplined,
     filter: (item: any) => item.disciplined !== 0,
     tab: {
       name: "disciplined-student",
