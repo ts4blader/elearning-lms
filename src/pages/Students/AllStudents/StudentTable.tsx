@@ -15,7 +15,11 @@ const StudentTable = () => {
   const { Column } = Table;
 
   return (
-    <Table dataSource={DATA} rowKey={(record) => record.id} selectColumn={true}>
+    <Table
+      dataSource={DATA}
+      rowKey={(record) => record.id}
+      selectColumn="student-table"
+    >
       <Column
         title={({ sortColumns }) => (
           <ColumnTitle sortColumns={sortColumns} reactKey="id" text="ID" />

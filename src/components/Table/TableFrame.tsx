@@ -4,6 +4,7 @@ import { TableWrapper } from "./TableWrapper";
 import { Row } from "@layouts/Grid";
 import TextInput from "@components/TextInput";
 import { TableProps } from "@components/Table";
+
 export type TableFrameProps = {
   children?: React.ReactNode;
   title: React.ReactNode | string;

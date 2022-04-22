@@ -17,7 +17,7 @@ export const LecturesTable = () => {
     <Table
       rowKey={(record: any) => record.id}
       dataSource={lectureData}
-      selectColumn={true}
+      selectColumn={"lecture-table"}
     >
       {TABLE_COLUMN.map((item) => (
         <Column

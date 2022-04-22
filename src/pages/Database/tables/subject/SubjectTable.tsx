@@ -8,7 +8,11 @@ const SubjectTable = () => {
   const { Column } = Table;
 
   return (
-    <Table dataSource={DATA} rowKey={(record) => record.id} selectColumn={true}>
+    <Table
+      dataSource={DATA}
+      rowKey={(record) => record.id}
+      selectColumn="subject-table"
+    >
       <Column
         title={({ sortColumns }) => (
           <ColumnTitle sortColumns={sortColumns} text="ID" reactKey="id" />

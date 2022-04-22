@@ -20,7 +20,7 @@ const LectureEdit = () => {
       <ControlPanel arrange="flex-end">
         <Group className="btn-group">
           <Row gap="1.5em">
-            <DeleteButton />
+            <DeleteButton name="giảng viên" onDelete={() => null} />
             <div className="divider"></div>
             <Button className="cancel-btn" onClick={() => history.goBack()}>
               Hủy

@@ -44,7 +44,11 @@ const AllLecture = () => {
           </Group>
           <Group className="btn-grp">
             <Row gap="1em">
-              <DeleteButton onClick={showDelete} />
+              <DeleteButton
+                name="giảng viên"
+                selectedName="lecture-table"
+                onDelete={() => null}
+              />
               <div className="divider"></div>
               <ExportButton />
               <AddButton onClick={() => history.push(`${url}/add-lecture`)} />

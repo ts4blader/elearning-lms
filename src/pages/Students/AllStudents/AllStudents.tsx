@@ -41,15 +41,6 @@ const DropdownContent = () => {
 
 const AllStudents = () => {
   const { Group, AddButton, DeleteButton, ExportButton } = ControlPanel;
-  const dispatch = useAppDispatch();
-  const showDelete = () => {
-    dispatch(
-      showDeleteModal({
-        name: "học viên",
-        onAction: () => null,
-      })
-    );
-  };
 
   const [selected, setSelected] = useState(TABLES[0]);
 
@@ -94,7 +85,11 @@ const AllStudents = () => {
           </Group>
           <Group className="btn-grp">
             <Row gap="1em">
-              <DeleteButton onClick={showDelete} />
+              <DeleteButton
+                selectedName="student-table"
+                name="học viên"
+                onDelete={() => null}
+              />
               <div className="divider"></div>
               <ExportButton />
               <Dropdown

@@ -35,7 +35,7 @@ export const Panel = () => {
       </Group>
       <Group className="btn-grp">
         <Row gap="1em">
-          <DeleteButton />
+          <DeleteButton name="giảng viên" onDelete={() => null} />
           <div className="divider"></div>
           <Button
             type="primary"

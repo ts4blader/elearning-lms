@@ -12,6 +12,10 @@
     .anticon {
       font-size: 1.5em;
     }
+    &[data-disabled="true"] {
+      pointer-events: none;
+      color: @color-gray-dark;
+    }
   }
   .divider {
     border-left: 1px solid @color-gray-dark;

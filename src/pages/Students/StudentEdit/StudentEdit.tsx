@@ -4,8 +4,6 @@ import React from "react";
 import { BREADCRUMB_DATA } from "./data";
 import ControlPanel from "@components/ControlPanel";
 import { Row } from "@layouts/Grid";
-import { useAppDispatch } from "@hooks";
-import { showDeleteModal } from "@slices/deleteModalSlice";
 import { StudentForm } from "@components/Forms";
 import { useHistory } from "react-router";
 
@@ -14,15 +12,6 @@ const PageTitle = () => {
 };
 
 const StudentEdit = () => {
-  const dispatch = useAppDispatch();
-  const deleteModal = () => {
-    dispatch(
-      showDeleteModal({
-        name: "học viên",
-        onAction: () => null,
-      })
-    );
-  };
   const history = useHistory();
 
   const { Group, DeleteButton, Button } = ControlPanel;
@@ -32,7 +21,7 @@ const StudentEdit = () => {
       <ControlPanel className="student-edit-panel" arrange="flex-end">
         <Group>
           <Row gap="1.5em">
-            <DeleteButton onClick={deleteModal} />
+            <DeleteButton name="học viên" onDelete={() => null} />
             <div className="divider"></div>
             <Button
               size="large"

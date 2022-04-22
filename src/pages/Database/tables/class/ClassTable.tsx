@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ItemActions from "@components/ItemActions";
 import { EyeOutlined } from "@ant-design/icons";
 import DATA from "@seeds/thcs/classes.json";
@@ -8,11 +8,16 @@ import { ColumnTitle, Table } from "@components/Table";
 
 const ClassTable = () => {
   const { Column } = Table;
+
   const history = useHistory();
   const { path } = useRouteMatch();
 
   return (
-    <Table dataSource={DATA} rowKey={(record) => record.id} selectColumn={true}>
+    <Table
+      dataSource={DATA}
+      rowKey={(record) => record.id}
+      selectColumn="class-table"
+    >
       <Column
         title={({ sortColumns }) => (
           <ColumnTitle sortColumns={sortColumns} text="ID" reactKey="id" />

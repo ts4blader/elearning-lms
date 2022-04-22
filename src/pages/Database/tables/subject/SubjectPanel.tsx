@@ -18,14 +18,6 @@ const SubjectPanel = () => {
       })
     );
   };
-  const deleteModal = () => {
-    dispatch(
-      showDeleteModal({
-        name: "môn học",
-        onAction: () => null,
-      })
-    );
-  };
 
   const { AddButton, Group, DeleteButton } = ControlPanel;
 
@@ -49,7 +41,11 @@ const SubjectPanel = () => {
       </Group>
       <Group>
         <Row gap="1em">
-          <DeleteButton onClick={deleteModal} />
+          <DeleteButton
+            name="môn học"
+            onDelete={() => null}
+            selectedName="subject-table"
+          />
           <div className="divider"></div>
           <AddButton onClick={showModal} />
         </Row>

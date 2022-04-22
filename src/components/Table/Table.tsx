@@ -1,29 +1,40 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Table as AntTable,
   TableProps as AntTableProps,
   TableColumnProps,
 } from "antd";
-import { useAppSelector } from "@hooks";
+import { useAppDispatch, useAppSelector } from "@hooks";
 import { ColumnTitle } from "./ColumnTitle";
+import { pushSelectedRows, setSelectedRows } from "@slices/selectedRowsSlice";
 
 export type TableProps = {
   countColumn?: boolean;
-  selectColumn?: boolean;
-  onSelectedChange?: (values: any[]) => void;
+  selectColumn?: string;
 } & AntTableProps<any>;
 
 type ColumnProps = {} & TableColumnProps<any>;
 
 export const Table = ({
-  selectColumn = false,
+  selectColumn = "",
   countColumn = false,
-  onSelectedChange = () => null,
   children,
   ...rest
 }: TableProps) => {
   const pageSize = useAppSelector((state) => state.pageSize);
   const [page, setPage] = useState(1);
+
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    if (selectColumn)
+      dispatch(
+        pushSelectedRows({
+          name: selectColumn,
+          value: [],
+        })
+      );
+  }, []);
 
   return (
     <AntTable
@@ -37,12 +48,12 @@ export const Table = ({
           ? {
               type: "checkbox",
               onChange: (selectedRowKeys: React.Key[], selectedRows: any[]) => {
-                console.log(
-                  `selectedRowKeys: ${selectedRowKeys}`,
-                  "selectedRows: ",
-                  selectedRows
+                dispatch(
+                  setSelectedRows({
+                    name: selectColumn,
+                    value: selectedRows,
+                  })
                 );
-                onSelectedChange(selectedRows);
               },
               getCheckboxProps: (record: any) => ({
                 disabled: record.name === "Disabled User", // Column configuration not to be checked

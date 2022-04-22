@@ -1,10 +1,19 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { Button, ButtonProps } from "antd";
 import { PlusOutlined, DeleteOutlined } from "@ant-design/icons";
 import { Row, RowProps } from "@layouts/Grid";
+import { useAppDispatch, useAppSelector } from "@hooks";
+import { showDeleteModal } from "@slices/deleteModalSlice";
 
 export type ControlPanelProps = RowProps;
 export type SharedProps = React.ComponentProps<"div">;
+
+type DeleteButtonProps = {
+  name: string;
+  onDelete: () => void;
+  disabled?: boolean;
+  selectedName?: string;
+} & SharedProps;
 
 const ControlPanel = ({ className = "", children, ...rest }: RowProps) => {
   return (
@@ -43,10 +52,39 @@ const AddButton = ({ onClick, className = "", ...rest }: SharedProps) => {
     </div>
   );
 };
-const DeleteButton = ({ className = "", ...rest }: SharedProps) => {
+const DeleteButton = ({
+  name = "",
+  onDelete = () => null,
+  disabled = false,
+  selectedName = "",
+  className = "",
+  ...rest
+}: DeleteButtonProps) => {
+  const dispatch = useAppDispatch();
+  const showDelete = () => {
+    dispatch(
+      showDeleteModal({
+        name: name,
+        onAction: onDelete,
+      })
+    );
+  };
+
+  const selectedRows = useAppSelector((state) => state.selectedRows);
+
+  const isDisabled = () => {
+    let foundItem = selectedRows.find((item) => item.name === selectedName);
+    if (foundItem) return foundItem.value.length === 0;
+    return false;
+  };
+
   return (
     <div className="delete-btn-wrapper" {...rest}>
-      <div className="delete-btn">
+      <div
+        className="delete-btn"
+        onClick={showDelete}
+        data-disabled={isDisabled()}
+      >
         <DeleteOutlined />
       </div>
     </div>

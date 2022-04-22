@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useMemo } from "react";
 import ControlPanel from "@components/ControlPanel";
 import Select from "@components/Select";
 import { ClassForm, UploadForm } from "@components/Forms";
-import { useAppDispatch } from "@hooks";
+import { useAppDispatch, useAppSelector } from "@hooks";
 import { showFormModal } from "@slices/formModalSlice";
 import Dropdown from "@components/Dropdown";
 import { Row } from "@layouts/Grid";
@@ -49,7 +49,11 @@ const ClassPanel = () => {
       </Group>
       <Group>
         <Row gap="1em">
-          <DeleteButton />
+          <DeleteButton
+            name="học viên"
+            onDelete={() => null}
+            selectedName="class-table"
+          />
           <div className="divider"></div>
           <ExportButton />
           <Dropdown

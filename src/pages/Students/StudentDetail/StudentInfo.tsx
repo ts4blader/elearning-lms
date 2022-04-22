@@ -11,7 +11,6 @@ import { useHistory, useRouteMatch } from "react-router";
 import Tag from "@components/Tag";
 
 export const Panel = () => {
-  const dispatch = useAppDispatch();
   const { Group, DeleteButton, ExportButton, Button } = ControlPanel;
   const { url } = useRouteMatch();
   const history = useHistory();
@@ -19,16 +18,7 @@ export const Panel = () => {
   return (
     <Group className="student-info-panel">
       <Row gap="1.5em">
-        <DeleteButton
-          onClick={() =>
-            dispatch(
-              showDeleteModal({
-                name: "học viên",
-                onAction: () => null,
-              })
-            )
-          }
-        />
+        <DeleteButton name="học viên" onDelete={() => null} />
         <div className="divider"></div>
         <ExportButton />
         <Button
