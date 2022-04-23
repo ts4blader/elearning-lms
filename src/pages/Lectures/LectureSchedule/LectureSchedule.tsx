@@ -36,7 +36,11 @@ const LectureSchedule = () => {
         <TableFrame table={ScheduleTable} title="Danh sách phân công giảng dạy">
           <ControlPanel arrange="flex-end">
             <Row gap="1.5em">
-              <DeleteButton name="phân công" onDelete={() => null} />
+              <DeleteButton
+                name="phân công"
+                selectedName="schedule-table"
+                onDelete={() => null}
+              />
               <div className="divider"></div>
               <AddButton />
             </Row>

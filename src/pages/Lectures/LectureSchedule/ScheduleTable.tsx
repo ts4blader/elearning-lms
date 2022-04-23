@@ -9,7 +9,11 @@ export const ScheduleTable = () => {
   const { Column } = Table;
 
   return (
-    <Table selectColumn="schedule-table" dataSource={scheduleData}>
+    <Table
+      rowKey={(record: any) => record.id}
+      selectColumn="schedule-table"
+      dataSource={scheduleData}
+    >
       {SCHEDULE_COLUMNS.map((item) => (
         <Column {...item} align="center" />
       ))}
