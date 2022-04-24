@@ -4,6 +4,7 @@ import scheduleData from "@seeds/lecture/shedule-lecture.json";
 import { SCHEDULE_COLUMNS } from "./data";
 import ItemActions from "@components/ItemActions";
 import { OrderedListOutlined } from "@ant-design/icons";
+import { ScheduleForms } from "@components/Forms";
 
 export const ScheduleTable = () => {
   const { Column } = Table;
@@ -37,7 +38,7 @@ export const ScheduleTable = () => {
           <ItemActions>
             <ItemActions.EditButton
               title="Cập nhật lịch giảng dạy"
-              innerForm={() => null}
+              innerForm={ScheduleForms}
             />
             <ItemActions.DeleteButton
               deleteName="phân công"
