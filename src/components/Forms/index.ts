@@ -12,4 +12,4 @@ export * from "./FormItem";
 export * from "./LectureForm";
 export * from "./MultiSubjectForm";
 export * from "./FamilyContactForm";
-export * from "./ScheduleForm";
+export * from "./ScheduleForms";
