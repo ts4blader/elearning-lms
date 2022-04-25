@@ -34,7 +34,7 @@ const Database = () => {
         />
       </SidePane>
       <TableFrame
-        title={selected.text}
+        renderTitle={selected.text}
         className={`${selected.name}-table`}
         table={selected.table}
       >

@@ -4,6 +4,7 @@ import formModalReducer from "@slices/formModalSlice";
 import counterReducer from "@slices/counterSlice";
 import pageSizeReducer from "@slices/pageSizeSlice";
 import selectedRowsReducer from "@slices/selectedRowsSlice";
+import scheduleSwitchReducer from "@slices/scheduleSwitchSlice";
 
 export const store = configureStore({
   reducer: {
@@ -12,6 +13,7 @@ export const store = configureStore({
     formModal: formModalReducer,
     counter: counterReducer,
     selectedRows: selectedRowsReducer,
+    scheduleSwitch: scheduleSwitchReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

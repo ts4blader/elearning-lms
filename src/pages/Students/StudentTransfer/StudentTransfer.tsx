@@ -28,7 +28,7 @@ const StudentTransfer = () => {
 
   return (
     <Page title={<PageTitle />} className="student-transfer-page">
-      <TableFrame title="Danh sách chuyển trường" table={TransferTable}>
+      <TableFrame renderTitle="Danh sách chuyển trường" table={TransferTable}>
         <ControlPanel arrange="space-between">
           <Group>
             <Select

@@ -18,7 +18,7 @@ const AllStudents = () => {
   return (
     <Page title="Hồ sơ học viên" className="students-page">
       <TableFrame
-        title={selected.title}
+        renderTitle={selected.title}
         table={
           selected.table !== null
             ? selected.table

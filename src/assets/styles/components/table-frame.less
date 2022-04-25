@@ -2,6 +2,11 @@
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+  &-title {
+    font-size: 2.2rem;
+    font-weight: bold;
+    margin-bottom: 0;
+  }
   &-body {
     margin-top: 1.5em;
     flex-grow: 1;
@@ -9,11 +14,6 @@
     box-shadow: @box-shadow-dimblue;
     border-radius: 1rem;
     .row {
-      .title {
-        font-size: 2.2rem;
-        font-weight: bold;
-        margin-bottom: 0;
-      }
       .ant-input-affix-wrapper {
         border-radius: 999px;
         border: 2px solid transparent;

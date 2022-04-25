@@ -45,7 +45,7 @@ const Table = () => {
 export const RewardList = () => {
   return (
     <div className="reward-list">
-      <TableFrame title="" table={Table} pageChanger={false} />
+      <TableFrame renderTitle="" table={Table} pageChanger={false} />
     </div>
   );
 };

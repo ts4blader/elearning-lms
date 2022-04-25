@@ -33,7 +33,7 @@ const AllLecture = () => {
 
   return (
     <Page title={<PageTitle />}>
-      <TableFrame title="Danh sách giảng viên" table={LecturesTable}>
+      <TableFrame renderTitle="Danh sách giảng viên" table={LecturesTable}>
         <ControlPanel arrange="space-between">
           <Group>
             <Select

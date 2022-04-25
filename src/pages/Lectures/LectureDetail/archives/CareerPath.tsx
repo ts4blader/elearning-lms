@@ -9,7 +9,6 @@ import { CAREER_TABLE } from "./data";
 import { ColumnTitle } from "@components/Table";
 import ItemActions from "@components/ItemActions";
 import { CareerForm } from "./CareerForm";
-import { showDeleteModal } from "@slices/deleteModalSlice";
 
 const AddButton = () => {
   const dispatch = useAppDispatch();
@@ -80,6 +79,6 @@ const DataTable = () => {
 
 export const CareerPath = () => {
   return (
-    <TableFrame pageChanger={false} title={<AddButton />} table={DataTable} />
+    <TableFrame pageChanger={false} renderTitle={AddButton} table={DataTable} />
   );
 };

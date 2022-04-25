@@ -82,6 +82,6 @@ const DataTable = () => {
 
 export const TeachingInfo = () => {
   return (
-    <TableFrame pageChanger={false} title={<AddButton />} table={DataTable} />
+    <TableFrame pageChanger={false} renderTitle={AddButton} table={DataTable} />
   );
 };

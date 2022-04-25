@@ -45,7 +45,7 @@ const Table = () => {
 export const DisciplinedList = () => {
   return (
     <div className="disciplined-list">
-      <TableFrame title="" pageChanger={false} table={Table} />
+      <TableFrame renderTitle="" pageChanger={false} table={Table} />
     </div>
   );
 };

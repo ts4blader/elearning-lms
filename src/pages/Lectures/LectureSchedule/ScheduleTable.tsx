@@ -5,9 +5,15 @@ import { SCHEDULE_COLUMNS } from "./data";
 import ItemActions from "@components/ItemActions";
 import { OrderedListOutlined } from "@ant-design/icons";
 import { ScheduleForms } from "@components/Forms";
+import { useAppDispatch } from "@hooks";
+import { setScheduleSwitch } from "@slices/scheduleSwitchSlice";
 
 export const ScheduleTable = () => {
   const { Column } = Table;
+  const dispatch = useAppDispatch();
+  const openScheduleWork = () => {
+    dispatch(setScheduleSwitch(true));
+  };
 
   return (
     <Table
@@ -27,7 +33,7 @@ export const ScheduleTable = () => {
             <ItemActions.Button
               className="detail-btn"
               icon={OrderedListOutlined}
-              onClick={() => null}
+              onClick={openScheduleWork}
             />
           </ItemActions>
         )}
