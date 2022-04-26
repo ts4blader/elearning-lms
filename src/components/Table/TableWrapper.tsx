@@ -10,7 +10,7 @@ type Props = {
   className?: string;
 } & React.ComponentProps<"div">;
 
-export const TableWrapper = ({ children, className, ...rest }: Props) => {
+export const TableWrapper = ({ children, className = "", ...rest }: Props) => {
   const dispatch = useAppDispatch();
   const pageSize = useAppSelector((state) => state.pageSize);
 
