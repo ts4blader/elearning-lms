@@ -37,3 +37,34 @@ export const EXAMINATION_TABLE = [
     sorter: true,
   },
 ];
+
+export const EXAM_DETAIL_FIELD = [
+  {
+    dataIndex: "subject",
+    label: "Môn thi",
+  },
+  {
+    dataIndex: "type",
+    label: "Phân loại",
+  },
+  {
+    dataIndex: "duration",
+    label: "Thời gian",
+  },
+  {
+    dataIndex: "semester",
+    label: "Học kỳ",
+  },
+  {
+    dataIndex: "day",
+    label: "Ngày thi",
+  },
+  {
+    dataIndex: "grade",
+    label: "Khoa - Khối",
+  },
+  {
+    dataIndex: "class",
+    label: "Lớp",
+  },
+];

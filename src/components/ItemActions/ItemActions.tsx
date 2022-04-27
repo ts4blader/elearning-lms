@@ -21,6 +21,7 @@ type EditButtonProps = {
   icon?: typeof EditOutlined;
   title: string;
   innerForm: React.ComponentType<any>;
+  showClose?: boolean;
 };
 
 type DetailButtonProps = {
@@ -63,6 +64,7 @@ const EditButton = ({
   icon = EditOutlined,
   title,
   innerForm,
+  showClose = false,
 }: EditButtonProps) => {
   const dispatch = useAppDispatch();
   return (
@@ -74,6 +76,7 @@ const EditButton = ({
           showFormModal({
             title,
             innerForm,
+            showClose: showClose,
           })
         )
       }

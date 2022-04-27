@@ -7,17 +7,20 @@ type FormProps = {
 
 type FormModalState = {
   show: boolean;
+  showClose: boolean;
   title: string;
   innerForm: React.ComponentType<FormProps> | null;
 };
 
 type Payload = {
   title: string;
+  showClose?: boolean;
   innerForm: React.ComponentType<FormProps> | null;
 };
 
 const initialState: FormModalState = {
   show: false,
+  showClose: false,
   title: "",
   innerForm: null,
 };
@@ -30,9 +33,10 @@ export const formModalSlice = createSlice({
       state.show = true;
       state.title = action.payload.title;
       state.innerForm = action.payload.innerForm;
+      if (action.payload.showClose) state.showClose = action.payload.showClose;
     },
     hideFormModal: (state) => {
-      state.show = false;
+      return initialState;
     },
   },
 });

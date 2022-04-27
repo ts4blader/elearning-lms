@@ -4,6 +4,8 @@ import React from "react";
 import { EXAMINATION_TABLE } from "./data";
 import { OrderedListOutlined } from "@ant-design/icons";
 import examData from "@seeds/examination/exam.json";
+import { EyeOutlined } from "@ant-design/icons";
+import ExamDetail from "./ExamDetail";
 
 const ExaminationTable = () => {
   return (
@@ -51,7 +53,12 @@ const ExaminationTable = () => {
         key="actions"
         render={(text, record) => (
           <ItemActions>
-            <ItemActions.DetailButton to="/" />
+            <ItemActions.EditButton
+              icon={EyeOutlined}
+              title="Xem chi tiết lịch thi"
+              showClose={true}
+              innerForm={() => <ExamDetail examId={record.id} />}
+            />
             <ItemActions.EditButton title="" innerForm={() => null} />
             <ItemActions.DeleteButton deleteName="" onDelete={() => null} />
           </ItemActions>

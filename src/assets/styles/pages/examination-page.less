@@ -10,3 +10,26 @@
     }
   }
 }
+
+/* ----------- exam-detail ---------- */
+.exam-detail {
+  display: grid;
+  row-gap: 0.7em;
+  grid-template-columns: repeat(4, 1fr);
+  .pseudo-field {
+    min-width: 20rem;
+    &-label {
+      font-weight: bold;
+    }
+  }
+  .full-width {
+    grid-column: 1 / span 4;
+    display: grid;
+    row-gap: 0.7em;
+  }
+  .download-btn {
+    border: 1px solid @color-primary-dark-2;
+    background: @color-primary-light-3;
+    color: @color-primary-dark-2;
+  }
+}
