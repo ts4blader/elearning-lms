@@ -60,7 +60,10 @@ const ExaminationTable = () => {
               innerForm={() => <ExamDetail examId={record.id} />}
             />
             <ItemActions.EditButton title="" innerForm={() => null} />
-            <ItemActions.DeleteButton deleteName="" onDelete={() => null} />
+            <ItemActions.DeleteButton
+              deleteName="lịch thi"
+              onDelete={() => null}
+            />
           </ItemActions>
         )}
       />

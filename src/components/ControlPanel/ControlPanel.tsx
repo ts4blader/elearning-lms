@@ -4,6 +4,7 @@ import { PlusOutlined, DeleteOutlined } from "@ant-design/icons";
 import { Row, RowProps } from "@layouts/Grid";
 import { useAppDispatch, useAppSelector } from "@hooks";
 import { showDeleteModal } from "@slices/deleteModalSlice";
+import Icon from "@assets/Icon";
 
 export type ControlPanelProps = RowProps;
 export type SharedProps = React.ComponentProps<"div">;
@@ -44,7 +45,7 @@ const AddButton = ({ onClick, className = "", ...rest }: SharedProps) => {
         className={`add-btn ${className}`}
         type="primary"
         size="large"
-        icon={<PlusOutlined />}
+        icon={<Icon src="cross.svg" alt="add" />}
         onClick={onClick}
       >
         Thêm mới
