@@ -1,8 +1,9 @@
 import React from "react";
 import { useAppDispatch } from "@hooks";
 import { showDeleteModal } from "@slices/deleteModalSlice";
-import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
+import { EyeOutlined, EditOutlined, DeleteOutlined } from "@ant-design/icons";
 import { showFormModal } from "@slices/formModalSlice";
+import { useHistory } from "react-router-dom";
 
 type ButtonProps = {
   className: string;
@@ -20,6 +21,11 @@ type EditButtonProps = {
   icon?: typeof EditOutlined;
   title: string;
   innerForm: React.ComponentType<any>;
+};
+
+type DetailButtonProps = {
+  icon?: typeof EditOutlined;
+  to: string;
 };
 
 type MainProps = {
@@ -75,6 +81,18 @@ const EditButton = ({
   );
 };
 
+const DetailButton = ({ to, icon = EyeOutlined }: DetailButtonProps) => {
+  const history = useHistory();
+
+  return (
+    <ItemActions.Button
+      className="detail-btn"
+      icon={icon}
+      onClick={() => history.push(to)}
+    />
+  );
+};
+
 ItemActions.Button = ({ icon, className, onClick }: ButtonProps) => {
   const Icon = icon;
 
@@ -87,5 +105,6 @@ ItemActions.Button = ({ icon, className, onClick }: ButtonProps) => {
 
 ItemActions.DeleteButton = DeleteButton;
 ItemActions.EditButton = EditButton;
+ItemActions.DetailButton = DetailButton;
 
 export default ItemActions;

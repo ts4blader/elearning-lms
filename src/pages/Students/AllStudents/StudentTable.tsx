@@ -95,11 +95,7 @@ const StudentTable = () => {
       <Column
         render={(text, record: any) => (
           <ItemActions>
-            <ItemActions.Button
-              className="detail-btn"
-              icon={EyeOutlined}
-              onClick={() => history.push(`${path}/${record.id}`)}
-            />
+            <ItemActions.DetailButton to={`${path}/${record.id}`} />
             <span>
               <OptionDropdown studentId={record.id} />
             </span>

@@ -4,13 +4,11 @@ import { ColumnTitle, Table } from "@components/Table";
 import lectureData from "@seeds/thcs/lectures.json";
 import Tag from "@components/Tag";
 import ItemActions from "@components/ItemActions";
-import { EyeOutlined } from "@ant-design/icons";
 import { OptionDropdown } from "./OptionDropdown";
-import { useHistory, useRouteMatch } from "react-router-dom";
+import { useRouteMatch } from "react-router-dom";
 
 export const LecturesTable = () => {
   const { Column } = Table;
-  const history = useHistory();
   const { url } = useRouteMatch();
 
   return (
@@ -49,11 +47,7 @@ export const LecturesTable = () => {
         key="actions"
         render={(text, record: any) => (
           <ItemActions>
-            <ItemActions.Button
-              icon={EyeOutlined}
-              onClick={() => history.push(`${url}/${record.id}`)}
-              className="detail-btn"
-            />
+            <ItemActions.DetailButton to={`${url}/${record.id}`} />
             <span>
               <OptionDropdown lectureId={record.id} />
             </span>

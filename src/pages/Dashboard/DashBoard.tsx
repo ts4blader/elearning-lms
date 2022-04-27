@@ -8,6 +8,7 @@ import Database from "@pages/Database";
 import ClassDetail from "@pages/ClassDetail";
 import StudentsPage from "@pages/Students";
 import LecturePage from "@pages/Lectures";
+import ExaminationPage from "@pages/Examination";
 
 const DashBoard = () => {
   const { path } = useRouteMatch();
@@ -40,6 +41,9 @@ const DashBoard = () => {
           </Route>
           <Route path={`${path}/lecture`}>
             <LecturePage />
+          </Route>
+          <Route path={`${path}/examination`}>
+            <ExaminationPage />
           </Route>
         </Switch>
       </div>
