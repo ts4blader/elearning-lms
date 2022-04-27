@@ -3,10 +3,15 @@ import { ColumnTitle, Table } from "@components/Table";
 import React from "react";
 import { EXAMINATION_TABLE } from "./data";
 import { OrderedListOutlined } from "@ant-design/icons";
+import examData from "@seeds/examination/exam.json";
 
 const ExaminationTable = () => {
   return (
-    <Table rowKey={(record) => record.id}>
+    <Table
+      className="examination-table"
+      rowKey={(record) => record.id}
+      dataSource={examData}
+    >
       {EXAMINATION_TABLE.map((item) =>
         item.sorter ? (
           <Table.Column

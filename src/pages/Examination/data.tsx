@@ -30,7 +30,9 @@ export const EXAMINATION_TABLE = [
   },
   {
     title: "Tình trạng",
-    dataIndex: "status",
+    render: (text: string, record: any) => (
+      <div className="status-cell">{record.status}</div>
+    ),
     key: "status",
     sorter: true,
   },
