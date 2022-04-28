@@ -7,8 +7,11 @@ import { ReadOutlined } from "@ant-design/icons";
 import { Row } from "@layouts/Grid";
 import PseudoField from "@components/PseudoField";
 import TableFrame, { TableWrapper } from "@components/Table";
+import { useRouteMatch } from "react-router-dom";
 
 const ClassesListTable = () => {
+  const { url } = useRouteMatch();
+
   return (
     <Row gap="2em" align="flex-start">
       <TableWrapper>
@@ -36,7 +39,10 @@ const ClassesListTable = () => {
             key="detail"
             render={(text, record) => (
               <ItemActions>
-                <ItemActions.DetailButton icon={ReadOutlined} to="/" />
+                <ItemActions.DetailButton
+                  icon={ReadOutlined}
+                  to={`${url}/transcript`}
+                />
               </ItemActions>
             )}
           />

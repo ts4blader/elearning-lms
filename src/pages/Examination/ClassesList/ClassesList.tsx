@@ -7,8 +7,6 @@ import ControlPanel from "@components/ControlPanel";
 import Select from "@components/Select";
 import ClassesListTable from "./ClassesListTable";
 import { Row } from "@layouts/Grid";
-import ItemActions from "@components/ItemActions";
-import PseudoField from "@components/PseudoField";
 
 const PageTitle = () => {
   return <Breadcrumb data={BREADCRUMB_DATA} keyAffix="page-title" />;
@@ -31,22 +29,6 @@ const ClassesList = () => {
             />
           </ControlPanel>
         </TableFrame>
-        {/* <div className="main-info">
-          <Row arrange="space-between" className="main-info-head">
-            <div className="text">Toán đại số</div>
-            <ItemActions>
-              <ItemActions.EditButton innerForm={() => null} title="" />
-              <ItemActions.DeleteButton deleteName="" onDelete={() => null} />
-            </ItemActions>
-          </Row>
-          <div className="main-info-fields">
-            <PseudoField label="Khối">6</PseudoField>
-            <PseudoField label="Tên kỳ thi">Giữa kỳ</PseudoField>
-            <PseudoField label="Học kỳ">1</PseudoField>
-            <PseudoField label="Ngày làm bài">20/01/2022</PseudoField>
-            <PseudoField label="Tình trạng">Đã kết thúc</PseudoField>
-          </div>
-        </div> */}
       </Row>
     </Page>
   );

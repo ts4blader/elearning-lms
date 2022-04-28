@@ -1,0 +1,70 @@
+.transcript-page {
+  .search-btn,
+  .export-btn {
+    color: @color-primary-dark-2;
+    background: @color-primary-light-3;
+    border: 1px solid currentColor;
+  }
+  .search-result {
+    .pseudo-field {
+      &-label {
+        font-weight: bold;
+        width: 12rem;
+      }
+    }
+  }
+  .transcript-table {
+    margin-top: 1.5em;
+    &-title {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: @color-primary-dark-2;
+    }
+    &-head {
+      .search-box-wrapper {
+        .text-input {
+          border-radius: 999px;
+        }
+      }
+    }
+    &-body {
+      td {
+        .success {
+          color: #49c510;
+        }
+        .failure {
+          color: #ed2025;
+        }
+        .final-average-cell {
+          font-weight: bold;
+        }
+        .average-cell {
+          color: @color-secondary;
+        }
+      }
+      .semester-column-title {
+        .icon {
+          cursor: pointer;
+          filter: brightness(0) saturate(100%) invert(100%) sepia(0%)
+            saturate(7499%) hue-rotate(279deg) brightness(113%) contrast(99%);
+          &.prev-btn {
+            transform: rotate(90deg);
+          }
+          &.next-btn {
+            transform: rotate(-90deg);
+          }
+        }
+      }
+      /* -------- border decoration ------- */
+      .birthday-col {
+        border-right: 1px solid @color-gray-dark;
+      }
+      .final-average-col {
+        border-left: 1px solid @color-gray-dark;
+      }
+      .semester-colgrp {
+        border-bottom: 1px solid @color-gray-dark !important;
+      }
+    }
+  }
+}
