@@ -6,8 +6,12 @@ import { OrderedListOutlined } from "@ant-design/icons";
 import examData from "@seeds/examination/exam.json";
 import { EyeOutlined } from "@ant-design/icons";
 import ExamDetail from "./ExamDetail";
+import { useHistory, useRouteMatch } from "react-router-dom";
 
 const ExaminationTable = () => {
+  const history = useHistory();
+  const { url } = useRouteMatch();
+
   return (
     <Table
       className="examination-table"
@@ -39,7 +43,7 @@ const ExaminationTable = () => {
             <ItemActions.Button
               className="detail-list-btn"
               icon={OrderedListOutlined}
-              onClick={() => null}
+              onClick={() => history.push(`${url}/${record.id}`)}
             />
           </ItemActions>
         )}

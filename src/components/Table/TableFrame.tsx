@@ -8,8 +8,9 @@ import { TableProps } from "@components/Table";
 export type TableFrameProps = {
   children?: React.ReactNode;
   className?: string;
-  table: React.ComponentType<TableProps>;
   pageChanger?: boolean;
+  table: React.ComponentType<TableProps>;
+  render?: React.ReactNode;
 } & Omit<React.ComponentProps<"div">, "title"> &
   TableFrameTitleProps;
 
@@ -41,6 +42,7 @@ const TableFrame = ({
   table,
   className = "",
   pageChanger = true,
+  render,
   renderTitle,
   ...rest
 }: TableFrameProps) => {
@@ -50,13 +52,19 @@ const TableFrame = ({
     <div className={`table-frame ${className}`} {...rest}>
       <div className="table-frame-header">{children}</div>
       <div className="table-frame-body">
-        <Title renderTitle={renderTitle} />
-        {pageChanger ? (
-          <TableWrapper>
-            <DataTable />
-          </TableWrapper>
+        {render ? (
+          render
         ) : (
-          <DataTable />
+          <>
+            <Title renderTitle={renderTitle} />
+            {pageChanger ? (
+              <TableWrapper>
+                <DataTable />
+              </TableWrapper>
+            ) : (
+              <DataTable />
+            )}
+          </>
         )}
       </div>
     </div>
