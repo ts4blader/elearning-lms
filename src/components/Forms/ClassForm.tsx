@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { Form, Space, Button, Divider, Checkbox } from "antd";
-import { MinusCircleFilled, PlusCircleFilled } from "@ant-design/icons";
+import { Form, Space, Divider, Checkbox } from "antd";
 import TextInput from "@components/TextInput";
 import Select, { SelectInForm } from "@components/Select";
 import { FormButton, FormList, FormItem } from "@components/Forms";
@@ -9,31 +8,12 @@ type Props = {
   onCancel: () => void;
 };
 
-type ListItemProps = {
-  name: number;
-};
-
-const ListItem = ({ name }: ListItemProps) => {
-  return (
-    <FormItem
-      name={[name, "name"]}
-      className="subject-select"
-      initialValue="Ngữ văn"
-    >
-      <SelectInForm
-        data={["Ngu Van", "Toan"]}
-        size="middle"
-        keyAffix="subject-selector"
-      />
-    </FormItem>
-  );
-};
-
 export const ClassForm = ({ onCancel }: Props) => {
   const [extend, setExtend] = useState(false);
+  const [selected, setSelected] = useState<string[]>([]);
 
   const handleSubmit = (values: any) => {
-    console.log(values);
+    console.log(values, selected);
   };
 
   return (
@@ -123,15 +103,7 @@ export const ClassForm = ({ onCancel }: Props) => {
           />
         </Space>
         {/* Form list */}
-        <FormList
-          addButtonText="Thêm môn học"
-          name="subjects"
-          render={(props) => (
-            <FormList.Item {...props}>
-              <ListItem name={props.name} />
-            </FormList.Item>
-          )}
-        />
+        <FormList.Selection onChange={(values) => setSelected(values)} />
       </div>
 
       {/* Modal buttons */}

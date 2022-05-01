@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { Checkbox, Divider, Form } from "antd";
 import TextInput from "@components/TextInput";
-import Select, { SelectInForm } from "@components/Select";
+import { SelectInForm } from "@components/Select";
 import { DatePickerInForm } from "@components/DatePicker";
 import { FormButton, FormItem as Item, FormList } from "@components/Forms";
 import { RULES } from "@utils/rules";
@@ -10,21 +10,11 @@ type CareerFormProps = {
   onCancel: () => void;
 };
 
-const ListItem = ({ name }: { name: number }) => {
-  return (
-    <Item name={[name, "value"]} initialValue="THPT Campus">
-      <Select
-        data={["THPT Campus", "THPT Lê Hồng Phong"]}
-        keyAffix="unit-selector"
-        size="middle"
-      />
-    </Item>
-  );
-};
-
 export const CareerForm = ({ onCancel }: CareerFormProps) => {
+  const [selected, setSelected] = useState<string[]>([]);
+
   const handleFinish = (value: any) => {
-    console.log(value);
+    console.log(value, selected);
   };
 
   return (
@@ -56,14 +46,9 @@ export const CareerForm = ({ onCancel }: CareerFormProps) => {
 
       <Divider />
 
-      <FormList
-        addButtonText="Thêm Đơn vị công tác"
-        name="units"
-        render={(props) => (
-          <FormList.Item {...props}>
-            <ListItem name={props.name} />
-          </FormList.Item>
-        )}
+      <FormList.Selection
+        onChange={(values) => setSelected(values)}
+        addButtonText="Thêm đơn vị công tác"
       />
 
       <FormButton.Container>

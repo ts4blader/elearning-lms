@@ -119,7 +119,7 @@ export const SemesterForm = ({ onCancel }: Props) => {
         <FormItem.Title>Cài đặt thời gian</FormItem.Title>
         <FormList
           name="semester"
-          addButtonText="Thêm học kỳ"
+          renderAddButton="Thêm học kỳ"
           render={(props) => (
             <FormList.Item {...props}>
               <ListItem name={props.name} />

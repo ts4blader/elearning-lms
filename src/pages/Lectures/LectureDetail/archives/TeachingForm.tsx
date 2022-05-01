@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Checkbox, Divider, Form } from "antd";
 import { FormItem, FormButton, FormList } from "@components/Forms";
 import TextInput from "@components/TextInput";
@@ -11,15 +11,9 @@ type FormProps = {
   onCancel: () => void;
 };
 
-const ListItem = ({ name }: { name: number }) => {
-  return (
-    <FormItem name={[name, "value"]} initialValue="A">
-      <Select data={["A", "B"]} keyAffix="education-program-selector" />
-    </FormItem>
-  );
-};
-
 const TeachingForm = ({ onCancel }: FormProps) => {
+  const [selected, setSelected] = useState<string[]>([]);
+
   const handleFinish = (values: any) => {
     console.log(values);
   };
@@ -65,14 +59,9 @@ const TeachingForm = ({ onCancel }: FormProps) => {
 
       <Divider />
 
-      <FormList
+      <FormList.Selection
+        onChange={(values) => setSelected(values)}
         addButtonText="Thêm chương trình đào tạo"
-        name="educationProgram"
-        render={(props) => (
-          <FormList.Item {...props}>
-            <ListItem name={props.name} />
-          </FormList.Item>
-        )}
       />
 
       <FormButton.Container>

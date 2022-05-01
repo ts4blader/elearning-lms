@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Form, Divider } from "antd";
 import TextInput from "@components/TextInput";
 import { SelectInForm as Select } from "@components/Select";
@@ -8,25 +8,11 @@ type Props = {
   onCancel: () => void;
 };
 
-const ListItem = ({ name }: { name: number }) => {
-  return (
-    <FormItem
-      name={[name, "name"]}
-      className="subject-select"
-      initialValue="Ngữ văn"
-    >
-      <Select
-        size="middle"
-        data={["Toan", "Ngu van"]}
-        keyAffix="subject-selector"
-      />
-    </FormItem>
-  );
-};
-
 export const GroupForm = ({ onCancel }: Props) => {
+  const [selected, setSelected] = useState<string[]>([]);
+
   const handleSubmit = (values: any) => {
-    console.log(values);
+    console.log(values, selected);
   };
 
   return (
@@ -52,15 +38,7 @@ export const GroupForm = ({ onCancel }: Props) => {
       {/* Subject list */}
       <div className="subject-list-wrapper form-bottom">
         <FormItem.Title>Danh sách môn học</FormItem.Title>
-        <FormList
-          addButtonText="Thêm môn học"
-          name="subjects"
-          render={(props) => (
-            <FormList.Item {...props}>
-              <ListItem name={props.name} />
-            </FormList.Item>
-          )}
-        />
+        <FormList.Selection onChange={(values) => setSelected(values)} />
       </div>
 
       {/* Modal buttons */}
