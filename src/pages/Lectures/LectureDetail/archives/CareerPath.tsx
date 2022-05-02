@@ -9,6 +9,7 @@ import { CAREER_TABLE } from "./data";
 import { ColumnTitle } from "@components/Table";
 import ItemActions from "@components/ItemActions";
 import { CareerForm } from "./CareerForm";
+import { Row } from "@layouts/Grid";
 
 const AddButton = () => {
   const dispatch = useAppDispatch();
@@ -79,6 +80,15 @@ const DataTable = () => {
 
 export const CareerPath = () => {
   return (
-    <TableFrame pageChanger={false} renderTitle={AddButton} table={DataTable} />
+    <TableFrame
+      pageChanger={false}
+      renderTitle={() => (
+        <Row arrange="space-between">
+          <TableFrame.SearchBar />
+          <AddButton />
+        </Row>
+      )}
+      table={DataTable}
+    />
   );
 };

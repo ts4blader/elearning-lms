@@ -19,22 +19,16 @@ type TableFrameTitleProps = {
 };
 
 const Title = ({ renderTitle }: TableFrameTitleProps) => {
-  const [searchTerm, setSearchTerm] = useState("");
   const Component = renderTitle;
 
   if (typeof renderTitle === typeof "")
     return (
-      <Row data-length={searchTerm.length !== 0} arrange="space-between">
-        <h3 className="table-frame-title">{renderTitle}</h3>
-        <TextInput
-          value={searchTerm}
-          onChange={({ target }) => setSearchTerm(target.value)}
-          prefix={<SearchOutlined />}
-          placeholder="Tìm kiếm"
-        />
+      <Row arrange="space-between">
+        <TableFrame.Title>{renderTitle}</TableFrame.Title>
+        <TableFrame.SearchBar />
       </Row>
     );
-  else return <Component />;
+  return <Component />;
 };
 
 const TableFrame = ({
@@ -78,5 +72,20 @@ TableFrame.Title = ({ children, ...rest }: React.ComponentProps<"h3">) => {
     </h3>
   );
 };
+
+const SearchBar = () => {
+  const [searchTerm, setSearchTerm] = useState("");
+
+  return (
+    <TextInput
+      value={searchTerm}
+      onChange={({ target }) => setSearchTerm(target.value)}
+      prefix={<SearchOutlined />}
+      placeholder="Tìm kiếm"
+    />
+  );
+};
+
+TableFrame.SearchBar = SearchBar;
 
 export default TableFrame;
