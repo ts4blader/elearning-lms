@@ -1,5 +1,6 @@
 import React from "react";
 import { Tag as AntTag, TagProps as AntTagProps } from "antd";
+import Icon from "@assets/Icon";
 
 export type TagProps = {} & AntTagProps;
 
@@ -48,6 +49,10 @@ Tag.CheckAble = ({ className = "", children, ...rest }: CheckAbleTagProps) => {
       {children}
     </AntTag.CheckableTag>
   );
+};
+
+Tag.Closeable = ({ className = "", ...rest }: TagProps) => {
+  return <Tag className={`tag-closeable ${className}`} closable {...rest} />;
 };
 
 export default Tag;

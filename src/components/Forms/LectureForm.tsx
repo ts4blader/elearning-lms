@@ -39,7 +39,7 @@ export const LectureForm = () => {
   /* --------- router handler --------- */
   const history = useHistory();
   const params: any = useParams();
-
+  //* get data by url params
   const data = useMemo(() => {
     return lectureData.filter((item) => item.id === params.lectureId)[0];
   }, [params]);
@@ -170,15 +170,14 @@ export const LectureForm = () => {
                 <FormItem label="Môn kiêm nhiệm">
                   <Row gap="0.5em" className="subject-list">
                     {subjects.map((item) => (
-                      <Tag
+                      <Tag.Closeable
                         key={item}
-                        closable
                         onClose={() =>
                           setSubjects(subjects.filter((el) => el !== item))
                         }
                       >
                         {item}
-                      </Tag>
+                      </Tag.Closeable>
                     ))}
                   </Row>
                 </FormItem>
