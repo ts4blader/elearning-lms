@@ -1,0 +1,62 @@
+.examination-form {
+  @label-width: 20rem;
+  .class-n-year-field {
+    .ant-form-item-control {
+      width: @label-width;
+    }
+    .grade-field {
+      .ant-form-item-label {
+        text-align: right;
+        margin-right: 1em;
+      }
+    }
+  }
+  .classes-field {
+    .ant-radio-group {
+      width: 100%;
+    }
+    .select-multi {
+      margin-top: 0.5em;
+    }
+  }
+  .semester-field {
+    margin-left: @label-width;
+  }
+  .duration-field {
+    .text-input {
+      width: @label-width;
+    }
+  }
+  .day-field {
+    .datepicker {
+      width: @label-width;
+    }
+  }
+  .supervisor-field {
+    width: 100%;
+    & > .row {
+      margin-top: 1rem;
+      .radio {
+        flex-shrink: 0;
+        width: @label-width;
+      }
+    }
+    .select-multi {
+      flex-grow: 1;
+      &-grp {
+        width: 100%;
+        font-size: 1.6rem;
+        & > * {
+          width: 100%;
+        }
+        .text {
+          width: 5rem;
+          font-weight: bold;
+        }
+        .select-multi {
+          flex-grow: 1;
+        }
+      }
+    }
+  }
+}

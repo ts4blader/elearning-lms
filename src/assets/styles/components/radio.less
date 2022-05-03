@@ -1,0 +1,19 @@
+.ant-radio-wrapper {
+  & > span {
+    font-size: 1.6rem;
+  }
+  .ant-radio {
+    &-inner {
+      width: 2rem;
+      height: 2rem;
+    }
+    &-checked {
+      .ant-radio-inner {
+        border-color: @color-secondary;
+        &::after {
+          background-color: @color-secondary;
+        }
+      }
+    }
+  }
+}

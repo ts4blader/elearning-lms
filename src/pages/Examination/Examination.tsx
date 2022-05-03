@@ -6,9 +6,22 @@ import Select from "@components/Select";
 import Tabs from "@components/Tabs";
 import { Row } from "@layouts/Grid";
 import ExaminationTable from "./ExaminationTable";
+import { useAppDispatch } from "@hooks";
+import { showFormModal } from "@slices/formModalSlice";
+import { ExaminationForms } from "@components/Forms";
 
 const Examination = () => {
   const { Group, AddButton } = ControlPanel;
+
+  const dispatch = useAppDispatch();
+  const showForm = () => {
+    dispatch(
+      showFormModal({
+        innerForm: ExaminationForms,
+        title: "Thêm lịch thi mới",
+      })
+    );
+  };
 
   return (
     <Page className="examination-page" title="Quản lý lịch thi">
@@ -40,7 +53,7 @@ const Examination = () => {
             />
           </Group>
           <Group className="btn-grp">
-            <AddButton />
+            <AddButton onClick={showForm} />
           </Group>
         </ControlPanel>
       </TableFrame>

@@ -1,6 +1,6 @@
 .tag.ant-tag {
   font-size: 1.4rem;
-  padding: 0.4em 0.8em;
+  padding: 0.3em 0.6em;
   border-radius: 999px;
   color: white;
   background-color: @color-secondary;
@@ -16,11 +16,19 @@
     gap: 1rem;
     border-radius: 0.5rem;
   }
-  .anticon-close {
-    background: white;
-    color: @color-secondary;
-    padding: 0.2em;
+  .ant-tag-close-icon {
+    background-color: white;
     border-radius: 50%;
+    padding: 0.2em;
+    .icon {
+      transform: rotate(45deg);
+      width: 1.4rem;
+      filter: invert(39%) sepia(78%) saturate(1584%) hue-rotate(199deg)
+        brightness(96%) contrast(93%);
+      img {
+        filter: brightness(0) saturate(100%);
+      }
+    }
   }
   .dot {
     width: 0.5em;

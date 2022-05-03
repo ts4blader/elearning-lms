@@ -52,7 +52,14 @@ Tag.CheckAble = ({ className = "", children, ...rest }: CheckAbleTagProps) => {
 };
 
 Tag.Closeable = ({ className = "", ...rest }: TagProps) => {
-  return <Tag className={`tag-closeable ${className}`} closable {...rest} />;
+  return (
+    <Tag
+      closeIcon={<Icon src="cross.svg" alt="close" />}
+      className={`tag-closeable ${className}`}
+      closable
+      {...rest}
+    />
+  );
 };
 
 export default Tag;
