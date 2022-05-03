@@ -7,6 +7,7 @@ import examData from "@seeds/examination/exam.json";
 import { EyeOutlined } from "@ant-design/icons";
 import ExamDetail from "./ExamDetail";
 import { useHistory, useRouteMatch } from "react-router-dom";
+import { ExaminationForms } from "@components/Forms";
 
 const ExaminationTable = () => {
   const history = useHistory();
@@ -63,7 +64,10 @@ const ExaminationTable = () => {
               showClose={true}
               innerForm={() => <ExamDetail examId={record.id} />}
             />
-            <ItemActions.EditButton title="" innerForm={() => null} />
+            <ItemActions.EditButton
+              title="Chỉnh sửa lịch thi"
+              innerForm={ExaminationForms}
+            />
             <ItemActions.DeleteButton
               deleteName="lịch thi"
               onDelete={() => null}
