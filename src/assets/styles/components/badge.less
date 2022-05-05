@@ -1,0 +1,24 @@
+.badge-pill {
+  padding: 0.2em 0.5em;
+  border-radius: 0.5rem;
+  margin-top: 0.5em;
+  font-family: @sub-font;
+  .badge-title {
+    font-weight: 600;
+  }
+  &[data-type="success"] {
+    background: #80d658;
+  }
+  &[data-type="processing"] {
+    background: #6dc5f3;
+  }
+  &[data-type="warning"] {
+    background: #ffb923;
+  }
+  &[data-type="error"] {
+    background: #ff7506;
+  }
+  &[data-type="default"] {
+    background: @color-gray-dark;
+  }
+}

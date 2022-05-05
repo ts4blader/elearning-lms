@@ -68,3 +68,14 @@ export const EXAM_DETAIL_FIELD = [
     label: "Lớp",
   },
 ];
+
+export const TABS_DATA = [
+  {
+    key: "byTable",
+    text: "Xem theo bảng",
+  },
+  {
+    key: "byCalendar",
+    text: "Xem theo lịch",
+  },
+];

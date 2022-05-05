@@ -9,6 +9,66 @@
       color: @color-gray-dark;
     }
   }
+  .exam-calendar {
+    &-title {
+      font-size: 2.2rem;
+      font-weight: bold;
+      margin-bottom: 0;
+    }
+    .ant-picker-panel {
+      @main-color: @color-primary-light-2;
+      @border: 1px solid @main-color;
+      table,
+      th,
+      td {
+        border: @border;
+      }
+      th {
+        // border: @border;
+        font-size: 1.8rem;
+        font-weight: bold;
+        text-align: center;
+        padding: 1em;
+      }
+      /* -------------- cell -------------- */
+      .ant-picker-cell {
+        &-selected {
+          background: @main-color;
+          .ant-picker-calendar-date {
+            background: transparent;
+            &-value {
+              color: @color-dark;
+            }
+          }
+        }
+      }
+      /* ----------- cell inner ----------- */
+      .ant-picker-calendar-date {
+        border-top: 0;
+        padding: 0.5em 0.8em;
+        position: relative;
+        &-value {
+          font-weight: bold;
+          position: absolute;
+          inset: 0.5em auto auto 0.8em;
+        }
+        &-content {
+          margin-top: 2.5em;
+        }
+        &-today {
+          .ant-picker-calendar-date-value {
+            background: @color-primary-dark-3;
+            border-radius: 50%;
+            color: white;
+            width: 2.2em;
+            aspect-ratio: 1 /1;
+            display: grid;
+            place-items: center;
+          }
+        }
+      }
+    }
+  }
 }
 
 /* ----------- exam-detail ---------- */

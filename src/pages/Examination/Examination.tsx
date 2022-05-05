@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Page from "@components/Page";
 import TableFrame from "@components/Table";
 import ControlPanel from "@components/ControlPanel";
@@ -9,6 +9,8 @@ import ExaminationTable from "./ExaminationTable";
 import { useAppDispatch } from "@hooks";
 import { showFormModal } from "@slices/formModalSlice";
 import { ExaminationForms } from "@components/Forms";
+import { TABS_DATA } from "./data";
+import ExamCalendar from "./ExamCalendar";
 
 const Examination = () => {
   const { Group, AddButton } = ControlPanel;
@@ -23,9 +25,15 @@ const Examination = () => {
     );
   };
 
+  const [activeTab, setActiveTab] = useState(TABS_DATA[0]);
+
   return (
     <Page className="examination-page" title="Quản lý lịch thi">
-      <TableFrame table={ExaminationTable} renderTitle="Danh sách bài thi">
+      <TableFrame
+        table={activeTab.key === "byTable" ? ExaminationTable : () => null}
+        render={activeTab.key === "byCalendar" && <ExamCalendar />}
+        renderTitle="Danh sách bài thi"
+      >
         <ControlPanel>
           <Group>
             <Row gap="1em">
@@ -48,8 +56,9 @@ const Examination = () => {
           </Group>
           <Group>
             <Tabs
-              data={["Xem theo bảng", "Xem theo lịch"]}
+              data={TABS_DATA.map((item) => item.text)}
               keyAffix="examination-tabs"
+              onChange={(index) => setActiveTab(TABS_DATA[index])}
             />
           </Group>
           <Group className="btn-grp">

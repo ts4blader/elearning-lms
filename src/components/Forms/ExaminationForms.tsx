@@ -1,4 +1,4 @@
-import React, { useReducer, useState } from "react";
+import React, { useState } from "react";
 import { Form, Checkbox, Divider } from "antd";
 import { FormItem } from "./FormItem";
 import { Row } from "@layouts/Grid";
