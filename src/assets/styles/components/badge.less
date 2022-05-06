@@ -1,8 +1,35 @@
+.badge {
+  &.ant-badge-status {
+    & > * {
+      font-size: 1.4em;
+    }
+    .ant-badge-status-text {
+      font-weight: bold;
+    }
+    &[data-type="success"] .ant-badge-status-text {
+      color: #80d658;
+    }
+    &[data-type="processing"] .ant-badge-status-text {
+      color: #6dc5f3;
+    }
+    &[data-type="warning"] .ant-badge-status-text {
+      color: #ffb923;
+    }
+    &[data-type="error"] .ant-badge-status-text {
+      color: #ff7506;
+    }
+    &[data-type="default"] .ant-badge-status-text {
+      color: @color-gray-dark;
+    }
+  }
+}
+
 .badge-pill {
-  padding: 0.2em 0.5em;
+  padding: 0.3em 0.6em;
   border-radius: 0.5rem;
   margin-top: 0.5em;
   font-family: @sub-font;
+  line-height: 1.25;
   .badge-title {
     font-weight: 600;
   }

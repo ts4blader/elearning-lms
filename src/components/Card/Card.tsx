@@ -1,3 +1,7 @@
+import Badge from "@components/Badge";
+import ItemActions from "@components/ItemActions";
+import PseudoField from "@components/PseudoField";
+import { Row } from "@layouts/Grid";
 import React from "react";
 
 type CardProps = {
@@ -5,6 +9,23 @@ type CardProps = {
   description: string;
   variant?: "primary" | "secondary";
 };
+
+type InfoCardProps = {
+  data: {
+    label: string;
+    text: string;
+  }[];
+  status: string;
+  titleText: string;
+  editButton?: {
+    innerForm: React.ComponentType<any>;
+    title: string;
+  };
+  deleteButton?: {
+    title: string;
+    action: () => void;
+  };
+} & React.ComponentProps<"div">;
 
 const Card = ({ title, description, variant }: CardProps) => {
   return (
@@ -19,5 +40,42 @@ const Card = ({ title, description, variant }: CardProps) => {
     </div>
   );
 };
+
+const InfoCard = ({
+  data,
+  titleText,
+  status,
+  editButton = { title: "", innerForm: () => null },
+  className = "",
+  deleteButton = { title: "", action: () => null },
+  ...rest
+}: InfoCardProps) => {
+  return (
+    <div className={`info-card ${className}`} {...rest}>
+      <Row className="info-card-header" arrange="space-between" gap="1em">
+        <Badge status={status as any} text={titleText} />
+        <ItemActions>
+          <ItemActions.EditButton
+            innerForm={editButton.innerForm}
+            title={editButton.title}
+          />
+          <ItemActions.DeleteButton
+            deleteName={deleteButton.title}
+            onDelete={deleteButton.action}
+          />
+        </ItemActions>
+      </Row>
+      <div className="info-card-body">
+        {data.map(({ label, text }) => (
+          <PseudoField key={`${label}-${text}`} label={label}>
+            {text}
+          </PseudoField>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+Card.Info = InfoCard;
 
 export default Card;

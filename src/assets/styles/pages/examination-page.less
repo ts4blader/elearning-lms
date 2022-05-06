@@ -9,11 +9,66 @@
       color: @color-gray-dark;
     }
   }
+  /* -------- table frame body -------- */
+  .table-frame-body {
+    box-shadow: none;
+    border-radius: 0;
+    padding: 0;
+    .exam-calendar,
+    .events-display {
+      padding: 1em 3em;
+      border-radius: 1rem;
+      box-shadow: @box-shadow-dimblue;
+    }
+  }
+  /* ---------- exam calendar --------- */
   .exam-calendar {
     &-title {
       font-size: 2.2rem;
       font-weight: bold;
-      margin-bottom: 0;
+    }
+    .calendar-header {
+      background-color: @color-dark;
+      padding: 0.8em 3em;
+      margin-top: 1em;
+      border-radius: 1rem 1rem 0 0;
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: white;
+      .date-time-pane {
+        .icon {
+          cursor: pointer;
+          filter: brightness(0) saturate(100%) invert(100%) sepia(0%)
+            saturate(7499%) hue-rotate(279deg) brightness(113%) contrast(99%);
+          img {
+            width: 4rem;
+          }
+          &.next-icon {
+            transform: rotate(-90deg);
+          }
+          &.prev-icon {
+            transform: rotate(90deg);
+          }
+        }
+      }
+    }
+    /* --------- ant picker body -------- */
+    .ant-picker-body {
+      padding-top: 0;
+    }
+    /* -- ant picker date of week panel - */
+    .ant-picker-date-panel {
+      .ant-picker-calendar-date-today {
+        .ant-picker-calendar-date-value {
+          background: @color-primary-dark-3;
+          border-radius: 50%;
+          color: white !important;
+          width: 2.2em;
+          aspect-ratio: 1 /1;
+          display: grid;
+          place-items: center;
+        }
+      }
     }
     .ant-picker-panel {
       @main-color: @color-primary-light-2;
@@ -24,7 +79,6 @@
         border: @border;
       }
       th {
-        // border: @border;
         font-size: 1.8rem;
         font-weight: bold;
         text-align: center;
@@ -40,12 +94,18 @@
               color: @color-dark;
             }
           }
+          .badge-pill {
+            background: transparent;
+          }
+        }
+        .badge-content {
+          font-style: italic;
         }
       }
       /* ----------- cell inner ----------- */
       .ant-picker-calendar-date {
         border-top: 0;
-        padding: 0.5em 0.8em;
+        padding: 0.8em;
         position: relative;
         &-value {
           font-weight: bold;
@@ -53,20 +113,52 @@
           inset: 0.5em auto auto 0.8em;
         }
         &-content {
+          height: 5rem;
           margin-top: 2.5em;
+          overflow: hidden;
+          &:hover {
+            overflow: scroll;
+          }
         }
         &-today {
           .ant-picker-calendar-date-value {
-            background: @color-primary-dark-3;
-            border-radius: 50%;
-            color: white;
-            width: 2.2em;
-            aspect-ratio: 1 /1;
-            display: grid;
-            place-items: center;
           }
         }
       }
+    }
+  }
+  /* --------- events display --------- */
+  .events-display {
+    padding-inline: 2em !important;
+    text-align: center;
+    &-header {
+      white-space: nowrap;
+      .day {
+        font-size: 3em;
+        font-weight: bold;
+        line-height: 1.1;
+      }
+      .dayofweek {
+        line-height: 1;
+        font-size: 1.7em;
+        font-weight: bold;
+        &::first-letter {
+          text-transform: uppercase;
+        }
+      }
+      .month-n-year {
+        &::first-letter {
+          text-transform: uppercase;
+        }
+      }
+    }
+    &-body {
+      .info-card {
+        all: unset;
+      }
+    }
+    .ant-divider {
+      border-color: @color-primary-light-1;
     }
   }
 }

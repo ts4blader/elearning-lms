@@ -9,7 +9,7 @@ type PillBadgeProps = {
 } & React.ComponentProps<"div">;
 
 const Badge = ({ className = "", ...rest }: BadgeProps) => {
-  return <AntBagde className="badge" {...rest} />;
+  return <AntBagde className="badge" {...rest} data-type={rest.status} />;
 };
 
 const Title = (props: React.ComponentProps<"div">) => {
