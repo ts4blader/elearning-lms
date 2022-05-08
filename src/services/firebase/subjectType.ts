@@ -7,13 +7,7 @@ import {
   getDocs,
   collection,
 } from "firebase/firestore";
-
-type SubjectTypeProps = {
-  id: string;
-  name: string;
-  disabled: boolean;
-  description: string;
-};
+import { SubjectTypeProps } from "@types";
 
 const COLLECTION = "SubjectType";
 const getRef = (id: string) => doc(db, COLLECTION, id);
@@ -21,13 +15,14 @@ const getRef = (id: string) => doc(db, COLLECTION, id);
 export const getSubjectTypes = async () => {
   try {
     const data = await getDocs(collection(db, COLLECTION));
-    const result = [];
+    const result: SubjectTypeProps[] = [];
 
     if (!data.empty) {
       data.forEach((item) => {
-        result.push(item.data());
+        result.push(item.data() as SubjectTypeProps);
       });
     }
+    return result;
   } catch (error) {
     console.log(error);
     return [];
