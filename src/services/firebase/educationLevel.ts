@@ -7,13 +7,7 @@ import {
   getDocs,
   collection,
 } from "firebase/firestore";
-
-type EducationLevelProps = {
-  id: string;
-  name: string;
-  disabled: boolean;
-  description: string;
-};
+import { EducationLevelProps } from "@types";
 
 const COLLECTION = "EducationLevel";
 const getRef = (id: string) => doc(db, COLLECTION, id);
@@ -21,13 +15,14 @@ const getRef = (id: string) => doc(db, COLLECTION, id);
 export const getEducationLevels = async () => {
   try {
     const data = await getDocs(collection(db, COLLECTION));
-    const result = [];
+    const result: EducationLevelProps[] = [];
 
     if (!data.empty) {
       data.forEach((item) => {
-        result.push(item.data());
+        result.push(item.data() as EducationLevelProps);
       });
     }
+    return result;
   } catch (error) {
     console.log(error);
     return [];
