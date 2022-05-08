@@ -18,7 +18,7 @@
     "antd": "^4.18.9",
     "craco-alias": "^3.0.1",
     "craco-less": "^2.0.0",
-    "firebase": "^9.6.7",
+    "firebase": "^9.7.0",
     "moment": "^2.29.1",
     "normalize.css": "^8.0.1",
     "react": "^17.0.2",

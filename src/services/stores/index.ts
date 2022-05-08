@@ -1,7 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import deleteModalReducer from "@slices/deleteModalSlice";
 import formModalReducer from "@slices/formModalSlice";
-import counterReducer from "@slices/counterSlice";
 import pageSizeReducer from "@slices/pageSizeSlice";
 import selectedRowsReducer from "@slices/selectedRowsSlice";
 import scheduleSwitchReducer from "@slices/scheduleSwitchSlice";
@@ -11,7 +10,6 @@ export const store = configureStore({
     pageSize: pageSizeReducer,
     deleteModal: deleteModalReducer,
     formModal: formModalReducer,
-    counter: counterReducer,
     selectedRows: selectedRowsReducer,
     scheduleSwitch: scheduleSwitchReducer,
   },

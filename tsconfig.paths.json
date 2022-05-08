@@ -35,11 +35,14 @@
          "@utils/*":[
             "./services/utils/*"
          ],
-         "@hooks/*":[
-            "./services/hooks/*"
-         ],
          "@hooks":[
             "./services/hooks/index"
+         ],
+         "@services/*":[
+            "./services/*"
+         ],
+         "@types":[
+            "./types/index"
          ],
          "@layouts/*":[
             "./layouts/*"
