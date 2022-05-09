@@ -9,6 +9,7 @@ import classTypeReducer from "@slices/classTypeSlice";
 import subjectTypeReducer from "@slices/subjectTypeSlice";
 import educationLevelReducer from "@slices/educationLevelSlice";
 import subjectGroupReducer from "@slices/subjectGroupSlice";
+import subjectReducer from "@slices/subjectSlice";
 
 export const store = configureStore({
   reducer: {
@@ -17,10 +18,12 @@ export const store = configureStore({
     formModal: formModalReducer,
     selectedRows: selectedRowsReducer,
     scheduleSwitch: scheduleSwitchReducer,
+    //* dummy data
     classType: classTypeReducer,
     subjectType: subjectTypeReducer,
     educationLevel: educationLevelReducer,
     subjectGroup: subjectGroupReducer,
+    subject: subjectReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
