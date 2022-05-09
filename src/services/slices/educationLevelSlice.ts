@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import { EducationLevelProps } from "@types";
-import { getEducationLevels } from "@services/firebase/educationLevel";
+import { getDocuments } from "@services/firebase/firestore";
+import { COLLECTION } from "@services/firebase/collection";
 
 type EducationLevelSliceProps = {
   value: EducationLevelProps[];
@@ -15,7 +16,9 @@ const initialState: EducationLevelSliceProps = {
 export const fetchEducationLevel = createAsyncThunk<EducationLevelProps[]>(
   "educationLevel/fetch",
   async () => {
-    const result = await getEducationLevels();
+    const result = await getDocuments<EducationLevelProps>(
+      COLLECTION.educationLevel
+    );
     return result;
   }
 );

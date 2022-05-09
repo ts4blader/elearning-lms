@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import { GradeProps } from "@types";
-import { getGrades } from "@services/firebase/grade";
+import { getDocuments } from "@services/firebase/firestore";
+import { COLLECTION } from "@services/firebase/collection";
 
 type GradeSliceProps = {
   value: GradeProps[];
@@ -15,7 +16,7 @@ const initialState: GradeSliceProps = {
 export const fetchGrade = createAsyncThunk<GradeProps[]>(
   "grade/fetch",
   async () => {
-    const result = await getGrades();
+    const result = await getDocuments<GradeProps>(COLLECTION.grade);
     return result;
   }
 );

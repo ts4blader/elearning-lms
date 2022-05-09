@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import { ScoreTypeProps } from "@types";
-import { getScoreTypes } from "@services/firebase/scoreType";
+import { getDocuments } from "@services/firebase/firestore";
+import { COLLECTION } from "@services/firebase/collection";
 
 type ScoreTypeSliceProps = {
   value: ScoreTypeProps[];
@@ -15,7 +16,7 @@ const initialState: ScoreTypeSliceProps = {
 export const fetchScoreType = createAsyncThunk<ScoreTypeProps[]>(
   "scoreType/fetch",
   async () => {
-    const result = await getScoreTypes();
+    const result = await getDocuments<ScoreTypeProps>(COLLECTION.scoreType);
     return result;
   }
 );

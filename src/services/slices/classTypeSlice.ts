@@ -1,6 +1,7 @@
+import { getDocuments } from "@services/firebase/firestore";
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import { ClassTypeProps } from "@types";
-import { getClassTypes } from "@services/firebase/classType";
+import { COLLECTION } from "@services/firebase/collection";
 
 type ClassTypeSliceProps = {
   value: ClassTypeProps[];
@@ -15,7 +16,7 @@ const initialState: ClassTypeSliceProps = {
 export const fetchClassType = createAsyncThunk<ClassTypeProps[]>(
   "classType/fetch",
   async () => {
-    const result = await getClassTypes();
+    const result = await getDocuments<ClassTypeProps>(COLLECTION.classType);
     return result;
   }
 );

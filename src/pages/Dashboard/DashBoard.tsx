@@ -9,16 +9,9 @@ import ClassDetail from "@pages/ClassDetail";
 import StudentsPage from "@pages/Students";
 import LecturePage from "@pages/Lectures";
 import ExaminationPage from "@pages/Examination";
-import { useAppDispatch } from "@hooks";
-import { fetchClassType } from "@slices/classTypeSlice";
 
 const DashBoard = () => {
   const { path } = useRouteMatch();
-
-  const dispatch = useAppDispatch();
-  useEffect(() => {
-    console.log(dispatch(fetchClassType()));
-  }, [dispatch]);
 
   return (
     <main className="dashboard-page">

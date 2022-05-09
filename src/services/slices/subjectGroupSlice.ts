@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import { SubjectGroupProps } from "@types";
-import { getSubjectGroups } from "@services/firebase/subjectGroup";
+import { getDocuments } from "@services/firebase/firestore";
+import { COLLECTION } from "@services/firebase/collection";
 
 type SubjectGroupSliceProps = {
   value: SubjectGroupProps[];
@@ -15,7 +16,9 @@ const initialState: SubjectGroupSliceProps = {
 export const fetchSubjectGroup = createAsyncThunk<SubjectGroupProps[]>(
   "subjectGroup/fetch",
   async () => {
-    const result = await getSubjectGroups();
+    const result = await getDocuments<SubjectGroupProps>(
+      COLLECTION.subjectGroup
+    );
     return result;
   }
 );

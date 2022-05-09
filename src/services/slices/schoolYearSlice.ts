@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import { SchoolYearProps } from "@types";
-import { getSchoolYears } from "@services/firebase/schoolYear";
+import { getDocuments } from "@services/firebase/firestore";
+import { COLLECTION } from "@services/firebase/collection";
 
 type SchoolYearSliceProps = {
   value: SchoolYearProps[];
@@ -15,7 +16,7 @@ const initialState: SchoolYearSliceProps = {
 export const fetchSchoolYear = createAsyncThunk<SchoolYearProps[]>(
   "schoolYear/fetch",
   async () => {
-    const result = await getSchoolYears();
+    const result = await getDocuments<SchoolYearProps>(COLLECTION.schoolYear);
     return result;
   }
 );
