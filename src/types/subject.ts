@@ -2,8 +2,6 @@ export type SubjectProps = {
   id: string;
   name: string;
   subjectTypeId: string;
-  semesters: {
-    semesterI: string;
-    value: number;
-  }[];
+  first: number;
+  second: number;
 };

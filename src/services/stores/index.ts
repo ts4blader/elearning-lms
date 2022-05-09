@@ -36,6 +36,8 @@ export const store = configureStore({
         ignoredActions: [
           "deleteModal/showDeleteModal",
           "formModal/showFormModal",
+          "deleteModal/hideDeleteModal",
+          "formModal/hideFormModal",
         ],
         // Ignore these field paths in all actions
         ignoredActionPaths: ["meta.arg", "payload.timestamp"],
