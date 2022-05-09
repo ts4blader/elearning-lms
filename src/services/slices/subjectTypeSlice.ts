@@ -20,7 +20,7 @@ export const fetchSubjectType = createAsyncThunk<SubjectTypeProps[]>(
   }
 );
 
-export const SubjectTypeSlice = createSlice({
+export const subjectTypeSlice = createSlice({
   name: "subjectType",
   initialState,
   reducers: {
@@ -51,3 +51,7 @@ export const SubjectTypeSlice = createSlice({
     });
   },
 });
+
+export default subjectTypeSlice.reducer;
+export const { addSubjectType, removeSubjectType, updateSubjectType } =
+  subjectTypeSlice.actions;

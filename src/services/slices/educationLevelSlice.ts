@@ -20,7 +20,7 @@ export const fetchEducationLevel = createAsyncThunk<EducationLevelProps[]>(
   }
 );
 
-export const EducationLevelSlice = createSlice({
+export const educationLevelSlice = createSlice({
   name: "educationLevel",
   initialState,
   reducers: {
@@ -54,3 +54,7 @@ export const EducationLevelSlice = createSlice({
     });
   },
 });
+
+export default educationLevelSlice.reducer;
+export const { addEducationLevel, removeEducationLevel, updateEducationLevel } =
+  educationLevelSlice.actions;

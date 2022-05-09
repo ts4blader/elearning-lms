@@ -51,3 +51,7 @@ export const classTypeSlice = createSlice({
     });
   },
 });
+
+export default classTypeSlice.reducer;
+export const { addClassType, removeClassType, updateClassType } =
+  classTypeSlice.actions;

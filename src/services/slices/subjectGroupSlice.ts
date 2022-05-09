@@ -20,7 +20,7 @@ export const fetchSubjectGroup = createAsyncThunk<SubjectGroupProps[]>(
   }
 );
 
-export const SubjectGroupSlice = createSlice({
+export const subjectGroupSlice = createSlice({
   name: "subjectGroup",
   initialState,
   reducers: {
@@ -51,3 +51,7 @@ export const SubjectGroupSlice = createSlice({
     });
   },
 });
+
+export default subjectGroupSlice.reducer;
+export const { addSubjectGroup, removeSubjectGroup, updateSubjectGroup } =
+  subjectGroupSlice.actions;
