@@ -1,0 +1,31 @@
+[{
+    "id": "ld-7012",
+    "name": "miệng",
+    "base": 3,
+    "first": 2,
+    "second": 4
+  }, {
+    "id": "ld-0985",
+    "name": "15 phút",
+    "base": 2,
+    "first": 4,
+    "second": 3
+  }, {
+    "id": "ld-4345",
+    "name": "45 phút",
+    "base": 3,
+    "first": 1,
+    "second": 5
+  }, {
+    "id": "ld-4221",
+    "name": "giữa kỳ",
+    "base": 3,
+    "first": 1,
+    "second": 2
+  }, {
+    "id": "ld-7000",
+    "name": "cuối kỳ",
+    "base": 2,
+    "first": 2,
+    "second": 4
+  }]

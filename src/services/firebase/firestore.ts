@@ -50,7 +50,7 @@ export const getDocument = async <T extends Document>(
   }
 };
 
-export const addClassType = async <T extends Document>(
+export const addDocument = async <T extends Document>(
   item: T,
   collectionName: string
 ) => {
@@ -65,7 +65,7 @@ export const addClassType = async <T extends Document>(
   }
 };
 
-export const removeClassType = async (id: string, collectionName: string) => {
+export const removeDocument = async (id: string, collectionName: string) => {
   try {
     await deleteDoc(getRef(id, collectionName));
     return true;
@@ -75,7 +75,7 @@ export const removeClassType = async (id: string, collectionName: string) => {
   }
 };
 
-export const updateClassType = async (
+export const updateDocument = async (
   id: string,
   collectionName: string,
   item: any
@@ -92,5 +92,19 @@ export const updateClassType = async (
   } catch (error) {
     console.log(error);
     return false;
+  }
+};
+
+export const seedData = async <T extends Document>(
+  data: T[],
+  collectionName: string
+) => {
+  try {
+    data.forEach((item) => {
+      addDocument<T>(item, collectionName);
+    });
+  } catch (error) {
+    console.log("Seed data failed!");
+    console.error(error);
   }
 };

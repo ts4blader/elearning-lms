@@ -1,5 +1,3 @@
-import moment, { Moment } from "moment";
-
 export type SchoolYearProps = {
   id: string;
   beginYear: number;
@@ -7,7 +5,7 @@ export type SchoolYearProps = {
   semesters: {
     id: string;
     name: string;
-    beginDay: Moment;
-    endDay: Moment;
+    beginDay: string;
+    endDay: string;
   }[];
 };

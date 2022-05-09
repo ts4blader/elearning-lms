@@ -1,0 +1,26 @@
+[{
+    "id": "bh-4705",
+    "name": "THCS",
+    "disabled": false,
+    "description": "Etiam justo. Etiam pretium iaculis justo."
+  }, {
+    "id": "bh-2007",
+    "name": "Cao đẳng",
+    "disabled": false,
+    "description": "Cras in purus eu magna vulputate luctus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien."
+  }, {
+    "id": "bh-7600",
+    "name": "Đại học",
+    "disabled": false,
+    "description": "Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit."
+  }, {
+    "id": "bh-2776",
+    "name": "Tiểu học",
+    "disabled": false,
+    "description": "Morbi quis tortor id nulla ultrices aliquet. Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo."
+  }, {
+    "id": "bh-4432",
+    "name": "THPT",
+    "disabled": false,
+    "description": "Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam vel augue."
+  }]

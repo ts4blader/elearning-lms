@@ -1,0 +1,51 @@
+[{
+    "id": "hk-5910",
+    "name": "Học kỳ I",
+    "beginDay": "2022-05-07",
+    "endDay": "2023-03-17"
+  }, {
+    "id": "hk-4141",
+    "name": "Học kỳ II",
+    "beginDay": "2021-12-20",
+    "endDay": "2022-10-15"
+  }, {
+    "id": "hk-9795",
+    "name": "Học kỳ II",
+    "beginDay": "2022-01-23",
+    "endDay": "2022-08-07"
+  }, {
+    "id": "hk-4508",
+    "name": "Học kỳ II",
+    "beginDay": "2021-12-23",
+    "endDay": "2023-03-06"
+  }, {
+    "id": "hk-0261",
+    "name": "Học kỳ I",
+    "beginDay": "2022-02-27",
+    "endDay": "2023-01-11"
+  }, {
+    "id": "hk-6924",
+    "name": "Học kỳ I",
+    "beginDay": "2021-11-17",
+    "endDay": "2022-05-09"
+  }, {
+    "id": "hk-4764",
+    "name": "Học kỳ II",
+    "beginDay": "2021-11-29",
+    "endDay": "2023-05-03"
+  }, {
+    "id": "hk-2698",
+    "name": "Học kỳ II",
+    "beginDay": "2021-05-28",
+    "endDay": "2023-03-20"
+  }, {
+    "id": "hk-1826",
+    "name": "Học kỳ I",
+    "beginDay": "2021-06-02",
+    "endDay": "2022-12-04"
+  }, {
+    "id": "hk-6180",
+    "name": "Học kỳ I",
+    "beginDay": "2021-06-23",
+    "endDay": "2022-12-12"
+  }]

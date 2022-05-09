@@ -1,0 +1,46 @@
+[{
+    "id": "mh-8778",
+    "name": "Toán",
+    "first": 1,
+    "second": 2
+  }, {
+    "id": "mh-9941",
+    "name": "Ngữ văn",
+    "first": 1,
+    "second": 4
+  }, {
+    "id": "mh-7743",
+    "name": "Hóa học",
+    "first": 2,
+    "second": 4
+  }, {
+    "id": "mh-6492",
+    "name": "Vật lý",
+    "first": 3,
+    "second": 2
+  }, {
+    "id": "mh-3854",
+    "name": "Anh văn",
+    "first": 1,
+    "second": 4
+  }, {
+    "id": "mh-9927",
+    "name": "GDCD",
+    "first": 3,
+    "second": 4
+  }, {
+    "id": "mh-4718",
+    "name": "Mĩ thuật",
+    "first": 1,
+    "second": 3
+  }, {
+    "id": "mh-7339",
+    "name": "Công nghệ",
+    "first": 5,
+    "second": 2
+  }, {
+    "id": "mh-8135",
+    "name": "Thể dục",
+    "first": 5,
+    "second": 2
+  }]
