@@ -5,3 +5,4 @@ export * from "./subjectGroup";
 export * from "./subject";
 export * from "./grade";
 export * from "./scoreType";
+export * from "./schoolYear";
