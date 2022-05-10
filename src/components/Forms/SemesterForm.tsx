@@ -5,7 +5,9 @@ import moment from "moment";
 import Select from "@components/Select";
 import { FormButton, FormList, FormItem } from "@components/Forms";
 import { SchoolYearProps, FormModalGeneric } from "@types";
-import { useAppSelector } from "@hooks";
+import { useAppDispatch, useAppSelector } from "@hooks";
+import { addSchoolYear, updateSchoolYear } from "@slices/schoolYearSlice";
+import { generateId } from "@utils/methods";
 
 const YEAR_GAP = 5;
 
@@ -14,11 +16,30 @@ export const SemesterForm = <T extends SchoolYearProps>({
   defaultData,
 }: FormModalGeneric<T>) => {
   const [form] = Form.useForm();
-  const schoolYear = useAppSelector((state) => state.schoolYear);
 
+  // redux hook
+  const schoolYear = useAppSelector((state) => state.schoolYear);
+  const dispatch = useAppDispatch();
+
+  //* handle submit
   const handleSubmit = (values: any) => {
-    console.log(values);
+    if (defaultData) {
+      dispatch(
+        updateSchoolYear({
+          ...values,
+          id: defaultData.id,
+        })
+      );
+    } else {
+      dispatch(
+        addSchoolYear({
+          ...values,
+          id: generateId("nk"),
+        })
+      );
+    }
   };
+
   //* mapped default data
   const data = useMemo(() => {
     return {
@@ -33,6 +54,7 @@ export const SemesterForm = <T extends SchoolYearProps>({
 
   //* begin year binding
   const [beginYear, setBeginYear] = useState(moment().year());
+
   //* extends data
   const [extendsData, setExtendsData] = useState(false);
   const getExtendData = useCallback(

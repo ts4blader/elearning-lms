@@ -2,13 +2,17 @@ import React from "react";
 import ItemActions from "@components/ItemActions";
 import { SemesterForm } from "@components/Forms";
 import { ColumnTitle, Table } from "@components/Table";
-import { useAppSelector } from "@hooks";
+import { useAppDispatch, useAppSelector } from "@hooks";
 import { SchoolYearProps } from "@types";
 import moment from "moment";
+import { removeSchoolYear } from "@slices/schoolYearSlice";
 
 const SemesterTable = () => {
   const { Column } = Table;
   const tableData = useAppSelector((state) => state.schoolYear);
+
+  // redux hook
+  const dispatch = useAppDispatch();
 
   return (
     <Table
@@ -61,7 +65,7 @@ const SemesterTable = () => {
             />
             <ItemActions.DeleteButton
               deleteName="niên khóa"
-              onDelete={() => null}
+              onDelete={() => dispatch(removeSchoolYear(record.id))}
             />
           </ItemActions>
         )}

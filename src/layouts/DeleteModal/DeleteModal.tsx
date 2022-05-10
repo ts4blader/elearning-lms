@@ -18,7 +18,10 @@ const DeleteModal = () => {
       visible={deleteModal.show}
       centered={true}
       onCancel={() => dispatch(hideDeleteModal())}
-      onOk={() => deleteModal.onAction}
+      onOk={() => {
+        deleteModal.onAction();
+        dispatch(hideDeleteModal());
+      }}
       okText="Xác nhận"
     >
       {`Xác nhận muốn xóa ${text} thông tin bên trong? Sau khi xóa không thể hoàn tác.`}
