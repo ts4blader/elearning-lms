@@ -45,4 +45,12 @@
       margin-left: 1rem;
     }
   }
+  .semester-form-list {
+    &[data-disabled="true"] {
+      .remove-btn {
+        color: @color-gray-dark;
+        pointer-events: none;
+      }
+    }
+  }
 }

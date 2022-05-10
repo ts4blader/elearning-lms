@@ -10,7 +10,7 @@ const SemesterPanel = () => {
     dispatch(
       showFormModal({
         title: "Thêm niên khóa",
-        innerForm: SemesterForm,
+        innerForm: (props) => <SemesterForm {...props} />,
       })
     );
   };

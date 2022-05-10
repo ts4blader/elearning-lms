@@ -1,21 +1,18 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import type { RootState } from "@stores";
-
-type FormProps = {
-  onCancel: () => void;
-};
+import { FormModalProps } from "@types";
 
 type FormModalState = {
   show: boolean;
   showClose: boolean;
   title: string;
-  innerForm: React.ComponentType<FormProps> | null;
+  innerForm: React.ComponentType<FormModalProps> | null;
 };
 
 type Payload = {
   title: string;
   showClose?: boolean;
-  innerForm: React.ComponentType<FormProps> | null;
+  innerForm: React.ComponentType<FormModalProps> | null;
 };
 
 const initialState: FormModalState = {

@@ -1,20 +1,15 @@
 import React from "react";
-import { Select as AntSelect, SelectProps as AntSelectProps } from "antd";
+import { Select as AntSelect } from "antd";
 import Icon from "@assets/Icon";
-import { BaseSelectRef } from "rc-select";
 import Tag from "@components/Tag";
-
-export type SelectProps = {
-  data: string[];
-  keyAffix: string;
-  inputRef?: React.Ref<BaseSelectRef>;
-} & AntSelectProps;
+import { SelectProps, SelectOptionProps } from "@types";
 
 const Select = ({
   inputRef,
   data,
-  keyAffix,
+  keyAffix = "",
   className = "",
+  children,
   ...rest
 }: SelectProps) => {
   const { Option } = AntSelect;
@@ -26,13 +21,19 @@ const Select = ({
       suffixIcon={<Icon src="caret.svg" alt="caret" />}
       {...rest}
     >
-      {data.map((item, index) => (
-        <Option key={`${index}-${keyAffix}`} value={item}>
-          {item}
-        </Option>
-      ))}
+      {data
+        ? data.map((item, index) => (
+            <Option key={`${index}-${keyAffix}`} value={item}>
+              {item}
+            </Option>
+          ))
+        : children}
     </AntSelect>
   );
+};
+
+const Option = ({ children, ...rest }: SelectOptionProps) => {
+  return <AntSelect.Option {...rest}>{children}</AntSelect.Option>;
 };
 
 export const SelectInForm = (props: SelectProps) => {
@@ -46,7 +47,7 @@ export const SelectInForm = (props: SelectProps) => {
 };
 
 const MultiSelect = ({ className = "", data, ...rest }: SelectProps) => {
-  const mappedData = data.map((item) => {
+  const mappedData = data?.map((item) => {
     return {
       value: item,
       label: item,
@@ -68,5 +69,6 @@ const MultiSelect = ({ className = "", data, ...rest }: SelectProps) => {
 };
 
 Select.Multi = MultiSelect;
+Select.Option = Option;
 
 export default Select;

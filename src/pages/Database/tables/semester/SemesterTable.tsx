@@ -1,9 +1,8 @@
 import React from "react";
 import ItemActions from "@components/ItemActions";
-import DATA from "@seeds/thcs/semesters.json";
 import { SemesterForm } from "@components/Forms";
 import { ColumnTitle, Table } from "@components/Table";
-import { useAppDispatch, useAppSelector } from "@hooks";
+import { useAppSelector } from "@hooks";
 import { SchoolYearProps } from "@types";
 import moment from "moment";
 
@@ -32,7 +31,7 @@ const SemesterTable = () => {
         }
       />
       <Column
-        title="Begin"
+        title="Ngày bắt đầu"
         key="begin"
         render={(text, record: SchoolYearProps) => {
           let beginDay = moment(record.semesters[0].beginDay);
@@ -40,7 +39,7 @@ const SemesterTable = () => {
         }}
       />
       <Column
-        title="End"
+        title="Ngày kết thúc"
         dataIndex="end"
         key="end"
         render={(text, record: SchoolYearProps) => {
@@ -52,11 +51,13 @@ const SemesterTable = () => {
       />
       <Column
         key="action"
-        render={(text, record) => (
+        render={(text, record: SchoolYearProps) => (
           <ItemActions>
             <ItemActions.EditButton
               title="Thiết lập niên khóa"
-              innerForm={SemesterForm}
+              innerForm={({ onCancel }) => (
+                <SemesterForm onCancel={onCancel} defaultData={record} />
+              )}
             />
             <ItemActions.DeleteButton
               deleteName="niên khóa"

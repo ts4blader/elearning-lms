@@ -1,8 +1,12 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { Button, Form, FormItemProps as AntItemProps } from "antd";
 import { Row, RowProps } from "@layouts/Grid";
 import { PlusCircleFilled, MinusCircleFilled } from "@ant-design/icons";
 import { SelectInForm } from "@components/Select";
+import { SemesterProps } from "@types";
+import TextInput from "@components/TextInput";
+import moment from "moment";
+import DatePicker from "@components/DatePicker";
 
 export type FormItemProps = {} & AntItemProps;
 
@@ -180,5 +184,73 @@ const FormListSelection = ({
   );
 };
 
+export const FormListSemester = () => {
+  const disabled = (fields: any[]) => fields.length <= 1;
+
+  return (
+    <Form.List
+      name="semesters"
+      initialValue={[
+        {
+          id: "hk-1000",
+          name: "Học kỳ I",
+          beginDay: moment(),
+          endDay: moment(),
+        },
+      ]}
+    >
+      {(fields, { add, remove }) => (
+        <div
+          className={`form-list semester-form-list`}
+          data-disabled={disabled(fields)}
+        >
+          <div className="form-list-inner">
+            {fields.map(({ key, name }) => (
+              <FormListItem key={key} name={name} remove={remove}>
+                <Form.Item
+                  name={[name, "name"]}
+                  label="Tên học kỳ"
+                  initialValue="Học kỳ 2"
+                  className="semester-name"
+                >
+                  <TextInput />
+                </Form.Item>
+                <Form.Item
+                  className="semester-begin"
+                  label="từ"
+                  name={[name, "beginDay"]}
+                  initialValue={moment()}
+                >
+                  <DatePicker />
+                </Form.Item>
+                <Form.Item
+                  className="semester-end"
+                  label="đến"
+                  name={[name, "endDay"]}
+                  initialValue={moment()}
+                >
+                  <DatePicker />
+                </Form.Item>
+              </FormListItem>
+            ))}
+          </div>
+          <div className="form-list-control">
+            <Button
+              type="link"
+              className="add-btn"
+              onClick={() => add()}
+              block
+              icon={<PlusCircleFilled />}
+            >
+              Thêm học kỳ
+            </Button>
+          </div>
+        </div>
+      )}
+    </Form.List>
+  );
+};
+
 FormList.Item = FormListItem;
 FormList.Selection = FormListSelection;
+FormList.SemesterList = FormListSemester;

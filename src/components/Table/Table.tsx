@@ -66,10 +66,7 @@ export const Table = ({
     >
       {countColumn && (
         <Table.Column
-          title={({ sortColumns }) => (
-            <ColumnTitle sortColumns={sortColumns} reactKey="no" text="STT" />
-          )}
-          sorter={true}
+          title={"STT"}
           key="no"
           render={(text, record: any, index) =>
             (page - 1) * pageSize.value + index + 1

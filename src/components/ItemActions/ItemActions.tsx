@@ -4,6 +4,7 @@ import { showDeleteModal } from "@slices/deleteModalSlice";
 import { EyeOutlined, EditOutlined, DeleteOutlined } from "@ant-design/icons";
 import { showFormModal } from "@slices/formModalSlice";
 import { useHistory } from "react-router-dom";
+import { FormModalProps } from "@types";
 
 type ButtonProps = {
   className: string;
@@ -20,7 +21,7 @@ type DeleteButtonProps = {
 type EditButtonProps = {
   icon?: typeof EditOutlined;
   title: string;
-  innerForm: React.ComponentType<any>;
+  innerForm: React.ComponentType<FormModalProps>;
   showClose?: boolean;
 };
 
