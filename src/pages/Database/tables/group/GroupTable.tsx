@@ -1,66 +1,93 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import ItemActions from "@components/ItemActions";
 import { MenuOutlined } from "@ant-design/icons";
-import DATA from "@seeds/thcs/groups.json";
-import SUBJECTS from "@seeds/thcs/subjects.json";
 import { GroupForm } from "@components/Forms";
 import { ColumnTitle, TableModal, Table } from "@components/Table";
 import { SUBTABLE_COLUMNS } from "../sub-table";
-
-const tableConfig = {
-  dataSource: SUBJECTS,
-  columns: SUBTABLE_COLUMNS,
-};
+import { useAppDispatch, useAppSelector } from "@hooks";
+import { sortString } from "@utils/sortMethod";
+import { SubjectGroupProps } from "@types";
+import {
+  removeSubjectGroup,
+  updateSubjectGroup,
+} from "@slices/subjectGroupSlice";
 
 const GroupTable = () => {
   const { Column } = Table;
-  const [show, setShow] = useState(false);
+  // redux hook
+  const dispatch = useAppDispatch();
+  const subjectGroup = useAppSelector((state) => state.subjectGroup);
+  const subject = useAppSelector((state) => state.subject);
+  const lectures: any[] = [];
+  //* derived from state
+  const getLecture = useCallback(
+    (id: string) => {
+      return lectures.filter((item) => item.id === id)[0];
+    },
+    [lectures]
+  );
+  const getSubjects = useCallback((record: string[]) => {
+    return record.map((item) => {
+      return subject.value.filter((el) => el.id === item)[0];
+    });
+  }, []);
 
   return (
-    <>
-      <TableModal
-        name="môn học"
-        onDelete={() => null}
-        tableConfig={tableConfig}
-        show={show}
-        onCancel={() => setShow(false)}
+    <Table dataSource={subjectGroup.value} rowKey={(record) => record.id}>
+      <Column
+        title={({ sortColumns }) => (
+          <ColumnTitle sortColumns={sortColumns} text="Name" reactKey="name" />
+        )}
+        dataIndex="name"
+        key="name"
+        sorter={(current, next) => sortString(current.name, next.name)}
       />
-      <Table dataSource={DATA} rowKey={(record) => record.id}>
-        <Column
-          title={({ sortColumns }) => (
-            <ColumnTitle
-              sortColumns={sortColumns}
-              text="Name"
-              reactKey="name"
+      <Column
+        title="Leader"
+        key="leader"
+        render={(text, record) => getLecture(record.id)}
+      />
+      <Column
+        key="action"
+        render={(text, record: SubjectGroupProps) => (
+          <ItemActions>
+            <ItemActions.EditButton
+              icon={MenuOutlined}
+              showClose={true}
+              title="Danh sách môn học"
+              innerForm={() => (
+                <TableModal
+                  name="môn học"
+                  columns={SUBTABLE_COLUMNS}
+                  data={getSubjects(record.subjectsId)}
+                  onDelete={(value) =>
+                    dispatch(
+                      updateSubjectGroup({
+                        ...record,
+                        subjectsId: value.map(
+                          (item: SubjectGroupProps) => item.id
+                        ),
+                      })
+                    )
+                  }
+                />
+              )}
             />
-          )}
-          dataIndex="name"
-          key="name"
-          sorter={true}
-        />
-        <Column title="Leader" dataIndex="leader" key="leader" />
-        <Column
-          key="action"
-          render={(text, record) => (
-            <ItemActions>
-              <ItemActions.Button
-                icon={MenuOutlined}
-                className="menu-btn"
-                onClick={() => setShow(true)}
-              />
-              <ItemActions.EditButton
-                title="Thiết lập tổ - bộ môn"
-                innerForm={GroupForm}
-              />
-              <ItemActions.DeleteButton
-                deleteName="tổ - bộ môn"
-                onDelete={() => null}
-              />
-            </ItemActions>
-          )}
-        />
-      </Table>
-    </>
+            <ItemActions.EditButton
+              title="Thiết lập tổ - bộ môn"
+              showClose={true}
+              innerForm={({ onCancel }) => (
+                <GroupForm onCancel={onCancel} defaultData={record} />
+              )}
+            />
+            <ItemActions.DeleteButton
+              deleteName="tổ - bộ môn"
+              onDelete={() => dispatch(removeSubjectGroup(record.id))}
+            />
+          </ItemActions>
+        )}
+      />
+    </Table>
   );
 };
 

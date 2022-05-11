@@ -39,7 +39,13 @@ export const seedAll = async () => {
     //   };
     // });
     // seedData(mappedSchoolYear, COLLECTION.schoolYear);
-    // seedData(subjectGroup, COLLECTION.subjectGroup);
+    let mappedSubjectGroup = subjectGroup.map((item) => ({
+      ...item,
+      subjectsId: [...Array(randomize(3, 5))].map(
+        (item) => subject[randomize(0, subject.length)].id
+      ),
+    }));
+    seedData(mappedSubjectGroup, COLLECTION.subjectGroup);
     // seedData(grade, COLLECTION.grade);
   } catch (error) {
     console.log("Seed all data failed!");

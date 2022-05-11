@@ -32,17 +32,38 @@ const Select = ({
   );
 };
 
+const Search = ({ className = "", children, ...rest }: SelectProps) => {
+  return (
+    <SelectInForm
+      className={`select-search ${className}`}
+      showSearch
+      optionFilterProp="children"
+      filterOption={(input, option) =>
+        option?.children
+          ?.toString()
+          .toLowerCase()
+          .includes(input.toLowerCase()) || false
+      }
+      {...rest}
+    >
+      {children}
+    </SelectInForm>
+  );
+};
+
 const Option = ({ children, ...rest }: SelectOptionProps) => {
   return <AntSelect.Option {...rest}>{children}</AntSelect.Option>;
 };
 
-export const SelectInForm = (props: SelectProps) => {
+export const SelectInForm = ({ className = "", ...rest }: SelectProps) => {
   return (
     <Select
       size="large"
-      className={`select-inform ${props.value ? "not-empty" : ""}`}
-      {...props}
-    />
+      className={`select-inform ${rest.value ? "not-empty" : ""} ${className}`}
+      {...rest}
+    >
+      {rest.children}
+    </Select>
   );
 };
 
@@ -70,5 +91,6 @@ const MultiSelect = ({ className = "", data, ...rest }: SelectProps) => {
 
 Select.Multi = MultiSelect;
 Select.Option = Option;
+Select.Search = Search;
 
 export default Select;

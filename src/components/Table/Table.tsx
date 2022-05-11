@@ -5,7 +5,6 @@ import {
   TableColumnProps,
 } from "antd";
 import { useAppDispatch, useAppSelector } from "@hooks";
-import { ColumnTitle } from "./ColumnTitle";
 import { pushSelectedRows, setSelectedRows } from "@slices/selectedRowsSlice";
 
 export type TableProps = {

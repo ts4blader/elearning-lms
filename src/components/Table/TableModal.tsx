@@ -1,74 +1,68 @@
 import React, { useState } from "react";
-import { Button, Modal, Table } from "antd";
+import { Table } from "antd";
+import { Row } from "@layouts/Grid";
+import { Button } from "antd";
 import { DeleteOutlined } from "@ant-design/icons";
 import { useAppDispatch } from "@hooks";
 import { showDeleteModal } from "@slices/deleteModalSlice";
 
-type Props = {
+type TableModalProps = {
   name: string;
-  onDelete: () => void;
-  tableConfig: any;
-  show: boolean;
-  onCancel: () => void;
+  onDelete: (value: any) => void;
+  columns: any[];
+  data: any[];
 };
 
 export const TableModal = ({
   name,
   onDelete,
-  tableConfig,
-  show,
-  onCancel,
-}: Props) => {
-  const [disabled, setDisabled] = useState(true);
+  data,
+  columns,
+}: TableModalProps) => {
+  const [selected, setSelected] = useState<any[]>([]);
+
   const dispatch = useAppDispatch();
+  const deleteItem = () =>
+    dispatch(
+      showDeleteModal({
+        name: name,
+        onAction: () => {
+          onDelete(selected);
+        },
+      })
+    );
 
   return (
-    <Modal
-      visible={show}
-      onCancel={onCancel}
-      centered={true}
-      footer={<></>}
-      className="table-modal"
-      title={`Danh sách ${name}`}
-    >
-      <div className="table-modal-content">
-        {/* Top bar */}
-        <div className="table-modal-content-header">
-          <Button
-            disabled={disabled}
-            className="delete-btn"
-            onClick={() =>
-              dispatch(
-                showDeleteModal({
-                  name: "",
-                  onAction: onDelete,
-                })
-              )
-            }
-            icon={<DeleteOutlined />}
-          />
-        </div>
-        <div className="table-modal-content-body">
-          <Table
-            {...tableConfig}
-            scroll={{
-              y: 300,
-            }}
-            pagination={false}
-            rowKey={(record) => record.id}
-            rowSelection={{
-              type: "checkbox",
-              onChange: (selectedRowKeys: React.Key[], selectedRows: any[]) => {
-                setDisabled(selectedRows.length === 0);
-              },
-              getCheckboxProps: (record: any) => ({
-                disabled: record.name === "Disabled User", // Column configuration not to be checked
-                name: record.name,
-              }),
-            }}
-          />
-        </div>
-      </div>
-    </Modal>
+    <div className="table-modal">
+      <Row arrange={"flex-end"}>
+        <Button
+          size="large"
+          className="delete-btn"
+          icon={<DeleteOutlined />}
+          disabled={selected.length === 0}
+          onClick={deleteItem}
+        />
+      </Row>
+      <Table
+        pagination={false}
+        dataSource={data}
+        columns={columns}
+        rowKey={(record) => record.id}
+        scroll={{
+          y: 300,
+        }}
+        rowSelection={{
+          type: "checkbox",
+          onChange: (selectedRowKeys: React.Key[], selectedRows: any[]) => {
+            console.log(selectedRows);
+            setSelected(selectedRows);
+          },
+          getCheckboxProps: (record: any) => ({
+            disabled: record.name === "Disabled User", // Column configuration not to be checked
+            name: record.name,
+          }),
+        }}
+      />
+    </div>
   );
 };

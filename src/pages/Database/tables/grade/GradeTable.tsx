@@ -18,13 +18,13 @@ const GradeTable = () => {
 
   return (
     <>
-      <TableModal
+      {/* <TableModal
         name="lớp học"
         onDelete={() => null}
         show={show}
         onCancel={() => setShow(false)}
         tableConfig={TABLE_MODAL}
-      />
+      /> */}
       <Table dataSource={DATA} rowKey={(record) => record.id}>
         <Column
           title={({ sortColumns }) => (

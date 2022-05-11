@@ -28,9 +28,11 @@ const DashBoard = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
+    // seed all data
+    // seedAll();
+
     const loadAllData = () => {
       dispatch(fetchSubjectType());
-      dispatch(fetchSubject());
       dispatch(fetchSubject());
       dispatch(fetchSubjectGroup());
       dispatch(fetchClassType());

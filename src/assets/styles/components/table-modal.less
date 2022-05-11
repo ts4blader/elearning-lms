@@ -1,31 +1,22 @@
 .table-modal {
   max-width: 80rem;
-  button.ant-modal-close {
-    display: initial;
-  }
-  &-content {
-    &-header {
-      text-align: right;
-      .ant-btn {
-        .anticon {
-          font-size: 2.5rem;
-        }
-        &[disabled] {
-          background: transparent;
-        }
-      }
+  .delete-btn {
+    color: @color-primary;
+    &[disabled] {
+      color: @color-gray-dark;
+      background: transparent;
     }
-    &-body {
-      .ant-table {
-        min-height: unset;
-        tr {
-          th:nth-child(1) {
-            padding-left: 1rem;
-          }
-          td:nth-child(1) {
-            padding-left: 1rem;
-          }
-        }
+    .anticon {
+      font-size: 1.5em;
+    }
+  }
+  .ant-table {
+    tr {
+      th:nth-child(1) {
+        padding-left: 1.5rem;
+      }
+      td:nth-child(1) {
+        padding-left: 1.5rem;
       }
     }
   }

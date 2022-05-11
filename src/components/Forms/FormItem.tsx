@@ -2,11 +2,11 @@ import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { Button, Form, FormItemProps as AntItemProps } from "antd";
 import { Row, RowProps } from "@layouts/Grid";
 import { PlusCircleFilled, MinusCircleFilled } from "@ant-design/icons";
-import { SelectInForm } from "@components/Select";
-import { SemesterProps } from "@types";
+import Select from "@components/Select";
 import TextInput from "@components/TextInput";
 import moment from "moment";
 import DatePicker from "@components/DatePicker";
+import { useAppSelector } from "@hooks";
 
 export type FormItemProps = {} & AntItemProps;
 
@@ -111,30 +111,42 @@ const FormListSelection = ({
   onChange,
   className = "",
   addButtonText = "Thêm môn học",
-  initValues = ["Toan", "Ngu van"],
+  initValues = [],
 }: FormListSelectionProps) => {
+  //redux hook
+  const subject = useAppSelector((state) => state.subject);
+
   const [showSelector, setShowSelector] = useState(false);
-  const [selected, setSelected] = useState<string[]>([]);
-  const [selectData, setSelectData] = useState(initValues);
+  const [selected, setSelected] = useState<string[]>(initValues);
+  const selectData = useMemo(() => {
+    return subject.value.map((item) => {
+      let disabled: boolean = false;
+      if (selected.includes(item.id)) disabled = true;
 
+      return { ...item, disabled };
+    });
+  }, [subject, selected]);
+
+  //* get derived data
+  const subjectData = useMemo(() => {
+    return selected.map((item) => {
+      let foundSubject = subject.value.filter((el) => el.id === item)[0];
+      return foundSubject;
+    });
+  }, [selected, subject]);
+
+  //* select subject methods
   const removeItem = useCallback(
-    (value: string) => {
-      //* add new value to selectedData
-      setSelectData([...selectData, value]);
-      //* remove value to selected
-      setSelected(selected.filter((item) => item !== value));
+    (id: string) => {
+      setSelected(selected.filter((item) => item !== id));
     },
-    [selectData, selected]
+    [selected]
   );
-
   const addItem = useCallback(
-    (value: string) => {
-      //* add new value to selected
-      setSelected([...selected, value]);
-      //* remove value to selectedData
-      setSelectData(selectData.filter((item) => item !== value));
+    (id: string) => {
+      setSelected([...selected, id]);
     },
-    [selected, selectData]
+    [selected]
   );
 
   //* bind external data
@@ -146,19 +158,19 @@ const FormListSelection = ({
     <div className={`form-list form-list-selection ${className}`}>
       {/* form list render */}
       <div className="form-list-inner">
-        {selected.map((item) => (
+        {subjectData.map((item) => (
           <Row gap="1em" className={`form-list-item`}>
-            <div className="remove-btn" onClick={() => removeItem(item)}>
+            <div className="remove-btn" onClick={() => removeItem(item.id)}>
               <MinusCircleFilled />
             </div>
-            <div className="value">{item}</div>
+            <div className="value">{item.name}</div>
           </Row>
         ))}
       </div>
       <div className="form-list-control">
         {showSelector ? (
-          <SelectInForm
-            data={selectData}
+          <Select
+            className="subject-selector"
             autoFocus={true}
             defaultOpen={true}
             onBlur={() => setShowSelector(false)}
@@ -166,8 +178,17 @@ const FormListSelection = ({
               addItem(value);
               setShowSelector(false);
             }}
-            keyAffix="form-list-selector"
-          />
+          >
+            {selectData.map((item) => (
+              <Select.Option
+                value={item.id}
+                key={`form-list-selector-${item}`}
+                disabled={item.disabled}
+              >
+                {item.name}
+              </Select.Option>
+            ))}
+          </Select>
         ) : (
           <Button
             type="link"

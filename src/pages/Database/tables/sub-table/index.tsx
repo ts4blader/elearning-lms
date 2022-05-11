@@ -1,4 +1,5 @@
 import { ColumnTitle } from "@components/Table";
+import { sortString } from "@utils/sortMethod";
 
 export const SUBTABLE_COLUMNS = [
   {
@@ -7,7 +8,7 @@ export const SUBTABLE_COLUMNS = [
     ),
     dataIndex: "id",
     key: "id",
-    sorter: true,
+    sorter: (current: any, next: any) => sortString(current.id, next.id),
   },
   {
     title: (item: any) => (
@@ -15,6 +16,6 @@ export const SUBTABLE_COLUMNS = [
     ),
     dataIndex: "name",
     key: "name",
-    sorter: true,
+    sorter: (current: any, next: any) => sortString(current.name, next.name),
   },
 ];
