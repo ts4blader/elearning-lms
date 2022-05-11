@@ -3,21 +3,65 @@ import { Form, Space, Divider, Checkbox } from "antd";
 import TextInput from "@components/TextInput";
 import Select, { SelectInForm } from "@components/Select";
 import { FormButton, FormList, FormItem } from "@components/Forms";
+import { FormModalGeneric, ClassProps } from "@types";
+import { useAppDispatch, useAppSelector } from "@hooks";
+import { RULES } from "@utils/rules";
+import { addClass, updateClass } from "@slices/classSlice";
+import { generateId } from "@utils/methods";
 
-type Props = {
-  onCancel: () => void;
-};
-
-export const ClassForm = ({ onCancel }: Props) => {
+export const ClassForm = <T extends ClassProps>({
+  onCancel,
+  defaultData,
+}: FormModalGeneric<T>) => {
+  // handle submit
+  const handleSubmit = (values: any) => {
+    if (defaultData) {
+      dispatch(
+        updateClass({
+          ...values,
+          id: defaultData.id,
+          subjectsId: selected,
+        })
+      );
+    } else {
+      dispatch(
+        addClass({
+          ...values,
+          id: generateId("lh"),
+          subjectsId: selected,
+        })
+      );
+    }
+    form.resetFields();
+  };
+  // form instance
+  const [form] = Form.useForm();
+  // redux hook
+  const dispatch = useAppDispatch();
+  const lecture = {
+    value: [
+      {
+        id: "gv-1000",
+        name: "Tran Minh Quoc",
+      },
+    ],
+  };
+  const grade = useAppSelector((state) => state.grade);
+  const schoolYear = useAppSelector((state) => state.schoolYear);
+  const classType = useAppSelector((state) => state.classType);
+  const classData = useAppSelector((state) => state.class);
+  //* state define
   const [extend, setExtend] = useState(false);
   const [selected, setSelected] = useState<string[]>([]);
 
-  const handleSubmit = (values: any) => {
-    console.log(values, selected);
-  };
-
   return (
-    <Form name="add-class" onFinish={handleSubmit} className="class-form">
+    <Form
+      name="add-class"
+      form={form}
+      initialValues={defaultData}
+      onFinish={handleSubmit}
+      className="class-form"
+    >
       <div className="form-top">
         <FormItem.Title>Thông tin chung</FormItem.Title>
         {/* choose group */}
@@ -25,24 +69,30 @@ export const ClassForm = ({ onCancel }: Props) => {
           <FormItem
             className="semester-select"
             label="Niên khóa"
-            name="semester"
-            initialValue="2021-2022"
+            name="schoolYearId"
+            initialValue={schoolYear.value[0].id}
           >
-            <Select
-              data={["2021-2022", "2021-2023"]}
-              keyAffix="semester-select"
-            />
+            <Select>
+              {schoolYear.value.map((item) => (
+                <Select.Option key={item.id} value={item.id}>
+                  {`${item.beginYear}-${item.endYear}`}
+                </Select.Option>
+              ))}
+            </Select>
           </FormItem>
           <FormItem
             label="Khoa - Khối"
-            name="grade"
+            name="gradeId"
             className="group-select"
-            rules={[{ required: true, message: "Chọn khoa khối" }]}
+            rules={[RULES.required]}
           >
-            <SelectInForm
-              data={["Khoi 6", "Khoi 7", "Khoi 8"]}
-              keyAffix="grade-select"
-            />
+            <SelectInForm>
+              {grade.value.map((item) => (
+                <Select.Option key={item.id} value={item.id}>
+                  {`Khối ${item.name}`}
+                </Select.Option>
+              ))}
+            </SelectInForm>
           </FormItem>
         </Space>
         {/* name input */}
@@ -53,36 +103,45 @@ export const ClassForm = ({ onCancel }: Props) => {
         >
           <TextInput />
         </FormItem>
-        {/* amount input */}
+        {/* capacity input */}
         <FormItem
           label="Số lượng học viên"
-          name="amount"
+          name="studentCapacity"
           className="short-item"
-          rules={[
-            { required: true, message: "Xin hãy nhập số lượng" },
-            { pattern: /[1-9][\d]*/g, message: "Xin hãy nhập số" },
-          ]}
+          rules={[RULES.required, RULES.number, RULES.minMaxNumber(0, 50)]}
         >
           <TextInput />
         </FormItem>
         {/* choose type */}
         <FormItem
           label="Phân loại lớp"
-          name="type"
-          rules={[{ required: true, message: "Xin hãy chọn phân loại lớp" }]}
+          name="classTypeId"
+          rules={[RULES.required]}
         >
-          <SelectInForm data={["Basic", "Advanced"]} keyAffix="type-select" />
+          <SelectInForm>
+            {classType.value.map((item) => (
+              <Select.Option value={item.id} key={item.id}>
+                {item.name}
+              </Select.Option>
+            ))}
+          </SelectInForm>
         </FormItem>
         {/* choose leader */}
         <FormItem
           label="Giáo viên chủ nhiệm"
-          name="leader"
-          rules={[{ required: true, message: "Xin hãy chọn giáo viên" }]}
+          name="leaderId"
+          rules={[RULES.required]}
         >
-          <SelectInForm data={["Thu", "Ha", "An"]} keyAffix="leader-selector" />
+          <Select.Search>
+            {lecture.value.map((item) => (
+              <Select.Option value={item.id} key={item.id}>
+                {item.name}
+              </Select.Option>
+            ))}
+          </Select.Search>
         </FormItem>
         {/* description text area */}
-        <FormItem label="Mô tả" name="description" initialValue="">
+        <FormItem label="Mô tả" name="description">
           <TextInput.TextArea />
         </FormItem>
       </div>
@@ -95,15 +154,19 @@ export const ClassForm = ({ onCancel }: Props) => {
           <Checkbox onChange={({ target }) => setExtend(target.checked)}>
             Kế thừa dữ liệu:
           </Checkbox>
-          <Select
-            data={["2021-2022", "2022-2023"]}
-            keyAffix="extend-semester-selector"
-            disabled={!extend}
-            placeholder="Niên khóa"
-          />
+          <Select disabled={!extend} placeholder="Lớp học">
+            {classData.value.map((item) =>
+              item.id !== defaultData?.id ? (
+                <Select.Option value={item.id}>{item.name}</Select.Option>
+              ) : null
+            )}
+          </Select>
         </Space>
         {/* Form list */}
-        <FormList.Selection onChange={(values) => setSelected(values)} />
+        <FormList.Selection
+          initValues={defaultData?.subjectsId}
+          onChange={(values) => setSelected(values)}
+        />
       </div>
 
       {/* Modal buttons */}

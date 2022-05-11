@@ -5,7 +5,7 @@ import {
   TableColumnProps,
 } from "antd";
 import { useAppDispatch, useAppSelector } from "@hooks";
-import { pushSelectedRows, setSelectedRows } from "@slices/selectedRowsSlice";
+import { pushSelectedRows, setSelectedRow } from "@slices/selectedRowsSlice";
 
 export type TableProps = {
   countColumn?: boolean;
@@ -48,7 +48,7 @@ export const Table = ({
               type: "checkbox",
               onChange: (selectedRowKeys: React.Key[], selectedRows: any[]) => {
                 dispatch(
-                  setSelectedRows({
+                  setSelectedRow({
                     name: selectColumn,
                     value: selectedRows,
                   })

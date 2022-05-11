@@ -19,10 +19,13 @@ export const selectedRowsSlice = createSlice({
       );
       if (foundIndex === -1) state.push(action.payload);
     },
-    resetSelectedRows: (state) => {
-      state.map((item) => (item.value = []));
+    resetSelectedRow: (state, action: PayloadAction<string>) => {
+      let foundIndex = state.findIndex((item) => item.name === action.payload);
+      if (foundIndex !== -1) {
+        state[foundIndex].value = [];
+      }
     },
-    setSelectedRows: (state, action: PayloadAction<Selected>) => {
+    setSelectedRow: (state, action: PayloadAction<Selected>) => {
       let foundIndex = state.findIndex(
         (item) => item.name === action.payload.name
       );
@@ -31,6 +34,6 @@ export const selectedRowsSlice = createSlice({
   },
 });
 
-export const { pushSelectedRows, resetSelectedRows, setSelectedRows } =
+export const { pushSelectedRows, resetSelectedRow, setSelectedRow } =
   selectedRowsSlice.actions;
 export default selectedRowsSlice.reducer;

@@ -7,10 +7,6 @@ export const randomArrayItem = <T>(arr: T[]) => {
 };
 
 export const generateId = (prefix: string = "") => {
-  let randomStr = randomize(0, 1000000000).toString();
-
-  let splicePoint = randomize(0, randomStr.length - 4);
-
-  randomStr.slice(splicePoint, 4);
+  let randomStr = randomize(0, 1000000);
   return `${prefix}-${randomStr}`;
 };
