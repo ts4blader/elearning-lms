@@ -38,6 +38,8 @@ export const SemesterForm = <T extends SchoolYearProps>({
         })
       );
     }
+
+    form.resetFields();
   };
 
   //* mapped default data

@@ -36,16 +36,27 @@ const GroupTable = () => {
     <Table dataSource={subjectGroup.value} rowKey={(record) => record.id}>
       <Column
         title={({ sortColumns }) => (
-          <ColumnTitle sortColumns={sortColumns} text="Name" reactKey="name" />
+          <ColumnTitle
+            sortColumns={sortColumns}
+            text="Tên bộ môn"
+            reactKey="name"
+          />
         )}
         dataIndex="name"
         key="name"
         sorter={(current, next) => sortString(current.name, next.name)}
       />
       <Column
-        title="Leader"
-        key="leader"
+        title={({ sortColumns }) => (
+          <ColumnTitle
+            sortColumns={sortColumns}
+            text="Trưởng bộ môn"
+            reactKey="leaderId"
+          />
+        )}
+        key="leaderId"
         render={(text, record) => getLecture(record.id)}
+        sorter={(a, b) => sortString(getLecture(a.id), getLecture(b.id))}
       />
       <Column
         key="action"

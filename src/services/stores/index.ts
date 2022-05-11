@@ -13,6 +13,7 @@ import subjectReducer from "@slices/subjectSlice";
 import gradeReducer from "@slices/gradeSlice";
 import scoreTypeReducer from "@slices/scoreTypeSlice";
 import schoolYearReducer from "@slices/schoolYearSlice";
+import classReducer from "@slices/classSlice";
 
 export const store = configureStore({
   reducer: {
@@ -30,6 +31,7 @@ export const store = configureStore({
     grade: gradeReducer,
     scoreType: scoreTypeReducer,
     schoolYear: schoolYearReducer,
+    class: classReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

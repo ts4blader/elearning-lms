@@ -7,4 +7,5 @@ export const COLLECTION = {
   schoolYear: "schoolYear",
   scoreType: "scoreType",
   subject: "subject",
+  class: "class",
 };

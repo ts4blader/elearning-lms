@@ -19,7 +19,7 @@ export const ClassForm = ({ onCancel }: Props) => {
   return (
     <Form name="add-class" onFinish={handleSubmit} className="class-form">
       <div className="form-top">
-        <div className="title">Thông tin chung</div>
+        <FormItem.Title>Thông tin chung</FormItem.Title>
         {/* choose group */}
         <Space size={10} className="semester-group-selection">
           <FormItem

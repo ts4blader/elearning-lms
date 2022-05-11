@@ -1,0 +1,101 @@
+[{
+    "id": "lh-0944",
+    "name": "3T",
+    "studentCapacity": 50,
+    "description": "In hac habitasse platea dictumst."
+  }, {
+    "id": "lh-2643",
+    "name": "5O",
+    "studentCapacity": 43,
+    "description": "Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio."
+  }, {
+    "id": "lh-9306",
+    "name": "1I",
+    "studentCapacity": 48,
+    "description": "Maecenas tincidunt lacus at velit."
+  }, {
+    "id": "lh-2246",
+    "name": "0L",
+    "studentCapacity": 48,
+    "description": "Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh."
+  }, {
+    "id": "lh-6758",
+    "name": "8L",
+    "studentCapacity": 36,
+    "description": "Phasellus in felis. Donec semper sapien a libero. Nam dui."
+  }, {
+    "id": "lh-6928",
+    "name": "2Y",
+    "studentCapacity": 35,
+    "description": "Nulla tempus. Vivamus in felis eu sapien cursus vestibulum."
+  }, {
+    "id": "lh-0934",
+    "name": "8K",
+    "studentCapacity": 49,
+    "description": "Quisque ut erat. Curabitur gravida nisi at nibh. In hac habitasse platea dictumst."
+  }, {
+    "id": "lh-9936",
+    "name": "9O",
+    "studentCapacity": 36,
+    "description": "Suspendisse accumsan tortor quis turpis. Sed ante. Vivamus tortor."
+  }, {
+    "id": "lh-7783",
+    "name": "0S",
+    "studentCapacity": 38,
+    "description": "Aenean auctor gravida sem. Praesent id massa id nisl venenatis lacinia."
+  }, {
+    "id": "lh-4149",
+    "name": "1W",
+    "studentCapacity": 36,
+    "description": "Nunc purus. Phasellus in felis. Donec semper sapien a libero."
+  }, {
+    "id": "lh-3439",
+    "name": "6B",
+    "studentCapacity": 44,
+    "description": "Nulla suscipit ligula in lacus. Curabitur at ipsum ac tellus semper interdum."
+  }, {
+    "id": "lh-7088",
+    "name": "5P",
+    "studentCapacity": 37,
+    "description": "Curabitur convallis. Duis consequat dui nec nisi volutpat eleifend."
+  }, {
+    "id": "lh-0259",
+    "name": "1T",
+    "studentCapacity": 38,
+    "description": "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti. Nullam porttitor lacus at turpis."
+  }, {
+    "id": "lh-2527",
+    "name": "7E",
+    "studentCapacity": 47,
+    "description": "Ut at dolor quis odio consequat varius. Integer ac leo."
+  }, {
+    "id": "lh-0644",
+    "name": "6O",
+    "studentCapacity": 41,
+    "description": "Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl. Aenean lectus."
+  }, {
+    "id": "lh-9959",
+    "name": "2C",
+    "studentCapacity": 37,
+    "description": "Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh. Quisque id justo sit amet sapien dignissim vestibulum."
+  }, {
+    "id": "lh-5129",
+    "name": "1S",
+    "studentCapacity": 40,
+    "description": "Curabitur at ipsum ac tellus semper interdum."
+  }, {
+    "id": "lh-4208",
+    "name": "0S",
+    "studentCapacity": 47,
+    "description": "Donec posuere metus vitae ipsum."
+  }, {
+    "id": "lh-0069",
+    "name": "4J",
+    "studentCapacity": 49,
+    "description": "Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem."
+  }, {
+    "id": "lh-4570",
+    "name": "5E",
+    "studentCapacity": 38,
+    "description": "Pellentesque at nulla. Suspendisse potenti."
+  }]

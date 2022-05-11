@@ -21,6 +21,7 @@ import { fetchGrade } from "@slices/gradeSlice";
 import { fetchEducationLevel } from "@slices/educationLevelSlice";
 
 import { seedAll } from "@services/firebase/seeder";
+import { fetchClass } from "@slices/classSlice";
 
 const DashBoard = () => {
   const { path } = useRouteMatch();
@@ -29,7 +30,7 @@ const DashBoard = () => {
 
   useEffect(() => {
     // seed all data
-    // seedAll();
+    seedAll();
 
     const loadAllData = () => {
       dispatch(fetchSubjectType());
@@ -40,6 +41,7 @@ const DashBoard = () => {
       dispatch(fetchSchoolYear());
       dispatch(fetchGrade());
       dispatch(fetchEducationLevel());
+      dispatch(fetchClass());
     };
     // excute load all data
     loadAllData();

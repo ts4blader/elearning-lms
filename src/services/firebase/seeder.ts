@@ -9,16 +9,18 @@ import schoolYear from "@seeds/schoolYear.json";
 import randomSemester from "@seeds/randomSemester.json";
 import subjectGroup from "@seeds/subjectGroup.json";
 import grade from "@seeds/grade.json";
+import classData from "@seeds/class.json";
 
-import { randomize } from "@utils/methods";
+import { randomize, randomArrayItem } from "@utils/methods";
+import { ClassProps } from "@types";
 
 export const seedAll = async () => {
   try {
-    // === 1 ===
+    //* === base data ===
     // seedData(classType, COLLECTION.classType);
     // seedData(subjectType, COLLECTION.subjectType);
     // seedData(educationLevel, COLLECTION.educationLevel);
-    // === 2 ===
+    //* === subject & scoretype ===
     // let mappedSubject = subject.map((item) => {
     //   let randomNum = randomize(0, subjectType.length);
     //   return {
@@ -28,7 +30,7 @@ export const seedAll = async () => {
     // });
     // seedData(mappedSubject, COLLECTION.subject);
     // seedData(scoreType, COLLECTION.scoreType);
-    // === 3 ===
+    //* === schoolYear ===
     // let mappedSchoolYear = schoolYear.map((item) => {
     //   return {
     //     ...item,
@@ -39,14 +41,39 @@ export const seedAll = async () => {
     //   };
     // });
     // seedData(mappedSchoolYear, COLLECTION.schoolYear);
-    let mappedSubjectGroup = subjectGroup.map((item) => ({
-      ...item,
-      subjectsId: [...Array(randomize(3, 5))].map(
-        (item) => subject[randomize(0, subject.length)].id
-      ),
-    }));
-    seedData(mappedSubjectGroup, COLLECTION.subjectGroup);
+    //* === subjecGroup ===
+    // let mappedSubjectGroup = subjectGroup.map((item) => ({
+    //   ...item,
+    //   subjectsId: [...Array(randomize(3, 5))].map(
+    //     (item) => subject[randomize(0, subject.length)].id
+    //     ),
+    //   }));
+    //   seedData(mappedSubjectGroup, COLLECTION.subjectGroup);
+    //* === grade ===
     // seedData(grade, COLLECTION.grade);
+    //* === class ===
+    // let mappedClass: any[] = [];
+    // classData.forEach((el) => {
+    //   let schoolYearId = randomArrayItem(schoolYear).id;
+    //   let gradeId = randomArrayItem(grade).id;
+    //   let classTypeId = randomArrayItem(classType).id;
+    //   let leaderId = "gv-1000";
+    //   let subjectSet = new Set<string>();
+    //   [...Array(randomize(3, 6))].forEach(() => {
+    //     subjectSet.add(randomArrayItem(subject).id);
+    //   });
+    //   let subjectsId: string[] = [];
+    //   subjectSet.forEach((item) => subjectsId.push(item));
+    //   mappedClass.push({
+    //     ...el,
+    //     schoolYearId,
+    //     gradeId,
+    //     classTypeId,
+    //     leaderId,
+    //     subjectsId,
+    //   });
+    // });
+    // seedData(mappedClass, COLLECTION.class);
   } catch (error) {
     console.log("Seed all data failed!");
     console.error(error);
