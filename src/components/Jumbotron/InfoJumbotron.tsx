@@ -7,7 +7,7 @@ export type InfoJumbotronProps = {
   title: string;
   data: {
     label: string;
-    value: string;
+    value: any;
   }[][];
   panel: React.ReactNode;
   keyAffix: string;
