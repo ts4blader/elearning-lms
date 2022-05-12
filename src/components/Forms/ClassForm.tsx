@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import { Form, Space, Divider, Checkbox } from "antd";
 import TextInput from "@components/TextInput";
 import Select, { SelectInForm } from "@components/Select";
@@ -50,9 +50,17 @@ export const ClassForm = <T extends ClassProps>({
   const schoolYear = useAppSelector((state) => state.schoolYear);
   const classType = useAppSelector((state) => state.classType);
   const classData = useAppSelector((state) => state.class);
+  //* derived method
+  const getClass = useCallback(
+    (classId: string) => {
+      return classData.value.find((item) => item.id === classId);
+    },
+    [classData]
+  );
   //* state define
   const [extend, setExtend] = useState(false);
-  const [selected, setSelected] = useState<string[]>([]);
+  const [selected, setSelected] = useState<string[] | undefined>([]);
+  const [selectedClass, setSelectedClass] = useState("");
 
   return (
     <Form
@@ -151,13 +159,26 @@ export const ClassForm = <T extends ClassProps>({
       <div className="form-bottom">
         <FormItem.Title>Danh sách môn học</FormItem.Title>
         <Space size={10} className="extend-data">
-          <Checkbox onChange={({ target }) => setExtend(target.checked)}>
+          <Checkbox
+            onChange={({ target }) => {
+              setExtend(target.checked);
+              if (target.checked)
+                setSelected(getClass(selectedClass)?.subjectsId);
+              else setSelected([]);
+            }}
+          >
             Kế thừa dữ liệu:
           </Checkbox>
-          <Select disabled={!extend} placeholder="Lớp học">
+          <Select
+            disabled={!extend}
+            placeholder="Lớp học"
+            onChange={(id) => setSelectedClass(id)}
+          >
             {classData.value.map((item) =>
               item.id !== defaultData?.id ? (
-                <Select.Option value={item.id}>{item.name}</Select.Option>
+                <Select.Option value={item.id} key={item.id}>
+                  {item.name}
+                </Select.Option>
               ) : null
             )}
           </Select>

@@ -8,7 +8,7 @@ import {
   collection,
 } from "firebase/firestore";
 
-type Document = {
+export type Document = {
   id: string;
 } & Object;
 

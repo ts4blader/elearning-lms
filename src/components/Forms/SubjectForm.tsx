@@ -1,30 +1,54 @@
 import React from "react";
 import { Form, Space, Divider } from "antd";
 import TextInput from "@components/TextInput";
-import { SelectInForm as Select } from "@components/Select";
+import Select, { SelectInForm } from "@components/Select";
 import { RULES } from "@utils/rules";
 import { FormButton, FormItem } from "@components/Forms";
+import { FormModalGeneric, SubjectProps } from "@types";
+import { useAppDispatch, useAppSelector } from "@hooks";
+import { addSubject, updateSubject } from "@slices/subjectSlice";
+import { generateId } from "@utils/methods";
 
-type Props = {
-  onCancel: () => void;
-};
-
-export const SubjectForm = ({ onCancel }: Props) => {
+export const SubjectForm = <T extends SubjectProps>({
+  onCancel,
+  defaultData,
+}: FormModalGeneric<T>) => {
+  // submit handle
   const handleSubmit = (values: any) => {
-    console.log(values);
+    if (defaultData) {
+      dispatch(
+        updateSubject({
+          ...values,
+          id: defaultData.id,
+        })
+      );
+    } else {
+      dispatch(
+        addSubject({
+          ...values,
+          id: generateId("mh"),
+        })
+      );
+    }
+    form.resetFields();
   };
 
+  // form instance
+  const [form] = Form.useForm();
+
+  // redux hook
+  const dispatch = useAppDispatch();
+  const subjectType = useAppSelector((state) => state.subjectType);
+
   return (
-    <Form name="add-subject" onFinish={handleSubmit} className="subject-form">
+    <Form
+      name="add-subject"
+      form={form}
+      initialValues={defaultData}
+      onFinish={handleSubmit}
+      className="subject-form"
+    >
       <div className="form-top">
-        {/* choose group */}
-        <FormItem
-          label="Tổ bộ môn"
-          name="group"
-          rules={[{ required: true, message: "Xin hãy chọn tổ bộ môn" }]}
-        >
-          <Select data={["Social", "Sience"]} keyAffix="group" />
-        </FormItem>
         {/* name input */}
         <FormItem
           label="Tên môn học"
@@ -45,10 +69,16 @@ export const SubjectForm = ({ onCancel }: Props) => {
         {/* choose type */}
         <FormItem
           label="Loại môn học"
-          name="type"
+          name="subjectTypeId"
           rules={[{ required: true, message: "Xin hãy chọn loại môn học" }]}
         >
-          <Select data={["Required", "Optional"]} keyAffix="subject-type" />
+          <SelectInForm>
+            {subjectType.value.map((item) => (
+              <Select.Option value={item.id} key={item.id}>
+                {item.name}
+              </Select.Option>
+            ))}
+          </SelectInForm>
         </FormItem>
       </div>
 
@@ -62,11 +92,7 @@ export const SubjectForm = ({ onCancel }: Props) => {
             <TextInput />
           </FormItem>
           {/* secondary semester  */}
-          <FormItem
-            name="secondary"
-            rules={[{ pattern: /[1-9][\d]*/g, message: "Nhập một số" }]}
-            label="Học kỳ 2"
-          >
+          <FormItem name="second" rules={[RULES.number]} label="Học kỳ 2">
             <TextInput />
           </FormItem>
         </Space>

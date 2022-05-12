@@ -1,21 +1,25 @@
 [{
     "id": "lm-3015",
     "name": "Tăng cường",
+    "prioty": 3,
     "disabled": false,
     "description": "Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit."
   }, {
     "id": "lm-0277",
     "name": "Căn bản",
+    "prioty": 1,
     "disabled": false,
     "description": "Donec vitae nisi. Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus."
   }, {
     "id": "lm-1961",
     "name": "Phụ đạo",
+    "prioty": 4,
     "disabled": false,
     "description": "Phasellus id sapien in sapien iaculis congue."
   }, {
     "id": "lm-9284",
-    "name": "Tăng cường",
+    "name": "Nâng cao",
+    "prioty": 2,
     "disabled": false,
     "description": "Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem. Sed sagittis."
   }]
