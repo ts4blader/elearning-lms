@@ -100,9 +100,9 @@ export const Content = () => {
                   </PseudoField>
                   <PseudoField label="Tôn giáo">{data.religion}</PseudoField>
                   <PseudoField label="Trạng thái">
-                    <Tag.Status status={data.status}>
+                    {/* <Tag.Status status={data.status}>
                       {data.nationality}
-                    </Tag.Status>
+                    </Tag.Status> */}
                   </PseudoField>
                   <PseudoField label="Môn kiêm nhiệm">
                     <Row gap="0.5em">

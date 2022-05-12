@@ -5,7 +5,7 @@ import Icon from "@assets/Icon";
 export type TagProps = {} & AntTagProps;
 
 type StatusTagProps = {
-  status: string;
+  status: number;
 } & TagProps;
 
 type CheckAbleTagProps = {
@@ -30,13 +30,12 @@ Tag.Status = ({
   className = "",
   ...rest
 }: StatusTagProps) => {
-  const statusCode = status.toLowerCase().split(" ").join("-");
-
   return (
     <Tag
       {...rest}
       icon={<div className="dot"></div>}
-      className={`status-tag ${statusCode} ${className}`}
+      className={`status-tag ${className}`}
+      data-status={status}
     >
       {children}
     </Tag>

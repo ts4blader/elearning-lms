@@ -8,4 +8,5 @@ export const COLLECTION = {
   scoreType: "scoreType",
   subject: "subject",
   class: "class",
+  student: "student",
 };

@@ -9,3 +9,4 @@ export * from "./schoolYear";
 export * from "./formModal";
 export * from "./select";
 export * from "./class";
+export * from "./student";

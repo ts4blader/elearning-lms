@@ -22,6 +22,7 @@ import { fetchEducationLevel } from "@slices/educationLevelSlice";
 
 import { seedAll } from "@services/firebase/seeder";
 import { fetchClass } from "@slices/classSlice";
+import { fetchStudent } from "@slices/studentSlice";
 
 const DashBoard = () => {
   const { path } = useRouteMatch();
@@ -42,6 +43,7 @@ const DashBoard = () => {
       dispatch(fetchGrade());
       dispatch(fetchEducationLevel());
       dispatch(fetchClass());
+      dispatch(fetchStudent());
     };
     // excute load all data
     loadAllData();

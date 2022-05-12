@@ -73,7 +73,7 @@ export const Content = () => {
               </Col>
               <Col>
                 <Field label="Trạng thái">
-                  <Tag.Status status={data.status}>{data.status}</Tag.Status>
+                  {/* <Tag.Status status={data.status}>{data.status}</Tag.Status> */}
                 </Field>
               </Col>
             </Row>

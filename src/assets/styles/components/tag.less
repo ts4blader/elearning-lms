@@ -36,23 +36,20 @@
     border-radius: 50%;
     background: currentColor;
   }
-  &.ejected {
-    color: #e91f24;
+  &[data-status="1"] {
+    color: @color-success;
   }
-  &.school-transfered,
-  &.retired {
-    color: #373839;
+  &[data-status="2"] {
+    color: @color-info;
   }
-  &.class-transfered,
-  &.temporary {
-    color: #ff7506;
+  &[data-status="3"] {
+    color: @color-warning;
   }
-  &.graduated {
-    color: #51a4f1;
+  &[data-status="4"] {
+    color: @color-default;
   }
-  &.learning,
-  &.working {
-    color: #3cc13b;
+  &[data-status="5"] {
+    color: @color-error;
   }
 }
 

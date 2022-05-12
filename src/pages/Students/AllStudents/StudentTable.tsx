@@ -1,96 +1,125 @@
-import React from "react";
+import React, { useCallback } from "react";
 import ItemActions from "@components/ItemActions";
-import DATA from "@seeds/thcs/students.json";
-import { EyeOutlined } from "@ant-design/icons";
 import { ColumnTitle, Table } from "@components/Table";
 import OptionDropdown from "./OptionDropdown";
-import { useHistory, useRouteMatch } from "react-router-dom";
+import { useRouteMatch } from "react-router-dom";
 import Tag from "@components/Tag";
-
-type StudentType = typeof DATA[0];
+import { sortDate, sortNumber, sortString } from "@utils/sortMethod";
+import { useAppSelector } from "@hooks";
+import { StudentProps } from "@types";
+import moment from "moment";
+import { STATUS } from "./data";
 
 const StudentTable = () => {
-  const history = useHistory();
   const { path } = useRouteMatch();
   const { Column } = Table;
 
+  // redux hook
+  const student = useAppSelector((state) => state.student);
+  const classData = useAppSelector((state) => state.class);
+  //* get rerived data
+  const getClassData = useCallback(
+    (classId: string) => {
+      return classData.value.filter((item) => item.id === classId)[0];
+    },
+    [classData]
+  );
+
   return (
     <Table
-      dataSource={DATA}
+      dataSource={student.value}
       rowKey={(record) => record.id}
       selectColumn="student-table"
     >
       <Column
         title={({ sortColumns }) => (
-          <ColumnTitle sortColumns={sortColumns} reactKey="id" text="ID" />
+          <ColumnTitle
+            sortColumns={sortColumns}
+            reactKey="id"
+            text="Mã học viên"
+          />
         )}
         dataIndex="id"
         key="id"
-        sorter={true}
+        sorter={(a, b) => sortString(a.id, b.id)}
       />
       <Column
         title={({ sortColumns }) => (
-          <ColumnTitle sortColumns={sortColumns} reactKey="name" text="Name" />
+          <ColumnTitle
+            sortColumns={sortColumns}
+            reactKey="name"
+            text="Tên học viên"
+          />
         )}
         dataIndex="name"
         key="name"
-        sorter={true}
+        sorter={(a, b) => sortString(a.name, b.name)}
       />
       <Column
         title={({ sortColumns }) => (
           <ColumnTitle
             sortColumns={sortColumns}
             reactKey="birthday"
-            text="Birthday"
+            text="Ngày sinh"
           />
         )}
-        dataIndex="birthday"
+        sorter={(a, b) => sortDate(a.birthday, b.birthday)}
+        render={(text, record: StudentProps) =>
+          moment(record.birthday).format("DD/MM/YYYY")
+        }
         key="birthday"
-        sorter={true}
       />
       <Column
         title={({ sortColumns }) => (
           <ColumnTitle
             sortColumns={sortColumns}
             reactKey="gender"
-            text="Gender"
+            text="Giới tính"
           />
         )}
         dataIndex="gender"
         key="gender"
-        sorter={true}
+        sorter={(a, b) => sortString(a.gender, b.gender)}
       />
       <Column
         title={({ sortColumns }) => (
           <ColumnTitle
             sortColumns={sortColumns}
             reactKey="ethic"
-            text="Ethic"
+            text="Dân tộc"
           />
         )}
         dataIndex="ethic"
         key="ethic"
-        sorter={true}
+        sorter={(a, b) => sortString(a.ethic, b.ethic)}
+      />
+      <Column
+        title={({ sortColumns }) => (
+          <ColumnTitle sortColumns={sortColumns} reactKey="class" text="Lớp" />
+        )}
+        render={(text, record: StudentProps) =>
+          getClassData(record.classId).name
+        }
+        key="class"
+        sorter={(a, b) =>
+          sortString(getClassData(a.classId).name, getClassData(b.classId).name)
+        }
       />
       <Column
         title={({ sortColumns }) => (
           <ColumnTitle
             sortColumns={sortColumns}
-            reactKey="class"
-            text="Class"
+            reactKey="status"
+            text="Tình trạng"
           />
         )}
-        dataIndex="class"
-        key="class"
-        sorter={true}
-      />
-      <Column
-        title="Status"
         key="status"
-        render={(text, record: StudentType) => (
-          <Tag.Status status={record.status}>{record.status}</Tag.Status>
+        render={(text, record: StudentProps) => (
+          <Tag.Status status={record.status}>
+            {STATUS.find((el) => el.prioty === record.status)?.text}
+          </Tag.Status>
         )}
-        sorter={true}
+        sorter={(a, b) => sortNumber(a.status, b.status)}
       />
       <Column
         render={(text, record: any) => (
