@@ -5,42 +5,45 @@ import Select, { SelectInForm } from "@components/Select";
 import { DatePickerInForm } from "@components/DatePicker";
 import { RULES } from "@utils/rules";
 import { STUDENT_STATUS } from "@utils/status";
-import { useHistory, useParams } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import InfoWrapper from "@components/InfoWrapper";
 import { FormButton, FormItem } from "@components/Forms";
 import { useAppDispatch, useAppSelector } from "@hooks";
 import { generateId } from "@utils/methods";
 import moment from "moment";
-import { addStudent, updateStudent } from "@slices/studentSlice";
-import Database from "@pages/Database";
+import { addStudent } from "@slices/studentSlice";
+import { setStudentEdit } from "@slices/studentEditSlice";
+import { StudentProps } from "@types";
 
-export const StudentForm = () => {
+type StudentFormProps = {
+  defaultData?: StudentProps;
+};
+
+export const StudentForm = ({ defaultData }: StudentFormProps) => {
   // form instance
   const [form] = Form.useForm();
   // route
   const history = useHistory();
-  const params: any = useParams();
   // redux hook
   const dispatch = useAppDispatch();
   const schoolYear = useAppSelector((state) => state.schoolYear);
   const grade = useAppSelector((state) => state.grade);
-  const student = useAppSelector((state) => state.student);
   const classData = useAppSelector((state) => state.class);
   // get data from url
   const data = useMemo(() => {
-    let result = student.value.find((item) => item.id === params.studentId);
-
-    return {
-      ...result,
-      birthday: moment(result?.birthday),
-      joinDay: moment(result?.joinDay),
-    };
-  }, [params, student]);
+    if (defaultData)
+      return {
+        ...defaultData,
+        birthday: moment(defaultData?.birthday),
+        joinDay: moment(defaultData?.joinDay),
+      };
+    return undefined;
+  }, [defaultData]);
   //* submit handle
   const handleFinish = (values: any) => {
-    if (data.id) {
+    if (data) {
       dispatch(
-        updateStudent({
+        setStudentEdit({
           ...values,
           id: data.id,
         })
@@ -177,13 +180,13 @@ export const StudentForm = () => {
                   <FormItem label="Mã học viên" initialValue={id}>
                     <TextInput
                       maxLength={20}
-                      disabled={autoGenerate || data.id !== undefined}
+                      disabled={autoGenerate || data?.id !== undefined}
                       value={id}
                       onChange={({ target }) => setId(target.value)}
                     />
                   </FormItem>
                   <Checkbox
-                    disabled={data.id !== undefined}
+                    disabled={data?.id !== undefined}
                     onChange={({ target }) => {
                       setAutoGenerate(target.checked);
                       if (target.checked) setId(generateId("hv"));
@@ -405,7 +408,7 @@ export const StudentForm = () => {
           </div>
         </Container>
         {/* Btn group */}
-        {!data.id && (
+        {!data?.id && (
           <FormButton.Container>
             <FormButton.CancelButton onClick={() => history.goBack()} />
             <FormButton.SaveButton />

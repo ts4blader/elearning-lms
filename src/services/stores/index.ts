@@ -4,6 +4,7 @@ import formModalReducer from "@slices/formModalSlice";
 import pageSizeReducer from "@slices/pageSizeSlice";
 import selectedRowsReducer from "@slices/selectedRowsSlice";
 import scheduleSwitchReducer from "@slices/scheduleSwitchSlice";
+import studentEditReducer from "@slices/studentEditSlice";
 //* dummy data reducer
 import classTypeReducer from "@slices/classTypeSlice";
 import subjectTypeReducer from "@slices/subjectTypeSlice";
@@ -23,6 +24,7 @@ export const store = configureStore({
     formModal: formModalReducer,
     selectedRows: selectedRowsReducer,
     scheduleSwitch: scheduleSwitchReducer,
+    studentEdit: studentEditReducer,
     //* dummy data
     classType: classTypeReducer,
     subjectType: subjectTypeReducer,
