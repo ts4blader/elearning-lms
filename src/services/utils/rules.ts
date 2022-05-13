@@ -20,4 +20,8 @@ export const RULES = {
     required: true,
     message: "Thông tin bắt buộc",
   },
+  email: {
+    type: "email" as any,
+    message: "Xin hãy nhập email",
+  },
 };

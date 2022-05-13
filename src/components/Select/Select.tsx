@@ -2,7 +2,8 @@ import React from "react";
 import { Select as AntSelect } from "antd";
 import Icon from "@assets/Icon";
 import Tag from "@components/Tag";
-import { SelectProps, SelectOptionProps } from "@types";
+import { SelectProps, SelectOptionProps, SelectIdProps } from "@types";
+import Item from "antd/lib/list/Item";
 
 const Select = ({
   inputRef,
@@ -86,6 +87,26 @@ const MultiSelect = ({ className = "", data, ...rest }: SelectProps) => {
       )}
       {...rest}
     />
+  );
+};
+
+const SelectId = ({
+  renderChild,
+  variant = "origin",
+  className = "",
+  data = [],
+  ...rest
+}: SelectIdProps) => {
+  const Component = renderChild;
+
+  return (
+    <Select className={`select-id ${className} select-${variant}`} {...rest}>
+      {data.map((el) => (
+        <Select.Option value={el.id} key={el.id}>
+          {Component ? <Component record={el} /> : el.name}
+        </Select.Option>
+      ))}
+    </Select>
   );
 };
 

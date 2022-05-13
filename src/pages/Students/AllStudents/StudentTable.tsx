@@ -5,16 +5,18 @@ import OptionDropdown from "./OptionDropdown";
 import { useRouteMatch } from "react-router-dom";
 import Tag from "@components/Tag";
 import { sortDate, sortNumber, sortString } from "@utils/sortMethod";
-import { useAppSelector } from "@hooks";
+import { useAppDispatch, useAppSelector } from "@hooks";
 import { StudentProps } from "@types";
 import moment from "moment";
-import { STATUS } from "./data";
+import { STUDENT_STATUS } from "@utils/status";
+import { removeStudent } from "@slices/studentSlice";
 
 const StudentTable = () => {
   const { path } = useRouteMatch();
   const { Column } = Table;
 
   // redux hook
+  const dispatch = useAppDispatch();
   const student = useAppSelector((state) => state.student);
   const classData = useAppSelector((state) => state.class);
   //* get rerived data
@@ -116,13 +118,13 @@ const StudentTable = () => {
         key="status"
         render={(text, record: StudentProps) => (
           <Tag.Status status={record.status}>
-            {STATUS.find((el) => el.prioty === record.status)?.text}
+            {STUDENT_STATUS.find((el) => el.prioty === record.status)?.text}
           </Tag.Status>
         )}
         sorter={(a, b) => sortNumber(a.status, b.status)}
       />
       <Column
-        render={(text, record: any) => (
+        render={(text, record: StudentProps) => (
           <ItemActions>
             <ItemActions.DetailButton to={`${path}/${record.id}`} />
             <span>
@@ -130,7 +132,7 @@ const StudentTable = () => {
             </span>
             <ItemActions.DeleteButton
               deleteName="học viên"
-              onDelete={() => null}
+              onDelete={() => dispatch(removeStudent(record.id))}
             />
           </ItemActions>
         )}

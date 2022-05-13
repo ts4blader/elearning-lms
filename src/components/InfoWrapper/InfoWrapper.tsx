@@ -12,6 +12,7 @@ type InfoRecordProps = {
 
 type AvatarSectionProps = {
   uploadAble?: boolean;
+  initialImg?: string;
 } & SharedProps;
 
 export const InfoWrapper = ({
@@ -41,11 +42,12 @@ InfoWrapper.Container = ({ children }: SharedProps) => {
 InfoWrapper.AvatarSection = ({
   uploadAble = false,
   className = "",
+  initialImg = "https://picsum.photos/seed/picsum/300",
 }: AvatarSectionProps) => {
   return (
     <div className={`info-wrapper-avatar-section ${className}`}>
       <div className="avatar">
-        <img src="https://picsum.photos/seed/picsum/300" alt="" />
+        <img src={initialImg} alt="" />
         {uploadAble && (
           <Upload className="upload-zone">
             <Button icon={<CameraOutlined />} size="large" />

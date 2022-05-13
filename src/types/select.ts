@@ -2,7 +2,7 @@ import { BaseSelectRef } from "rc-select";
 import { SelectProps as AntSelectProps } from "antd";
 
 export type SelectProps = {
-  data?: string[];
+  data?: any[];
   keyAffix?: string;
   inputRef?: React.Ref<BaseSelectRef>;
 } & AntSelectProps;
@@ -14,3 +14,10 @@ export type SelectOptionProps = {
   children: React.ReactNode;
   value: number | string;
 };
+
+export type SelectIdProps = {
+  variant?: "origin" | "inform";
+  renderChild?: React.ComponentType<{
+    record: any;
+  }>;
+} & SelectProps;

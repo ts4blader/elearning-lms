@@ -1,5 +1,6 @@
 export type StudentProps = {
   id: string;
+  avatar: string;
   name: string;
   gender: string;
   birthday: string;

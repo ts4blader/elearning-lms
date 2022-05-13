@@ -10,8 +10,9 @@ const PageTitle = () => {
 };
 
 const StudentDetail = () => {
-  const [tab, setTab] = useState(TABS[0]);
   const { Group } = ControlPanel;
+  //* state define
+  const [tab, setTab] = useState(TABS[0]);
 
   return (
     <Page title={<PageTitle />} className="student-detail-page">

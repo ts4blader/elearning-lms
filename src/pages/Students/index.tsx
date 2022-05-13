@@ -25,10 +25,10 @@ const StudentsPage = () => {
       <Route path={`${path}/reserve`} exact>
         <StudentReserve />
       </Route>
-      <Route path={`${path}/:id`} exact>
+      <Route path={`${path}/:studentId`} exact>
         <StudentDetail />
       </Route>
-      <Route path={`${path}/:id/edit`} exact>
+      <Route path={`${path}/:studentId/edit`} exact>
         <StudentEdit />
       </Route>
     </Switch>

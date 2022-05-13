@@ -3,7 +3,7 @@ import ControlPanel from "@components/ControlPanel";
 import Select from "@components/Select";
 import { Row, Col } from "@layouts/Grid";
 import { InfoJumbotron } from "@components/Jumbotron";
-import { PILLARS, ARCHIVES } from "./data";
+import { ARCHIVES } from "./data";
 import Collapse from "@components/Collapse";
 
 export const Panel = () => {
@@ -31,12 +31,12 @@ export const Panel = () => {
 export const Content = () => {
   return (
     <div className="student-archive-content">
-      <InfoJumbotron
+      {/* <InfoJumbotron
         data={PILLARS}
         title="Thông tin chung"
         panel={<></>}
         keyAffix="general-info"
-      />
+      /> */}
       <Collapse className="student-archives" accordion>
         {ARCHIVES.map((item, index) => (
           <Collapse.Panel header={item.header} key={`${item.name}-${index}`}>
