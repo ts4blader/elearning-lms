@@ -3,7 +3,7 @@ import { RULES } from "@utils/rules";
 import { Form } from "antd";
 import React from "react";
 import { FormButton, FormItem } from "@components/Forms";
-import { FamilyContactProps } from "@components/Table";
+import { FamilyContactProps } from "@types";
 
 type FormProps = {
   onCancel: () => void;

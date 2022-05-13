@@ -10,14 +10,20 @@ import {
 } from "@components/Forms";
 import TextInput from "@components/TextInput";
 import { PlusOutlined } from "@ant-design/icons";
-import { SelectInForm } from "@components/Select";
+import Select, { SelectInForm } from "@components/Select";
 import { DatePickerInForm } from "@components/DatePicker";
 import Tag from "@components/Tag";
-import { useAppDispatch } from "@hooks";
+import { useAppDispatch, useAppSelector } from "@hooks";
 import { showFormModal } from "@slices/formModalSlice";
-import { useHistory, useParams } from "react-router-dom";
-import { FamilyContactTable, FamilyContactProps } from "@components/Table";
-import lectureData from "@seeds/thcs/lectures.json";
+import { useHistory } from "react-router-dom";
+import { FamilyContactTable } from "@components/Table";
+import { LectureProps, FamilyContactProps } from "@types";
+import { LECTURE_STATUS } from "@utils/status";
+import moment from "moment";
+
+type LectureFormProps = {
+  defaultData?: LectureProps;
+};
 
 const InfoRow = ({ className = "", children, ...rest }: RowProps) => {
   return (
@@ -27,7 +33,7 @@ const InfoRow = ({ className = "", children, ...rest }: RowProps) => {
   );
 };
 
-export const LectureForm = () => {
+export const LectureForm = ({ defaultData }: LectureFormProps) => {
   const {
     Title,
     Divider,
@@ -38,11 +44,8 @@ export const LectureForm = () => {
   } = InfoWrapper;
   /* --------- router handler --------- */
   const history = useHistory();
-  const params: any = useParams();
-  //* get data by url params
-  const data = useMemo(() => {
-    return lectureData.filter((item) => item.id === params.lectureId)[0];
-  }, [params]);
+  /* ---------- form instance --------- */
+  const [form] = Form.useForm();
   /* --------- dispatch event --------- */
   const dispatch = useAppDispatch();
   const showSubjectsForm = () => {
@@ -72,23 +75,59 @@ export const LectureForm = () => {
       })
     );
   };
+  /* --------- redux selector --------- */
+  const subjectGroup = useAppSelector((state) => state.subjectGroup);
+  const subject = useAppSelector((state) => state.subject);
+  /* -------- get derived data -------- */
+  const data = useMemo(() => {
+    let getDay = (inParty: any) => {
+      if (inParty)
+        return {
+          ...inParty,
+          joinDay: moment(inParty.joinDay),
+        };
+      else return undefined;
+    };
+
+    if (defaultData)
+      return {
+        ...defaultData,
+        birthday: moment(defaultData?.birthday),
+        joinDay: moment(defaultData?.joinDay),
+        cid: {
+          ...defaultData.cid,
+          verifyDay: moment(defaultData.cid.verifyDay),
+        },
+        inParty: getDay(defaultData.inParty),
+        inGroup: getDay(defaultData.inGroup),
+      };
+    else return undefined;
+  }, [defaultData]);
   /* ---------- form handler ---------- */
-  const handleFinish = (value: any) => {
-    console.log(value);
+  const handleFinish = (values: any) => {
+    console.log(values);
   };
   /* ---------- state declare --------- */
-  const [id, setId] = useState(data?.id);
+  const [id, setId] = useState(defaultData?.id);
   const [autoGenerate, setAutoGenerate] = useState(false);
-  const [subjects, setSubjects] = useState<string[]>([]);
+  const [subjects, setSubjects] = useState<string[] | undefined>(
+    data?.subjectSubId
+  );
   const [familyContacts, setFamilyContacts] = useState<FamilyContactProps[]>(
-    []
+    data?.relate!
   );
 
-  const [isInGroup, setIsInGroup] = useState(false);
-  const [isInParty, setIsInParty] = useState(false);
+  const [isInGroup, setIsInGroup] = useState(!!data?.inGroup);
+  const [isInParty, setIsInParty] = useState(!!data?.inParty);
 
   return (
-    <Form onFinish={handleFinish} className="lecture-form" name="lecture-form">
+    <Form
+      onFinish={handleFinish}
+      form={form}
+      initialValues={data}
+      className="lecture-form"
+      name="lecture-form"
+    >
       <InfoWrapper>
         <Title>Thông tin chung</Title>
         <Container>
@@ -107,6 +146,7 @@ export const LectureForm = () => {
                 </FormItem>
                 <FormItem label="">
                   <Checkbox
+                    disabled={defaultData !== undefined}
                     className="auto-generate-checkbox"
                     checked={autoGenerate}
                     onChange={({ target }) => setAutoGenerate(target.checked)}
@@ -114,17 +154,23 @@ export const LectureForm = () => {
                     Sinh mã tự động
                   </Checkbox>
                 </FormItem>
-                <FormItem label="Tổ bộ môn" name="group">
-                  <SelectInForm
-                    data={["Toan - Ly", "Ngu van - GDCD"]}
-                    keyAffix="group-selector"
-                  />
+                <FormItem label="Tổ bộ môn" name="subjectGroupId">
+                  <SelectInForm>
+                    {subjectGroup.value.map((el) => (
+                      <Select.Option value={el.id} key={el.id}>
+                        {el.name}
+                      </Select.Option>
+                    ))}
+                  </SelectInForm>
                 </FormItem>
-                <FormItem label="Môn giảng dạy" name="subject">
-                  <SelectInForm
-                    data={["Toan", "Ngu van"]}
-                    keyAffix="subject-selector"
-                  />
+                <FormItem label="Môn giảng dạy" name="subjectMainId">
+                  <SelectInForm>
+                    {subject.value.map((el) => (
+                      <Select.Option value={el.id} key={el.id}>
+                        {el.name}
+                      </Select.Option>
+                    ))}
+                  </SelectInForm>
                 </FormItem>
                 <FormItem label="Họ và tên" name="name">
                   <TextInput />
@@ -134,15 +180,12 @@ export const LectureForm = () => {
                 </FormItem>
                 <FormItem label="Giới tính" name="gender">
                   <SelectInForm
-                    data={["Male", "Female"]}
+                    data={["Nam", "Nữ"]}
                     keyAffix="gender-selector"
                   />
                 </FormItem>
                 <FormItem label="Dân tộc" name="ethic">
-                  <SelectInForm
-                    data={["Mong", "Kinh", "Khmer"]}
-                    keyAffix="ethic-selector"
-                  />
+                  <TextInput />
                 </FormItem>
                 <FormItem label="Ngày vào trường" name="joinDay">
                   <DatePickerInForm />
@@ -150,30 +193,27 @@ export const LectureForm = () => {
               </div>
               <div className="info-col">
                 <FormItem label="Quốc tịch" name="nationality">
-                  <SelectInForm
-                    data={["Viet Nam", "Wibu"]}
-                    keyAffix="nationality-selector"
-                  />
+                  <TextInput />
                 </FormItem>
                 <FormItem label="Tôn giáo" name="religion">
-                  <SelectInForm
-                    data={["Công giáo", "Phật giáo"]}
-                    keyAffix="religion-selector"
-                  />
+                  <TextInput />
                 </FormItem>
                 <FormItem label="Trạng thái" name="status">
-                  <SelectInForm
-                    data={["Working", "Retired"]}
-                    keyAffix="status-selector"
-                  />
+                  <SelectInForm>
+                    {LECTURE_STATUS.map((el) => (
+                      <Select.Option value={el.prioty} key={el.text}>
+                        {el.text}
+                      </Select.Option>
+                    ))}
+                  </SelectInForm>
                 </FormItem>
                 <FormItem label="Môn kiêm nhiệm">
                   <Row gap="0.5em" className="subject-list">
-                    {subjects.map((item) => (
+                    {subjects?.map((item) => (
                       <Tag.Closeable
                         key={item}
                         onClose={() =>
-                          setSubjects(subjects.filter((el) => el !== item))
+                          setSubjects(subjects?.filter((el) => el !== item))
                         }
                       >
                         {item}
@@ -198,31 +238,31 @@ export const LectureForm = () => {
                 </FormItem>
               </div>
               <div className="info-col">
-                <FormItem label="Tỉnh/Thành" name="province">
+                <FormItem label="Tỉnh/Thành" name={["contact", "city"]}>
                   <SelectInForm
                     data={["TP.HCM", "Hà Lội"]}
                     keyAffix="province-selector"
                   />
                 </FormItem>
-                <FormItem label="Quận/Huyện" name="district">
+                <FormItem label="Quận/Huyện" name={["contact", "district"]}>
                   <SelectInForm
                     data={["1", "2", "TB"]}
                     keyAffix="district-selector"
                   />
                 </FormItem>
-                <FormItem label="Xã/Phường" name="subdistrict">
+                <FormItem label="Xã/Phường" name={["contact", "subdistrict"]}>
                   <SelectInForm
                     data={["1", "2"]}
                     keyAffix="subdistrict-selector"
                   />
                 </FormItem>
-                <FormItem label="Địa chỉ" name="address">
+                <FormItem label="Địa chỉ" name={["contact", "address"]}>
                   <TextInput />
                 </FormItem>
-                <FormItem label="Email" name="email">
+                <FormItem label="Email" name={["contact", "email"]}>
                   <TextInput />
                 </FormItem>
-                <FormItem label="SĐT" name="phoneNumber">
+                <FormItem label="SĐT" name={["contact", "phoneNumber"]}>
                   <TextInput />
                 </FormItem>
               </div>
@@ -238,13 +278,13 @@ export const LectureForm = () => {
             <div className="info-entry">
               <Subtitle>Thông tin cá nhân</Subtitle>
               <div className="info-col">
-                <FormItem label="CMND/CCCD" name="civilId">
+                <FormItem label="CMND/CCCD" name={["cid", "value"]}>
                   <TextInput />
                 </FormItem>
-                <FormItem label="Ngày cấp" name="civilIdDay">
+                <FormItem label="Ngày cấp" name={["cid", "verifyDay"]}>
                   <DatePickerInForm />
                 </FormItem>
-                <FormItem label="Nơi cấp" name="civilIdPlace">
+                <FormItem label="Nơi cấp" name={["cid", "verifyPlace"]}>
                   <TextInput />
                 </FormItem>
               </div>
@@ -257,10 +297,10 @@ export const LectureForm = () => {
                     Đoàn viên
                   </Checkbox>
                 </FormItem>
-                <FormItem label="Ngày vào" name="groupJoinDay">
+                <FormItem label="Ngày vào" name={["inGroup", "joinDay"]}>
                   <DatePickerInForm disabled={!isInGroup} />
                 </FormItem>
-                <FormItem label="Nơi vào" name="groupJoinPlace">
+                <FormItem label="Nơi vào" name={["inGroup", "joinPlace"]}>
                   <TextInput disabled={!isInGroup} />
                 </FormItem>
               </div>
@@ -273,10 +313,10 @@ export const LectureForm = () => {
                     Đảng viên
                   </Checkbox>
                 </FormItem>
-                <FormItem label="Ngày vào" name="partyJoinDay">
+                <FormItem label="Ngày vào" name={["inParty", "joinDay"]}>
                   <DatePickerInForm disabled={!isInParty} />
                 </FormItem>
-                <FormItem label="Nơi vào" name="partyJoinPlace">
+                <FormItem label="Nơi vào" name={["inParty", "joinPlace"]}>
                   <TextInput disabled={!isInParty} />
                 </FormItem>
               </div>
@@ -306,7 +346,7 @@ export const LectureForm = () => {
           </InfoRow>
         </Container>
 
-        {!data && (
+        {!defaultData && (
           <FormButton.Container>
             <FormButton.CancelButton onClick={() => history.goBack()} />
             <FormButton.SaveButton />

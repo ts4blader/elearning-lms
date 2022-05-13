@@ -10,3 +10,4 @@ export * from "./formModal";
 export * from "./select";
 export * from "./class";
 export * from "./student";
+export * from "./lecture";

@@ -11,9 +11,10 @@ import subjectGroup from "@seeds/subjectGroup.json";
 import grade from "@seeds/grade.json";
 import classData from "@seeds/class.json";
 import student from "@seeds/student.json";
+import lecture from "@seeds/lecture.json";
 
-import { randomize, randomArrayItem } from "@utils/methods";
-import { ClassProps, StudentProps } from "@types";
+import { randomize, randomArrayItem, getArrayItem } from "@utils/methods";
+import { ClassProps, StudentProps, LectureProps } from "@types";
 
 export const seedAll = async () => {
   try {
@@ -88,6 +89,23 @@ export const seedAll = async () => {
     //   };
     // });
     // seedData(mappedStudent, COLLECTION.student);
+    //* === lecture ===
+    // let mappedLecture = lecture.map((item) => {
+    //   let subjectGroupId = randomArrayItem(subjectGroup).id;
+    //   let subjectMainId = randomArrayItem(subject).id;
+    //   let subjectSubId = [...Array(randomize(0, 4))].map((_) => {
+    //     let result = randomArrayItem(subject).id;
+    //     return result;
+    //   });
+    //   subjectSubId.unshift(subjectMainId);
+    //   return {
+    //     ...item,
+    //     subjectGroupId,
+    //     subjectMainId,
+    //     subjectSubId,
+    //   };
+    // });
+    // seedData(mappedLecture, COLLECTION.lecture);
   } catch (error) {
     console.log("Seed all data failed!");
     console.error(error);

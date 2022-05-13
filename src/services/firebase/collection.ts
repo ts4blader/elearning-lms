@@ -9,4 +9,5 @@ export const COLLECTION = {
   subject: "subject",
   class: "class",
   student: "student",
+  lecture: "lecture",
 };

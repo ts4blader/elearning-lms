@@ -21,16 +21,6 @@ const AllLecture = () => {
   const history = useHistory();
   const { url } = useRouteMatch();
 
-  const dispatch = useAppDispatch();
-  const showDelete = () => {
-    dispatch(
-      showDeleteModal({
-        name: "giảng viên",
-        onAction: () => null,
-      })
-    );
-  };
-
   return (
     <Page title={<PageTitle />}>
       <TableFrame renderTitle="Danh sách giảng viên" table={LecturesTable}>

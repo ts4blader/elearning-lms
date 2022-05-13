@@ -2,16 +2,11 @@ import ItemActions from "@components/ItemActions";
 import { Table } from "antd";
 import React from "react";
 import { DeleteOutlined } from "@ant-design/icons";
-
-export type FamilyContactProps = {
-  name: string;
-  address: string;
-  phoneNumber: string;
-};
+import { FamilyContactProps } from "@types";
 
 type FamilyContactTableProps = {
   familyContacts: FamilyContactProps[];
-  setFamilyContacts: (value: FamilyContactProps[]) => void;
+  setFamilyContacts: React.Dispatch<React.SetStateAction<FamilyContactProps[]>>;
 };
 
 export const FamilyContactTable = ({
@@ -39,7 +34,7 @@ export const FamilyContactTable = ({
               icon={DeleteOutlined}
               onClick={() =>
                 setFamilyContacts(
-                  familyContacts.filter((item) => item.name !== record.name)
+                  familyContacts?.filter((item) => item.name !== record.name)
                 )
               }
             />
