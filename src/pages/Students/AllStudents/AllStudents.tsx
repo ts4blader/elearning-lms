@@ -7,6 +7,7 @@ import DATA from "@seeds/thcs/students.json";
 import { TABLES } from "./data";
 import { Row } from "@layouts/Grid";
 import Tabs from "@components/Tabs";
+import { useAppSelector } from "@hooks";
 
 const TABS = TABLES.map((item) => item.tab.text);
 
@@ -14,6 +15,10 @@ const AllStudents = () => {
   const { Group } = ControlPanel;
 
   const [selected, setSelected] = useState(TABLES[0]);
+
+  // redux hook
+  const schoolYear = useAppSelector((state) => state.schoolYear);
+  const grade = useAppSelector((state) => state.grade);
 
   return (
     <Page title="Hồ sơ học viên" className="students-page">
@@ -34,16 +39,20 @@ const AllStudents = () => {
         <ControlPanel>
           <Group>
             <Row gap="1em">
-              <Select
-                defaultValue="Tất cả các khối"
-                data={["Khối 6", "Khối 7", "Khối 8"]}
-                keyAffix="grade-select"
-              />
-              <Select
-                defaultValue="2021-2022"
-                data={["2021-2022", "2021-2023", "2021-2024"]}
-                keyAffix="semester-select"
-              />
+              <Select defaultValue={"Tất cả các khối"}>
+                {grade.value.map((el) => (
+                  <Select.Option value={el.id} key={el.id}>
+                    {`Khối ${el.name}`}
+                  </Select.Option>
+                ))}
+              </Select>
+              <Select placeholder="Niên khóa">
+                {schoolYear.value.map((el) => (
+                  <Select.Option value={el.id} key={el.id}>
+                    {`${el.beginYear}-${el.endYear}`}
+                  </Select.Option>
+                ))}
+              </Select>
             </Row>
           </Group>
           <Group>
