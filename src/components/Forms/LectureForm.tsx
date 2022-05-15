@@ -239,22 +239,13 @@ export const LectureForm = ({ defaultData }: LectureFormProps) => {
               </div>
               <div className="info-col">
                 <FormItem label="Tỉnh/Thành" name={["contact", "city"]}>
-                  <SelectInForm
-                    data={["TP.HCM", "Hà Lội"]}
-                    keyAffix="province-selector"
-                  />
+                  <TextInput />
                 </FormItem>
                 <FormItem label="Quận/Huyện" name={["contact", "district"]}>
-                  <SelectInForm
-                    data={["1", "2", "TB"]}
-                    keyAffix="district-selector"
-                  />
+                  <TextInput />
                 </FormItem>
                 <FormItem label="Xã/Phường" name={["contact", "subdistrict"]}>
-                  <SelectInForm
-                    data={["1", "2"]}
-                    keyAffix="subdistrict-selector"
-                  />
+                  <TextInput />
                 </FormItem>
                 <FormItem label="Địa chỉ" name={["contact", "address"]}>
                   <TextInput />
