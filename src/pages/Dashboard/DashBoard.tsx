@@ -9,6 +9,7 @@ import ClassDetail from "@pages/ClassDetail";
 import StudentsPage from "@pages/Students";
 import LecturePage from "@pages/Lectures";
 import ExaminationPage from "@pages/Examination";
+import SettingPage from "@pages/Setting";
 import { useAppDispatch } from "@hooks";
 //import all fetch method
 import { fetchSubjectType } from "@slices/subjectTypeSlice";
@@ -19,11 +20,11 @@ import { fetchScoreType } from "@slices/scoreTypeSlice";
 import { fetchSchoolYear } from "@slices/schoolYearSlice";
 import { fetchGrade } from "@slices/gradeSlice";
 import { fetchEducationLevel } from "@slices/educationLevelSlice";
-
-import { seedAll } from "@services/firebase/seeder";
 import { fetchClass } from "@slices/classSlice";
 import { fetchStudent } from "@slices/studentSlice";
 import { fetchLecture } from "@slices/lectureSlice";
+
+import { seedAll } from "@services/firebase/seeder";
 
 const DashBoard = () => {
   const { path } = useRouteMatch();
@@ -82,6 +83,9 @@ const DashBoard = () => {
           </Route>
           <Route path={`${path}/examination`}>
             <ExaminationPage />
+          </Route>
+          <Route path={`${path}/setting`}>
+            <SettingPage />
           </Route>
         </Switch>
       </div>

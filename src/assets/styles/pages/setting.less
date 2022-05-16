@@ -1,0 +1,32 @@
+.setting-page {
+  .cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2em;
+    & > .card {
+      cursor: pointer;
+      flex-shrink: 0;
+      width: 45rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding-block: 1.5em;
+      .card-title {
+        font-size: 2em;
+        margin-bottom: 0.2em;
+      }
+      .card-description {
+        font-size: 1.8rem;
+      }
+    }
+  }
+}
+.ant-table-cell {
+  .disabled-status {
+    color: @color-error;
+  }
+  .undisabled-status {
+    color: @color-info;
+  }
+}

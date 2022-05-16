@@ -2,7 +2,7 @@
     "id": "ll-8200",
     "name": "Phụ đạo",
     "disabled": false,
-    "description": "Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis."
+    "description": "Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros"
   }, {
     "id": "ll-4312",
     "name": "Tăng cường",
@@ -17,5 +17,5 @@
     "id": "ll-4717",
     "name": "Căn bản",
     "disabled": false,
-    "description": "Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros."
+    "description": "Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante"
   }]

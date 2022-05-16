@@ -14,3 +14,6 @@ export * from "./MultiSubjectForm";
 export * from "./FamilyContactForm";
 export * from "./ScheduleForms";
 export * from "./ExaminationForms";
+export * from "./ClassTypeForm";
+export * from "./SubjectTypeForm";
+export * from "./EducationLevelForm";

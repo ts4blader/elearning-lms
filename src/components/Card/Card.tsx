@@ -8,7 +8,7 @@ type CardProps = {
   title: string;
   description: string;
   variant?: "primary" | "secondary";
-};
+} & Omit<React.ComponentProps<"div">, "title">;
 
 type InfoCardProps = {
   data: {
@@ -27,9 +27,9 @@ type InfoCardProps = {
   };
 } & React.ComponentProps<"div">;
 
-const Card = ({ title, description, variant }: CardProps) => {
+const Card = ({ title, description, variant, ...rest }: CardProps) => {
   return (
-    <div className="card" data-variant={variant}>
+    <div className="card" data-variant={variant} {...rest}>
       <div className="card-decor">
         <div className="circle"></div>
         <div className="circle"></div>

@@ -7,20 +7,20 @@
     "id": "bh-2007",
     "name": "Cao đẳng",
     "disabled": false,
-    "description": "Cras in purus eu magna vulputate luctus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien."
+    "description": "Cras in purus eu magna vulputate luctus."
   }, {
     "id": "bh-7600",
     "name": "Đại học",
     "disabled": false,
-    "description": "Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit."
+    "description": "Cras mi pede, malesuada in, imperdiet et."
   }, {
     "id": "bh-2776",
     "name": "Tiểu học",
     "disabled": false,
-    "description": "Morbi quis tortor id nulla ultrices aliquet. Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo."
+    "description": "Morbi quis tortor id nulla ultrices aliquet. Maecenas leo odio"
   }, {
     "id": "bh-4432",
     "name": "THPT",
     "disabled": false,
-    "description": "Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam vel augue."
+    "description": "Cum sociis natoque penatibus et magnis dis parturient montes,  augue."
   }]
