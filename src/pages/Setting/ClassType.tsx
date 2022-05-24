@@ -7,7 +7,6 @@ import TableFrame, { ColumnTitle, Table } from "@components/Table";
 import { useAppSelector, useAppDispatch } from "@hooks";
 import { ClassTypeProps } from "@types";
 import { sortString } from "@utils/sortMethod";
-import React from "react";
 import { CLASSTYPE_BREACRUMB } from "./data";
 import { removeClassType } from "@slices/classTypeSlice";
 import { ClassTypeForm } from "@components/Forms";
