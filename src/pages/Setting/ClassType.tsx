@@ -29,7 +29,7 @@ const InnerTable = () => {
           <ColumnTitle
             reactKey="name"
             sortColumns={sortColumns}
-            text="Loại lớp"
+            text="loại lớp học"
           />
         )}
         key="name"
