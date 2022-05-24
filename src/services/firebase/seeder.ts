@@ -22,7 +22,7 @@ export const seedAll = async () => {
     // seedData(classType, COLLECTION.classType);
     // seedData(subjectType, COLLECTION.subjectType);
     // seedData(educationLevel, COLLECTION.educationLevel);
-    //* === subject & scoretype ===
+    //* === subject group & scoretype ===
     // let mappedSubject = subject.map((item) => {
     //   let randomNum = randomize(0, subjectType.length);
     //   return {

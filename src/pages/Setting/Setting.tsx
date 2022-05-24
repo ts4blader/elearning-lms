@@ -25,7 +25,7 @@ export default function Setting() {
                 onClick={() => history.push(`${url}/${el.link}`)}
               />
             ))}
-          </div>
+          </div> 
         </Page>
       </Route>
       <Route path={`${url}/class-type`}>
